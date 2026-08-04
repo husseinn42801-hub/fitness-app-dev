@@ -1,6 +1,6 @@
 {
-  "name": "Remix Remix R1",
-  "description": "تطبيق متكامل للتمارين المنزلية، خطط التدريب، التغذية الذكية، حساب السعرات الحرارية وتتبع التقدم.",
+  "name": "تحديث الوضع الأفقي ",
+  "description": "",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
