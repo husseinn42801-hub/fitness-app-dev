@@ -1498,6 +1498,15 @@ export default function App() {
                           }
                         }}
                         onResetProgress={handleResetProgress}
+                        onSelectNextSeason={() => {
+                          const currentIndex = seasonsList.findIndex(s => s.id === currentSeasonId);
+                          const nextSeason = seasonsList[currentIndex + 1];
+                          if (nextSeason) {
+                            setCurrentSeasonId(nextSeason.id);
+                            localStorage.setItem('rashaka_current_season_id', nextSeason.id);
+                            window.location.href = window.location.pathname + "?tab=workout";
+                          }
+                        }}
                       />
                     </motion.div>
                   )}
@@ -1621,6 +1630,11 @@ export default function App() {
                         }}
                         seasonsList={seasonsList}
                         currentSeasonId={currentSeasonId}
+                        onSelectSeason={(seasonId) => {
+                          setCurrentSeasonId(seasonId);
+                          localStorage.setItem('rashaka_current_season_id', seasonId);
+                          window.location.href = window.location.pathname + "?tab=workout";
+                        }}
                       />
                     </motion.div>
                   )}
@@ -1970,32 +1984,98 @@ export default function App() {
 
                     {/* Modal Content: Privacy Policy */}
                     {complianceModal === 'privacy' && (
-                      <div className="space-y-3.5 text-right max-h-[60vh] overflow-y-auto pr-1">
-                        <div className="space-y-1">
-                          <span className="text-xs font-extrabold text-[#FF5F2E] block">1. التزام تام بحماية الخصوصية</span>
-                          <p className={`text-[10px] leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                            نحن في فريق "تطبيق تمارين رياضية ولياقة بدنية" نلتزم بأعلى معايير حماية البيانات والأمان لجميع المستخدمين وفقاً لشروط متجر Google Play.
+                      <div className="space-y-3 text-left max-h-[60vh] overflow-y-auto pr-1 text-[11px] leading-relaxed" dir="ltr">
+                        <h3 className="text-sm font-bold text-[#FF5F2E]">Privacy Policy</h3>
+                        <p className="text-[10px] text-gray-400 font-semibold">Effective Date: August 3, 2026</p>
+                        
+                        <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+                          Thank you for using our application.
+                        </p>
+                        <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+                          We respect your privacy and are committed to protecting your information. This Privacy Policy explains how information is collected, used, and protected when you use our application.
+                        </p>
+
+                        <div className="space-y-1 pt-1">
+                          <h4 className="font-bold text-[#FF5F2E]">Information We Collect</h4>
+                          <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+                            Our application does not require users to create an account or sign in. We do not directly collect or store personal information such as your name, email address, phone number, or password.
                           </p>
                         </div>
 
-                        <div className="space-y-1">
-                          <span className="text-xs font-extrabold text-[#FF5F2E] block">2. البيانات الشخصية والمحلية</span>
-                          <p className={`text-[10px] leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                            جميع بيانات الوزن والقياسات والتقدم في التمارين واليوميات يتم حفظها وتخزينها محلياً بالكامل على جهازك باستخدام (Local Storage). لا نقوم بجمع أو حفظ أو معالجة أو إرسال أي من بياناتك الشخصية إلى أي خوادم خارجية أو أطراف ثالثة على الإطلاق.
+                        <div className="space-y-1 pt-1">
+                          <h4 className="font-bold text-[#FF5F2E]">Local Data Storage</h4>
+                          <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+                            The application may store certain user data and preferences locally on your device to improve your experience and retain your settings. This information remains on your device only and is not transmitted to our servers or shared with any third parties.
+                          </p>
+                          <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+                            We do not have access to this locally stored data unless you choose to share it with us.
                           </p>
                         </div>
 
-                        <div className="space-y-1">
-                          <span className="text-xs font-extrabold text-[#FF5F2E] block">3. إخلاء المسؤولية الصحية والطبية</span>
-                          <p className={`text-[10px] leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                            التمارين الرياضية والمعلومات المقدمة في هذا التطبيق هي لغرض التوجيه البدني العام فقط. يوصى دائماً باستشارة طبيبك أو مدربك الخاص قبل البدء في أي نشاط رياضي مكثف في حال وجود أي مشاكل صحية سابقة.
+                        <div className="space-y-1 pt-1">
+                          <h4 className="font-bold text-[#FF5F2E]">Advertising</h4>
+                          <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+                            Our application uses Google AdMob to display advertisements. AdMob may automatically collect certain information, including but not limited to:
+                          </p>
+                          <ul className={`list-disc pl-4 space-y-0.5 text-[10px] ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                            <li>Advertising ID</li>
+                            <li>Device information</li>
+                            <li>IP address</li>
+                            <li>App usage information</li>
+                            <li>Approximate location (where permitted by your device settings)</li>
+                          </ul>
+                          <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+                            This information is collected and processed by Google in accordance with its own Privacy Policy.
+                          </p>
+                          <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+                            For more information, please visit:<br />
+                            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-sky-400 underline">
+                              https://policies.google.com/privacy
+                            </a>
                           </p>
                         </div>
 
-                        <div className="space-y-1">
-                          <span className="text-xs font-extrabold text-[#FF5F2E] block">4. استخدام مجاني 100%</span>
-                          <p className={`text-[10px] leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                            التطبيق يعمل مجاناً مدى الحياة دون أي رسوم اشتراك خفية أو فوترة معقدة لتوفير الفائدة الكاملة للجميع.
+                        <div className="space-y-1 pt-1">
+                          <h4 className="font-bold text-[#FF5F2E]">Data Security</h4>
+                          <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+                            We do not directly collect, store, or process your personal information. Any information collected through Google AdMob is managed securely by Google according to its own privacy and security practices.
+                          </p>
+                        </div>
+
+                        <div className="space-y-1 pt-1">
+                          <h4 className="font-bold text-[#FF5F2E]">Children's Privacy</h4>
+                          <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+                            Our application is not intended to knowingly collect personal information from children. If you believe that a child has provided personal information through the application, please contact us so that appropriate action can be taken.
+                          </p>
+                        </div>
+
+                        <div className="space-y-1 pt-1">
+                          <h4 className="font-bold text-[#FF5F2E]">Third-Party Services</h4>
+                          <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+                            This application uses the following third-party service:
+                          </p>
+                          <ul className={`list-disc pl-4 text-[10px] ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                            <li>Google AdMob</li>
+                          </ul>
+                          <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+                            These services have their own Privacy Policies governing the collection and processing of information.
+                          </p>
+                        </div>
+
+                        <div className="space-y-1 pt-1">
+                          <h4 className="font-bold text-[#FF5F2E]">Changes to This Privacy Policy</h4>
+                          <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+                            We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated Effective Date.
+                          </p>
+                        </div>
+
+                        <div className="space-y-1 pt-1">
+                          <h4 className="font-bold text-[#FF5F2E]">Contact Us</h4>
+                          <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
+                            If you have any questions or concerns about this Privacy Policy, please contact us at:
+                          </p>
+                          <p className="font-mono text-[10px] text-[#FF5F2E]">
+                            Email: husseinn428@gmail.com
                           </p>
                         </div>
                       </div>
@@ -2172,9 +2252,18 @@ export default function App() {
             {celebrationSeasonName && (
               <SuccessCelebration
                 seasonName={celebrationSeasonName}
-                onClose={() => {
+                isDark={isDark}
+                onNextSeason={() => {
+                  const currentIndex = seasonsList.findIndex(s => s.id === currentSeasonId);
+                  const nextSeason = seasonsList[currentIndex + 1];
+                  if (nextSeason) {
+                    setCurrentSeasonId(nextSeason.id);
+                    localStorage.setItem('rashaka_current_season_id', nextSeason.id);
+                  }
                   setCelebrationSeasonName(null);
-                  window.location.href = window.location.pathname + "?tab=achievements";
+                  setActivePlayingDay(null);
+                  setSelectedDayPreview(null);
+                  window.location.href = window.location.pathname + "?tab=workout";
                 }}
               />
             )}
