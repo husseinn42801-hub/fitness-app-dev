@@ -10,7 +10,6 @@ interface WorkoutDaysProps {
   isDark: boolean;
   onSelectDay: (dayNumber: number) => void;
   onResetProgress?: () => void;
-  onSelectNextSeason?: () => void;
 }
 
 /**
@@ -23,7 +22,6 @@ export const WorkoutDays: React.FC<WorkoutDaysProps> = ({
   completedDays,
   isDark,
   onSelectDay,
-  onSelectNextSeason,
 }) => {
   // Find the current active (next unlocked & non-completed) day number
   const activeDayNumber = workoutDays.find(
@@ -32,33 +30,6 @@ export const WorkoutDays: React.FC<WorkoutDaysProps> = ({
 
   return (
     <div className="space-y-3" dir="rtl">
-      {/* 30 Days Completion & Next Level Banner */}
-      {completedDays.length >= 30 && onSelectNextSeason && (
-        <motion.div
-          initial={{ opacity: 0, y: 6 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="p-4 rounded-3xl bg-gradient-to-r from-amber-500/15 via-[#FF5F2E]/15 to-purple-500/15 border border-[#FF5F2E]/30 space-y-2.5 text-right shadow-lg"
-        >
-          <div className="flex items-center gap-2.5">
-            <span className="text-2xl p-2 rounded-2xl bg-[#FF5F2E]/10 shrink-0">🏆</span>
-            <div className="space-y-0.5">
-              <h4 className={`text-xs font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                مبارك! أكملت كافة أيام هذا المستوى (30 يوماً) بنجاح! 🎉
-              </h4>
-              <p className="text-[10px] text-gray-400 font-medium">
-                جاهز للتحدي الجديد؟ اضغط أدناه للانتقال المباشر للمستوى التالي!
-              </p>
-            </div>
-          </div>
-          <button
-            onClick={onSelectNextSeason}
-            className="w-full py-3.5 bg-gradient-to-r from-[#FF5F2E] to-[#FF912E] hover:opacity-95 active:scale-98 text-white font-black rounded-2xl text-xs transition-all flex items-center justify-center gap-2 shadow-md cursor-pointer"
-          >
-            <span>انتقل للمستوى التالي الآن 🚀</span>
-          </button>
-        </motion.div>
-      )}
-
       {/* Grid Title */}
       <div className="flex justify-between items-center px-1 pt-1">
         <div className="flex items-center gap-2">
