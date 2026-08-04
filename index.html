@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    
+    <!-- Title & Basic Meta Tags -->
+    <title>تمارين منزلية ولياقة بدنية</title>
+    <meta name="description" content="تمارين منزلية، خطط تدريب، تغذية، حساب السعرات، وتتبع التقدم في تطبيق واحد." />
+    <meta name="theme-color" content="#FF5F2E" />
+
+    <!-- Open Graph Meta Tags (WhatsApp, Facebook, Telegram) -->
+    <meta property="og:site_name" content="تمارين منزلية ولياقة بدنية" />
+    <meta property="og:title" content="تمارين منزلية ولياقة بدنية" />
+    <meta property="og:description" content="ابدأ رحلتك الرياضية مع أفضل تطبيق للتمارين المنزلية والتغذية وتتبع التقدم." />
+    <meta property="og:image" id="og-image-tag" content="/app-icon.jpg" />
+    <meta property="og:image:secure_url" id="og-image-secure-tag" content="/app-icon.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="تمارين منزلية ولياقة بدنية" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="تمارين منزلية ولياقة بدنية" />
+    <meta name="twitter:description" content="ابدأ رحلتك الرياضية مع أفضل تطبيق للتمارين المنزلية والتغذية وتتبع التقدم." />
+    <meta name="twitter:image" id="twitter-image-tag" content="/app-icon.jpg" />
+
+    <!-- Additional Link & Thumbnail Meta Tags for Social Media Crawlers -->
+    <link rel="image_src" href="/app-icon.jpg" />
+    <meta name="thumbnail" content="/app-icon.jpg" />
+
+    <!-- Dynamic Absolute URL Resolver for Client-side Browsers -->
+    <script>
+      (function() {
+        try {
+          var absoluteIcon = window.location.origin + '/app-icon.jpg';
+          var ogImg = document.getElementById('og-image-tag');
+          var ogImgSec = document.getElementById('og-image-secure-tag');
+          var twImg = document.getElementById('twitter-image-tag');
+          if (ogImg) ogImg.setAttribute('content', absoluteIcon);
+          if (ogImgSec) ogImgSec.setAttribute('content', absoluteIcon);
+          if (twImg) twImg.setAttribute('content', absoluteIcon);
+        } catch(e) {}
+      })();
+    </script>
+
+    <!-- Favicon / App Icon -->
+    <link rel="icon" type="image/jpeg" href="/app-icon.jpg" />
+    <link rel="apple-touch-icon" href="/app-icon.jpg" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
