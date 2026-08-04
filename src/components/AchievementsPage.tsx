@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Award, Trophy, Medal, Flame, Clock, Zap, Download, Share2, Eye, X, Calendar, Star, ShieldCheck, User, Edit3, TrendingUp, BarChart4, Milestone, Sparkles, CheckCircle2, Target } from 'lucide-react';
+import { Award, Trophy, Medal, Flame, Clock, Zap, Share2, Eye, X, Calendar, Star, ShieldCheck, User, Edit3, TrendingUp, BarChart4, Milestone, Sparkles, CheckCircle2, Target } from 'lucide-react';
 import { ResponsiveContainer, LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, BarChart, Bar, Legend, Cell } from 'recharts';
 import { SeasonCertificate, DailyLog, UserStats } from '../types';
 import { SEASONS_DB } from '../data/seasons';
@@ -15,6 +15,7 @@ interface AchievementsPageProps {
   onUpdateProfile: (name: string, avatar: string) => void;
   seasonsList?: any[];
   currentSeasonId?: string;
+  onSelectSeason?: (seasonId: string) => void;
 }
 
 export const AchievementsPage: React.FC<AchievementsPageProps> = ({
@@ -25,7 +26,8 @@ export const AchievementsPage: React.FC<AchievementsPageProps> = ({
   userStats,
   onUpdateProfile,
   seasonsList = SEASONS_DB,
-  currentSeasonId
+  currentSeasonId,
+  onSelectSeason
 }) => {
   const [selectedCert, setSelectedCert] = useState<SeasonCertificate | null>(null);
   const [isEditingProfile, setIsEditingProfile] = useState(false);
@@ -163,112 +165,6 @@ export const AchievementsPage: React.FC<AchievementsPageProps> = ({
   };
 
   const bestStreak = calculateStreak();
-
-  const handleDownloadCertificate = (cert: SeasonCertificate) => {
-    try {
-      const canvas = document.createElement('canvas');
-      canvas.width = 800;
-      canvas.height = 600;
-      const ctx = canvas.getContext('2d');
-      if (ctx) {
-        // Background Gradient (Elegant Royal Theme)
-        const grad = ctx.createRadialGradient(400, 300, 50, 400, 300, 500);
-        grad.addColorStop(0, '#1E1B18');
-        grad.addColorStop(0.6, '#12100E');
-        grad.addColorStop(1, '#080706');
-        ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, 800, 600);
-
-        // Gold border lines
-        ctx.strokeStyle = '#D4AF37'; // Royal Gold
-        ctx.lineWidth = 6;
-        ctx.strokeRect(20, 20, 760, 560);
-
-        ctx.strokeStyle = '#C5A028';
-        ctx.lineWidth = 1.5;
-        ctx.strokeRect(30, 30, 740, 540);
-
-        // Corner ornaments
-        const drawCorner = (x: number, y: number, r: number) => {
-          ctx.strokeStyle = '#D4AF37';
-          ctx.lineWidth = 3;
-          ctx.beginPath();
-          ctx.arc(x, y, r, 0, Math.PI * 2);
-          ctx.stroke();
-        };
-        drawCorner(40, 40, 10);
-        drawCorner(760, 40, 10);
-        drawCorner(40, 560, 10);
-        drawCorner(760, 560, 10);
-
-        // Text Styles & Drawing (No crash Arabic rendering strategy)
-        ctx.fillStyle = '#FFFFFF';
-        ctx.textAlign = 'center';
-        
-        ctx.font = 'bold 22px sans-serif';
-        ctx.fillStyle = '#D4AF37';
-        ctx.fillText('شــهادة إتــمـام احــترافـيـة', 400, 90);
-
-        ctx.strokeStyle = 'rgba(212, 175, 55, 0.2)';
-        ctx.beginPath();
-        ctx.moveTo(250, 110);
-        ctx.lineTo(550, 110);
-        ctx.stroke();
-
-        ctx.fillStyle = '#A0A0A0';
-        ctx.font = '16px sans-serif';
-        ctx.fillText('يَسر برنامج تمارين رياضية ولياقة بدنية منح هذه الشهادة لـ', 400, 160);
-
-        ctx.fillStyle = '#FFFFFF';
-        ctx.font = 'bold 32px sans-serif';
-        ctx.fillText('البطل المثابر / البطلة الرياضية', 400, 220);
-
-        ctx.fillStyle = '#A0A0A0';
-        ctx.font = '16px sans-serif';
-        ctx.fillText('تَقديراً للالتزام والتَّفوق الكامِل في إنهاء مَهام تَماريِن:', 400, 270);
-
-        ctx.fillStyle = '#FF5F2E';
-        ctx.font = 'bold 28px sans-serif';
-        ctx.fillText(`مستوى: ${cert.seasonName}`, 400, 320);
-
-        ctx.fillStyle = '#A0A0A0';
-        ctx.font = '15px sans-serif';
-        ctx.fillText(`عَدد الأيام: ${cert.totalDays} يَوْماً مٌتتالياً  •  نِسْبة الالتِزام: ${cert.commitmentRate}%  •  التَّاريخ: ${cert.completedAt}`, 400, 370);
-
-        // Draw Gold Seal Badge
-        ctx.fillStyle = 'rgba(212, 175, 55, 0.1)';
-        ctx.beginPath();
-        ctx.arc(400, 460, 50, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.strokeStyle = '#D4AF37';
-        ctx.lineWidth = 2.5;
-        ctx.stroke();
-
-        // Star decoration in seal
-        ctx.fillStyle = '#D4AF37';
-        ctx.font = '30px sans-serif';
-        ctx.fillText('🥇', 400, 470);
-
-        ctx.fillStyle = '#FFFFFF';
-        ctx.font = 'bold 11px sans-serif';
-        ctx.fillText('تميز رياضي', 400, 525);
-
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
-        ctx.font = '11px sans-serif';
-        ctx.fillText('جسم رياضي وصحة مثالية خطوة بخطوة', 400, 550);
-
-        // Trigger Download
-        const dataUrl = canvas.toDataURL('image/png');
-        const link = document.createElement('a');
-        link.download = `Rashaka_Certificate_${cert.seasonName}.png`;
-        link.href = dataUrl;
-        link.click();
-      }
-    } catch (e) {
-      console.warn("Could not export certificate as image:", e);
-      alert("عذراً، لم نتمكن من تنزيل الشهادة تلقائياً. يمكنك تصوير الشاشة للاحتفاظ بإنجازك الرائع!");
-    }
-  };
 
   // Calculate burned and target calories for each season
   const seasonCaloriesData = useMemo(() => {
@@ -562,11 +458,28 @@ export const AchievementsPage: React.FC<AchievementsPageProps> = ({
               </p>
               <p className="text-[10px] text-gray-300 leading-relaxed font-medium">
                 {activeLevelInfo.isCompleted
-                  ? 'تم فتح شهادة التقدير الرسمية ويمكنك تحميلها الآن والانتقال للمستوى التالي بحماس واقتدار!'
+                  ? 'تم فتح شهادة التقدير الرسمية ويمكنك رؤيتها الآن والانتقال للمستوى التالي بحماس واقتدار!'
                   : `متبقي لك فقط ${activeLevelInfo.remainingDays} يوماً للوصول للمستوى التالي وتوثيق إنجازك بقلادة الفوز الذهبية 🚀`}
               </p>
             </div>
           </div>
+
+          {activeLevelInfo.isCompleted && (
+            <div className="pt-2">
+              <button
+                onClick={() => {
+                  const currentIndex = seasonsList.findIndex(s => s.id === activeLevelInfo.season.id);
+                  const nextSeason = seasonsList[currentIndex + 1];
+                  if (nextSeason && onSelectSeason) {
+                    onSelectSeason(nextSeason.id);
+                  }
+                }}
+                className="w-full py-3 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-500 hover:brightness-105 active:scale-98 text-black font-black rounded-2xl text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 cursor-pointer"
+              >
+                <span>الانتقال للمستوى التالي 🚀</span>
+              </button>
+            </div>
+          )}
         </div>
       </motion.div>
 
@@ -839,17 +752,11 @@ export const AchievementsPage: React.FC<AchievementsPageProps> = ({
                 <div className="flex gap-2">
                   <button
                     onClick={() => setSelectedCert(cert)}
-                    className="p-2 bg-white/5 hover:bg-white/10 text-gray-300 rounded-xl transition-all active:scale-95 cursor-pointer"
+                    className="p-2.5 bg-[#FF5F2E]/10 hover:bg-[#FF5F2E]/20 text-[#FF5F2E] rounded-xl transition-all active:scale-95 cursor-pointer flex items-center gap-1.5 border border-[#FF5F2E]/20"
                     title="عرض الشهادة"
                   >
-                    <Eye className="w-4 h-4 text-sky-400" />
-                  </button>
-                  <button
-                    onClick={() => handleDownloadCertificate(cert)}
-                    className="p-2 bg-white/5 hover:bg-white/10 text-gray-300 rounded-xl transition-all active:scale-95 cursor-pointer"
-                    title="تحميل الشهادة كصورة"
-                  >
-                    <Download className="w-4 h-4 text-emerald-500" />
+                    <Eye className="w-4 h-4 text-[#FF5F2E]" />
+                    <span className="text-[10px] font-bold">عرض الشهادة</span>
                   </button>
                 </div>
               </div>
@@ -925,14 +832,14 @@ export const AchievementsPage: React.FC<AchievementsPageProps> = ({
                 </div>
               </div>
 
-              {/* Utility Download Button */}
+              {/* Utility Close Button */}
               <div className="mt-4">
                 <button
-                  onClick={() => handleDownloadCertificate(selectedCert)}
-                  className="w-full py-3.5 bg-gradient-to-r from-[#FF5F2E] to-[#FF912E] hover:opacity-90 active:scale-98 text-white font-black rounded-2xl text-xs transition-all flex items-center justify-center gap-2 shadow-md shadow-[#FF5F2E]/15 cursor-pointer"
+                  onClick={() => setSelectedCert(null)}
+                  className="w-full py-3 bg-[#FF5F2E]/10 hover:bg-[#FF5F2E]/20 text-[#FF5F2E] border border-[#FF5F2E]/20 font-black rounded-2xl text-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <Download className="w-4 h-4 text-white" />
-                  <span>تنزيل الشهادة كصورة PNG 💾</span>
+                  <X className="w-4 h-4 text-[#FF5F2E]" />
+                  <span>إغلاق المعاينة</span>
                 </button>
               </div>
             </motion.div>
