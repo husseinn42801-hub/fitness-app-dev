@@ -177,9 +177,25 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = ({
           {/* Top Left Media badge */}
           {!isFullscreen && (
             <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 bg-black/70 text-white rounded-full text-[10px] font-bold tracking-wider backdrop-blur-md shadow-sm z-20 border border-white/10">
-              <span className={`w-1.5 h-1.5 rounded-full ${isPlaying && hasLoadedData ? 'bg-[#FF5F2E] animate-pulse' : 'bg-amber-400'}`}></span>
+              <span className={`w-1.5 h-1.5 rounded-full ${isPlaying && hasLoadedData ? 'bg-[#84CC16] animate-pulse' : 'bg-amber-400'}`}></span>
               <span className="text-gray-200">عرض أداء التمرين</span>
             </div>
+          )}
+
+          {/* Top Right "تكبير" Fullscreen Button - Green Pill Style matching screenshot */}
+          {onToggleFullscreen && !isFullscreen && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onToggleFullscreen();
+              }}
+              className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/70 hover:bg-[#84CC16] text-[#84CC16] hover:text-black font-extrabold text-xs backdrop-blur-md border border-[#84CC16]/60 shadow-lg transition-all hover:scale-105 active:scale-95 z-30 cursor-pointer"
+              title="تكبير الشاشة (Fullscreen)"
+              type="button"
+            >
+              <Maximize2 className="w-3.5 h-3.5" />
+              <span>تكبير</span>
+            </button>
           )}
 
           {/* Play/Pause feedback Overlay when paused */}

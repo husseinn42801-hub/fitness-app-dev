@@ -44,6 +44,144 @@ interface WorkoutPlayerProps {
   onClose: () => void;
 }
 
+// --- NATIVE AD BANNER CONTAINER ---
+const NativeAdBanner: React.FC<{ compact?: boolean }> = ({ compact = false }) => {
+  return (
+    <div className={`w-full rounded-2xl bg-[#121622] border border-white/10 p-3 backdrop-blur-md text-white shadow-xl flex items-center justify-between gap-2.5 relative overflow-hidden my-2.5 ${compact ? 'py-2 px-2.5' : ''}`}>
+      {/* Top Ad Badge */}
+      <div className="absolute top-1.5 left-2 px-2 py-0.5 rounded-md bg-white/10 text-gray-300 text-[9px] font-bold border border-white/10 backdrop-blur-sm z-10">
+        إعلان
+      </div>
+
+      <div className="flex items-center gap-2.5 min-w-0 flex-1">
+        {/* Product Image Thumbnail */}
+        <div className="relative shrink-0">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-purple-700 to-indigo-900 p-0.5 flex items-center justify-center shadow-md border border-purple-400/30 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&auto=format&fit=crop&q=80" 
+              alt="حذاء رياضي" 
+              className="w-full h-full object-cover rounded-lg transform hover:scale-110 transition-transform duration-300" 
+            />
+          </div>
+          <span className="absolute -top-1 -right-1 bg-rose-500 text-white text-[8px] font-black px-1.5 py-0.2 rounded-full shadow-md">
+            -30%
+          </span>
+        </div>
+
+        {/* Text Details */}
+        <div className="min-w-0 flex-1 text-right">
+          <h4 className="text-xs font-black text-white truncate leading-tight">
+            حذاء رياضي احترافي
+          </h4>
+          <p className="text-[10px] text-indigo-200/80 font-medium truncate mt-0.5">
+            راحة أكثر – أداء أفضل
+          </p>
+          <div className="flex items-center gap-1.5 mt-0.5">
+            <span className="text-[9px] text-emerald-400 font-bold bg-emerald-500/10 px-1.5 py-0.2 rounded border border-emerald-500/20">
+              توصيل مجاني
+            </span>
+            <span className="text-[8px] text-gray-400 hidden sm:inline">
+              • دفع عند الاستلام
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Action CTA Button */}
+      <a 
+        href="https://example.com" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-extrabold text-[11px] shadow-md shadow-purple-600/25 transition-all hover:scale-105 active:scale-95 shrink-0 cursor-pointer flex items-center justify-center"
+      >
+        تسوق الآن
+      </a>
+    </div>
+  );
+};
+
+// --- HORIZONTAL EXERCISE SELECTOR (MATCHING SCREENSHOT) ---
+interface ExerciseSelectorProps {
+  exerciseIds: string[];
+  currentIndex: number;
+  onSelectExercise: (index: number) => void;
+  fallbackExercise: Exercise;
+}
+
+const HorizontalExerciseSelector: React.FC<ExerciseSelectorProps> = ({
+  exerciseIds,
+  currentIndex,
+  onSelectExercise,
+  fallbackExercise
+}) => {
+  return (
+    <div className="w-full my-2 text-right">
+      {/* Title */}
+      <div className="flex items-center justify-between mb-2 px-1">
+        <h3 className="text-xs font-black text-white flex items-center gap-1.5">
+          <span>تمارين اليوم</span>
+          <span className="text-amber-400">🗓️</span>
+        </h3>
+        <span className="text-[10px] text-gray-400 font-bold">
+          {currentIndex + 1} من {exerciseIds.length} تمارين
+        </span>
+      </div>
+
+      {/* Horizontal Scroll Cards Row */}
+      <div className="flex items-center gap-2 overflow-x-auto pb-2 custom-scrollbar scroll-smooth">
+        {exerciseIds.map((exId, idx) => {
+          const ex = EXERCISES_DB[exId] || fallbackExercise;
+          const isCompleted = idx < currentIndex;
+          const isActive = idx === currentIndex;
+
+          return (
+            <button
+              key={`${exId}-${idx}`}
+              onClick={() => onSelectExercise(idx)}
+              type="button"
+              className={`min-w-[85px] sm:min-w-[95px] p-2 sm:p-2.5 rounded-2xl flex flex-col items-center justify-center gap-1 transition-all cursor-pointer border text-center shrink-0 relative overflow-hidden ${
+                isCompleted
+                  ? 'bg-[#7CB342] text-white border-[#7CB342] shadow-md'
+                  : isActive
+                  ? 'bg-[#121622] text-white border-2 border-[#7CB342] shadow-lg ring-2 ring-[#7CB342]/30 scale-102'
+                  : 'bg-[#121622] text-gray-300 border-white/10 hover:border-white/20 hover:bg-[#1A1F30]'
+              }`}
+            >
+              {/* Badge Icon / Number */}
+              <div className="flex items-center justify-center gap-1">
+                <span className="text-sm font-black font-mono">{idx + 1}</span>
+                {isCompleted ? (
+                  <Check className="w-3.5 h-3.5 text-white stroke-[3]" />
+                ) : isActive ? (
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#7CB342] animate-ping" />
+                ) : (
+                  <span className="text-[10px] text-gray-400">🔒</span>
+                )}
+              </div>
+
+              {/* Status Label */}
+              <span className={`text-[10px] font-extrabold truncate w-full ${
+                isCompleted 
+                  ? 'text-white' 
+                  : isActive 
+                  ? 'text-[#7CB342]' 
+                  : 'text-gray-400'
+              }`}>
+                {isCompleted ? 'مكتمل' : isActive ? 'التمرين الحالي' : 'لم يبدأ'}
+              </span>
+
+              {/* Exercise Name */}
+              <span className="text-[9px] text-gray-300/80 truncate max-w-[75px] block font-medium">
+                {ex.nameAr}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
 export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorkout, onClose }) => {
   const exerciseIds = day.exercises;
   const [currentIndex, setCurrentIndex] = useState<number>(() => {
@@ -127,11 +265,41 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
 
   // --- FULLSCREEN & LANDSCAPE ORIENTATION STATE ---
   const playerContainerRef = useRef<HTMLDivElement | null>(null);
-  const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
+  const [isFullscreen, setIsFullscreen] = useState<boolean>(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const fsParam = params.get('fullscreen') === 'true';
+      const ssParam = sessionStorage.getItem('workout_auto_fullscreen') === 'true';
+      return fsParam || ssParam;
+    } catch (e) {
+      return false;
+    }
+  });
+
+  // Re-request fullscreen automatically on mount when page reloads via window.location.href (AppCreator24 interstitial ads)
+  useEffect(() => {
+    if (isFullscreen) {
+      try {
+        sessionStorage.setItem('workout_auto_fullscreen', 'true');
+        const elem = playerContainerRef.current || document.documentElement;
+        if (elem.requestFullscreen && !document.fullscreenElement) {
+          elem.requestFullscreen().catch(() => {});
+        } else if ((elem as any).webkitRequestFullscreen && !(document as any).webkitFullscreenElement) {
+          (elem as any).webkitRequestFullscreen().catch(() => {});
+        }
+        if (window.screen && window.screen.orientation && (window.screen.orientation as any).lock) {
+          (window.screen.orientation as any).lock('landscape').catch(() => {});
+        }
+      } catch (e) {}
+    }
+  }, []);
 
   const toggleFullscreen = async () => {
     try {
       if (!isFullscreen) {
+        try {
+          sessionStorage.setItem('workout_auto_fullscreen', 'true');
+        } catch (e) {}
         // 1. Enter Fullscreen Mode
         const elem = playerContainerRef.current || document.documentElement;
         if (elem.requestFullscreen) {
@@ -152,6 +320,9 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
         }
         setIsFullscreen(true);
       } else {
+        try {
+          sessionStorage.removeItem('workout_auto_fullscreen');
+        } catch (e) {}
         // 1. Exit Fullscreen Mode
         if (document.fullscreenElement || (document as any).webkitFullscreenElement) {
           if (document.exitFullscreen) {
@@ -752,6 +923,35 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
     }
   };
 
+  // Helper function to change exercise index via page navigation for AppCreator24 Interstitial Ads while preserving Fullscreen
+  const changeExerciseIndex = (nextIndex: number) => {
+    const isFs = isFullscreen || Boolean(document.fullscreenElement || (document as any).webkitFullscreenElement);
+    if (isFs) {
+      try {
+        sessionStorage.setItem('workout_auto_fullscreen', 'true');
+      } catch (e) {}
+    } else {
+      try {
+        sessionStorage.removeItem('workout_auto_fullscreen');
+      } catch (e) {}
+    }
+
+    try {
+      const targetUrl = `${window.location.pathname}?tab=workout&day=${day.dayNumber}&exercise=${nextIndex}${isFs ? '&fullscreen=true' : ''}`;
+      window.location.href = targetUrl;
+    } catch (e) {
+      setCurrentIndex(nextIndex);
+      setCurrentSet(1);
+      setIsReadyCount(true);
+      setReadyTimeLeft(15);
+      setIsResting(false);
+      const nextExId = exerciseIds[nextIndex];
+      const nextEx = EXERCISES_DB[nextExId] || fallbackExercise;
+      setTimeLeft(nextEx.duration || 30);
+      setIsPlaying(true);
+    }
+  };
+
   // Logic to switch to next exercise or finish workout
   const handleNextExerciseTransition = () => {
     try {
@@ -759,7 +959,7 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
         playBeep(1000, 0.4);
         audioManager.playAudio('exercise_complete');
         const nextIndex = currentIndex + 1;
-        window.location.href = window.location.pathname + `?tab=workout&day=${day.dayNumber}&exercise=${nextIndex}`;
+        changeExerciseIndex(nextIndex);
       } else {
         // Completed last exercise of the day!
         setIsFinished(true);
@@ -804,7 +1004,7 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
     try {
       if (currentIndex < exerciseIds.length - 1) {
         const nextIndex = currentIndex + 1;
-        window.location.href = window.location.pathname + `?tab=workout&day=${day.dayNumber}&exercise=${nextIndex}`;
+        changeExerciseIndex(nextIndex);
       } else {
         setIsFinished(true);
         setIsPlaying(false);
@@ -827,7 +1027,7 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
   const handlePreviousExerciseManual = () => {
     if (currentIndex > 0) {
       const prevIndex = currentIndex - 1;
-      window.location.href = window.location.pathname + `?tab=workout&day=${day.dayNumber}&exercise=${prevIndex}`;
+      changeExerciseIndex(prevIndex);
     }
   };
 
@@ -1291,6 +1491,9 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
           {/* 2. Scrollable Exercise List Column (Left Side in RTL Landscape) */}
           <div className="w-full landscape:w-72 sm:landscape:w-80 landscape:shrink-0 landscape:max-w-[42%] flex-1 landscape:h-full flex flex-col p-3 sm:p-3.5 rounded-2xl bg-[#141414]/90 border border-white/10 backdrop-blur-xl text-white shadow-2xl overflow-hidden min-h-0">
             
+            {/* Native Ad Banner Container in Fullscreen */}
+            <NativeAdBanner compact={true} />
+
             {/* Header of Exercise List */}
             <div className="flex items-center justify-between pb-2 mb-2 border-b border-white/10 shrink-0">
               <div className="flex items-center gap-2">
@@ -1314,13 +1517,7 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
                     key={`${exId}-${idx}`}
                     onClick={() => {
                       if (idx === currentIndex) return;
-                      setCurrentIndex(idx);
-                      setCurrentSet(1);
-                      setIsReadyCount(true);
-                      setReadyTimeLeft(15);
-                      setIsResting(false);
-                      setTimeLeft(ex.duration || 30);
-                      setIsPlaying(true);
+                      changeExerciseIndex(idx);
                     }}
                     className={`p-2.5 rounded-xl border transition-all cursor-pointer text-right flex items-center justify-between gap-2 ${
                       isActive 
@@ -1678,6 +1875,17 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
                   heightClass="h-44 sm:h-52 landscape:h-56 landscape:w-full" 
                   onToggleFullscreen={toggleFullscreen}
                   isFullscreen={false}
+                />
+
+                {/* Native Ad Container - Dedicated Div below Video */}
+                <NativeAdBanner />
+
+                {/* Daily Exercises Selector (Matching Screenshot Style) */}
+                <HorizontalExerciseSelector 
+                  exerciseIds={exerciseIds}
+                  currentIndex={currentIndex}
+                  onSelectExercise={changeExerciseIndex}
+                  fallbackExercise={fallbackExercise}
                 />
 
                 {/* Live Pro Coaching Toast Notification */}
