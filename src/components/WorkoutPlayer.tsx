@@ -1072,7 +1072,7 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
         dir="rtl"
       >
         {/* Top Header Bar for Landscape Fullscreen */}
-        <div className="px-5 py-2.5 flex items-center justify-between border-b border-white/10 bg-[#121212]/90 backdrop-blur-md shrink-0 z-30">
+        <div className="px-5 py-2 flex items-center justify-between border-b border-white/10 bg-[#121212]/90 backdrop-blur-md shrink-0 z-30">
           <button 
             onClick={toggleFullscreen}
             className="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-[#FF5F2E] text-white transition-all cursor-pointer flex items-center gap-2 text-xs font-bold border border-white/10 shadow-sm"
@@ -1088,7 +1088,7 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
             </h3>
           </div>
 
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2">
             <span className="text-xs font-mono font-bold bg-[#FF5F2E]/15 text-[#FF5F2E] px-2.5 py-1 rounded-lg border border-[#FF5F2E]/30">
               {currentStepNum} / {totalSteps}
             </span>
@@ -1121,159 +1121,243 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
         </div>
 
         {/* Main Fullscreen Body Layout */}
-        <div className="flex-1 flex flex-row items-center justify-between p-3 sm:p-4 gap-4 min-h-0 w-full h-full overflow-hidden">
+        <div className="flex-1 flex flex-row items-stretch p-3 sm:p-4 gap-4 min-h-0 w-full h-full overflow-hidden">
           
-          {/* Left Stage: Maximized Video Player preserving Aspect Ratio */}
-          <div className="flex-1 h-full max-h-full relative rounded-2xl overflow-hidden bg-black flex items-center justify-center border border-white/15 shadow-2xl min-w-0">
-            <ExerciseModel 
-              type={activeExercise.animationType} 
-              isPlaying={isPlaying} 
-              mp4Url={activeExercise.mp4Url} 
-              exerciseNameEn={activeExercise.nameEn}
-              heightClass="h-full w-full"
-              onToggleFullscreen={toggleFullscreen}
-              isFullscreen={true}
-            />
-
-            {/* Coaching Tip Floating Toast in Fullscreen Video */}
-            {activeExercise.tips && activeExercise.tips.length > 0 && (
-              <div className="absolute top-3 left-3 right-16 z-20 pointer-events-none">
-                <div className="px-3 py-1.5 rounded-xl bg-black/75 border border-white/20 backdrop-blur-md text-right flex items-center gap-2 max-w-lg shadow-lg">
-                  <span className="w-5 h-5 rounded-lg bg-[#FF5F2E] text-white flex items-center justify-center text-[10px] shrink-0 font-bold">💡</span>
-                  <p className="text-[11px] font-medium text-gray-200 truncate">
-                    {activeExercise.tips[0]}
-                  </p>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Right HUD: Workout Controls & Metrics */}
-          <div className="w-72 sm:w-80 shrink-0 h-full flex flex-col justify-between p-4 rounded-2xl bg-[#141414]/90 border border-white/10 backdrop-blur-xl text-white shadow-2xl overflow-y-auto space-y-2">
+          {/* Left Column (الجانب الأيسر): Video / Rest Screen Stage + Integrated Controls Bar below */}
+          <div className="flex-1 flex flex-col h-full min-w-0 min-h-0 gap-3">
             
-            {/* Header Info */}
-            <div className="text-center space-y-1">
-              <span className="text-[10px] bg-[#FF5F2E]/15 text-[#FF5F2E] px-2.5 py-0.5 rounded-full font-black border border-[#FF5F2E]/30">
-                المجموعة {currentSet} من {totalSets}
-              </span>
-              <h2 className="text-base font-black text-white line-clamp-1">{activeExercise.nameAr}</h2>
-              <p className="text-[9px] text-gray-400 font-mono uppercase tracking-wide truncate">{activeExercise.nameEn}</p>
-            </div>
+            {/* Stage: Exercise Video OR Rest Stage */}
+            <div className="flex-1 relative rounded-2xl overflow-hidden bg-black flex items-center justify-center border border-white/15 shadow-2xl min-h-0 w-full">
+              {isResting ? (
+                /* HIDE VIDEO completely on rest screen! Render clean Rest Stage */
+                <div className="w-full h-full flex flex-col items-center justify-center p-4 bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0A0A0A] text-center space-y-3">
+                  <div className="p-3 rounded-full bg-sky-500/20 text-sky-400 border border-sky-400/30 animate-pulse">
+                    <Pause className="w-7 h-7" />
+                  </div>
+                  
+                  <div>
+                    <span className="text-xs font-bold text-sky-400 tracking-wide uppercase">وقت الاستراحة والتعافي</span>
+                    <h3 className="text-base font-extrabold text-white mt-0.5">
+                      خذ نفساً عميقاً واستعد للمجموعة التالية ({currentSet} من {totalSets})
+                    </h3>
+                  </div>
 
-            {/* Center Display: Timer / Counter / Warmup / Rest */}
-            <div className="flex flex-col items-center justify-center py-1">
-              {isReadyCount ? (
-                <div className="flex flex-col items-center space-y-2 text-center">
-                  <span className="text-[10px] text-amber-400 font-bold">استعد للانطلاق</span>
-                  <div className="text-3xl font-black font-mono text-[#FF5F2E]">{readyTimeLeft}s</div>
-                  <button 
-                    onClick={() => {
-                      setIsReadyCount(false);
-                      setTimeLeft(isTimeBased ? activeExercise.duration : 0);
-                      playBeep(1200, 0.4);
-                      audioManager.playAudio('start');
-                    }}
-                    className="px-4 py-1.5 bg-[#FF5F2E] text-white rounded-full text-xs font-bold shadow-md cursor-pointer hover:bg-[#FF912E]"
-                  >
-                    بدء فوراً 🚀
-                  </button>
-                </div>
-              ) : isResting ? (
-                <div className="flex flex-col items-center space-y-2 text-center">
-                  <span className="text-[10px] text-sky-400 font-bold">وقت الاستراحة</span>
-                  <div className="text-3xl font-black font-mono text-sky-400">{restTimeLeft}s</div>
-                  <button 
-                    onClick={handleSkipRest}
-                    className="px-4 py-1.5 border border-sky-400 text-sky-400 rounded-full text-xs font-bold cursor-pointer hover:bg-sky-400 hover:text-white"
-                  >
-                    تخطي الراحة ⏭
-                  </button>
-                </div>
-              ) : (
-                <div className="flex items-center justify-center gap-4">
-                  {/* Countdown Circle */}
-                  <div className="relative w-20 h-20 flex items-center justify-center">
-                    <svg className="absolute inset-0 w-full h-full transform -rotate-90" viewBox="0 0 80 80">
-                      <circle cx="40" cy="40" r="32" stroke="#222222" strokeWidth="5" fill="transparent" />
+                  {/* Rest Circular Timer */}
+                  <div className="relative w-24 h-24 flex items-center justify-center my-1">
+                    <svg className="absolute inset-0 w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                      <circle cx="50" cy="50" r="40" stroke="#1E293B" strokeWidth="6" fill="transparent" />
                       <circle 
-                        cx="40" 
-                        cy="40" 
-                        r="32" 
-                        stroke="#FF5F2E" 
-                        strokeWidth="5" 
+                        cx="50" 
+                        cy="50" 
+                        r="40" 
+                        stroke="#38BDF8" 
+                        strokeWidth="6" 
                         fill="transparent" 
-                        strokeDasharray={2 * Math.PI * 32}
-                        strokeDashoffset={2 * Math.PI * 32 * (1 - timeLeft / activeExercise.duration)}
+                        strokeDasharray={2 * Math.PI * 40}
+                        strokeDashoffset={2 * Math.PI * 40 * (1 - restTimeLeft / (day.restTimePerSet || 15))}
                         className="transition-all duration-1000 linear"
                       />
                     </svg>
                     <div className="flex flex-col items-center">
-                      <span className="text-2xl font-black font-mono text-white">{timeLeft}</span>
-                      <span className="text-[8px] text-gray-400 font-bold">ثانية</span>
+                      <span className="text-3xl font-black font-mono text-sky-400">{restTimeLeft}</span>
+                      <span className="text-[9px] text-gray-400 font-bold">ثانية</span>
                     </div>
                   </div>
 
-                  <div className="text-right space-y-0.5">
-                    <span className="text-[9px] text-gray-400 block font-medium">مقدر للحرق</span>
-                    <span className="text-sm font-extrabold text-[#FF5F2E] font-mono">
-                      ~{Math.max(1, Math.round((activeExercise.caloriesPerMin || 6) * ((activeExercise.duration || 30) / 60)))} سعرة
-                    </span>
-                  </div>
+                  <button 
+                    onClick={handleSkipRest}
+                    className="px-5 py-2 bg-sky-500 hover:bg-sky-400 text-white rounded-full text-xs font-bold shadow-lg transition-all cursor-pointer flex items-center gap-1.5"
+                  >
+                    <span>تخطي الراحة والبدء فوراً</span>
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
                 </div>
+              ) : (
+                /* Video Player - No floating text over the video */
+                <ExerciseModel 
+                  type={activeExercise.animationType} 
+                  isPlaying={isPlaying} 
+                  mp4Url={activeExercise.mp4Url} 
+                  exerciseNameEn={activeExercise.nameEn}
+                  heightClass="h-full w-full"
+                  onToggleFullscreen={toggleFullscreen}
+                  isFullscreen={true}
+                />
               )}
             </div>
 
-            {/* Controls Row */}
-            <div className="flex items-center justify-center gap-4 py-1">
-              <button
-                onClick={handlePreviousExerciseManual}
-                disabled={currentIndex === 0}
-                className="p-2 rounded-xl border border-white/10 text-white hover:bg-white/10 disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-
-              {isTimeBased && (
+            {/* Controls Bar directly below the Video */}
+            <div className="px-4 py-2.5 rounded-2xl bg-[#141414]/90 border border-white/10 backdrop-blur-xl text-white shadow-xl flex items-center justify-between gap-3 shrink-0">
+              
+              {/* Previous / Play-Pause / Next / Reset */}
+              <div className="flex items-center gap-2">
                 <button
-                  onClick={handlePlayPause}
-                  className="w-11 h-11 rounded-full bg-[#FF5F2E] text-white flex items-center justify-center shadow-lg hover:bg-[#FF912E] cursor-pointer"
+                  onClick={handlePreviousExerciseManual}
+                  disabled={currentIndex === 0}
+                  className="p-2.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 disabled:opacity-30 disabled:pointer-events-none cursor-pointer text-white"
+                  title="التمرين السابق"
                 >
-                  {isPlaying ? <Pause className="w-5 h-5 fill-current" /> : <Play className="w-5 h-5 fill-current translate-x-[-1px]" />}
+                  <ChevronRight className="w-4 h-4" />
                 </button>
-              )}
 
-              <button
-                onClick={handleNextExerciseManual}
-                className="p-2 rounded-xl border border-white/10 text-white hover:bg-white/10 cursor-pointer"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
+                {isTimeBased && !isResting && (
+                  <button
+                    onClick={handlePlayPause}
+                    className="w-10 h-10 rounded-full bg-[#FF5F2E] text-white flex items-center justify-center shadow-lg hover:bg-[#FF912E] cursor-pointer"
+                    title={isPlaying ? "إيقاف مؤقت" : "تشغيل"}
+                  >
+                    {isPlaying ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current translate-x-[-1px]" />}
+                  </button>
+                )}
 
-              <button 
-                onClick={() => {
-                  setTimeLeft(isTimeBased ? activeExercise.duration : 0);
-                  playBeep(600, 0.15);
-                  audioManager.playAudio('start');
-                }}
-                className="p-2 rounded-xl border border-white/10 text-gray-300 hover:text-white hover:bg-white/10 cursor-pointer"
-                title="إعادة جولة التمرين"
-              >
-                <RefreshCw className="w-4 h-4" />
-              </button>
-            </div>
+                <button
+                  onClick={handleNextExerciseManual}
+                  className="p-2.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 cursor-pointer text-white"
+                  title="التمرين التالي"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
 
-            {/* Info Button */}
-            <div className="flex justify-center pt-1">
-              <button
-                onClick={() => setShowTipsModal(true)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-bold bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:bg-white/10 cursor-pointer"
-              >
-                <span className="w-3.5 h-3.5 rounded-full bg-[#FF5F2E]/20 text-[#FF5F2E] flex items-center justify-center text-[8px] font-black">i</span>
-                <span>طريقة الأداء والتركيز الذهني</span>
-              </button>
+                <button 
+                  onClick={() => {
+                    setTimeLeft(isTimeBased ? activeExercise.duration : 0);
+                    playBeep(600, 0.15);
+                    audioManager.playAudio('start');
+                  }}
+                  className="p-2.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white cursor-pointer"
+                  title="إعادة الجولة"
+                >
+                  <RefreshCw className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Timer / Counter Indicator */}
+              <div className="flex items-center gap-3">
+                {isReadyCount ? (
+                  <div className="flex items-center gap-2 bg-amber-500/15 border border-amber-500/30 px-3 py-1.5 rounded-xl">
+                    <span className="text-[10px] text-amber-400 font-bold">استعداد:</span>
+                    <span className="text-sm font-black font-mono text-amber-400">{readyTimeLeft}s</span>
+                    <button 
+                      onClick={() => {
+                        setIsReadyCount(false);
+                        setTimeLeft(isTimeBased ? activeExercise.duration : 0);
+                        playBeep(1200, 0.4);
+                        audioManager.playAudio('start');
+                      }}
+                      className="text-[10px] bg-amber-500 text-black font-extrabold px-2 py-0.5 rounded-md hover:bg-amber-400"
+                    >
+                      بدء
+                    </button>
+                  </div>
+                ) : isResting ? (
+                  <div className="flex items-center gap-2 bg-sky-500/15 border border-sky-500/30 px-3 py-1.5 rounded-xl">
+                    <span className="text-[10px] text-sky-400 font-bold">راحه:</span>
+                    <span className="text-sm font-black font-mono text-sky-400">{restTimeLeft}s</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-3 py-1.5 rounded-xl">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[10px] text-gray-400 font-bold">الوقت:</span>
+                      <span className="text-base font-black font-mono text-[#FF5F2E]">{timeLeft}s</span>
+                    </div>
+                    <div className="h-4 w-[1px] bg-white/10"></div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[10px] text-gray-400 font-bold">المجموعة:</span>
+                      <span className="text-xs font-black text-white">{currentSet}/{totalSets}</span>
+                    </div>
+                  </div>
+                )}
+
+                {/* Info button */}
+                <button
+                  onClick={() => setShowTipsModal(true)}
+                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-[10px] font-bold bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:bg-white/10 cursor-pointer"
+                  title="تعليمات أداء التمرين"
+                >
+                  <Info className="w-3.5 h-3.5 text-[#FF5F2E]" />
+                  <span>طريقة الأداء</span>
+                </button>
+              </div>
+
             </div>
 
           </div>
+
+          {/* Right Column (الجانب الأيمن): Daily Exercises Scrollable List */}
+          <div className="w-72 sm:w-80 shrink-0 h-full flex flex-col p-3.5 rounded-2xl bg-[#141414]/90 border border-white/10 backdrop-blur-xl text-white shadow-2xl overflow-hidden">
+            
+            {/* Header of Exercise List */}
+            <div className="flex items-center justify-between pb-2 mb-2 border-b border-white/10 shrink-0">
+              <div className="flex items-center gap-2">
+                <Dumbbell className="w-4 h-4 text-[#FF5F2E]" />
+                <h3 className="text-xs font-black text-white">قائمة تمارين اليوم</h3>
+              </div>
+              <span className="text-[10px] font-mono font-bold bg-[#FF5F2E]/15 text-[#FF5F2E] px-2 py-0.5 rounded-md border border-[#FF5F2E]/30">
+                {exerciseIds.length} تمارين
+              </span>
+            </div>
+
+            {/* Scrollable Container ONLY for Exercise List */}
+            <div className="flex-1 overflow-y-auto space-y-2 pr-1 custom-scrollbar min-h-0">
+              {exerciseIds.map((exId, idx) => {
+                const ex = EXERCISES_DB[exId] || fallbackExercise;
+                const isActive = idx === currentIndex;
+                const isCompleted = idx < currentIndex;
+
+                return (
+                  <div
+                    key={`${exId}-${idx}`}
+                    onClick={() => {
+                      if (idx === currentIndex) return;
+                      setCurrentIndex(idx);
+                      setCurrentSet(1);
+                      setIsReadyCount(true);
+                      setReadyTimeLeft(15);
+                      setIsResting(false);
+                      setTimeLeft(ex.duration || 30);
+                      setIsPlaying(true);
+                    }}
+                    className={`p-2.5 rounded-xl border transition-all cursor-pointer text-right flex items-center justify-between gap-2 ${
+                      isActive 
+                        ? 'border-[#FF5F2E] bg-[#FF5F2E]/15 shadow-md ring-1 ring-[#FF5F2E]/40' 
+                        : isCompleted
+                        ? 'border-emerald-500/20 bg-emerald-500/5 opacity-80 hover:opacity-100'
+                        : 'border-white/5 bg-white/5 hover:bg-white/10'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                      <div className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black shrink-0 ${
+                        isActive 
+                          ? 'bg-[#FF5F2E] text-white shadow-sm' 
+                          : isCompleted 
+                          ? 'bg-emerald-500 text-white' 
+                          : 'bg-white/10 text-gray-400'
+                      }`}>
+                        {isCompleted ? '✓' : idx + 1}
+                      </div>
+                      
+                      <div className="min-w-0 flex-1">
+                        <h4 className={`text-xs font-bold truncate ${isActive ? 'text-[#FF5F2E]' : 'text-gray-200'}`}>
+                          {ex.nameAr}
+                        </h4>
+                        <span className="text-[9px] text-gray-400 block truncate">
+                          {ex.duration} ثانية • {totalSets} مجموعات
+                        </span>
+                      </div>
+                    </div>
+
+                    {isActive && (
+                      <span className="text-[9px] font-bold text-[#FF5F2E] bg-[#FF5F2E]/20 px-1.5 py-0.5 rounded shrink-0 border border-[#FF5F2E]/30 animate-pulse">
+                        الآن
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+          </div>
+
         </div>
 
         {/* Steps & Guidance Modal in Fullscreen Mode */}

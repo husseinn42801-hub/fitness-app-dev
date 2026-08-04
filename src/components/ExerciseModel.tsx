@@ -175,10 +175,12 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = ({
           ) : null}
 
           {/* Top Left Media badge */}
-          <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 bg-black/70 text-white rounded-full text-[10px] font-bold tracking-wider backdrop-blur-md shadow-sm z-20 border border-white/10">
-            <span className={`w-1.5 h-1.5 rounded-full ${isPlaying && hasLoadedData ? 'bg-[#FF5F2E] animate-pulse' : 'bg-amber-400'}`}></span>
-            <span className="text-gray-200">عرض أداء التمرين</span>
-          </div>
+          {!isFullscreen && (
+            <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 bg-black/70 text-white rounded-full text-[10px] font-bold tracking-wider backdrop-blur-md shadow-sm z-20 border border-white/10">
+              <span className={`w-1.5 h-1.5 rounded-full ${isPlaying && hasLoadedData ? 'bg-[#FF5F2E] animate-pulse' : 'bg-amber-400'}`}></span>
+              <span className="text-gray-200">عرض أداء التمرين</span>
+            </div>
+          )}
 
           {/* Play/Pause feedback Overlay when paused */}
           {!isPlaying && hasLoadedData && (
