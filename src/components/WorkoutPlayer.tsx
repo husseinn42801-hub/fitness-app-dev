@@ -1071,24 +1071,28 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
         className="fixed inset-0 z-[999] bg-[#0A0A0A] text-white flex flex-col w-screen h-screen overflow-hidden select-none font-sans" 
         dir="rtl"
       >
-        {/* Top Header Bar for Landscape Fullscreen */}
-        <div className="px-5 py-2 flex items-center justify-between border-b border-white/10 bg-[#121212]/90 backdrop-blur-md shrink-0 z-30">
+        {/* Top Header Bar for Fullscreen */}
+        <div className="px-3 sm:px-5 py-2 flex items-center justify-between border-b border-white/10 bg-[#121212]/90 backdrop-blur-md shrink-0 z-30 gap-2">
+          {/* Right side in RTL: Minimize Fullscreen Button */}
           <button 
             onClick={toggleFullscreen}
-            className="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-[#FF5F2E] text-white transition-all cursor-pointer flex items-center gap-2 text-xs font-bold border border-white/10 shadow-sm"
-            title="تصغير الشاشة (Portrait)"
+            className="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-[#FF5F2E] text-white transition-all cursor-pointer flex items-center gap-1.5 text-xs font-bold border border-white/10 shadow-sm shrink-0"
+            title="تصغير الشاشة"
           >
             <Minimize2 className="w-4 h-4 text-white" />
-            <span>تصغير الشاشة</span>
+            <span className="hidden sm:inline">تصغير الشاشة</span>
+            <span className="sm:hidden">تصغير</span>
           </button>
 
-          <div className="text-center flex-1 min-w-0 px-4">
-            <h3 className="text-xs font-black text-white truncate">
+          {/* Center: Workout Day Title & Active Exercise Name */}
+          <div className="text-center flex-1 min-w-0 px-2">
+            <h3 className="text-xs sm:text-sm font-bold text-white truncate">
               {day.titleAr} <span className="text-gray-400 font-normal">|</span> <span className="text-[#FF5F2E]">{activeExercise.nameAr}</span>
             </h3>
           </div>
 
-          <div className="flex items-center gap-2">
+          {/* Left side in RTL: Progress Counter, Coach Selector, Mute Toggle */}
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             <span className="text-xs font-mono font-bold bg-[#FF5F2E]/15 text-[#FF5F2E] px-2.5 py-1 rounded-lg border border-[#FF5F2E]/30">
               {currentStepNum} / {totalSteps}
             </span>
@@ -1100,15 +1104,15 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
                 audioManager.setCoach(nextGender);
                 audioManager.playAudio('preview', nextGender);
               }}
-              className="px-2.5 py-1 bg-white/5 border border-white/10 text-[10px] font-bold rounded-lg text-gray-300 hover:text-white flex items-center gap-1 cursor-pointer"
+              className="px-2.5 py-1 bg-white/5 border border-white/10 text-[10px] sm:text-xs font-bold rounded-lg text-gray-300 hover:text-white flex items-center gap-1 cursor-pointer"
             >
               <Mic className="w-3 h-3 text-[#FF5F2E]" />
-              <span>{voiceGenderPref === 'male' ? 'كابتن حسين' : 'كابتن أميرة'}</span>
+              <span className="hidden sm:inline">{voiceGenderPref === 'male' ? 'كابتن حسين' : 'كابتن أميرة'}</span>
             </button>
 
             <button
               onClick={() => setMuted(!muted)}
-              className={`p-2 rounded-xl transition-all cursor-pointer flex items-center justify-center ${
+              className={`p-1.5 sm:p-2 rounded-xl transition-all cursor-pointer flex items-center justify-center ${
                 muted 
                   ? 'bg-red-500 text-white border border-red-400' 
                   : 'bg-white/10 text-[#FF5F2E] border border-white/10'
@@ -1121,29 +1125,30 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
         </div>
 
         {/* Main Fullscreen Body Layout */}
-        <div className="flex-1 flex flex-row items-stretch p-3 sm:p-4 gap-4 min-h-0 w-full h-full overflow-hidden">
+        {/* Responsive: Stacked flex-col on portrait screens, side-by-side flex-row on landscape screens */}
+        <div className="flex-1 flex flex-col landscape:flex-row items-stretch p-2.5 sm:p-4 gap-3 sm:gap-4 min-h-0 w-full h-full overflow-hidden">
           
-          {/* Left Column (الجانب الأيسر): Video / Rest Screen Stage + Integrated Controls Bar below */}
-          <div className="flex-1 flex flex-col h-full min-w-0 min-h-0 gap-3">
+          {/* 1. Video Stage & Controls Column (Right Side in RTL Landscape) */}
+          <div className="flex-1 flex flex-col h-[55%] landscape:h-full min-w-0 min-h-0 gap-2 sm:gap-3">
             
-            {/* Stage: Exercise Video OR Rest Stage */}
+            {/* Stage Container: Exercise Video OR Rest Stage */}
             <div className="flex-1 relative rounded-2xl overflow-hidden bg-black flex items-center justify-center border border-white/15 shadow-2xl min-h-0 w-full">
               {isResting ? (
-                /* HIDE VIDEO completely on rest screen! Render clean Rest Stage */
+                /* Rest Screen */
                 <div className="w-full h-full flex flex-col items-center justify-center p-4 bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0A0A0A] text-center space-y-3">
                   <div className="p-3 rounded-full bg-sky-500/20 text-sky-400 border border-sky-400/30 animate-pulse">
-                    <Pause className="w-7 h-7" />
+                    <Pause className="w-6 h-6" />
                   </div>
                   
                   <div>
                     <span className="text-xs font-bold text-sky-400 tracking-wide uppercase">وقت الاستراحة والتعافي</span>
-                    <h3 className="text-base font-extrabold text-white mt-0.5">
+                    <h3 className="text-sm sm:text-base font-extrabold text-white mt-0.5">
                       خذ نفساً عميقاً واستعد للمجموعة التالية ({currentSet} من {totalSets})
                     </h3>
                   </div>
 
                   {/* Rest Circular Timer */}
-                  <div className="relative w-24 h-24 flex items-center justify-center my-1">
+                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center my-1">
                     <svg className="absolute inset-0 w-full h-full transform -rotate-90" viewBox="0 0 100 100">
                       <circle cx="50" cy="50" r="40" stroke="#1E293B" strokeWidth="6" fill="transparent" />
                       <circle 
@@ -1159,21 +1164,21 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
                       />
                     </svg>
                     <div className="flex flex-col items-center">
-                      <span className="text-3xl font-black font-mono text-sky-400">{restTimeLeft}</span>
+                      <span className="text-2xl sm:text-3xl font-black font-mono text-sky-400">{restTimeLeft}</span>
                       <span className="text-[9px] text-gray-400 font-bold">ثانية</span>
                     </div>
                   </div>
 
                   <button 
                     onClick={handleSkipRest}
-                    className="px-5 py-2 bg-sky-500 hover:bg-sky-400 text-white rounded-full text-xs font-bold shadow-lg transition-all cursor-pointer flex items-center gap-1.5"
+                    className="px-4 py-1.5 bg-sky-500 hover:bg-sky-400 text-white rounded-full text-xs font-bold shadow-lg transition-all cursor-pointer flex items-center gap-1.5"
                   >
                     <span>تخطي الراحة والبدء فوراً</span>
                     <ChevronLeft className="w-4 h-4" />
                   </button>
                 </div>
               ) : (
-                /* Video Player - No floating text over the video */
+                /* Pure Video Player without overlay header text */
                 <ExerciseModel 
                   type={activeExercise.animationType} 
                   isPlaying={isPlaying} 
@@ -1186,15 +1191,75 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
               )}
             </div>
 
-            {/* Controls Bar directly below the Video */}
-            <div className="px-4 py-2.5 rounded-2xl bg-[#141414]/90 border border-white/10 backdrop-blur-xl text-white shadow-xl flex items-center justify-between gap-3 shrink-0">
+            {/* Controls Bar directly under the Video Box */}
+            <div className="px-3 sm:px-4 py-2 sm:py-2.5 rounded-2xl bg-[#141414]/90 border border-white/10 backdrop-blur-xl text-white shadow-xl flex items-center justify-between gap-2 shrink-0">
               
-              {/* Previous / Play-Pause / Next / Reset */}
-              <div className="flex items-center gap-2">
+              {/* Timer / Counter Indicator & Info Button (Right side in RTL) */}
+              <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+                {isReadyCount ? (
+                  <div className="flex items-center gap-1.5 bg-amber-500/15 border border-amber-500/30 px-2.5 py-1 rounded-xl">
+                    <span className="text-[10px] text-amber-400 font-bold">استعداد:</span>
+                    <span className="text-xs sm:text-sm font-black font-mono text-amber-400">{readyTimeLeft}s</span>
+                    <button 
+                      onClick={() => {
+                        setIsReadyCount(false);
+                        setTimeLeft(isTimeBased ? activeExercise.duration : 0);
+                        playBeep(1200, 0.4);
+                        audioManager.playAudio('start');
+                      }}
+                      className="text-[9px] bg-amber-500 text-black font-extrabold px-1.5 py-0.5 rounded hover:bg-amber-400"
+                    >
+                      بدء
+                    </button>
+                  </div>
+                ) : isResting ? (
+                  <div className="flex items-center gap-1.5 bg-sky-500/15 border border-sky-500/30 px-2.5 py-1 rounded-xl">
+                    <span className="text-[10px] text-sky-400 font-bold">راحه:</span>
+                    <span className="text-xs sm:text-sm font-black font-mono text-sky-400">{restTimeLeft}s</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-2 sm:gap-3 bg-white/5 border border-white/10 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl">
+                    <div className="flex items-center gap-1">
+                      <span className="text-[10px] text-gray-400 font-bold">الوقت:</span>
+                      <span className="text-xs sm:text-sm font-black font-mono text-[#FF5F2E]">{timeLeft}s</span>
+                    </div>
+                    <div className="h-3 sm:h-4 w-[1px] bg-white/10"></div>
+                    <div className="flex items-center gap-1">
+                      <span className="text-[10px] text-gray-400 font-bold">المجموعة:</span>
+                      <span className="text-xs font-black text-white">{currentSet}/{totalSets}</span>
+                    </div>
+                  </div>
+                )}
+
+                {/* Info Button */}
+                <button
+                  onClick={() => setShowTipsModal(true)}
+                  className="flex items-center gap-1 px-2 py-1 rounded-xl text-[10px] font-bold bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:bg-white/10 cursor-pointer shrink-0"
+                  title="تعليمات أداء التمرين"
+                >
+                  <Info className="w-3.5 h-3.5 text-[#FF5F2E]" />
+                  <span className="hidden sm:inline">طريقة الأداء</span>
+                </button>
+              </div>
+
+              {/* Control Buttons Group (Left side in RTL: Reset / Previous / Play-Pause / Next) */}
+              <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                <button
+                  onClick={() => {
+                    setTimeLeft(isTimeBased ? activeExercise.duration : 0);
+                    playBeep(600, 0.15);
+                    audioManager.playAudio('start');
+                  }}
+                  className="p-1.5 sm:p-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white cursor-pointer"
+                  title="إعادة الجولة"
+                >
+                  <RefreshCw className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                </button>
+
                 <button
                   onClick={handlePreviousExerciseManual}
                   disabled={currentIndex === 0}
-                  className="p-2.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 disabled:opacity-30 disabled:pointer-events-none cursor-pointer text-white"
+                  className="p-1.5 sm:p-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 disabled:opacity-30 disabled:pointer-events-none cursor-pointer text-white"
                   title="التمرين السابق"
                 >
                   <ChevronRight className="w-4 h-4" />
@@ -1203,7 +1268,7 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
                 {isTimeBased && !isResting && (
                   <button
                     onClick={handlePlayPause}
-                    className="w-10 h-10 rounded-full bg-[#FF5F2E] text-white flex items-center justify-center shadow-lg hover:bg-[#FF912E] cursor-pointer"
+                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#FF5F2E] text-white flex items-center justify-center shadow-lg hover:bg-[#FF912E] cursor-pointer"
                     title={isPlaying ? "إيقاف مؤقت" : "تشغيل"}
                   >
                     {isPlaying ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current translate-x-[-1px]" />}
@@ -1212,70 +1277,10 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
 
                 <button
                   onClick={handleNextExerciseManual}
-                  className="p-2.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 cursor-pointer text-white"
+                  className="p-1.5 sm:p-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 cursor-pointer text-white"
                   title="التمرين التالي"
                 >
                   <ChevronLeft className="w-4 h-4" />
-                </button>
-
-                <button 
-                  onClick={() => {
-                    setTimeLeft(isTimeBased ? activeExercise.duration : 0);
-                    playBeep(600, 0.15);
-                    audioManager.playAudio('start');
-                  }}
-                  className="p-2.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white cursor-pointer"
-                  title="إعادة الجولة"
-                >
-                  <RefreshCw className="w-4 h-4" />
-                </button>
-              </div>
-
-              {/* Timer / Counter Indicator */}
-              <div className="flex items-center gap-3">
-                {isReadyCount ? (
-                  <div className="flex items-center gap-2 bg-amber-500/15 border border-amber-500/30 px-3 py-1.5 rounded-xl">
-                    <span className="text-[10px] text-amber-400 font-bold">استعداد:</span>
-                    <span className="text-sm font-black font-mono text-amber-400">{readyTimeLeft}s</span>
-                    <button 
-                      onClick={() => {
-                        setIsReadyCount(false);
-                        setTimeLeft(isTimeBased ? activeExercise.duration : 0);
-                        playBeep(1200, 0.4);
-                        audioManager.playAudio('start');
-                      }}
-                      className="text-[10px] bg-amber-500 text-black font-extrabold px-2 py-0.5 rounded-md hover:bg-amber-400"
-                    >
-                      بدء
-                    </button>
-                  </div>
-                ) : isResting ? (
-                  <div className="flex items-center gap-2 bg-sky-500/15 border border-sky-500/30 px-3 py-1.5 rounded-xl">
-                    <span className="text-[10px] text-sky-400 font-bold">راحه:</span>
-                    <span className="text-sm font-black font-mono text-sky-400">{restTimeLeft}s</span>
-                  </div>
-                ) : (
-                  <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-3 py-1.5 rounded-xl">
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-[10px] text-gray-400 font-bold">الوقت:</span>
-                      <span className="text-base font-black font-mono text-[#FF5F2E]">{timeLeft}s</span>
-                    </div>
-                    <div className="h-4 w-[1px] bg-white/10"></div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-[10px] text-gray-400 font-bold">المجموعة:</span>
-                      <span className="text-xs font-black text-white">{currentSet}/{totalSets}</span>
-                    </div>
-                  </div>
-                )}
-
-                {/* Info button */}
-                <button
-                  onClick={() => setShowTipsModal(true)}
-                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-[10px] font-bold bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:bg-white/10 cursor-pointer"
-                  title="تعليمات أداء التمرين"
-                >
-                  <Info className="w-3.5 h-3.5 text-[#FF5F2E]" />
-                  <span>طريقة الأداء</span>
                 </button>
               </div>
 
@@ -1283,8 +1288,8 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
 
           </div>
 
-          {/* Right Column (الجانب الأيمن): Daily Exercises Scrollable List */}
-          <div className="w-72 sm:w-80 shrink-0 h-full flex flex-col p-3.5 rounded-2xl bg-[#141414]/90 border border-white/10 backdrop-blur-xl text-white shadow-2xl overflow-hidden">
+          {/* 2. Scrollable Exercise List Column (Left Side in RTL Landscape) */}
+          <div className="w-full landscape:w-72 sm:landscape:w-80 landscape:shrink-0 landscape:max-w-[42%] flex-1 landscape:h-full flex flex-col p-3 sm:p-3.5 rounded-2xl bg-[#141414]/90 border border-white/10 backdrop-blur-xl text-white shadow-2xl overflow-hidden min-h-0">
             
             {/* Header of Exercise List */}
             <div className="flex items-center justify-between pb-2 mb-2 border-b border-white/10 shrink-0">
@@ -1297,7 +1302,7 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({ day, onFinishWorko
               </span>
             </div>
 
-            {/* Scrollable Container ONLY for Exercise List */}
+            {/* Scrollable Container for Exercise List */}
             <div className="flex-1 overflow-y-auto space-y-2 pr-1 custom-scrollbar min-h-0">
               {exerciseIds.map((exId, idx) => {
                 const ex = EXERCISES_DB[exId] || fallbackExercise;
