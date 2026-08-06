@@ -42,9 +42,7 @@ import { APP_CONFIG } from './config/appConfig';
 import { generateWorkoutDaysForUser, WORKOUT_DAYS_DB } from './data/workoutDays';
 import { EXERCISES_DB } from './data/exercises';
 import { SEASONS_BY_GOAL, SEASONS_DB } from './data/seasons';
-import { ExerciseModel } from './components/ExerciseModel';
 import { WorkoutDays, VirtualizedExerciseList } from './components/WorkoutDays';
-import { CountUp } from './components/CountUp';
 import { Apple, Share2 } from 'lucide-react';
 import { OnboardingWizard } from './components/OnboardingWizard';
 import { AppSplashScreen } from './components/AppSplashScreen';
@@ -387,41 +385,6 @@ export default function App() {
       isPerfect: Math.abs(diff) < 0.5
     };
   }, [userStats]);
-
-  const coachInsights = useMemo(() => {
-    const bmiVal = parseFloat(bmi);
-    let bmiAr = '';
-    if (bmiVal < 18.5) bmiAr = 'وزن ناقص ⚠️';
-    else if (bmiVal < 25) bmiAr = 'وزن مثالي ورشيق ✅';
-    else if (bmiVal < 30) bmiAr = 'وزن زائد خفيف ⚠️';
-    else bmiAr = 'سمنة مفرطة 🚨';
-
-    let advice = '';
-    const name = userStats.userName || 'بطلنا';
-    
-    // Custom messages based on goal, age, activity level
-    if (userStats.goal === 'loss') {
-      advice = `مرحباً كابتن ${name}! هدفك الرياضي الحالي هو خسارة الدهون ونحت الكرش. قمنا بتوليد برنامج كارديو وHIIT مخصص عالي الشدة لتنشيط خلايا الحرق بجسمك ومضاعفة استهلاك السعرات.`;
-      if (userStats.age >= 40) {
-        advice += ' تم تخصيص التمارين لتكون رفيقة بمفاصل الركبة والحوض مع استبعاد الحركات الصادمة عالية الارتطام لتوفير حماية كاملة لك.';
-      }
-    } else if (userStats.goal === 'maintain') {
-      advice = `مرحباً كابتن ${name}! اخترت برنامج شد الجسم ونحت القوام المثالي. خطتك التدريبية غنية بتمارين البلانك، الكور، والتحكم بالوزن للقضاء على الترهلات كلياً.`;
-      if (userStats.gender === 'أنثى') {
-        advice += ' قمنا بإبراز عضلات الأرداف والكور في التقسيم اليومي لتعزيز منحنيات الجسم وتناسقه الجمالي الفريد.';
-      }
-    } else {
-      advice = `أهلاً كابتن ${name}! هدفك هو بناء العضلات واكتساب كتلة قوية صلبة. صممنا لك برنامجاً يعتمد على زيادة الحمل التدريبي والمقاومة وتفتيت الألياف لتحفيز التضخيم السريع.`;
-      if (userStats.gender === 'ذكر') {
-        advice += ' ركزنا على التمارين المركبة للجزء العلوي والصدر لضمان زيادة القوة وبناء أكتاف عريضة متناسقة.';
-      }
-    }
-
-    return {
-      bmiStatus: bmiAr,
-      advice
-    };
-  }, [bmi, userStats]);
 
   const todayStr = new Date().toISOString().split('T')[0];
 

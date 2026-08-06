@@ -1,8 +1,6 @@
 {
-  "name": "تحديث الوضع الأفقي ",
-  "description": "",
+  "name": "تطبيق رشاقة 30 يوم",
+  "description": "تطبيق لياقة وتغذية متكامل لتحدي 30 يوم لخسارة الوزن ونحت الجسم",
   "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
+  "majorCapabilities": []
 }

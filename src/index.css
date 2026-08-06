@@ -78,17 +78,4 @@
   animation: fadeInFast 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Landscape Mode Responsive Enhancements */
-@media (orientation: landscape) and (max-height: 500px) {
-  html, body {
-    height: 100vh;
-  }
-  
-  /* Compact safe area padding for notch/cutout devices in horizontal orientation */
-  .fixed, .sticky {
-    padding-left: env(safe-area-inset-left, 0px);
-    padding-right: env(safe-area-inset-right, 0px);
-  }
-}
-
 

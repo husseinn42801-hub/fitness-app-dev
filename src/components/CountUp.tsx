@@ -3,60 +3,29 @@ import React, { useState, useEffect } from 'react';
 interface CountUpProps {
   end: number;
   duration?: number;
-  suffix?: string;
-  prefix?: string;
-  className?: string;
 }
 
-export const CountUp: React.FC<CountUpProps> = ({
-  end,
-  duration = 1000,
-  suffix = '',
-  prefix = '',
-  className = '',
-}) => {
-  const [count, setCount] = useState(0);
+export const CountUp: React.FC<CountUpProps> = ({ end, duration = 1000 }) => {
+  const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
-    if (!end || end <= 0) {
-      setCount(end || 0);
-      return;
-    }
-
+    let startTimestamp: number | null = null;
     let animationFrameId: number;
-    const startTime = performance.now();
 
-    const updateCount = (currentTime: number) => {
-      const elapsedTime = currentTime - startTime;
-      const progress = Math.min(elapsedTime / duration, 1);
-      
-      // Easing curve: easeOutExpo
-      const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-      const currentVal = Math.floor(easeOut * end);
-
-      setCount(currentVal);
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      setCount(Math.floor(progress * end));
 
       if (progress < 1) {
-        animationFrameId = requestAnimationFrame(updateCount);
-      } else {
-        setCount(end);
+        animationFrameId = requestAnimationFrame(step);
       }
     };
 
-    animationFrameId = requestAnimationFrame(updateCount);
+    animationFrameId = requestAnimationFrame(step);
 
-    return () => {
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
-    };
+    return () => cancelAnimationFrame(animationFrameId);
   }, [end, duration]);
 
-  return (
-    <span className={className}>
-      {prefix}
-      {count}
-      {suffix}
-    </span>
-  );
+  return <span>{count}</span>;
 };

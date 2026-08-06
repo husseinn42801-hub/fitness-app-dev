@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { EXERCISES_DB } from '../data/exercises';
-import { Pause, Loader2, Video, Dumbbell, Maximize2, Minimize2 } from 'lucide-react';
+import { Pause, Loader2, Video, Dumbbell } from 'lucide-react';
 
 interface ExerciseModelProps {
   type: 'jumping-jacks' | 'squats' | 'crunches' | 'russian-twist' | 'plank' | 'leg-raises' | 'cobra-stretch';
@@ -8,19 +8,9 @@ interface ExerciseModelProps {
   mp4Url?: string;
   exerciseNameEn?: string;
   heightClass?: string;
-  onToggleFullscreen?: () => void;
-  isFullscreen?: boolean;
 }
 
-export const ExerciseModel: React.FC<ExerciseModelProps> = ({ 
-  type, 
-  isPlaying = true, 
-  mp4Url, 
-  exerciseNameEn, 
-  heightClass = 'h-52 sm:h-64',
-  onToggleFullscreen,
-  isFullscreen = false
-}) => {
+export const ExerciseModel: React.FC<ExerciseModelProps> = ({ type, isPlaying = true, mp4Url, exerciseNameEn, heightClass = 'h-52 sm:h-64' }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isBuffering, setIsBuffering] = useState<boolean>(true);
   const [hasLoadedData, setHasLoadedData] = useState<boolean>(false);
@@ -175,28 +165,10 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = ({
           ) : null}
 
           {/* Top Left Media badge */}
-          {!isFullscreen && (
-            <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 bg-black/70 text-white rounded-full text-[10px] font-bold tracking-wider backdrop-blur-md shadow-sm z-20 border border-white/10">
-              <span className={`w-1.5 h-1.5 rounded-full ${isPlaying && hasLoadedData ? 'bg-[#84CC16] animate-pulse' : 'bg-amber-400'}`}></span>
-              <span className="text-gray-200">عرض أداء التمرين</span>
-            </div>
-          )}
-
-          {/* Top Right "تكبير" Fullscreen Button - Green Pill Style matching screenshot */}
-          {onToggleFullscreen && !isFullscreen && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onToggleFullscreen();
-              }}
-              className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/70 hover:bg-[#84CC16] text-[#84CC16] hover:text-black font-extrabold text-xs backdrop-blur-md border border-[#84CC16]/60 shadow-lg transition-all hover:scale-105 active:scale-95 z-30 cursor-pointer"
-              title="تكبير الشاشة (Fullscreen)"
-              type="button"
-            >
-              <Maximize2 className="w-3.5 h-3.5" />
-              <span>تكبير</span>
-            </button>
-          )}
+          <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 bg-black/70 text-white rounded-full text-[10px] font-bold tracking-wider backdrop-blur-md shadow-sm z-20 border border-white/10">
+            <span className={`w-1.5 h-1.5 rounded-full ${isPlaying && hasLoadedData ? 'bg-[#FF5F2E] animate-pulse' : 'bg-amber-400'}`}></span>
+            <span className="text-gray-200">عرض أداء التمرين</span>
+          </div>
 
           {/* Play/Pause feedback Overlay when paused */}
           {!isPlaying && hasLoadedData && (
@@ -205,25 +177,6 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = ({
                 <Pause className="w-8 h-8 fill-current" />
               </div>
             </div>
-          )}
-
-          {/* YouTube-style Fullscreen Toggle Button - Bottom Right */}
-          {onToggleFullscreen && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onToggleFullscreen();
-              }}
-              className="absolute bottom-3 right-3 flex items-center justify-center p-2 rounded-xl bg-black/75 hover:bg-[#FF5F2E] text-white backdrop-blur-md border border-white/20 shadow-lg transition-all hover:scale-110 active:scale-95 z-30 cursor-pointer group/fs"
-              title={isFullscreen ? "تصغير الشاشة (Portrait)" : "تكبير الشاشة (Fullscreen / Landscape)"}
-              type="button"
-            >
-              {isFullscreen ? (
-                <Minimize2 className="w-4 h-4 text-white group-hover/fs:rotate-90 transition-transform" />
-              ) : (
-                <Maximize2 className="w-4 h-4 text-white group-hover/fs:scale-110 transition-transform" />
-              )}
-            </button>
           )}
         </>
       )}
