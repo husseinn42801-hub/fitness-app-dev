@@ -1,4080 +1,4054 @@
-import { Exercise } from "../types";
+import { Exercise } from '../types';
 
 /**
- * Complete Database of 108 Exercises
- * All metadata, Arabic explanations, muscle targetings, categories, difficulty levels, and tags included.
+ * Single Source of Truth for 100 Exercises
+ * Completely duration-based (Time-based), zero reps.
+ * Pre-calculated calories, durations, rest profiles, and translated metadata.
  */
 export const EXERCISES_DB: Record<string, Exercise> = {
-  "achilles_stretch": {
-    "id": "achilles_stretch",
-    "nameAr": "إطالة وتر أكيليس (عرقوب القدم)",
-    "nameEn": "Achilles Stretch",
-    "category": "الإطالات والاستشفاء",
-    "bodyPart": "الساقين والربلة",
-    "targetMuscle": "وتر أكيليس وربلة الساق",
+  "1107": {
+    "id": "1107",
+    "nameAr": "تمرين عجلة البطن",
+    "nameEn": "ab wheel workout",
+    "category": "البطن والكرش",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
     "secondaryMuscles": [
-      "مفصل الكاحل",
-      "عضلات الساق الخلفية"
+      "أسفل الظهر",
+      "الأكتاف"
     ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين إطالة يركز على إرخاء وتر أكيليس وربلة الساق لمنع التشنجات وزيادة مرونة الكاحل.",
-    "duration": 30,
-    "caloriesPerMin": 3,
-    "caloriesApprox": 15,
-    "animationType": "cobra-stretch",
+    "equipment": "وزن الجسم",
+    "description": "The ab wheel workout is a bodyweight core exercise that targets the abdominal muscles while engaging the lower back and shoulders as stabilizers. It involves rolling out and back on an ab wheel from a kneeling position, demanding full core tension throughout the movement.",
+    "duration": 45,
+    "caloriesPerMin": 7,
+    "caloriesApprox": 5,
+    "animationType": "crunches",
     "steps": [
-      "قف مواجهاً للحائط وضغط يديك عليه.",
-      "ارجع إحدى الساقين للخلف مع إبقاء الكعب ملامساً للأرض.",
-      "اثنِ الركبة الأمامية ببطء حتى تشعر بالشاط في الساق الخلفية."
+      "Kneel on the floor and grip the ab wheel handles with both hands, positioning it directly beneath your shoulders.",
+      "Engage your core and slowly roll the wheel forward, extending your body towards the ground.",
+      "Continue rolling out as far as you can while keeping your back flat and hips from sagging.",
+      "Pause briefly at full extension, then use your core to pull the wheel back to the starting position.",
+      "Repeat for the desired number of repetitions."
     ],
     "tips": [
-      "حافظ على استقامة الظهر والكعب على الأرض.",
-      "تنفس ببطء واستقر لمدة 20-30 ثانية."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين عجلة البطن.",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (45 ثانية)."
     ],
     "tags": [
-      "إطالة",
-      "مرونة",
-      "الكاحل",
-      "استشفاء",
-      "بدون معدات",
-      "تمارين منزلية",
+      "البطن والكرش",
+      "عضلات البطن",
+      "متوسط"
+    ],
+    "muscleGroup": "عضلات البطن والخصر",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1107.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1107.mp4",
+    "imageUrl": ""
+  },
+  "1108": {
+    "id": "1108",
+    "nameAr": "التواء العمود الفقري الجالس (أردها ماتسيندراسانا)",
+    "nameEn": "ardha matsyendrasana (seated spinal twist)",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
+    "secondaryMuscles": [
+      "الخصر والجانبان",
+      "أسفل الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Ardha matsyendrasana, or the seated spinal twist, is a bodyweight mobility exercise targeting the abdominal muscles and spine. It involves rotating the torso from a seated position to improve spinal mobility and engage the core and obliques.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "russian-twist",
+    "steps": [
+      "Sit on the floor with your legs extended straight in front of you.",
+      "Bend your right knee and place your right foot flat on the floor outside your left thigh.",
+      "Place your right hand behind you on the floor for support and wrap your left arm around your right knee.",
+      "Inhale to lengthen your spine, then exhale and twist your torso to the right as far as comfortably possible.",
+      "Hold for 20-30 seconds, then return to center and repeat on the opposite side."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء التواء العمود الفقري الجالس (أردها ماتسيندراسانا).",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات البطن",
       "مبتدئ"
     ],
     "muscleGroup": "الإطالات والاستشفاء",
     "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/1-Achilles%20Stretch.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/1-Achilles%20Stretch.mp4",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1108.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1108.mp4",
     "imageUrl": ""
   },
-  "add_stretch": {
-    "id": "add_stretch",
-    "nameAr": "إطالة العضلات الضامة للفخذ",
-    "nameEn": "Add Stretch",
+  "1109": {
+    "id": "1109",
+    "nameAr": "إطالة الذراع والأكتاف",
+    "nameEn": "arm stretch",
     "category": "الإطالات والاستشفاء",
-    "bodyPart": "الجزء السفلي والحوض",
-    "targetMuscle": "العضلات الضامة (Adductors)",
+    "bodyPart": "الأكتاف",
+    "targetMuscle": "عضلات الكتف",
     "secondaryMuscles": [
-      "عضلات الحوض",
-      "الفخذ الداخلي"
+      "عضلات الترافيز",
+      "الذراعان والبايل والتراي"
     ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين لتطوير مرونة الفخذ الداخلي وعضلات الحوض وتخفيف الشد العضلي بعد التمارين.",
+    "equipment": "وزن الجسم",
+    "description": "The arm stretch is a bodyweight stretching exercise targeting the deltoids, with secondary engagement of the traps and upper arms. It is performed standing by pulling one arm across the chest to release tension and improve shoulder flexibility.",
     "duration": 30,
-    "caloriesPerMin": 3,
-    "caloriesApprox": 15,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
     "animationType": "cobra-stretch",
     "steps": [
-      "اجلس على الأرض وضُم باطن القدمين لبعضهما.",
-      "امسك القدمين بيديك واضغط بالركبتين بلطف نحو الأسفل.",
-      "انحنِ للامام قليلاً مع الحفاظ على استقامة الظهر."
+      "Stand upright with your feet shoulder-width apart and your back straight.",
+      "Slowly raise both arms out to your sides simultaneously.",
+      "Continue lifting until your arms are fully extended and parallel to the floor.",
+      "Reach outward through your fingertips, feeling a stretch across your chest and shoulders.",
+      "Hold this extended position for 20-30 seconds.",
+      "Slowly lower your arms back to your sides."
     ],
     "tips": [
-      "لا تضغط بقوة مفرطة، الإطالة يجب أن تكون مريحة.",
-      "حافظ على تنفس عميق أثناء التمرين."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء إطالة الذراع والأكتاف.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الكتف) طوال مدة الأداء (30 ثانية)."
     ],
     "tags": [
-      "إطالة",
-      "الفخذ الداخلي",
-      "الحوض",
-      "استشفاء",
-      "بدون معدات",
+      "الإطالات والاستشفاء",
+      "عضلات الكتف",
       "مبتدئ"
     ],
     "muscleGroup": "الإطالات والاستشفاء",
     "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/2-Add%20Stretch.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/2-Add%20Stretch.mp4",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1109.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1109.mp4",
     "imageUrl": ""
   },
-  "air_drivers": {
-    "id": "air_drivers",
-    "nameAr": "تمرين قيادة الهواء للأكتاف",
-    "nameEn": "Air Drivers",
-    "category": "الإحماء",
-    "bodyPart": "الأكتاف والجزء العلوي",
-    "targetMuscle": "عضلات الكتف (Deltoids)",
+  "1110": {
+    "id": "1110",
+    "nameAr": "تمرين الطير والكلب المتقدم (رفع اليدين)",
+    "nameEn": "bird dog advanced (both hands raise)",
+    "category": "الظهر",
+    "bodyPart": "الظهر",
+    "targetMuscle": "عضلات الظهر العريضة",
     "secondaryMuscles": [
-      "أعلى الظهر",
-      "الذراعين"
+      "عضلات البطن",
+      "المؤخرة",
+      "أسفل الظهر"
     ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين حركي ممتاز لإحماء مفصل الكتف وتنشيط الدورة الدموية في الجزء العلوي.",
-    "duration": 30,
-    "caloriesPerMin": 5,
-    "caloriesApprox": 25,
+    "equipment": "وزن الجسم",
+    "description": "The bird dog advanced (both hands raise) is a challenging bodyweight exercise targeting the lats and lower back, with secondary engagement of the abs and glutes. It involves simultaneously lifting both arms and both legs from a tabletop position, demanding exceptional core stability and balance.",
+    "duration": 60,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 10,
     "animationType": "jumping-jacks",
     "steps": [
-      "قف مستقيماً وافرد ذراعيك للأمام في مستوى الصدر.",
-      "قم بتدوير الذراعين كأنك تمسك بمقود سيارة وتديره يميناً ويساراً.",
-      "حافظ على سرعة منتظمة وثبات الكور."
+      "Begin on all fours with your hands directly under your shoulders and knees under your hips.",
+      "Engage your core to stabilize your spine and keep your back flat.",
+      "Simultaneously raise both arms straight forward while extending both legs behind you, balancing on your torso.",
+      "Hold the position for 2-3 seconds, maintaining a neutral spine and avoiding rotation.",
+      "Lower back to the starting position and repeat for the desired number of repetitions."
     ],
     "tips": [
-      "حافظ على شد عضلات البطن طوال الحركة.",
-      "لا تخفض الذراعين أثناء التمرين."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين الطير والكلب المتقدم (رفع اليدين).",
+      "ركز على انقباض العضلات المستهدفة (عضلات الظهر العريضة) طوال مدة الأداء (60 ثانية)."
     ],
     "tags": [
-      "إحماء",
-      "الكتفين",
-      "الجسم بالكامل",
-      "تخسيس",
-      "شد الجسم",
+      "الظهر",
+      "عضلات الظهر العريضة",
+      "متقدم"
+    ],
+    "muscleGroup": "الجزء العلوي والذراعين",
+    "difficulty": "متقدم",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1110.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1110.mp4",
+    "imageUrl": ""
+  },
+  "1111": {
+    "id": "1111",
+    "nameAr": "تمرين الطير والكلب للثبات",
+    "nameEn": "bird dog",
+    "category": "الظهر",
+    "bodyPart": "الظهر",
+    "targetMuscle": "عضلات الظهر العريضة",
+    "secondaryMuscles": [
+      "عضلات البطن",
+      "المؤخرة",
+      "أسفل الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The bird dog is a bodyweight exercise targeting the lats and lower back, with secondary engagement of the abs and glutes. It involves alternately extending opposite arm and leg from a quadruped position to develop core stability, balance, and spinal control.",
+    "duration": 30,
+    "caloriesPerMin": 6,
+    "caloriesApprox": 3,
+    "animationType": "jumping-jacks",
+    "steps": [
+      "Begin on all fours with your hands directly under your shoulders and knees under your hips.",
+      "Engage your core and keep your back flat throughout the movement.",
+      "Simultaneously extend your right arm forward and your left leg back, keeping both parallel to the floor.",
+      "Hold for 2-3 seconds, then return to the starting position.",
+      "Repeat on the opposite side, extending your left arm and right leg, and continue alternating for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين الطير والكلب للثبات.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الظهر العريضة) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الظهر",
+      "عضلات الظهر العريضة",
       "مبتدئ"
     ],
     "muscleGroup": "الجزء العلوي والذراعين",
     "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/3-Air%20Drivers.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/3-Air%20Drivers.mp4",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1111.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1111.mp4",
     "imageUrl": ""
   },
-  "alternating_forward_lunge": {
-    "id": "alternating_forward_lunge",
-    "nameAr": "طعن أمامي متناول للساقين",
-    "nameEn": "Alternating Forward Lunge",
+  "1112": {
+    "id": "1112",
+    "nameAr": "وضعية الجسر للظهر والمؤخرة",
+    "nameEn": "bridge pose - wheel prep bridge",
     "category": "الساقين",
-    "bodyPart": "الجزء السفلي والفخذين",
-    "targetMuscle": "العضلات الرباعية والأرداف (Quadriceps & Glutes)",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات المؤخرة",
     "secondaryMuscles": [
-      "عضلات الفخذ الخلفية",
-      "الكور"
+      "الفخذ الخلفي",
+      "أسفل الظهر",
+      "عضلات البطن"
     ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين مركزي لبناء عضلات الفخذين والأرداف وتحسين التوازن والرشاقة.",
-    "duration": 45,
-    "caloriesPerMin": 8,
-    "caloriesApprox": 40,
+    "equipment": "وزن الجسم",
+    "description": "The bridge pose wheel prep bridge is a bodyweight exercise targeting the glutes, with secondary engagement of the hamstrings, lower back, and abs. It involves lifting the hips from a supine position to strengthen the posterior chain and prepare the spine for deeper backbend movements.",
+    "duration": 30,
+    "caloriesPerMin": 6,
+    "caloriesApprox": 3,
     "animationType": "squats",
     "steps": [
-      "قف بانتصاب مع وضع اليدين على الخصر.",
-      "اخطُ خطوة واسعة للأمام باحدى الساقين واثنِ الركبة حتى زاوية 90 درجة.",
-      "ادفع بالأرض بالقدم الأمامية للعودة لوضع الاستعداد وكرر بالساق الأخرى."
+      "Lie flat on your back with your knees bent and feet flat on the floor, hip-width apart.",
+      "Place your arms alongside your body with palms facing down.",
+      "Press through your feet and engage your glutes to lift your hips off the floor until your body forms a straight line from shoulders to knees.",
+      "Hold at the top for 2-3 seconds, squeezing your glutes and keeping your core engaged.",
+      "Slowly lower your hips back to the starting position and repeat for the desired number of repetitions."
     ],
     "tips": [
-      "لا تدع الركبة الأمامية تتجاوز أطراف الأصابع.",
-      "حافظ على استقامة جذعك."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء وضعية الجسر للظهر والمؤخرة.",
+      "ركز على انقباض العضلات المستهدفة (عضلات المؤخرة) طوال مدة الأداء (30 ثانية)."
     ],
     "tags": [
       "الساقين",
+      "عضلات المؤخرة",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الجزء السفلي والفخذين",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1112.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1112.mp4",
+    "imageUrl": ""
+  },
+  "1113": {
+    "id": "1113",
+    "nameAr": "سكوات البلغاري المباشر (لانجز مرتفع)",
+    "nameEn": "bulgarian split squat",
+    "category": "الساقين",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
       "المؤخرة",
-      "شد الجسم",
-      "بناء العضلات",
-      "حرق الدهون",
-      "بدون معدات",
+      "الفخذ الخلفي"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The Bulgarian split squat is a bodyweight lower body exercise targeting the quadriceps, with secondary emphasis on the glutes and hamstrings. It is performed with the rear foot elevated, creating a unilateral loading pattern that challenges leg strength, stability, and hip mobility.",
+    "duration": 45,
+    "caloriesPerMin": 7,
+    "caloriesApprox": 5,
+    "animationType": "squats",
+    "steps": [
+      "Stand about two feet in front of a bench or elevated surface and place the top of one foot on the bench behind you.",
+      "Ensure your front foot is far enough forward that your knee does not travel past your toes during the descent.",
+      "Engage your core and lower your back knee towards the ground by bending your front leg.",
+      "Descend until your front thigh is approximately parallel to the floor.",
+      "Drive through your front heel to return to the starting position and repeat for the desired number of repetitions before switching legs."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء سكوات البلغاري المباشر (لانجز مرتفع).",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (45 ثانية)."
+    ],
+    "tags": [
+      "الساقين",
+      "عضلات الفخذ الأمامية",
       "متوسط"
     ],
     "muscleGroup": "الجزء السفلي والفخذين",
     "difficulty": "متوسط",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/4-Alternating%20Forward%20Lunge.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/4-Alternating%20Forward%20Lunge.mp4",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1113.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1113.mp4",
     "imageUrl": ""
   },
-  "alternating_kettlebell_lunge_jumps": {
-    "id": "alternating_kettlebell_lunge_jumps",
-    "nameAr": "قفزات الطعن المتناوبة مع كيتل بل",
-    "nameEn": "Alternating Kettlebell Lunge Jumps",
+  "1114": {
+    "id": "1114",
+    "nameAr": "تمرين البربي الشامل",
+    "nameEn": "burpee",
     "category": "الكارديو",
-    "bodyPart": "الساقين والجسم بالكامل",
-    "targetMuscle": "عضلات الفخذين والمؤخرة (Quads & Glutes)",
+    "bodyPart": "كامل الجسم",
+    "targetMuscle": "عضلات البطن",
     "secondaryMuscles": [
-      "عضلات القلب والأوعية الدموية",
-      "الكور"
+      "الصدر",
+      "الفخذ الأمامي",
+      "الأكتاف"
     ],
-    "equipment": "كيتل بل",
-    "description": "تمرين متفجر يجمع بين القوة البدنية وحرق الدهون العالي مع استخدام وزن إضافي.",
-    "duration": 60,
-    "caloriesPerMin": 12,
-    "caloriesApprox": 60,
-    "animationType": "squats",
+    "equipment": "وزن الجسم",
+    "description": "The burpee is a full-body bodyweight exercise targeting the abs and cardiovascular system, with secondary engagement of the chest, quads, and shoulders. It combines a squat, plank, push-up, and jump into one continuous movement, making it highly effective for conditioning and calorie expenditure.",
+    "duration": 45,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 8,
+    "animationType": "crunches",
     "steps": [
-      "امسك الكيتل بل أمام صدرك بوضع الطعن.",
-      "اقفز بقوة في الهواء وقم بتبديل وضعية القدمين في الهواء.",
-      "اهبط بمرونة في وضعية الطعن بالساق الأخرى وكرر بالحركة المتواصلة."
+      "Stand with your feet shoulder-width apart and your arms by your sides.",
+      "Bend your knees and place your hands on the floor, then jump or step your feet back into a push-up position.",
+      "Perform one push-up, keeping your body in a straight line.",
+      "Jump or step your feet back towards your hands, then explosively jump upward with your arms overhead.",
+      "Land softly with slightly bent knees and immediately begin the next repetition."
     ],
     "tips": [
-      "احرص على الهبوط الناعم لحماية الركبتين.",
-      "حافظ على التحكم بالوزن طوال القفز."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين البربي الشامل.",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (45 ثانية)."
     ],
     "tags": [
       "الكارديو",
-      "حرق الدهون",
-      "تخسيس",
-      "الساقين",
-      "المؤخرة",
-      "كيتل بل",
-      "متقدم"
+      "عضلات البطن",
+      "متوسط"
     ],
     "muscleGroup": "كامل الجسم",
-    "difficulty": "متقدم",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/5-Alternating%20Kettlebell%20Lunge%20Jumps.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/5-Alternating%20Kettlebell%20Lunge%20Jumps.mp4",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1114.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1114.mp4",
     "imageUrl": ""
   },
-  "alternating_superman": {
-    "id": "alternating_superman",
-    "nameAr": "تمرين السوبرمان المتناوب للظهر",
-    "nameEn": "Alternating Superman",
-    "category": "الظهر",
-    "bodyPart": "الظهر وأسفل الظهر",
-    "targetMuscle": "عضلات أسفل الظهر (Erector Spinae)",
+  "1115": {
+    "id": "1115",
+    "nameAr": "ركض ركل الخلفية للكارديو",
+    "nameEn": "butt kick jog cardio",
+    "category": "الكارديو",
+    "bodyPart": "الساقين السفلية",
+    "targetMuscle": "عضلات الفخذ الخلفية",
     "secondaryMuscles": [
-      "الأرداف",
-      "الأكتاف الخلفية"
+      "الفخذ الأمامي",
+      "المؤخرة"
     ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين فعال جداً لتقوية الظهر والجزء الخلفي من الجسم وتحسين القامة.",
-    "duration": 45,
-    "caloriesPerMin": 5,
-    "caloriesApprox": 25,
-    "animationType": "cobra-stretch",
+    "equipment": "وزن الجسم",
+    "description": "Butt kick jog cardio is a bodyweight cardiovascular exercise targeting the hamstrings, with secondary engagement of the quads and glutes. It involves jogging in place while kicking the heels up to the glutes with each stride, elevating heart rate while warming up the lower body.",
+    "duration": 30,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 5,
+    "animationType": "squats",
     "steps": [
-      "استلقِ على بطنك مع فرد الذراعين والساقين.",
-      "ارفع الذراع اليمنى والساق اليسرى في نفس الوقت عن الأرض ببطء.",
-      "اثبت لثانية ثم اخفضهما وكرر مع الذراع اليسرى والساق اليمنى."
+      "Stand tall with your feet hip-width apart and your arms bent at 90 degrees at your sides.",
+      "Begin jogging in place at a moderate pace.",
+      "With each stride, kick your heel up towards your glutes as high as comfortably possible.",
+      "Alternate legs in a continuous jogging rhythm, keeping your core engaged and your torso upright.",
+      "Continue for the desired duration or number of repetitions."
     ],
     "tips": [
-      "لا ترفع رأسك بشكل مفرط لتجنب إجهاد الرقبة.",
-      "ركز على انقباض عضلات الظهر."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء ركض ركل الخلفية للكارديو.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الخلفية) طوال مدة الأداء (30 ثانية)."
     ],
     "tags": [
-      "الظهر",
-      "شد الجسم",
-      "بدون معدات",
-      "تمارين منزلية",
+      "الكارديو",
+      "عضلات الفخذ الخلفية",
       "مبتدئ"
+    ],
+    "muscleGroup": "كامل الجسم",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1115.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1115.mp4",
+    "imageUrl": ""
+  },
+  "1116": {
+    "id": "1116",
+    "nameAr": "إطالة وضعية القطة للظهر",
+    "nameEn": "cat pose stretching",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الظهر",
+    "targetMuscle": "عضلات الظهر العريضة",
+    "secondaryMuscles": [
+      "عضلات البطن",
+      "أسفل الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Cat pose stretching is a bodyweight mobility exercise targeting the lats and back, with secondary engagement of the abs and lower back. Performed on all fours, it involves rounding the spine upward to release tension along the back and improve spinal flexibility.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "cobra-stretch",
+    "steps": [
+      "Begin on all fours with your wrists directly under your shoulders and your knees under your hips.",
+      "Inhale to prepare, then exhale and round your spine upward toward the ceiling, tucking your chin to your chest and your tailbone under.",
+      "Hold the rounded position for 2-3 seconds, feeling the stretch through your back.",
+      "Slowly return your spine to a neutral position.",
+      "Repeat for the desired number of repetitions, coordinating the movement with your breath."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء إطالة وضعية القطة للظهر.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الظهر العريضة) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الظهر العريضة",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1116.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1116.mp4",
+    "imageUrl": ""
+  },
+  "1117": {
+    "id": "1117",
+    "nameAr": "تمرين الشاتورانجا إلى الكوبرا العلوية",
+    "nameEn": "chaturanga to upward dog",
+    "category": "الصدر",
+    "bodyPart": "الصدر",
+    "targetMuscle": "عضلات الصدر",
+    "secondaryMuscles": [
+      "الأكتاف",
+      "أسفل الظهر",
+      "عضلات البطن"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Chaturanga to upward dog is a bodyweight strength and mobility sequence targeting the chest, with secondary engagement of the shoulders, lower back, and abs. It transitions from a low plank position into a spine-extending backbend, building upper body strength and spinal mobility.",
+    "duration": 45,
+    "caloriesPerMin": 7,
+    "caloriesApprox": 5,
+    "animationType": "jumping-jacks",
+    "steps": [
+      "Begin in a high plank position with your hands placed slightly narrower than shoulder-width apart.",
+      "Lower your body slowly by bending your elbows close to your sides until your upper arms are parallel to the floor.",
+      "Hold the chaturanga position briefly, then press through your hands and extend your arms while lifting your chest and rolling over your toes into upward-facing dog.",
+      "In upward dog, ensure your thighs and shins are off the floor, your shoulders are away from your ears, and your chest is open.",
+      "Hold for a breath, then transition back to downward dog or repeat the sequence for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين الشاتورانجا إلى الكوبرا العلوية.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الصدر) طوال مدة الأداء (45 ثانية)."
+    ],
+    "tags": [
+      "الصدر",
+      "عضلات الصدر",
+      "متوسط"
     ],
     "muscleGroup": "الجزء العلوي والذراعين",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/6-Alternating%20Superman.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/6-Alternating%20Superman.mp4",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1117.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1117.mp4",
     "imageUrl": ""
   },
-  "angle_pose": {
-    "id": "angle_pose",
-    "nameAr": "وضعية الزاوية لليوجا والتوازن",
-    "nameEn": "Angle Pose",
+  "1118": {
+    "id": "1118",
+    "nameAr": "وضعية الطفل للاسترخاء",
+    "nameEn": "child pose",
     "category": "الإطالات والاستشفاء",
-    "bodyPart": "الكور والجذع",
-    "targetMuscle": "عضلات الجذع الجانبية والحوض",
-    "secondaryMuscles": [
-      "عضلات الفخذ",
-      "الظهر"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "وضعية تعزز الاستقرار والتوازن وتزيد من مرونة الخصر والجزء السفلي.",
-    "duration": 45,
-    "caloriesPerMin": 4,
-    "caloriesApprox": 20,
-    "animationType": "cobra-stretch",
-    "steps": [
-      "قف بتباعد مناسب بين القدمين.",
-      "انحنِ بجذعك جانباً وافرد اليد العلوية باتجاه السقف.",
-      "حافظ على الثبات والتنفس الهادئ لمدة 20 ثانية لكل جانب."
-    ],
-    "tips": [
-      "حافظ على استقامة الصدر وعدم الانحناء للأمام."
-    ],
-    "tags": [
-      "إطالة",
-      "مرونة",
-      "توازن",
-      "استشفاء",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الإطالات والاستشفاء",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/7-Angle%20Pose.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/7-Angle%20Pose.mp4",
-    "imageUrl": ""
-  },
-  "angle_pose_stretch": {
-    "id": "angle_pose_stretch",
-    "nameAr": "إطالة وضعية الزاوية للخصر",
-    "nameEn": "Angle Pose Stretch",
-    "category": "الإطالات والاستشفاء",
-    "bodyPart": "الخصر والجذع",
-    "targetMuscle": "عضلات الخصر والعضلات الماربة (Obliques)",
+    "bodyPart": "الظهر",
+    "targetMuscle": "عضلات الظهر العريضة",
     "secondaryMuscles": [
       "أسفل الظهر",
-      "الورك"
+      "المؤخرة"
     ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين إطالة لفك الشد العضلي في منطقة الجوانب والخصر بعد التمارين الشاقة.",
-    "duration": 45,
+    "equipment": "وزن الجسم",
+    "description": "Child pose is a bodyweight stretching exercise targeting the lats, with secondary engagement of the lower back and glutes. It involves folding the torso forward from a kneeling position to gently decompress the spine and release tension throughout the back.",
+    "duration": 30,
     "caloriesPerMin": 4,
-    "caloriesApprox": 20,
+    "caloriesApprox": 2,
     "animationType": "cobra-stretch",
     "steps": [
-      "قف وافتح القدمين بعرض الكتفين.",
-      "ارفع ذراعك فوق رأسك وانحنِ للجزء المقابل ببطء.",
-      "اشعر بالشاط المريح على طول جانب جسمك."
+      "Kneel on the floor with your big toes together and knees hip-width apart.",
+      "Sit back onto your heels, then fold your torso forward and extend your arms straight out in front of you on the floor.",
+      "Rest your forehead gently on the ground and relax your shoulders toward the floor.",
+      "Hold the position for 20-30 seconds, breathing deeply and allowing your back to lengthen.",
+      "Slowly walk your hands back in and rise to the starting position."
     ],
     "tips": [
-      "حافظ على التنفس المريح دون حبس النفس."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء وضعية الطفل للاسترخاء.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الظهر العريضة) طوال مدة الأداء (30 ثانية)."
     ],
     "tags": [
-      "إطالة",
-      "الخصر",
-      "الكرش",
-      "استشفاء",
+      "الإطالات والاستشفاء",
+      "عضلات الظهر العريضة",
       "مبتدئ"
     ],
     "muscleGroup": "الإطالات والاستشفاء",
     "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/8-Angle%20Pose%20Stretch.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/8-Angle%20Pose%20Stretch.mp4",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1118.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1118.mp4",
     "imageUrl": ""
   },
-  "ankle_circles": {
-    "id": "ankle_circles",
-    "nameAr": "تدوير الكاحل لليونة المفاصل",
-    "nameEn": "Ankle Circles",
-    "category": "الإحماء",
-    "bodyPart": "الكاحل والقدمين",
-    "targetMuscle": "مفصل الكاحل وأربطة القدم",
+  "1119": {
+    "id": "1119",
+    "nameAr": "تمرين الضغط المتفجر مع التصفق",
+    "nameEn": "clap push up",
+    "category": "الصدر",
+    "bodyPart": "الصدر",
+    "targetMuscle": "عضلات الصدر",
     "secondaryMuscles": [
-      "ربلة الساق"
+      "الأكتاف",
+      "الذراعان والبايل والتراي",
+      "عضلات البطن"
     ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين تهيئة وتنشيط لمفصل الكاحل قبل التمارين الكارديو والقدمين.",
-    "duration": 30,
-    "caloriesPerMin": 3,
-    "caloriesApprox": 15,
+    "equipment": "وزن الجسم",
+    "description": "The clap push up is an advanced bodyweight plyometric exercise targeting the chest, with secondary engagement of the shoulders, upper arms, and abs. It involves an explosive push-up that generates enough force to clap the hands mid-air, developing upper body power and fast-twitch muscle activation.",
+    "duration": 60,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 10,
     "animationType": "jumping-jacks",
     "steps": [
-      "قف أو اجلس مع رفع قدم واحدة قليلاً عن الأرض.",
-      "قم بتدوير الكاحل بحركة دائرية باتجاه عقارب الساعة ثم عكسها.",
-      "كرر الحركة لكل قدم لمدة 15-20 ثانية."
+      "Begin in a standard push-up position with your hands slightly wider than shoulder-width apart.",
+      "Lower your chest toward the floor in a controlled manner, keeping your body in a straight line.",
+      "Explosively push up with maximum force so your hands leave the ground.",
+      "While airborne, quickly clap your hands together, then return your hands to the floor to catch yourself.",
+      "Absorb the landing with slightly bent elbows and immediately begin the next repetition."
     ],
     "tips": [
-      "اجعل الحركة بطيئة وواسعة أقصى قدر ممكن."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين الضغط المتفجر مع التصفق.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الصدر) طوال مدة الأداء (60 ثانية)."
     ],
     "tags": [
-      "إحماء",
-      "الكاحل",
-      "مرونة",
-      "بدون معدات",
-      "مبتدئ"
+      "الصدر",
+      "عضلات الصدر",
+      "متقدم"
     ],
-    "muscleGroup": "الإطالات والاستشفاء",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/9-Ankle%20Circles.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/9-Ankle%20Circles.mp4",
+    "muscleGroup": "الجزء العلوي والذراعين",
+    "difficulty": "متقدم",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1119.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1119.mp4",
     "imageUrl": ""
   },
-  "ankle_dorsiflexion": {
-    "id": "ankle_dorsiflexion",
-    "nameAr": "تمرين انثناء الكاحل للأعلى",
-    "nameEn": "Ankle Dorsiflexion",
-    "category": "الإحماء",
-    "bodyPart": "الكاحل والساق",
-    "targetMuscle": "عضلة الساق الأمامية (Tibialis Anterior)",
+  "1120": {
+    "id": "1120",
+    "nameAr": "تمرين الضغط بقبضة ضيقة للترايسبس",
+    "nameEn": "close grip push ups",
+    "category": "الصدر",
+    "bodyPart": "الصدر",
+    "targetMuscle": "عضلات الصدر",
     "secondaryMuscles": [
-      "مفصل الكاحل"
+      "الذراعان والبايل والتراي",
+      "الأكتاف"
     ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تقوية العضلة الأمامية للساق لحماية مفصل الكاحل والركبة أثناء الركض والقفز.",
-    "duration": 30,
-    "caloriesPerMin": 3,
-    "caloriesApprox": 15,
-    "animationType": "jumping-jacks",
-    "steps": [
-      "استند بظهرك إلى الحائط واجعل قدميك بعيدتين عن الحائط بضع خطوات.",
-      "ارفع أصابع قدميك للأعلى باتجاه الساق مع البقاء على الكعبين.",
-      "اخفضهما ببطء وكرر التكرارات."
-    ],
-    "tips": [
-      "ركز على الانقباض العضلي في مقدمة الساق."
-    ],
-    "tags": [
-      "إحماء",
-      "الساقين",
-      "تقوية المفاصل",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الإطالات والاستشفاء",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/10-Ankle%20Dorsiflexion.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/10-Ankle%20Dorsiflexion.mp4",
-    "imageUrl": ""
-  },
-  "ankle_touches": {
-    "id": "ankle_touches",
-    "nameAr": "تمرين لمس الكاحلين لشد البطن الجانبي",
-    "nameEn": "Ankle Touches",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن والخصر",
-    "targetMuscle": "عضلات البطن الجانبية (Obliques)",
-    "secondaryMuscles": [
-      "عضلات البطن المستقيمة"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين رائع لنحت الخصر وإزالة الدهون الجانبية وتفعيل عضلات البطن العلوي والجوانب.",
+    "equipment": "وزن الجسم",
+    "description": "Close grip push ups are a bodyweight exercise targeting the chest with increased emphasis on the upper arms. The narrow hand position shifts the workload to the triceps and inner chest, making this a highly effective compound pressing movement.",
     "duration": 45,
-    "caloriesPerMin": 6,
-    "caloriesApprox": 30,
-    "animationType": "crunches",
+    "caloriesPerMin": 7,
+    "caloriesApprox": 5,
+    "animationType": "jumping-jacks",
     "steps": [
-      "استلقِ على ظهرك واثنِ الركبتين مع تثبيت القدمين على الأرض.",
-      "ارفع كتفيك قليلاً عن الأرض وانحنِ جانباً للمس كاحلك الأيمن بيدك اليمنى.",
-      "عد للنتصف ثم انحنِ للمس الكاحل الأيسر باليد اليسرى بالتجانس."
+      "Begin in a plank position with your hands placed directly under your chest, closer than shoulder-width apart.",
+      "Keep your elbows close to your sides throughout the movement.",
+      "Lower your chest toward the floor in a controlled manner, keeping your core engaged and your body in a straight line.",
+      "Pause briefly at the bottom, then press through your palms to return to the starting position.",
+      "Repeat for the desired number of repetitions."
     ],
     "tips": [
-      "حافظ على الرقبة مسترخية وتطلع للسقف."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين الضغط بقبضة ضيقة للترايسبس.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الصدر) طوال مدة الأداء (45 ثانية)."
     ],
     "tags": [
-      "البطن",
-      "الكرش",
-      "تخسيس",
-      "شد الجسم",
-      "بدون معدات",
+      "الصدر",
+      "عضلات الصدر",
+      "متوسط"
+    ],
+    "muscleGroup": "الجزء العلوي والذراعين",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1120.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1120.mp4",
+    "imageUrl": ""
+  },
+  "1121": {
+    "id": "1121",
+    "nameAr": "إطالة الفخذ الخلفي بشريط المقاومة",
+    "nameEn": "resistance band supine hamstring stretch",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الخلفية",
+    "secondaryMuscles": [
+      "المؤخرة",
+      "أسفل الظهر",
+      "عضلات الساق السفلية"
+    ],
+    "equipment": "شريط المقاومة",
+    "description": "The resistance band supine hamstring stretch is a flexibility and mobility exercise targeting the hamstrings. By using a band, you can safely guide the leg into a deeper stretch while keeping the back flat and supported on the floor, improving posterior chain flexibility.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
+    "steps": [
+      "Lie flat on your back on the floor.",
+      "Loop a resistance band or long strap around the arch of one foot, holding the ends of the band with your hands.",
+      "Keep your opposite leg resting flat on the floor.",
+      "Keeping the banded leg straight, use the band to help pull your leg upward toward the ceiling.",
+      "Raise the leg until you feel a stretch in your hamstring and hold briefly.",
+      "Slowly lower the leg back to the floor with control.",
+      "Repeat for the desired number of repetitions, then switch legs."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء إطالة الفخذ الخلفي بشريط المقاومة.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الخلفية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الفخذ الخلفية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1121.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1121.mp4",
+    "imageUrl": ""
+  },
+  "1122": {
+    "id": "1122",
+    "nameAr": "تمرين الوقوف على الساعدين مع الركل",
+    "nameEn": "controlled kick forearm stand flow",
+    "category": "الكتفين",
+    "bodyPart": "الأكتاف",
+    "targetMuscle": "عضلات الكتف",
+    "secondaryMuscles": [
+      "عضلات البطن",
+      "الذراعان والبايل والتراي",
+      "عضلات الترافيز"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The controlled kick forearm stand flow is an advanced bodyweight balance exercise targeting the deltoids, with secondary engagement of the abs, upper arms, and traps. It involves kicking into a forearm stand with control, building shoulder stability, core strength, and body awareness.",
+    "duration": 60,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 10,
+    "animationType": "jumping-jacks",
+    "steps": [
+      "Begin in a forearm plank position with your elbows directly under your shoulders and forearms flat on the floor.",
+      "Walk your feet in toward your elbows, lifting your hips high to create an inverted V shape.",
+      "Engage your core and kick one leg upward while pressing firmly into your forearms.",
+      "Control the kick and hold the forearm stand position for 2-3 seconds, stacking your hips over your shoulders.",
+      "Slowly lower the leg back down and repeat on the other side for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين الوقوف على الساعدين مع الركل.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الكتف) طوال مدة الأداء (60 ثانية)."
+    ],
+    "tags": [
+      "الكتفين",
+      "عضلات الكتف",
+      "متقدم"
+    ],
+    "muscleGroup": "الجزء العلوي والذراعين",
+    "difficulty": "متقدم",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1122.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1122.mp4",
+    "imageUrl": ""
+  },
+  "1123": {
+    "id": "1123",
+    "nameAr": "إطالة وضعية البقرة للظهر",
+    "nameEn": "cow pose stretch",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الظهر",
+    "targetMuscle": "عضلات الظهر العريضة",
+    "secondaryMuscles": [
+      "عضلات البطن",
+      "أسفل الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Cow pose stretch is a bodyweight mobility exercise targeting the lats and back, with secondary engagement of the abs and lower back. Performed on all fours, it involves dropping the belly toward the floor to extend the spine and open the chest, often paired with cat pose.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "cobra-stretch",
+    "steps": [
+      "Begin on all fours with your wrists directly under your shoulders and knees under your hips.",
+      "Inhale and slowly let your belly drop toward the floor, lifting your head and tailbone upward.",
+      "Hold the arched position for 2-3 seconds, feeling the stretch through your chest and lower back.",
+      "Exhale and return your spine to a neutral position.",
+      "Repeat for the desired number of repetitions, coordinating the movement with your breath."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء إطالة وضعية البقرة للظهر.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الظهر العريضة) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الظهر العريضة",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1123.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1123.mp4",
+    "imageUrl": ""
+  },
+  "1124": {
+    "id": "1124",
+    "nameAr": "إطالة الكتف العرضية",
+    "nameEn": "cross-body shoulder stretch",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الأكتاف",
+    "targetMuscle": "عضلات الكتف",
+    "secondaryMuscles": [
+      "عضلات الترافيز",
+      "الذراعان والبايل والتراي"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The cross-body shoulder stretch is a bodyweight stretching exercise targeting the posterior deltoids, with secondary engagement of the traps and upper arms. It involves pulling one arm horizontally across the body to release tightness in the shoulder and improve joint flexibility.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "cobra-stretch",
+    "steps": [
+      "Stand or sit upright with your back straight and core engaged.",
+      "Extend one arm straight across your body at chest height.",
+      "Use your opposite forearm or hand to press the arm gently toward your chest.",
+      "Hold the stretch for 20-30 seconds, feeling tension in the back of your shoulder.",
+      "Release and repeat on the other side."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء إطالة الكتف العرضية.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الكتف) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الكتف",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1124.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1124.mp4",
+    "imageUrl": ""
+  },
+  "1125": {
+    "id": "1125",
+    "nameAr": "وضعية الغراب للاتزان والقوة",
+    "nameEn": "crow pose",
+    "category": "الكتفين",
+    "bodyPart": "الأكتاف",
+    "targetMuscle": "عضلات الكتف",
+    "secondaryMuscles": [
+      "عضلات البطن",
+      "الذراعان والبايل والتراي",
+      "الساعدان"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Crow pose is an advanced bodyweight balance exercise targeting the deltoids, with secondary engagement of the abs, upper arms, and lower arms. It involves balancing the body on bent arms with the knees resting on the triceps, demanding significant upper body strength and core stability.",
+    "duration": 60,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 10,
+    "animationType": "jumping-jacks",
+    "steps": [
+      "Squat down and place your hands flat on the floor, shoulder-width apart, with fingers spread wide.",
+      "Bend your elbows slightly and place your knees on the backs of your upper arms, as high up as possible.",
+      "Lean your weight forward into your hands and slowly lift one foot off the floor, then the other.",
+      "Balance on your hands with your core engaged and your gaze slightly forward.",
+      "Hold the position for as long as possible, then slowly lower your feet back to the floor."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء وضعية الغراب للاتزان والقوة.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الكتف) طوال مدة الأداء (60 ثانية)."
+    ],
+    "tags": [
+      "الكتفين",
+      "عضلات الكتف",
+      "متقدم"
+    ],
+    "muscleGroup": "الجزء العلوي والذراعين",
+    "difficulty": "متقدم",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1125.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1125.mp4",
+    "imageUrl": ""
+  },
+  "1126": {
+    "id": "1126",
+    "nameAr": "تمرين الضغط المنحدر (الأقدام مرتفعة)",
+    "nameEn": "decline push ups",
+    "category": "الصدر",
+    "bodyPart": "الصدر",
+    "targetMuscle": "عضلات الصدر",
+    "secondaryMuscles": [
+      "الأكتاف",
+      "الذراعان والبايل والتراي",
+      "عضلات البطن"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Decline push ups are a bodyweight exercise targeting the upper chest, with secondary engagement of the shoulders, upper arms, and abs. By elevating the feet, the angle shifts the emphasis onto the upper portion of the pectoral muscles and increases overall difficulty.",
+    "duration": 45,
+    "caloriesPerMin": 7,
+    "caloriesApprox": 5,
+    "animationType": "jumping-jacks",
+    "steps": [
+      "Place your feet on an elevated surface such as a bench or step and position your hands on the floor, slightly wider than shoulder-width apart.",
+      "Ensure your body forms a straight line from head to heels with your core engaged.",
+      "Lower your chest toward the floor by bending your elbows, keeping them at roughly a 45-degree angle to your body.",
+      "Pause briefly at the bottom when your chest is just above the floor.",
+      "Press back up to the starting position and repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين الضغط المنحدر (الأقدام مرتفعة).",
+      "ركز على انقباض العضلات المستهدفة (عضلات الصدر) طوال مدة الأداء (45 ثانية)."
+    ],
+    "tags": [
+      "الصدر",
+      "عضلات الصدر",
+      "متوسط"
+    ],
+    "muscleGroup": "الجزء العلوي والذراعين",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1126.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1126.mp4",
+    "imageUrl": ""
+  },
+  "1127": {
+    "id": "1127",
+    "nameAr": "تمرين القفز من المرتفعات (ديبث جامب)",
+    "nameEn": "depth jump",
+    "category": "الساقين",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "المؤخرة",
+      "الفخذ الخلفي",
+      "lower legs"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The depth jump is an advanced bodyweight plyometric exercise targeting the quadriceps, with secondary engagement of the glutes, hamstrings, and lower legs. It involves stepping off an elevated surface and immediately jumping upon landing, utilizing the stretch-shortening cycle to develop explosive lower body power.",
+    "duration": 60,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 10,
+    "animationType": "squats",
+    "steps": [
+      "Stand on top of a sturdy box or elevated platform with your feet hip-width apart.",
+      "Step off the box and land with both feet simultaneously on the floor below.",
+      "Upon landing, immediately and explosively jump upward as high as possible with your arms swinging overhead.",
+      "Land softly with slightly bent knees to absorb the impact.",
+      "Reset and repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين القفز من المرتفعات (ديبث جامب).",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (60 ثانية)."
+    ],
+    "tags": [
+      "الساقين",
+      "عضلات الفخذ الأمامية",
+      "متقدم"
+    ],
+    "muscleGroup": "الجزء السفلي والفخذين",
+    "difficulty": "متقدم",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1127.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1127.mp4",
+    "imageUrl": ""
+  },
+  "1128": {
+    "id": "1128",
+    "nameAr": "تمرين ضغط الماس للصدر والترايسبس",
+    "nameEn": "diamond push up",
+    "category": "الصدر",
+    "bodyPart": "الصدر",
+    "targetMuscle": "عضلات الصدر",
+    "secondaryMuscles": [
+      "الذراعان والبايل والتراي",
+      "الأكتاف"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The diamond push up is a bodyweight exercise targeting the chest with strong emphasis on the triceps. The close diamond-shaped hand position shifts the workload to the inner chest and upper arms, making it one of the most effective bodyweight movements for triceps development.",
+    "duration": 45,
+    "caloriesPerMin": 7,
+    "caloriesApprox": 5,
+    "animationType": "jumping-jacks",
+    "steps": [
+      "Begin in a plank position and bring your hands together beneath your sternum, touching your thumbs and index fingers to form a diamond shape.",
+      "Keep your elbows close to your body throughout the movement and engage your core.",
+      "Lower your chest toward your hands in a controlled manner until it nearly touches the floor.",
+      "Pause briefly at the bottom, then press back up to the starting position.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين ضغط الماس للصدر والترايسبس.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الصدر) طوال مدة الأداء (45 ثانية)."
+    ],
+    "tags": [
+      "الصدر",
+      "عضلات الصدر",
+      "متوسط"
+    ],
+    "muscleGroup": "الجزء العلوي والذراعين",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1128.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1128.mp4",
+    "imageUrl": ""
+  },
+  "1129": {
+    "id": "1129",
+    "nameAr": "ثبات البلانك والدولفين للكور",
+    "nameEn": "dolphin plank hold",
+    "category": "البطن والكرش",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
+    "secondaryMuscles": [
+      "الأكتاف",
+      "أسفل الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The dolphin plank hold is a bodyweight isometric exercise targeting the abs, with secondary engagement of the shoulders and lower back. It is performed in a forearm plank position, requiring sustained core and shoulder stability to maintain proper alignment throughout the hold.",
+    "duration": 30,
+    "caloriesPerMin": 6,
+    "caloriesApprox": 3,
+    "animationType": "plank",
+    "steps": [
+      "Begin in a forearm plank position with your elbows directly beneath your shoulders and forearms flat on the floor.",
+      "Engage your core, glutes, and legs to maintain a straight line from head to heels.",
+      "Press your forearms firmly into the floor and keep your hips level, avoiding any sagging or piking.",
+      "Hold the position for the desired duration while breathing steadily.",
+      "Release by lowering your knees to the floor."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء ثبات البلانك والدولفين للكور.",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "البطن والكرش",
+      "عضلات البطن",
       "مبتدئ"
     ],
     "muscleGroup": "عضلات البطن والخصر",
     "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/11-Ankle%20Touches.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/11-Ankle%20Touches.mp4",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1129.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1129.mp4",
     "imageUrl": ""
   },
-  "arm_circles": {
-    "id": "arm_circles",
-    "nameAr": "دوائر الذراعين الأمامية",
-    "nameEn": "Arm Circles",
-    "category": "الإحماء",
-    "bodyPart": "الأكتاف والذراعين",
-    "targetMuscle": "الأكتاف (Deltoids)",
-    "secondaryMuscles": [
-      "أعلى الصدر",
-      "أعلى الظهر"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين حركي كلاسيكي ممتاز لتسخين مفصل الكتف والأذرع وتقوية التحمل.",
-    "duration": 30,
-    "caloriesPerMin": 4,
-    "caloriesApprox": 20,
-    "animationType": "jumping-jacks",
-    "steps": [
-      "قف بانتصاب وافرد الذراعين جانباً بمستوى الكتفين.",
-      "قم بتدوير الذراعين بحركات دائرية صغيرة للأمام.",
-      "زد حجم الدائرة تدريجياً."
-    ],
-    "tips": [
-      "حافظ على ارتفاع الذراعين وعدم إنزالهما."
-    ],
-    "tags": [
-      "إحماء",
-      "الكتفين",
-      "الذراعين",
-      "شد الجسم",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الجزء العلوي والذراعين",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/12-13-Arm%20Circles.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/12-13-Arm%20Circles.mp4",
-    "imageUrl": ""
-  },
-  "arm_circles_reverse": {
-    "id": "arm_circles_reverse",
-    "nameAr": "دوائر الذراعين الخلفية",
-    "nameEn": "Arm Circles Reverse",
-    "category": "الإحماء",
-    "bodyPart": "الأكتاف وأعلى الظهر",
-    "targetMuscle": "الكتف الخلفي وأعلى الظهر",
-    "secondaryMuscles": [
-      "الذراعين"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين تدوير الذراعين للخلف لفتح الصدر وتحسين قامة الجسم وتنشيط الكتف الخلفي.",
-    "duration": 30,
-    "caloriesPerMin": 4,
-    "caloriesApprox": 20,
-    "animationType": "jumping-jacks",
-    "steps": [
-      "قف وافرد ذراعيك جانباً بمستوى الكتفين.",
-      "قم بتدوير الذراعين للخلف بحركات دائرية متناسقة.",
-      "استمر بالدوران لمدة 30 ثانية."
-    ],
-    "tips": [
-      "ضم لوحي الكتف للخلف أثناء الدوران."
-    ],
-    "tags": [
-      "إحماء",
-      "الكتفين",
-      "الظهر",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الجزء العلوي والذراعين",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/13-Arm%20Circles%20Reverse.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/13-Arm%20Circles%20Reverse.mp4",
-    "imageUrl": ""
-  },
-  "back_lunge_with_band": {
-    "id": "back_lunge_with_band",
-    "nameAr": "طعن خلفي باستخدام شريط المقاومة",
-    "nameEn": "Back Lunge With Band",
-    "category": "الساقين",
-    "bodyPart": "الساقين والمؤخرة",
-    "targetMuscle": "عضلات الفخذ والأرداف (Quads & Glutes)",
-    "secondaryMuscles": [
-      "عضلات الكور",
-      "التوازن"
-    ],
-    "equipment": "شريط مقاومة (باند)",
-    "description": "تمرين طعن خلفي مدعم بشريط مقاومة لزيادة التفعيل العضلي ونحت المؤخرة.",
-    "duration": 45,
-    "caloriesPerMin": 8,
-    "caloriesApprox": 40,
-    "animationType": "squats",
-    "steps": [
-      "ضع شريط المقاومة حول الفخذين أعلى الركبة.",
-      "اخطُ خطوة واسعة للخلف باحدى الساقين واثنِ الركبتين لزاوية قائمة.",
-      "ادفع بالقدم الأمامية للعودة لوضع البداية وكرر."
-    ],
-    "tips": [
-      "حافظ على بقاء الركبة ثابتة وعدم انحرافها للداخل."
-    ],
-    "tags": [
-      "الساقين",
-      "المؤخرة",
-      "بناء العضلات",
-      "شد الجسم",
-      "شريط مقاومة",
-      "متوسط"
-    ],
-    "muscleGroup": "الجزء السفلي والفخذين",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/14-Back%20Lunge%20With%20Band.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/14-Back%20Lunge%20With%20Band.mp4",
-    "imageUrl": ""
-  },
-  "back_squat_single_leg": {
-    "id": "back_squat_single_leg",
-    "nameAr": "سكوات أحادي الساق لتقوية الفخذ",
-    "nameEn": "Back Squat Single Leg",
-    "category": "الساقين",
-    "bodyPart": "الساقين والمؤخرة",
-    "targetMuscle": "العضلات الرباعية والأرداف",
-    "secondaryMuscles": [
-      "عضلات الكور والاتزان"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين متتقدم جداً لبناء القوة والتوازن العالي في كل ساق على حدة.",
-    "duration": 60,
-    "caloriesPerMin": 9,
-    "caloriesApprox": 45,
-    "animationType": "squats",
-    "steps": [
-      "قف على ساق واحدة وافرد الساق الأخرى للأمام قليلاً.",
-      "اثنِ ركبة الساق المرتكزة وانزل بمؤخرتك للخلف ببطء.",
-      "ادفع بأسفل القدم للعودة إلى وضعية الاستقامة."
-    ],
-    "tips": [
-      "يمكن الاستعانة بحائط أو كرسي للتوازن في البداية."
-    ],
-    "tags": [
-      "الساقين",
-      "المؤخرة",
-      "بناء العضلات",
-      "شد الجسم",
-      "متقدم"
-    ],
-    "muscleGroup": "الجزء السفلي والفخذين",
-    "difficulty": "متقدم",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/15-Back%20Squat%20Single%20Leg.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/15-Back%20Squat%20Single%20Leg.mp4",
-    "imageUrl": ""
-  },
-  "back_stretch": {
-    "id": "back_stretch",
-    "nameAr": "تمرين إطالة واستعادة مرونة الظهر",
-    "nameEn": "Back Stretch",
+  "1130": {
+    "id": "1130",
+    "nameAr": "ثبات وضعية الكلب المتجه لأسفل",
+    "nameEn": "downward dog hold",
     "category": "الإطالات والاستشفاء",
-    "bodyPart": "الظهر بالكامل",
-    "targetMuscle": "عضلات الظهر الطويلة والعمود الفقري",
+    "bodyPart": "الأكتاف",
+    "targetMuscle": "عضلات الكتف",
     "secondaryMuscles": [
-      "الأكتاف",
-      "الرقبة"
+      "lats",
+      "الفخذ الخلفي",
+      "أسفل الظهر"
     ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "إطالة وشاط شامل لعضلات الظهر لتخفيف الآلام والإجهاد الناتج عن الجلوس الطويل.",
+    "equipment": "وزن الجسم",
+    "description": "The downward dog hold is a bodyweight stretching and strengthening exercise targeting the deltoids, with secondary engagement of the lats, hamstrings, and lower back. It involves holding an inverted V-shape position to simultaneously stretch the posterior chain and build shoulder and core stability.",
     "duration": 30,
-    "caloriesPerMin": 3,
-    "caloriesApprox": 15,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
     "animationType": "cobra-stretch",
     "steps": [
-      "اجلس على كعبيك وانحنِ بجذعك للأمام حتى يلمس جبهتك الأرض.",
-      "امدد ذراعيك للأمام أقصى حد واستشعر الشاط في الظهر.",
-      "اثبت لمدة 30 ثانية مع تنفس هادئ."
+      "Begin in a plank position with your hands shoulder-width apart and fingers spread wide.",
+      "Press through your palms and lift your hips toward the ceiling, straightening your legs and lowering your heels toward the floor.",
+      "Your body should form an inverted V-shape with your head positioned between your arms.",
+      "Engage your core and press your chest gently toward your thighs to deepen the shoulder stretch.",
+      "Hold for 20-30 seconds, breathing steadily, then return to the starting position."
     ],
     "tips": [
-      "دَع جسمك يسترخي بالكامل دون أي شد."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء ثبات وضعية الكلب المتجه لأسفل.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الكتف) طوال مدة الأداء (30 ثانية)."
     ],
     "tags": [
-      "إطالة",
-      "الظهر",
-      "استشفاء",
-      "بدون معدات",
+      "الإطالات والاستشفاء",
+      "عضلات الكتف",
       "مبتدئ"
     ],
     "muscleGroup": "الإطالات والاستشفاء",
     "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/16-Back%20Stretch.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/16-Back%20Stretch.mp4",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1130.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1130.mp4",
     "imageUrl": ""
   },
-  "bent_leg_twist": {
-    "id": "bent_leg_twist",
-    "nameAr": "التواء الساقين المثنيتين للخصر والظهر",
-    "nameEn": "Bent Leg Twist",
+  "1131": {
+    "id": "1131",
+    "nameAr": "تمرين راية التنين (دراغون فلاج)",
+    "nameEn": "dragon flags - core mastery",
     "category": "البطن والكرش",
-    "bodyPart": "البطن والخصر",
-    "targetMuscle": "عضلات الخصر والعضلات الماربة (Obliques)",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
+    "secondaryMuscles": [
+      "أسفل الظهر",
+      "الذراعان والبايل والتراي",
+      "الأكتاف"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Dragon flags core mastery is an advanced bodyweight exercise targeting the abs, with secondary engagement of the lower back, upper arms, and shoulders. It involves lowering and raising a rigid body from the shoulder pivot point, requiring exceptional total-body tension and core strength.",
+    "duration": 60,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 10,
+    "animationType": "crunches",
+    "steps": [
+      "Lie flat on your back on the floor and reach behind your head to firmly grip a sturdy vertical pole with both hands.",
+      "Brace your core and lift your legs, hips, and lower back off the floor, keeping your body in a rigid, straight line.",
+      "Raise your body upward until your weight is supported entirely by your upper back and shoulders.",
+      "Slowly lower your body back toward the floor in a controlled manner, maintaining the stiff, straight-line position.",
+      "Stop just before your body touches the floor, then repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين راية التنين (دراغون فلاج).",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (60 ثانية)."
+    ],
+    "tags": [
+      "البطن والكرش",
+      "عضلات البطن",
+      "متقدم"
+    ],
+    "muscleGroup": "عضلات البطن والخصر",
+    "difficulty": "متقدم",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1131.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1131.mp4",
+    "imageUrl": ""
+  },
+  "1132": {
+    "id": "1132",
+    "nameAr": "إطالة الذراعين الديناميكية",
+    "nameEn": "dynamic arms stretch",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الأكتاف",
+    "targetMuscle": "عضلات الكتف",
+    "secondaryMuscles": [
+      "عضلات الترافيز",
+      "الصدر",
+      "الذراعان والبايل والتراي"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Dynamic arms stretch is a bodyweight warm-up and mobility exercise targeting the deltoids, with secondary engagement of the traps, chest, and upper arms. It involves performing controlled arm circles in both directions to increase shoulder joint mobility and blood flow to the upper body.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "cobra-stretch",
+    "steps": [
+      "Stand upright with your feet shoulder-width apart and your arms resting by your sides.",
+      "Engage your core and keep your shoulders relaxed.",
+      "Slowly raise both arms out to your sides simultaneously.",
+      "Continue lifting until your arms are fully extended and parallel to the floor, keeping your palms facing down.",
+      "Pause and hold this extended position briefly.",
+      "Slowly lower your arms back to your sides and repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء إطالة الذراعين الديناميكية.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الكتف) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الكتف",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1132.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1132.mp4",
+    "imageUrl": ""
+  },
+  "1133": {
+    "id": "1133",
+    "nameAr": "إطالة الجزء العلوي الحركية",
+    "nameEn": "dynamic upper body stretch",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الصدر",
+    "targetMuscle": "عضلات الصدر",
+    "secondaryMuscles": [
+      "الأكتاف",
+      "عضلات الترافيز",
+      "lats"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The dynamic upper body stretch is a bodyweight mobility exercise targeting the chest, with secondary engagement of the shoulders, traps, and lats. It involves sweeping the arms in a wide arc to open the chest and loosen the upper body, making it an effective warm-up or cool-down movement.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "cobra-stretch",
+    "steps": [
+      "Stand upright with your feet wider than shoulder-width apart.",
+      "Raise both arms overhead, keeping your elbows slightly bent so your hands frame your head.",
+      "Engage your core and slowly bend your torso to one side, keeping your chest facing forward.",
+      "Pause briefly when you feel a stretch along the side of your body.",
+      "Slowly return to the upright center position.",
+      "Bend to the opposite side and continue alternating for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء إطالة الجزء العلوي الحركية.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الصدر) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الصدر",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1133.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1133.mp4",
+    "imageUrl": ""
+  },
+  "1134": {
+    "id": "1134",
+    "nameAr": "سباق الأقدام السريعة بوضعية منخفضة",
+    "nameEn": "fast feet sprint (low stance)",
+    "category": "الكارديو",
+    "bodyPart": "كامل الجسم",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "الفخذ الخلفي",
+      "المؤخرة",
+      "lower legs"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Fast feet sprint in low stance is a bodyweight cardio exercise targeting the quadriceps, with secondary engagement of the hamstrings, glutes, and lower legs. It involves rapid foot shuffles from a low athletic position to develop speed, agility, and cardiovascular endurance.",
+    "duration": 45,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 8,
+    "animationType": "squats",
+    "steps": [
+      "Stand in a low athletic stance with your knees slightly bent, feet hip-width apart, and your weight on the balls of your feet.",
+      "Lower your hips slightly as if in a quarter squat, keeping your chest up and back straight.",
+      "Begin rapidly alternating your feet in short, quick steps while maintaining the low stance.",
+      "Pump your arms quickly to drive the pace of your feet.",
+      "Continue for the desired duration, keeping the tempo as fast as possible throughout."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء سباق الأقدام السريعة بوضعية منخفضة.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (45 ثانية)."
+    ],
+    "tags": [
+      "الكارديو",
+      "عضلات الفخذ الأمامية",
+      "متوسط"
+    ],
+    "muscleGroup": "كامل الجسم",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1134.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1134.mp4",
+    "imageUrl": ""
+  },
+  "1135": {
+    "id": "1135",
+    "nameAr": "الانثناء الأمامي مع انحناء الحوض",
+    "nameEn": "fold with hinge",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الخلفية",
+    "secondaryMuscles": [
+      "المؤخرة",
+      "أسفل الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Fold with hinge is a bodyweight mobility exercise targeting the hamstrings, with secondary engagement of the glutes and lower back. It combines a controlled hip hinge with a forward fold to dynamically stretch the posterior chain and improve hip mobility.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
+    "steps": [
+      "Stand with your feet hip-width apart and a slight bend in your knees.",
+      "Hinge forward at the hips, pushing your hips backward while keeping your back flat and chest lifted.",
+      "Lower your torso until you feel a deep stretch in your hamstrings, then allow your torso to round gently into a full forward fold.",
+      "Hold the folded position for 2-3 seconds, then re-engage your core and hinge back up to standing.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء الانثناء الأمامي مع انحناء الحوض.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الخلفية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الفخذ الخلفية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1135.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1135.mp4",
+    "imageUrl": ""
+  },
+  "1136": {
+    "id": "1136",
+    "nameAr": "الطعن الأمامي للمؤخرة والفخذ",
+    "nameEn": "forward lunges",
+    "category": "الساقين",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "المؤخرة",
+      "الفخذ الخلفي"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Forward lunges are a bodyweight lower body exercise targeting the quadriceps, with secondary engagement of the glutes and hamstrings. The movement involves stepping forward and lowering the hips in an alternating pattern, developing unilateral leg strength, balance, and coordination.",
+    "duration": 30,
+    "caloriesPerMin": 6,
+    "caloriesApprox": 3,
+    "animationType": "squats",
+    "steps": [
+      "Stand tall with your feet together and your hands on your hips or hanging by your sides.",
+      "Step one foot forward into a wide stance and lower your back knee toward the floor by bending both legs.",
+      "Descend until your front thigh is approximately parallel to the floor and your back knee hovers just above the ground.",
+      "Drive through your front heel to push back to the starting position.",
+      "Alternate legs and repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء الطعن الأمامي للمؤخرة والفخذ.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الساقين",
+      "عضلات الفخذ الأمامية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الجزء السفلي والفخذين",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1136.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1136.mp4",
+    "imageUrl": ""
+  },
+  "1137": {
+    "id": "1137",
+    "nameAr": "وضعية العجلة الكاملة للظهر",
+    "nameEn": "full wheel entry - wheel prep bridge",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الظهر",
+    "targetMuscle": "عضلات الظهر العريضة",
+    "secondaryMuscles": [
+      "الصدر",
+      "الأكتاف",
+      "أسفل الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The full wheel entry wheel prep bridge is an advanced bodyweight exercise targeting the lats and spine, with secondary engagement of the chest, shoulders, and lower back. It involves pressing into a deep backbend from a supine position, demanding significant spinal flexibility, shoulder mobility, and total-body strength.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "cobra-stretch",
+    "steps": [
+      "Lie on your back with your knees bent and feet flat on the floor near your glutes.",
+      "Place your hands beside your ears on the floor with your fingers pointing toward your shoulders.",
+      "Press into your hands and feet simultaneously to lift your hips, then your torso, off the floor.",
+      "Extend your arms and legs as fully as possible, lifting the crown of your head off the floor and opening your chest.",
+      "Hold for the desired duration, then tuck your chin and slowly lower back down to the floor with control."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء وضعية العجلة الكاملة للظهر.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الظهر العريضة) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الظهر العريضة",
+      "متقدم"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "متقدم",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1137.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1137.mp4",
+    "imageUrl": ""
+  },
+  "1138": {
+    "id": "1138",
+    "nameAr": "الانحناء الأمامي الجالس الخفيف",
+    "nameEn": "gentle fold seated forward fold",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الخلفية",
+    "secondaryMuscles": [
+      "أسفل الظهر",
+      "المؤخرة"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The gentle fold seated forward fold is a bodyweight stretching exercise targeting the hamstrings, with secondary engagement of the lower back and glutes. It involves hinging forward from a seated position with straight legs to gradually lengthen the posterior chain and improve flexibility.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
+    "steps": [
+      "Sit on the floor with your legs extended straight in front of you and your feet flexed.",
+      "Sit up tall with your spine lengthened and your hands resting beside your thighs.",
+      "Inhale to lengthen your spine, then exhale and gently hinge forward from your hips, reaching your hands toward your feet.",
+      "Go only as far as comfortable without rounding your lower back excessively.",
+      "Hold the position for 20-30 seconds, breathing deeply, then slowly sit back up."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء الانحناء الأمامي الجالس الخفيف.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الخلفية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الفخذ الخلفية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1138.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1138.mp4",
+    "imageUrl": ""
+  },
+  "1139": {
+    "id": "1139",
+    "nameAr": "جسر المؤخرة (جلوت بريدج)",
+    "nameEn": "glute bridge",
+    "category": "الساقين",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات المؤخرة",
+    "secondaryMuscles": [
+      "الفخذ الخلفي",
+      "أسفل الظهر",
+      "عضلات البطن"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The glute bridge is a bodyweight exercise targeting the glutes, with secondary engagement of the hamstrings, lower back, and abs. It involves lifting the hips from a supine position to strengthen the posterior chain, improve hip extension, and stabilize the core.",
+    "duration": 30,
+    "caloriesPerMin": 6,
+    "caloriesApprox": 3,
+    "animationType": "squats",
+    "steps": [
+      "Lie flat on your back with your knees bent and feet flat on the floor, hip-width apart.",
+      "Place your arms alongside your body with palms facing down.",
+      "Engage your glutes and core, then press through your feet to lift your hips off the floor.",
+      "Rise until your body forms a straight line from your knees to your shoulders, squeezing your glutes at the top.",
+      "Slowly lower your hips back to the starting position and repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء جسر المؤخرة (جلوت بريدج).",
+      "ركز على انقباض العضلات المستهدفة (عضلات المؤخرة) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الساقين",
+      "عضلات المؤخرة",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الجزء السفلي والفخذين",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1139.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1139.mp4",
+    "imageUrl": ""
+  },
+  "1140": {
+    "id": "1140",
+    "nameAr": "تمرين السكوات الكأسي (جوبلت)",
+    "nameEn": "goblet squat entry",
+    "category": "الساقين",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "المؤخرة",
+      "الفخذ الخلفي",
+      "عضلات البطن"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The goblet squat entry is a bodyweight lower body exercise targeting the quadriceps, with secondary engagement of the glutes, hamstrings, and abs. It mimics the goblet squat movement pattern using bodyweight, reinforcing proper squat mechanics with an upright torso and controlled descent.",
+    "duration": 30,
+    "caloriesPerMin": 6,
+    "caloriesApprox": 3,
+    "animationType": "squats",
+    "steps": [
+      "Stand with your feet slightly wider than shoulder-width apart and toes turned out slightly.",
+      "Clasp your hands together at chest height or hold them as if gripping an imaginary weight at your sternum.",
+      "Engage your core and push your hips back and down as you lower into a squat.",
+      "Descend until your thighs are at or below parallel to the floor, keeping your chest upright and knees tracking over your toes.",
+      "Drive through your heels to return to the starting position and repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين السكوات الكأسي (جوبلت).",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الساقين",
+      "عضلات الفخذ الأمامية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الجزء السفلي والفخذين",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1140.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1140.mp4",
+    "imageUrl": ""
+  },
+  "1141": {
+    "id": "1141",
+    "nameAr": "الرفع النصفي الانتقالي لليوجا",
+    "nameEn": "half lift transition yoga",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
+    "secondaryMuscles": [
+      "أسفل الظهر",
+      "الفخذ الخلفي"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Half lift transition yoga is a bodyweight yoga exercise targeting the abs and core, with secondary engagement of the lower back and hamstrings. It involves lifting the torso to a flat-back position from a forward fold, creating spinal extension and activating the core as a transitional movement.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "crunches",
+    "steps": [
+      "Stand with your feet hip-width apart and hinge forward from your hips into a forward fold.",
+      "Place your hands on your shins or thighs for support.",
+      "Inhale and lift your torso halfway up until your back is flat and parallel to the floor.",
+      "Draw your shoulders away from your ears and lengthen your neck to extend your spine.",
+      "Hold for a breath, then exhale and fold back down or continue into the next yoga pose."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء الرفع النصفي الانتقالي لليوجا.",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات البطن",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1141.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1141.mp4",
+    "imageUrl": ""
+  },
+  "1142": {
+    "id": "1142",
+    "nameAr": "رفع الأرجل أثناء التعلق للبطن",
+    "nameEn": "hanging leg raises",
+    "category": "البطن والكرش",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
+    "secondaryMuscles": [
+      "مثنيات الورك",
+      "أسفل الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Hanging leg raises are a bodyweight core exercise targeting the abs, with secondary engagement of the hip flexors and lower back. Performed while hanging from a bar, the movement involves raising straight legs to challenge lower abdominal strength and hip flexor endurance.",
+    "duration": 45,
+    "caloriesPerMin": 7,
+    "caloriesApprox": 5,
+    "animationType": "crunches",
+    "steps": [
+      "Hang from a pull-up bar with a shoulder-width overhand grip and your arms fully extended.",
+      "Engage your core and keep your legs straight as you raise them upward in front of you.",
+      "Continue lifting until your legs are parallel to the floor or as high as your flexibility allows.",
+      "Pause at the top, then slowly lower your legs back to the starting position.",
+      "Repeat for the desired number of repetitions without swinging your body."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء رفع الأرجل أثناء التعلق للبطن.",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (45 ثانية)."
+    ],
+    "tags": [
+      "البطن والكرش",
+      "عضلات البطن",
+      "متوسط"
+    ],
+    "muscleGroup": "عضلات البطن والخصر",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1142.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1142.mp4",
+    "imageUrl": ""
+  },
+  "1143": {
+    "id": "1143",
+    "nameAr": "رفع الركبتين وركل الخلفية المزدوج",
+    "nameEn": "high knee butt kick",
+    "category": "الكارديو",
+    "bodyPart": "كامل الجسم",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "الفخذ الخلفي",
+      "المؤخرة",
+      "lower legs"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "High knee butt kick is a bodyweight cardio exercise targeting the quadriceps and hamstrings, with secondary engagement of the glutes and lower legs. It combines high knee drives with heel kicks in an alternating running pattern to elevate heart rate and warm up the lower body dynamically.",
+    "duration": 30,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 5,
+    "animationType": "squats",
+    "steps": [
+      "Stand with your feet hip-width apart and begin jogging in place.",
+      "Alternate between driving your knees up toward your chest and kicking your heels up toward your glutes with each stride.",
+      "Pump your arms in coordination with your legs to maintain an athletic rhythm.",
+      "Keep your core engaged and your posture upright throughout the movement.",
+      "Continue alternating for the desired duration or number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء رفع الركبتين وركل الخلفية المزدوج.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الكارديو",
+      "عضلات الفخذ الأمامية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "كامل الجسم",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1143.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1143.mp4",
+    "imageUrl": ""
+  },
+  "1144": {
+    "id": "1144",
+    "nameAr": "رفع الركبتين السريع للكارديو",
+    "nameEn": "high knee cardio",
+    "category": "الكارديو",
+    "bodyPart": "كامل الجسم",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "عضلات البطن",
+      "مثنيات الورك",
+      "lower legs"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "High knee cardio is a bodyweight cardiovascular exercise targeting the quadriceps, with secondary engagement of the abs, hip flexors, and lower legs. It involves rapidly alternating high knee drives while running in place to increase heart rate, improve coordination, and warm up the lower body.",
+    "duration": 30,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 5,
+    "animationType": "squats",
+    "steps": [
+      "Stand with your feet hip-width apart and your arms bent at your sides.",
+      "Begin running in place, driving your knees up toward your chest with each stride.",
+      "Aim to bring each knee to at least hip height with every step.",
+      "Pump your arms opposite to your legs to maintain balance and rhythm.",
+      "Continue at a fast pace for the desired duration."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء رفع الركبتين السريع للكارديو.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الكارديو",
+      "عضلات الفخذ الأمامية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "كامل الجسم",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1144.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1144.mp4",
+    "imageUrl": ""
+  },
+  "1145": {
+    "id": "1145",
+    "nameAr": "دوائر الورك لمرونة الحوض",
+    "nameEn": "hip circle version 2",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
+    "secondaryMuscles": [
+      "الخصر والجانبان",
+      "أسفل الظهر",
+      "المؤخرة"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Hip circle version 2 is a bodyweight mobility exercise targeting the abs and core, with secondary engagement of the obliques, lower back, and glutes. It involves rotating the hips in full circles while standing to improve hip joint mobility, loosen the lower back, and activate the core musculature.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "crunches",
+    "steps": [
+      "Stand upright with your feet hip-width apart and place your hands on your hips.",
+      "Shift your weight to one leg and lift the opposite leg in front of you.",
+      "Sweep the lifted leg out to the side in a wide, controlled circular motion to open your hip.",
+      "Bring the leg back down to the starting position.",
+      "Repeat the same motion with the other leg.",
+      "Continue alternating legs for the desired number of repetitions, keeping your torso still."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء دوائر الورك لمرونة الحوض.",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات البطن",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1145.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1145.mp4",
+    "imageUrl": ""
+  },
+  "1146": {
+    "id": "1146",
+    "nameAr": "إطالة مثنيات الورك بالركوع",
+    "nameEn": "hip flexor stretch (kneeling)",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "الفخذ الخلفي",
+      "المؤخرة"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The hip flexor stretch kneeling is a bodyweight stretching exercise targeting the quadriceps and hip flexors, with secondary engagement of the hamstrings and glutes. Performed in a kneeling lunge position, it effectively lengthens the hip flexor muscles, which are commonly tight from prolonged sitting.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
+    "steps": [
+      "Kneel on one knee with your other foot planted flat on the floor in front of you, creating a 90-degree angle at both knees.",
+      "Keep your torso upright and engage your core.",
+      "Gently shift your weight forward, pushing your front hip toward the floor until you feel a stretch in the front of your rear hip.",
+      "Hold the position for 20-30 seconds, breathing deeply.",
+      "Release and repeat on the other side."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء إطالة مثنيات الورك بالركوع.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الفخذ الأمامية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1146.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1146.mp4",
+    "imageUrl": ""
+  },
+  "1147": {
+    "id": "1147",
+    "nameAr": "تمرين إطالة الورك والحوض",
+    "nameEn": "hip stretch",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات المؤخرة",
+    "secondaryMuscles": [
+      "مثنيات الورك",
+      "أسفل الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Hip stretch is a bodyweight stretching exercise targeting the glutes and outer hip, with secondary engagement of the hip flexors and lower back. It involves a figure-4 supine position to stretch the piriformis and external hip rotators, commonly used to relieve hip tightness and lower back tension.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
+    "steps": [
+      "Stand upright with your feet shoulder-width apart and place both hands on your hips.",
+      "Keeping your legs straight and feet flat on the floor, slowly push your hips out to one side.",
+      "Keep your upper body still and upright as you feel a gentle stretch along your outer hip.",
+      "Pause briefly, then bring your hips back to the centered starting position.",
+      "Push your hips to the opposite side.",
+      "Continue alternating sides for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين إطالة الورك والحوض.",
+      "ركز على انقباض العضلات المستهدفة (عضلات المؤخرة) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات المؤخرة",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1147.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1147.mp4",
+    "imageUrl": ""
+  },
+  "1148": {
+    "id": "1148",
+    "nameAr": "طعن إطالة مثنيات الورك",
+    "nameEn": "hips flexor lunges",
+    "category": "الساقين",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "المؤخرة",
+      "الفخذ الخلفي",
+      "مثنيات الورك"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Hips flexor lunges are a bodyweight exercise targeting the quadriceps and hip flexors, with secondary engagement of the glutes and hamstrings. They combine a forward lunge with a posterior pelvic tilt at the bottom to actively stretch and strengthen the hip flexors through a full range of motion.",
+    "duration": 30,
+    "caloriesPerMin": 6,
+    "caloriesApprox": 3,
+    "animationType": "squats",
+    "steps": [
+      "Stand with your feet together and your hands on your hips.",
+      "Step one foot forward and lower into a lunge until your back knee nearly touches the floor.",
+      "At the bottom of the lunge, tilt your pelvis slightly posteriorly to feel an increased stretch in the front of your rear hip.",
+      "Hold for 2-3 seconds at the bottom, then drive through your front heel to return to standing.",
+      "Alternate legs and repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء طعن إطالة مثنيات الورك.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الساقين",
+      "عضلات الفخذ الأمامية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الجزء السفلي والفخذين",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1148.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1148.mp4",
+    "imageUrl": ""
+  },
+  "1149": {
+    "id": "1149",
+    "nameAr": "ثبات التقعر (هولو هولد) للبطن",
+    "nameEn": "hollow hold",
+    "category": "البطن والكرش",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
+    "secondaryMuscles": [
+      "أسفل الظهر",
+      "مثنيات الورك"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The hollow hold is a bodyweight isometric exercise targeting the abs, with secondary engagement of the lower back and hip flexors. It involves maintaining a curved body position with arms and legs raised off the floor, demanding sustained core compression and stability.",
+    "duration": 45,
+    "caloriesPerMin": 7,
+    "caloriesApprox": 5,
+    "animationType": "crunches",
+    "steps": [
+      "Lie flat on your back with your arms extended overhead and your legs straight.",
+      "Press your lower back firmly into the floor and engage your abs.",
+      "Simultaneously lift your arms, head, shoulders, and legs off the floor, keeping your legs straight and together.",
+      "Your body should form a slightly curved dish or hollow shape.",
+      "Hold the position for the desired duration while breathing steadily."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء ثبات التقعر (هولو هولد) للبطن.",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (45 ثانية)."
+    ],
+    "tags": [
+      "البطن والكرش",
+      "عضلات البطن",
+      "متوسط"
+    ],
+    "muscleGroup": "عضلات البطن والخصر",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1149.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1149.mp4",
+    "imageUrl": ""
+  },
+  "1150": {
+    "id": "1150",
+    "nameAr": "تمرين مشية الدودة (إنش وورم)",
+    "nameEn": "inchworm walkout",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
+    "secondaryMuscles": [
+      "الأكتاف",
+      "الفخذ الخلفي",
+      "أسفل الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The inchworm walkout is a bodyweight exercise targeting the abs, with secondary engagement of the shoulders, hamstrings, and lower back. It involves walking the hands out from a standing forward fold into a plank and back, warming up the entire body and challenging core and shoulder stability.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "crunches",
+    "steps": [
+      "Stand with your feet hip-width apart.",
+      "Hinge forward at the hips and place your hands on the floor in front of your feet.",
+      "Walk your hands forward one at a time until you reach a full plank position.",
+      "Hold the plank briefly, then walk your hands back toward your feet.",
+      "Stand back up and repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين مشية الدودة (إنش وورم).",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات البطن",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1150.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1150.mp4",
+    "imageUrl": ""
+  },
+  "1151": {
+    "id": "1151",
+    "nameAr": "تمرين الضغط المائل (اليدين مرتفعة)",
+    "nameEn": "incline push ups",
+    "category": "الصدر",
+    "bodyPart": "الصدر",
+    "targetMuscle": "عضلات الصدر",
+    "secondaryMuscles": [
+      "الأكتاف",
+      "الذراعان والبايل والتراي"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Incline push ups are a bodyweight exercise targeting the lower chest, with secondary engagement of the shoulders and upper arms. By placing the hands on an elevated surface, the angle shifts the emphasis to the lower pectoral region and reduces the overall difficulty, making it suitable for beginners.",
+    "duration": 30,
+    "caloriesPerMin": 6,
+    "caloriesApprox": 3,
+    "animationType": "jumping-jacks",
+    "steps": [
+      "Place your hands on an elevated surface such as a bench, step, or wall, with hands slightly wider than shoulder-width apart.",
+      "Step your feet back so your body forms a straight line from head to heels.",
+      "Lower your chest toward the elevated surface by bending your elbows.",
+      "Pause briefly at the bottom, then press back up to the starting position.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين الضغط المائل (اليدين مرتفعة).",
+      "ركز على انقباض العضلات المستهدفة (عضلات الصدر) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الصدر",
+      "عضلات الصدر",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الجزء العلوي والذراعين",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1151.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1151.mp4",
+    "imageUrl": ""
+  },
+  "1152": {
+    "id": "1152",
+    "nameAr": "تمرين القفز على الصندوق (بوكس جامب)",
+    "nameEn": "jump box",
+    "category": "الساقين",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "المؤخرة",
+      "الفخذ الخلفي",
+      "lower legs"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The jump box is a bodyweight plyometric exercise targeting the quadriceps, with secondary engagement of the glutes, hamstrings, and lower legs. It involves jumping onto an elevated box to develop explosive lower body power, landing mechanics, and athletic conditioning.",
+    "duration": 45,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 8,
+    "animationType": "squats",
+    "steps": [
+      "Stand in front of a sturdy box or platform with your feet hip-width apart.",
+      "Bend your knees and swing your arms back to prepare for the jump.",
+      "Explosively jump upward and forward, driving your arms overhead and landing softly on top of the box with both feet.",
+      "Stand fully upright on the box, then step or jump back down to the starting position.",
+      "Reset and repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين القفز على الصندوق (بوكس جامب).",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (45 ثانية)."
+    ],
+    "tags": [
+      "الساقين",
+      "عضلات الفخذ الأمامية",
+      "متوسط"
+    ],
+    "muscleGroup": "الجزء السفلي والفخذين",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1152.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1152.mp4",
+    "imageUrl": ""
+  },
+  "1153": {
+    "id": "1153",
+    "nameAr": "تمرين السكوات مع القفز",
+    "nameEn": "jump squats",
+    "category": "الساقين",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "المؤخرة",
+      "الفخذ الخلفي",
+      "lower legs"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Jump squats are a bodyweight plyometric exercise targeting the quadriceps, with secondary engagement of the glutes, hamstrings, and lower legs. They combine a squat with an explosive jump to develop lower body power, cardiovascular conditioning, and fast-twitch muscle activation.",
+    "duration": 45,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 8,
+    "animationType": "squats",
+    "steps": [
+      "Stand with your feet shoulder-width apart and toes slightly pointed outward.",
+      "Lower into a squat by bending your knees and pushing your hips back, keeping your chest upright.",
+      "Explosively drive through your heels and jump as high as possible off the ground, extending your arms overhead.",
+      "Land softly with slightly bent knees to absorb the impact.",
+      "Immediately lower back into the next squat and repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين السكوات مع القفز.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (45 ثانية)."
+    ],
+    "tags": [
+      "الساقين",
+      "عضلات الفخذ الأمامية",
+      "متوسط"
+    ],
+    "muscleGroup": "الجزء السفلي والفخذين",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1153.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1153.mp4",
+    "imageUrl": ""
+  },
+  "1154": {
+    "id": "1154",
+    "nameAr": "نط الحبل الجانبي مع رفع الركبة",
+    "nameEn": "jumping jack with high knee",
+    "category": "الكارديو",
+    "bodyPart": "كامل الجسم",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "عضلات البطن",
+      "مثنيات الورك",
+      "lower legs"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The jumping jack with high knee is a bodyweight cardio exercise targeting the quadriceps, with secondary engagement of the abs, hip flexors, and lower legs. It combines the lateral jumping motion of a jumping jack with an alternating high knee drive to increase intensity and challenge coordination.",
+    "duration": 30,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 5,
+    "animationType": "squats",
+    "steps": [
+      "Stand with your feet together and your arms by your sides.",
+      "Jump your feet outward while raising your arms overhead as in a standard jumping jack.",
+      "Jump your feet back together, then immediately drive one knee up toward your chest.",
+      "Lower that foot and perform another jumping jack, then drive the opposite knee up on the return.",
+      "Continue alternating for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء نط الحبل الجانبي مع رفع الركبة.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الكارديو",
+      "عضلات الفخذ الأمامية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "كامل الجسم",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1154.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1154.mp4",
+    "imageUrl": ""
+  },
+  "1155": {
+    "id": "1155",
+    "nameAr": "تمرين القفز الجانبي (جامبينج جاك)",
+    "nameEn": "jumping jack",
+    "category": "الكارديو",
+    "bodyPart": "كامل الجسم",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "الأكتاف",
+      "lower legs",
+      "المؤخرة"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The jumping jack is a classic bodyweight cardio exercise targeting the quadriceps, with secondary engagement of the shoulders, lower legs, and glutes. It involves simultaneous lateral jumping and arm raising in a rhythmic pattern to elevate heart rate and develop cardiovascular endurance.",
+    "duration": 30,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 5,
+    "animationType": "squats",
+    "steps": [
+      "Stand with your feet together and your arms by your sides.",
+      "Jump your feet outward to slightly wider than shoulder-width apart while simultaneously raising your arms out to the sides and overhead.",
+      "Pause briefly at the top, then jump your feet back together while lowering your arms to your sides.",
+      "Maintain a rhythmic, continuous pace throughout the exercise.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين القفز الجانبي (جامبينج جاك).",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الكارديو",
+      "عضلات الفخذ الأمامية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "كامل الجسم",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1155.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1155.mp4",
+    "imageUrl": ""
+  },
+  "1156": {
+    "id": "1156",
+    "nameAr": "نبضات تنفس كابالاباتي للبطن",
+    "nameEn": "kapalabhati pulses pranayama ladder",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
     "secondaryMuscles": [
       "أسفل الظهر"
     ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين ممتاز لتليين أسفل الظهر ونحت الخصر والتخلص من الزوائد الجانبية.",
+    "equipment": "وزن الجسم",
+    "description": "Kapalabhati pulses pranayama ladder is a bodyweight breathing exercise targeting the abs, with secondary engagement of the lower back. It involves rhythmic diaphragmatic pulses with progressively increasing intensity, cleansing the respiratory system and activating the core through controlled breathwork.",
     "duration": 30,
-    "caloriesPerMin": 5,
-    "caloriesApprox": 25,
-    "animationType": "russian-twist",
-    "steps": [
-      "استلقِ على ظهرك وافرد ذراعيك جانباً باعتدال.",
-      "ارفع ركبتيك واثنهما بدرجة 90 مئوية.",
-      "انزل بالركبتين معاً نحو الجانب الأيمن ثم الأيسر بالتجانس."
-    ],
-    "tips": [
-      "حافظ على ملامسة الكتفين للأرض طوال التمرين."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "الخصر",
-      "تخسيس",
-      "شد الجسم",
-      "مبتدئ"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/17-Bent%20Leg%20Twist.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/17-Bent%20Leg%20Twist.mp4",
-    "imageUrl": ""
-  },
-  "bicycle_crunches": {
-    "id": "bicycle_crunches",
-    "nameAr": "تمرين دراجة البطن (بايسكل كرانش)",
-    "nameEn": "Bicycle Crunches",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن والخصر",
-    "targetMuscle": "عضلات البطن الكلية والخصر",
-    "secondaryMuscles": [
-      "مُثنيات الورك"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "من أقوى التمارين العلمية المستهدفة لشد كامل عضلات البطن والخصر وحرق الدهون.",
-    "duration": 45,
-    "caloriesPerMin": 8,
-    "caloriesApprox": 40,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
     "animationType": "crunches",
     "steps": [
-      "استلقِ على ظهرك وضغط يديك خلف رأسك.",
-      "ارفع كتفيك وركبتيك عن الأرض.",
-      "قرّب الكوع الأيمن نحو الركبة اليسرى مع فرد الساق الأخرى، ثم العكس بحركة البدال."
+      "Sit comfortably in a cross-legged position with your spine tall and shoulders relaxed.",
+      "Take a deep inhale to begin, then perform rapid, forceful exhales through the nose by sharply contracting your lower abdomen.",
+      "Allow the inhale to occur passively between each forced exhale, without conscious effort.",
+      "Start with a slow pace, then progressively increase the speed of the exhales in rounds or a ladder pattern.",
+      "Complete the desired number of rounds, then rest with natural breathing."
     ],
     "tips": [
-      "لا تسحب رقبتك بيديك، الحركة تأتي من تجويف البطن."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء نبضات تنفس كابالاباتي للبطن.",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (30 ثانية)."
     ],
     "tags": [
-      "البطن",
-      "الكرش",
-      "حرق الدهون",
-      "تخسيس",
-      "شد الجسم",
+      "الإطالات والاستشفاء",
+      "عضلات البطن",
       "متوسط"
     ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/18-Bicycle%20Crunches.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/18-Bicycle%20Crunches.mp4",
-    "imageUrl": ""
-  },
-  "bird_dog": {
-    "id": "bird_dog",
-    "nameAr": "تمرين الطير والكلب لتوازن وثبات الظهر",
-    "nameEn": "Bird Dog",
-    "category": "البطن والكرش",
-    "bodyPart": "الظهر والكور",
-    "targetMuscle": "العضلات العميقة للبطن والظهر (Core & Lower Back)",
-    "secondaryMuscles": [
-      "الأرداف",
-      "الأكتاف"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين أساسي لتقوية الكور وحماية العمود الفقري وتحسين الاتزان الحركي.",
-    "duration": 30,
-    "caloriesPerMin": 5,
-    "caloriesApprox": 25,
-    "animationType": "plank",
-    "steps": [
-      "ارتكز على أطرافك الأربعة (اليدين والركبتين).",
-      "افرد يدك اليمنى للأمام وساقك اليسرى للخلف حتى تصبحا على خط واحد مع الجسم.",
-      "اثبت لثانية ثم عد وابدأ بالجانب الآخر."
-    ],
-    "tips": [
-      "حافظ على استقامة الظهر ومنع انحناء الحوض."
-    ],
-    "tags": [
-      "البطن",
-      "الظهر",
-      "شد الجسم",
-      "توازن",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/19-Bird%20Dog.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/19-Bird%20Dog.mp4",
-    "imageUrl": ""
-  },
-  "calf_raise": {
-    "id": "calf_raise",
-    "nameAr": "رفع ربلة الساق (بطات الساقين)",
-    "nameEn": "Calf Raise",
-    "category": "الساقين",
-    "bodyPart": "الساقين السفليين",
-    "targetMuscle": "عضلات الساق الخلفية (Gastrocnemius & Soleus)",
-    "secondaryMuscles": [
-      "الكاحل"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين يستهدف تقوية وتقسيم عضلات ربلة الساق وزيادة ثبات القدمين.",
-    "duration": 30,
-    "caloriesPerMin": 5,
-    "caloriesApprox": 25,
-    "animationType": "squats",
-    "steps": [
-      "قف بانتصاب مع فتح القدمين بعرض الحوض.",
-      "ارفع جسمك لأعلى قدر مستطاع بالارتكاز على مشط القدم.",
-      "اثبت في القمة لحظة ثم اخفض كعبيك ببطء."
-    ],
-    "tips": [
-      "يمكنك أداؤه على حافة درجة لزيادة مدى الحركة."
-    ],
-    "tags": [
-      "الساقين",
-      "شد الجسم",
-      "بناء العضلات",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الجزء السفلي والفخذين",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/20-Calf%20Raise.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/20-Calf%20Raise.mp4",
-    "imageUrl": ""
-  },
-  "calf_stretch": {
-    "id": "calf_stretch",
-    "nameAr": "إطالة عضلة الساق الخلفية (الربلة)",
-    "nameEn": "Calf Stretch",
-    "category": "الإطالات والاستشفاء",
-    "bodyPart": "الساقين السفليين",
-    "targetMuscle": "عضلة الساق الخلفية (Calf)",
-    "secondaryMuscles": [
-      "وتر العرقوب"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين إطالة لفك الشد والتشنجات في عضلات الربلة بعد الجري أو التمارين.",
-    "duration": 30,
-    "caloriesPerMin": 3,
-    "caloriesApprox": 15,
-    "animationType": "cobra-stretch",
-    "steps": [
-      "ضع يديك على الجدار، واجعل إحدى القدمين خلف الأخرى.",
-      "ابحث عن الشد بضغط كعبك الخلفي إلى الأرض وثني الركبة الأمامية.",
-      "اثبت 20 ثانية ثم بدّل للقدم الأخرى."
-    ],
-    "tips": [
-      "حافظ على بقاء كعب الساق الخلفية مثبتاً بالأرض."
-    ],
-    "tags": [
-      "إطالة",
-      "الساقين",
-      "استشفاء",
-      "بدون معدات",
-      "مبتدئ"
-    ],
     "muscleGroup": "الإطالات والاستشفاء",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/21-Calf%20Stretch.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/21-Calf%20Stretch.mp4",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1156.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1156.mp4",
     "imageUrl": ""
   },
-  "camel_pose": {
-    "id": "camel_pose",
-    "nameAr": "وضعية الجمل لفتح الصدر والظهر",
-    "nameEn": "Camel Pose",
-    "category": "الإطالات والاستشفاء",
-    "bodyPart": "الصدر والظهر",
-    "targetMuscle": "عضلات الصدر والبطن والعمود الفقري",
+  "1157": {
+    "id": "1157",
+    "nameAr": "تمرين الضغط على قبضات اليد",
+    "nameEn": "knuckle push ups",
+    "category": "الصدر",
+    "bodyPart": "الصدر",
+    "targetMuscle": "عضلات الصدر",
     "secondaryMuscles": [
+      "الذراعان والبايل والتراي",
       "الأكتاف",
-      "الفخذ الأمامي"
+      "الساعدان"
     ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "وضعية يوجا قوية لفتح قفص الصدر وتمديد عضلات البطن وتحسين استقامة القامة.",
+    "equipment": "وزن الجسم",
+    "description": "Knuckle push ups are a bodyweight exercise targeting the chest, with secondary engagement of the upper arms, shoulders, and lower arms. Performing push ups on the knuckles maintains neutral wrist alignment, reduces wrist strain, and increases the range of motion during the descent.",
     "duration": 45,
-    "caloriesPerMin": 4,
-    "caloriesApprox": 20,
-    "animationType": "cobra-stretch",
-    "steps": [
-      "اجثُ على ركبتيك واجعل جسمك مستقيماً.",
-      "انحنِ بجذعك للخلف ببطء وامسك كعبيك بيديك.",
-      "ادفع الحوض للأمام وافتح الصدر باتجاه السقف."
-    ],
-    "tips": [
-      "عد ببطء للوضع الأصلي وتجنب الحركات الفجائية."
-    ],
-    "tags": [
-      "إطالة",
-      "الصدر",
-      "الظهر",
-      "استشفاء",
-      "متوسط"
-    ],
-    "muscleGroup": "الإطالات والاستشفاء",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/22-Camel%20Pose.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/22-Camel%20Pose.mp4",
-    "imageUrl": ""
-  },
-  "cat_stretch": {
-    "id": "cat_stretch",
-    "nameAr": "إطالة القطة لليونة العمود الفقري",
-    "nameEn": "Cat Stretch",
-    "category": "الإطالات والاستشفاء",
-    "bodyPart": "الظهر بالكامل",
-    "targetMuscle": "عضلات الظهر والرقبة والعمود الفقري",
-    "secondaryMuscles": [
-      "الكور"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين مرونة كلاسيكي يقلل الضغط عن فقرات الظهر ويرخي الأعصاب المشدودة.",
-    "duration": 30,
-    "caloriesPerMin": 3,
-    "caloriesApprox": 15,
-    "animationType": "cobra-stretch",
-    "steps": [
-      "ارتكز على أطرافك الأربعة.",
-      "اقوس ظهرك للأعلى مع سحب رأسك للأسفل نحو الصدر (وضع القطة).",
-      "اثبت لثوانٍ مع زفير عميق."
-    ],
-    "tips": [
-      "قم بالحركة ببطء وتناغم مع التنفس."
-    ],
-    "tags": [
-      "إطالة",
-      "الظهر",
-      "استشفاء",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الإطالات والاستشفاء",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/23-Cat%20Stretch.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/23-Cat%20Stretch.mp4",
-    "imageUrl": ""
-  },
-  "chase_the_rabbits": {
-    "id": "chase_the_rabbits",
-    "nameAr": "تمرين ملاحقة الأرانب للياقة والساقين",
-    "nameEn": "Chase the Rabbits",
-    "category": "الكارديو",
-    "bodyPart": "كامل الجسم",
-    "targetMuscle": "عضلات الساقين والقلب",
-    "secondaryMuscles": [
-      "عضلات الكور",
-      "الأكتاف"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين كارديو سريع وممتع يرفع معدل نبضات القلب ويعزز حرق السعرات الحرارية.",
-    "duration": 45,
-    "caloriesPerMin": 10,
-    "caloriesApprox": 50,
+    "caloriesPerMin": 7,
+    "caloriesApprox": 5,
     "animationType": "jumping-jacks",
     "steps": [
-      "قف بوضعية الاستعداد ثم قم بالركض السريع في المكان مع تحريك الأذرع بسرعة.",
-      "انتقل بخطوات جانبية سريعة خاطفة يميناً ويساراً.",
-      "حافظ على وتيرة سريعة ومستمرة."
+      "Begin in a push-up position but make fists with both hands and place your knuckles on the floor, aligned under your shoulders.",
+      "Keep your wrists neutral and straight throughout the movement.",
+      "Lower your chest toward the floor in a controlled manner, keeping your elbows at roughly a 45-degree angle to your body.",
+      "Pause briefly at the bottom, then press back up to the starting position.",
+      "Repeat for the desired number of repetitions."
     ],
     "tips": [
-      "هبط على أطراف أصابع القدمين للحد من الصدمات."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين الضغط على قبضات اليد.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الصدر) طوال مدة الأداء (45 ثانية)."
     ],
     "tags": [
-      "الكارديو",
-      "حرق الدهون",
-      "تخسيس",
-      "الساقين",
-      "متوسط"
-    ],
-    "muscleGroup": "كامل الجسم",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/24-Chase%20the%20Rabbits.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/24-Chase%20the%20Rabbits.mp4",
-    "imageUrl": ""
-  },
-  "child_pose": {
-    "id": "child_pose",
-    "nameAr": "وضعية الطفل للاسترخاء وإطالة الظهر",
-    "nameEn": "Child Pose",
-    "category": "الإطالات والاستشفاء",
-    "bodyPart": "الظهر والحوض",
-    "targetMuscle": "عضلات الظهر والأرداف",
-    "secondaryMuscles": [
-      "الأكتاف",
-      "الفخذين"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين يوجا مريح للغاية يهدئ الجهاز العصبي ويرخي عضلات الظهر والجذع.",
-    "duration": 45,
-    "caloriesPerMin": 3,
-    "caloriesApprox": 15,
-    "animationType": "cobra-stretch",
-    "steps": [
-      "اجلس على كعبيك وافتح ركبتيك قليلاً.",
-      "انحنِ للأمام وافرد يديك على الأرض أمامك.",
-      "أرح جبهتك على الأرض واسترخِ بالكامل."
-    ],
-    "tips": [
-      "ركز على التنفس العميق من البطن."
-    ],
-    "tags": [
-      "إطالة",
-      "الظهر",
-      "استشفاء",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الإطالات والاستشفاء",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/25-Child%20Pose.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/25-Child%20Pose.mp4",
-    "imageUrl": ""
-  },
-  "close_grip_push_up": {
-    "id": "close_grip_push_up",
-    "nameAr": "تمرين الضغط بقبضة ضيقة للترايسبس والصدر",
-    "nameEn": "Close Grip Push Up",
-    "category": "الذراعين",
-    "bodyPart": "الذراعين والصدر",
-    "targetMuscle": "عضلة الترايسبس (Triceps)",
-    "secondaryMuscles": [
-      "منتصف الصدر",
-      "الأكتاف الأمامية"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين قوي لتقوية وتحديد ذراع الترايسبس وبناء الجزء الداخلي من الصدر.",
-    "duration": 45,
-    "caloriesPerMin": 8,
-    "caloriesApprox": 40,
-    "animationType": "plank",
-    "steps": [
-      "ضع يديك على الأرض بقبضة ضيقة أقل من عرض الكتفين.",
-      "انزل بجسمك ببطء نحو الأرض مع إبقاء الكوعين قريباً من الجسد.",
-      "ادفع الأرض بقوة للعودة لوضعية البداية."
-    ],
-    "tips": [
-      "حافظ على استقامة الجسم وعدم نزول الحوض."
-    ],
-    "tags": [
-      "الذراعين",
       "الصدر",
-      "شد الجسم",
-      "بناء العضلات",
-      "بدون معدات",
+      "عضلات الصدر",
       "متوسط"
     ],
     "muscleGroup": "الجزء العلوي والذراعين",
     "difficulty": "متوسط",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/26-Close%20Grip%20Push%20Up.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/26-Close%20Grip%20Push%20Up.mp4",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1157.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1157.mp4",
     "imageUrl": ""
   },
-  "cobra_pose": {
-    "id": "cobra_pose",
-    "nameAr": "وضعية الكوبرا لإطالة البطن والظهر",
-    "nameEn": "Cobra Pose",
-    "category": "الإطالات والاستشفاء",
-    "bodyPart": "البطن والظهر",
-    "targetMuscle": "عضلات البطن المستقيمة والظهر",
+  "1158": {
+    "id": "1158",
+    "nameAr": "ثبات حرف L للبطن والقوة",
+    "nameEn": "l-sit hold",
+    "category": "البطن والكرش",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
     "secondaryMuscles": [
+      "مثنيات الورك",
+      "الذراعان والبايل والتراي",
+      "الأكتاف"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The L-sit hold is an advanced bodyweight isometric exercise targeting the abs, with secondary engagement of the hip flexors, upper arms, and shoulders. It involves suspending the body off the floor in an L-shape by pressing through the hands, requiring tremendous core compression and upper body pressing strength.",
+    "duration": 60,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 10,
+    "animationType": "crunches",
+    "steps": [
+      "Sit on the floor with your legs extended straight in front of you.",
+      "Place your hands flat on the floor beside your hips, fingers pointing forward.",
+      "Press through your palms to lift your entire body off the floor, keeping your legs straight and parallel to the ground.",
+      "Hold the L-shape position for as long as possible, engaging your abs and keeping your back straight.",
+      "Slowly lower back down to the floor and rest before repeating."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء ثبات حرف L للبطن والقوة.",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (60 ثانية)."
+    ],
+    "tags": [
+      "البطن والكرش",
+      "عضلات البطن",
+      "متقدم"
+    ],
+    "muscleGroup": "عضلات البطن والخصر",
+    "difficulty": "متقدم",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1158.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1158.mp4",
+    "imageUrl": ""
+  },
+  "1159": {
+    "id": "1159",
+    "nameAr": "الركض الجانبي السريع (شافل)",
+    "nameEn": "lateral sprint shuffles",
+    "category": "الكارديو",
+    "bodyPart": "كامل الجسم",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "المؤخرة",
+      "الفخذ الخلفي",
+      "lower legs"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Lateral sprint shuffles are a bodyweight cardio and agility exercise targeting the quadriceps, with secondary engagement of the glutes, hamstrings, and lower legs. They involve rapid side-to-side shuffling in a low athletic stance to develop lateral speed, footwork, and cardiovascular conditioning.",
+    "duration": 45,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 8,
+    "animationType": "squats",
+    "steps": [
+      "Stand in a low athletic stance with your knees slightly bent and your weight on the balls of your feet.",
+      "Push off your inside foot and shuffle laterally in one direction by stepping and bringing your feet together repeatedly.",
+      "Keep your hips low and your chest up throughout the movement.",
+      "After the desired distance, plant your outside foot and shuffle back in the opposite direction.",
+      "Continue shuffling back and forth for the desired duration."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء الركض الجانبي السريع (شافل).",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (45 ثانية)."
+    ],
+    "tags": [
+      "الكارديو",
+      "عضلات الفخذ الأمامية",
+      "متوسط"
+    ],
+    "muscleGroup": "كامل الجسم",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1159.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1159.mp4",
+    "imageUrl": ""
+  },
+  "1160": {
+    "id": "1160",
+    "nameAr": "رفع الأرجل للتحضير للوقوف على الرأس",
+    "nameEn": "leg lift progression - headstand preparation",
+    "category": "البطن والكرش",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
+    "secondaryMuscles": [
+      "مثنيات الورك",
+      "الأكتاف"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The leg lift progression for headstand preparation is a bodyweight balance exercise targeting the abs, with secondary engagement of the hip flexors and shoulders. It involves controlled single-leg lifts in an inverted position to build the core strength and body awareness needed for a full headstand.",
+    "duration": 45,
+    "caloriesPerMin": 7,
+    "caloriesApprox": 5,
+    "animationType": "crunches",
+    "steps": [
+      "Set up in a bound headstand position on the floor, positioned in front of a sturdy chair.",
+      "Lift your hips and place one foot onto the seat of the chair for support, extending your other leg straight up.",
+      "Engage your core and slowly lift the foot off the chair, bringing it up to meet your extended leg in a full headstand.",
+      "Pause briefly at the top, maintaining balance and a tight core.",
+      "Slowly lower one leg back down to rest on the chair with control.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء رفع الأرجل للتحضير للوقوف على الرأس.",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (45 ثانية)."
+    ],
+    "tags": [
+      "البطن والكرش",
+      "عضلات البطن",
+      "متوسط"
+    ],
+    "muscleGroup": "عضلات البطن والخصر",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1160.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1160.mp4",
+    "imageUrl": ""
+  },
+  "1161": {
+    "id": "1161",
+    "nameAr": "إطالة الساقين مع اليدين على الخصر",
+    "nameEn": "leg stretch hand on hips",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الخلفية",
+    "secondaryMuscles": [
+      "المؤخرة",
+      "أسفل الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Leg stretch with hands on hips is a bodyweight stretching exercise targeting the hamstrings, with secondary engagement of the glutes and lower back. It involves hinging forward from a wide-stance position with hands on hips to deepen the hamstring stretch while maintaining an upright postural awareness.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
+    "steps": [
+      "Stand upright with your feet close together and place your hands on your hips.",
+      "Shift your weight slightly onto one leg to balance.",
+      "Keeping your opposite leg straight, lift it slightly forward off the floor.",
+      "Point your toes downward toward the floor as you lift.",
+      "Lower your foot back to the starting position.",
+      "Alternate legs and continue the movement for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء إطالة الساقين مع اليدين على الخصر.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الخلفية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الفخذ الخلفية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1161.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1161.mp4",
+    "imageUrl": ""
+  },
+  "1162": {
+    "id": "1162",
+    "nameAr": "أرجحة الساق للأمام والخلف",
+    "nameEn": "leg swing front to back",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الخلفية",
+    "secondaryMuscles": [
+      "المؤخرة",
+      "مثنيات الورك"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Leg swing front to back is a bodyweight dynamic stretching exercise targeting the hamstrings, with secondary engagement of the glutes and hip flexors. It involves rhythmically swinging one leg forward and backward to warm up the hip joint and improve sagittal plane mobility.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
+    "steps": [
+      "Stand on one leg with your hand on a wall or support for balance.",
+      "Engage your core and swing the free leg forward to hip height, then smoothly swing it behind you as far as comfortably possible.",
+      "Keep the movement controlled and use momentum to gradually increase your range of motion.",
+      "Complete the desired number of swings, then switch legs and repeat."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء أرجحة الساق للأمام والخلف.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الخلفية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الفخذ الخلفية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1162.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1162.mp4",
+    "imageUrl": ""
+  },
+  "1163": {
+    "id": "1163",
+    "nameAr": "أرجحة الساق الدائرية",
+    "nameEn": "leg swing in circle",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات المؤخرة",
+    "secondaryMuscles": [
+      "مثنيات الورك",
+      "الفخذ الخلفي"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Leg swing in circle is a bodyweight dynamic stretching exercise targeting the glutes and hip joint, with secondary engagement of the hip flexors and hamstrings. It involves tracing full circular paths with the leg to lubricate the hip joint and improve multi-directional mobility.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
+    "steps": [
+      "Stand on one leg and hold a wall or support for balance.",
+      "Lift the opposite leg slightly off the floor and begin tracing large, controlled circles with that leg.",
+      "Move the leg forward, out to the side, behind you, and back to the start in a full circular motion.",
+      "Complete the desired number of circles in one direction, then reverse.",
+      "Switch legs and repeat on the other side."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء أرجحة الساق الدائرية.",
+      "ركز على انقباض العضلات المستهدفة (عضلات المؤخرة) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات المؤخرة",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1163.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1163.mp4",
+    "imageUrl": ""
+  },
+  "1164": {
+    "id": "1164",
+    "nameAr": "أرجحة الساق جانباً",
+    "nameEn": "leg swing side to side",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات المؤخرة",
+    "secondaryMuscles": [
+      "مثنيات الورك",
+      "أسفل الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Leg swing side to side is a bodyweight dynamic stretching exercise targeting the glutes and hip abductors, with secondary engagement of the hip flexors and lower back. It involves swinging one leg laterally across and away from the body to improve frontal plane hip mobility.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
+    "steps": [
+      "Stand sideways next to a wall or support and place one hand on it for balance.",
+      "Engage your core and swing the free leg across your body to the opposite side, then swing it outward as far as comfortably possible.",
+      "Keep the swinging motion controlled and allow momentum to gradually open the range of motion.",
+      "Complete the desired number of swings, then turn around and repeat on the other leg."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء أرجحة الساق جانباً.",
+      "ركز على انقباض العضلات المستهدفة (عضلات المؤخرة) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات المؤخرة",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1164.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1164.mp4",
+    "imageUrl": ""
+  },
+  "1165": {
+    "id": "1165",
+    "nameAr": "تمرين أرجحة الساقين",
+    "nameEn": "leg swing",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الخلفية",
+    "secondaryMuscles": [
+      "المؤخرة",
+      "مثنيات الورك"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The leg swing is a bodyweight dynamic stretching exercise targeting the hamstrings, with secondary engagement of the glutes and hip flexors. It involves swinging one leg forward and backward in a controlled pendulum motion to mobilize the hip joint and warm up the posterior chain.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
+    "steps": [
+      "Stand upright with your feet hip-width apart and place your hands on your hips.",
+      "Shift your weight onto one leg, keeping a slight bend in the knee for stability.",
+      "Lift your opposite foot slightly and swing it horizontally across the front of your standing leg.",
+      "Swing the same leg back in the opposite direction, bringing it out wide to the side.",
+      "Continue swinging the leg side to side in a controlled pendulum motion.",
+      "Complete the desired number of swings, then switch legs and repeat."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين أرجحة الساقين.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الخلفية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الفخذ الخلفية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1165.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1165.mp4",
+    "imageUrl": ""
+  },
+  "1166": {
+    "id": "1166",
+    "nameAr": "تسلق الجبل (ماونتن كلايمبر)",
+    "nameEn": "mountain climber",
+    "category": "الكارديو",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
+    "secondaryMuscles": [
+      "الأكتاف",
+      "الفخذ الأمامي",
+      "مثنيات الورك"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The mountain climber is a bodyweight cardio and core exercise targeting the abs, with secondary engagement of the shoulders, quads, and hip flexors. It involves rapidly alternating knee drives in a plank position to challenge core stability, cardiovascular endurance, and overall conditioning.",
+    "duration": 45,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 8,
+    "animationType": "crunches",
+    "steps": [
+      "Begin in a high plank position with your hands directly under your shoulders and your body in a straight line.",
+      "Engage your core and drive your right knee toward your chest.",
+      "Quickly return your right foot to the starting position and simultaneously drive your left knee toward your chest.",
+      "Continue alternating legs at a fast, running-like pace.",
+      "Repeat for the desired duration or number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تسلق الجبل (ماونتن كلايمبر).",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (45 ثانية)."
+    ],
+    "tags": [
+      "الكارديو",
+      "عضلات البطن",
+      "متوسط"
+    ],
+    "muscleGroup": "كامل الجسم",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1166.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1166.mp4",
+    "imageUrl": ""
+  },
+  "1167": {
+    "id": "1167",
+    "nameAr": "وضعية الجبل إلى الانحناء الأمامي",
+    "nameEn": "mountain pose - mountain-to-forward-fold-flow",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الخلفية",
+    "secondaryMuscles": [
+      "عضلات البطن",
+      "أسفل الظهر",
+      "المؤخرة"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Mountain pose to forward fold flow is a bodyweight yoga movement targeting the hamstrings, with secondary engagement of the abs, lower back, and glutes. It transitions between a tall standing posture and a forward fold in coordination with the breath, promoting spinal mobility and posterior chain flexibility.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
+    "steps": [
+      "Stand tall in mountain pose with your feet together, arms by your sides, and weight evenly distributed.",
+      "Inhale and raise your arms overhead, lengthening your spine.",
+      "Exhale and hinge forward from your hips, sweeping your arms down as you fold toward the floor.",
+      "Allow your hands to reach toward the floor or rest on your shins, keeping a slight bend in your knees if needed.",
+      "Inhale to rise back up to mountain pose with arms overhead and repeat the flow for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء وضعية الجبل إلى الانحناء الأمامي.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الخلفية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الفخذ الخلفية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1167.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1167.mp4",
+    "imageUrl": ""
+  },
+  "1168": {
+    "id": "1168",
+    "nameAr": "نصف دائرة الرقبة للاسترخاء",
+    "nameEn": "neck half circle",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الرقبة",
+    "targetMuscle": "عضلات الرقبة",
+    "secondaryMuscles": [
+      "عضلات الترافيز"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Neck half circle is a bodyweight stretching exercise targeting the neck muscles, with secondary engagement of the traps. It involves rolling the head in a controlled half-circle motion to release tension along the cervical spine and improve neck mobility.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "cobra-stretch",
+    "steps": [
+      "Sit or stand with your spine tall and your shoulders relaxed.",
+      "Slowly drop your chin toward your chest.",
+      "Gently roll your head in a half arc from one shoulder toward the other, passing through the center.",
+      "Pause briefly on each side when your ear approaches your shoulder, feeling the stretch in your neck.",
+      "Return to center and repeat in the other direction for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء نصف دائرة الرقبة للاسترخاء.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الرقبة) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الرقبة",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1168.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1168.mp4",
+    "imageUrl": ""
+  },
+  "1169": {
+    "id": "1169",
+    "nameAr": "تمرين العقلة السلبية (نزول بطيء)",
+    "nameEn": "negative pull up",
+    "category": "الظهر",
+    "bodyPart": "الظهر",
+    "targetMuscle": "عضلات الظهر العريضة",
+    "secondaryMuscles": [
+      "عضلات البايسبس",
+      "عضلات الترافيز",
+      "أعلى الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The negative pull up is a bodyweight exercise targeting the lats, with secondary engagement of the biceps, traps, and rhomboids. It focuses on the eccentric lowering phase of the pull-up to build the back and arm strength required for a full pull-up.",
+    "duration": 45,
+    "caloriesPerMin": 7,
+    "caloriesApprox": 5,
+    "animationType": "jumping-jacks",
+    "steps": [
+      "Use a box or jump to reach the top position of a pull-up, with your chin above the bar and arms bent.",
+      "Grip the bar with an overhand grip, shoulder-width apart.",
+      "Slowly lower your body toward the starting hang position, taking 3-5 seconds to descend.",
+      "Maintain tension in your lats and arms throughout the descent, resisting gravity as much as possible.",
+      "Once fully extended, jump or step back to the top and repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين العقلة السلبية (نزول بطيء).",
+      "ركز على انقباض العضلات المستهدفة (عضلات الظهر العريضة) طوال مدة الأداء (45 ثانية)."
+    ],
+    "tags": [
+      "الظهر",
+      "عضلات الظهر العريضة",
+      "متوسط"
+    ],
+    "muscleGroup": "الجزء العلوي والذراعين",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1169.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1169.mp4",
+    "imageUrl": ""
+  },
+  "1170": {
+    "id": "1170",
+    "nameAr": "تمرين الضغط بيد واحدة",
+    "nameEn": "one arm push ups",
+    "category": "الصدر",
+    "bodyPart": "الصدر",
+    "targetMuscle": "عضلات الصدر",
+    "secondaryMuscles": [
+      "الأكتاف",
+      "الذراعان والبايل والتراي",
+      "عضلات البطن"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "One arm push ups are an advanced bodyweight exercise targeting the chest, with secondary engagement of the shoulders, upper arms, and abs. Performing the push-up on a single arm demands maximum chest and triceps strength, along with exceptional core stability to prevent rotation.",
+    "duration": 60,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 10,
+    "animationType": "jumping-jacks",
+    "steps": [
+      "Begin in a wide push-up stance with one hand placed in the center of your chest and the other placed behind your back.",
+      "Engage your core tightly and keep your body in a rigid plank position.",
+      "Lower your chest toward the floor by bending the working arm, keeping your elbow close to your body.",
+      "Pause briefly at the bottom, then press explosively back up to the starting position.",
+      "Complete the desired number of repetitions, then switch arms."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين الضغط بيد واحدة.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الصدر) طوال مدة الأداء (60 ثانية)."
+    ],
+    "tags": [
+      "الصدر",
+      "عضلات الصدر",
+      "متقدم"
+    ],
+    "muscleGroup": "الجزء العلوي والذراعين",
+    "difficulty": "متقدم",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1170.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1170.mp4",
+    "imageUrl": ""
+  },
+  "1171": {
+    "id": "1171",
+    "nameAr": "وضعية المثلث المفتوح للصدر",
+    "nameEn": "open chest triangle pose detail",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات المؤخرة",
+    "secondaryMuscles": [
+      "الفخذ الخلفي",
+      "الخصر والجانبان",
+      "أسفل الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Open chest triangle pose detail is a bodyweight yoga exercise targeting the glutes, with secondary engagement of the hamstrings, obliques, and lower back. It involves a lateral bend over an extended leg while rotating the chest open, improving hamstring flexibility, lateral stability, and thoracic rotation.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
+    "steps": [
+      "Stand with your feet wide apart, approximately three to four feet, and turn your right foot out 90 degrees.",
+      "Extend your arms out to the sides at shoulder height.",
+      "Hinge laterally over your front leg, lowering your right hand toward your right shin or the floor.",
+      "Extend your left arm toward the ceiling and rotate your gaze upward to open your chest.",
+      "Hold for 20-30 seconds, then return to standing and repeat on the other side."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء وضعية المثلث المفتوح للصدر.",
+      "ركز على انقباض العضلات المستهدفة (عضلات المؤخرة) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات المؤخرة",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1171.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1171.mp4",
+    "imageUrl": ""
+  },
+  "1172": {
+    "id": "1172",
+    "nameAr": "تمرين ضغط البايك للأكتاف",
+    "nameEn": "pike push ups",
+    "category": "الكتفين",
+    "bodyPart": "الأكتاف",
+    "targetMuscle": "عضلات الكتف",
+    "secondaryMuscles": [
+      "الذراعان والبايل والتراي",
+      "عضلات الترافيز",
+      "الصدر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Pike push ups are a bodyweight exercise targeting the deltoids, with secondary engagement of the upper arms, traps, and chest. Performed in an inverted V-position, the angled pressing motion places the primary load on the shoulders, making this an effective progression toward the handstand push-up.",
+    "duration": 45,
+    "caloriesPerMin": 7,
+    "caloriesApprox": 5,
+    "animationType": "jumping-jacks",
+    "steps": [
+      "Begin in a downward dog position with your hands shoulder-width apart and hips raised toward the ceiling.",
+      "Engage your core and keep your legs straight throughout the movement.",
+      "Bend your elbows and lower the top of your head toward the floor between your hands.",
+      "Pause briefly at the bottom, then press through your palms to return to the starting position.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين ضغط البايك للأكتاف.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الكتف) طوال مدة الأداء (45 ثانية)."
+    ],
+    "tags": [
+      "الكتفين",
+      "عضلات الكتف",
+      "متوسط"
+    ],
+    "muscleGroup": "الجزء العلوي والذراعين",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1172.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1172.mp4",
+    "imageUrl": ""
+  },
+  "1173": {
+    "id": "1173",
+    "nameAr": "تمرين السكوات على رجل واحدة (بيستول)",
+    "nameEn": "pistol squat",
+    "category": "الساقين",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "المؤخرة",
+      "الفخذ الخلفي",
+      "عضلات البطن"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The pistol squat is an advanced bodyweight exercise targeting the quadriceps, with secondary engagement of the glutes, hamstrings, and abs. It is a single-leg squat performed to full depth while the opposite leg is held straight out, demanding exceptional unilateral strength, balance, and ankle flexibility.",
+    "duration": 60,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 10,
+    "animationType": "squats",
+    "steps": [
+      "Stand on one leg with the other leg extended straight out in front of you.",
+      "Extend your arms forward for counterbalance.",
+      "Slowly lower your body toward the floor by bending your standing knee, keeping your extended leg off the ground.",
+      "Descend as deep as possible while maintaining control, ideally until your standing thigh is parallel to or below the floor.",
+      "Drive through your heel to return to the starting position and repeat, then switch legs."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين السكوات على رجل واحدة (بيستول).",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (60 ثانية)."
+    ],
+    "tags": [
+      "الساقين",
+      "عضلات الفخذ الأمامية",
+      "متقدم"
+    ],
+    "muscleGroup": "الجزء السفلي والفخذين",
+    "difficulty": "متقدم",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1173.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1173.mp4",
+    "imageUrl": ""
+  },
+  "1174": {
+    "id": "1174",
+    "nameAr": "سكوات البيستول المدعم بالدعائم",
+    "nameEn": "pistol squats with poll support",
+    "category": "الساقين",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "المؤخرة",
+      "الفخذ الخلفي",
+      "عضلات البطن"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Pistol squats with poll support are a bodyweight exercise targeting the quadriceps, with secondary engagement of the glutes, hamstrings, and abs. Using a support for balance allows the athlete to practice the full pistol squat range of motion while progressively building the strength and coordination needed for the unsupported version.",
+    "duration": 45,
+    "caloriesPerMin": 7,
+    "caloriesApprox": 5,
+    "animationType": "squats",
+    "steps": [
+      "Stand in front of a pole, doorframe, or TRX strap with one hand gripping it for support.",
+      "Extend one leg straight out in front of you and shift your weight onto the opposite leg.",
+      "Slowly lower into a single-leg squat, using the pole to assist balance and reduce load as needed.",
+      "Descend until your thigh is parallel to or below the floor, then drive through your heel to rise.",
+      "Complete the desired number of repetitions and switch legs."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء سكوات البيستول المدعم بالدعائم.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (45 ثانية)."
+    ],
+    "tags": [
+      "الساقين",
+      "عضلات الفخذ الأمامية",
+      "متوسط"
+    ],
+    "muscleGroup": "الجزء السفلي والفخذين",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1174.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1174.mp4",
+    "imageUrl": ""
+  },
+  "1175": {
+    "id": "1175",
+    "nameAr": "الركض الخفيف في المكان",
+    "nameEn": "place jog cardio",
+    "category": "الكارديو",
+    "bodyPart": "كامل الجسم",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "الفخذ الخلفي",
+      "المؤخرة",
+      "lower legs"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Place jog cardio is a bodyweight cardiovascular exercise targeting the quadriceps, with secondary engagement of the hamstrings, glutes, and lower legs. It involves jogging in place as a low-impact way to elevate heart rate, warm up the lower body, or maintain active recovery.",
+    "duration": 30,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 5,
+    "animationType": "squats",
+    "steps": [
+      "Stand with your feet hip-width apart and arms relaxed at your sides.",
+      "Begin jogging in place at a comfortable pace, lifting your feet a few inches off the floor with each stride.",
+      "Pump your arms naturally in coordination with your legs.",
+      "Maintain an upright posture with your core lightly engaged and eyes forward.",
+      "Continue for the desired duration."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء الركض الخفيف في المكان.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الكارديو",
+      "عضلات الفخذ الأمامية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "كامل الجسم",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1175.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1175.mp4",
+    "imageUrl": ""
+  },
+  "1176": {
+    "id": "1176",
+    "nameAr": "قفزات البلانك الجانبية المتقدمة",
+    "nameEn": "plank jack advanced",
+    "category": "الكارديو",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
+    "secondaryMuscles": [
+      "الأكتاف",
+      "المؤخرة",
+      "lower legs"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Plank jack advanced is a bodyweight cardio and core exercise targeting the abs, with secondary engagement of the shoulders, glutes, and lower legs. It involves rapidly jumping the feet in and out while holding a plank position, increasing the intensity and cardiovascular demand of the standard plank jack.",
+    "duration": 45,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 8,
+    "animationType": "plank",
+    "steps": [
+      "Begin in a high plank position with your hands directly under your shoulders and your body in a straight line.",
+      "Engage your core and keep your hips level throughout the movement.",
+      "Explosively jump both feet outward wider than hip-width apart, then jump them back together.",
+      "Perform the movement at maximum speed while maintaining a stable plank position.",
+      "Continue for the desired number of repetitions or duration."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء قفزات البلانك الجانبية المتقدمة.",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (45 ثانية)."
+    ],
+    "tags": [
+      "الكارديو",
+      "عضلات البطن",
+      "متوسط"
+    ],
+    "muscleGroup": "كامل الجسم",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1176.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1176.mp4",
+    "imageUrl": ""
+  },
+  "1177": {
+    "id": "1177",
+    "nameAr": "قفزات فتح الأرجل في وضعية البلانك",
+    "nameEn": "plank jack",
+    "category": "الكارديو",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
+    "secondaryMuscles": [
+      "الأكتاف",
+      "المؤخرة",
+      "lower legs"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The plank jack is a bodyweight exercise targeting the abs, with secondary engagement of the shoulders, glutes, and lower legs. It combines the stability demands of a plank with a lateral jumping motion of the feet to add a cardiovascular component while training core endurance.",
+    "duration": 30,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 5,
+    "animationType": "plank",
+    "steps": [
+      "Begin in a forearm or high plank position with your body in a straight line from head to heels.",
+      "Engage your core and keep your hips stable throughout.",
+      "Jump both feet out to the sides simultaneously, landing wider than hip-width apart.",
+      "Immediately jump both feet back together to the starting position.",
+      "Continue for the desired number of repetitions at a controlled pace."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء قفزات فتح الأرجل في وضعية البلانك.",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الكارديو",
+      "عضلات البطن",
+      "مبتدئ"
+    ],
+    "muscleGroup": "كامل الجسم",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1177.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1177.mp4",
+    "imageUrl": ""
+  },
+  "1178": {
+    "id": "1178",
+    "nameAr": "تمرين ثبات البلانك للبطن والكور",
+    "nameEn": "plank",
+    "category": "البطن والكرش",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
+    "secondaryMuscles": [
+      "الأكتاف",
+      "أسفل الظهر",
+      "المؤخرة"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The plank is a foundational bodyweight isometric exercise targeting the abs, with secondary engagement of the shoulders, lower back, and glutes. It involves maintaining a rigid straight-body position on the forearms to build core endurance, spinal stability, and full-body tension.",
+    "duration": 30,
+    "caloriesPerMin": 6,
+    "caloriesApprox": 3,
+    "animationType": "plank",
+    "steps": [
+      "Begin face down on the floor and prop yourself up on your forearms with elbows directly beneath your shoulders.",
+      "Lift your hips off the floor so your body forms a straight line from head to heels.",
+      "Engage your core, squeeze your glutes, and keep your hips level throughout.",
+      "Hold the position while breathing steadily for the desired duration.",
+      "Lower your knees to the floor to release."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين ثبات البلانك للبطن والكور.",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "البطن والكرش",
+      "عضلات البطن",
+      "مبتدئ"
+    ],
+    "muscleGroup": "عضلات البطن والخصر",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1178.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1178.mp4",
+    "imageUrl": ""
+  },
+  "1179": {
+    "id": "1179",
+    "nameAr": "تمرين العقلة (سحب للظهر)",
+    "nameEn": "pull up",
+    "category": "الظهر",
+    "bodyPart": "الظهر",
+    "targetMuscle": "عضلات الظهر العريضة",
+    "secondaryMuscles": [
+      "عضلات البايسبس",
+      "عضلات الترافيز",
+      "أعلى الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The pull up is a classic bodyweight exercise targeting the lats, with secondary engagement of the biceps, traps, and rhomboids. It involves pulling the body upward to the bar from a dead hang, making it one of the most effective compound exercises for building upper back width and pulling strength.",
+    "duration": 45,
+    "caloriesPerMin": 7,
+    "caloriesApprox": 5,
+    "animationType": "jumping-jacks",
+    "steps": [
+      "Hang from a pull-up bar with an overhand grip, hands slightly wider than shoulder-width apart.",
+      "Engage your core and depress your shoulder blades before initiating the pull.",
+      "Drive your elbows toward the floor to pull your chest up toward the bar.",
+      "Continue until your chin clears the bar, holding the top position briefly.",
+      "Slowly lower yourself back to the fully extended hang position and repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين العقلة (سحب للظهر).",
+      "ركز على انقباض العضلات المستهدفة (عضلات الظهر العريضة) طوال مدة الأداء (45 ثانية)."
+    ],
+    "tags": [
+      "الظهر",
+      "عضلات الظهر العريضة",
+      "متوسط"
+    ],
+    "muscleGroup": "الجزء العلوي والذراعين",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1179.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1179.mp4",
+    "imageUrl": ""
+  },
+  "1180": {
+    "id": "1180",
+    "nameAr": "جسر الظهر العلوي والتمدد للخلف",
+    "nameEn": "reach back - thoracic bridge",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الظهر",
+    "targetMuscle": "عضلات الظهر العريضة",
+    "secondaryMuscles": [
+      "الصدر",
+      "أسفل الظهر",
+      "الأكتاف"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The reach back thoracic bridge is a bodyweight mobility exercise targeting the lats, with secondary engagement of the chest, lower back, and shoulders. It involves rotating through the thoracic spine from a quadruped position to improve upper back mobility and shoulder health.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "cobra-stretch",
+    "steps": [
+      "Begin in a tabletop position on your hands and knees.",
+      "Place one hand behind your head with your elbow pointing outward.",
+      "Rotate your torso to bring that elbow toward the floor between your arm and knee.",
+      "Then rotate in the opposite direction, opening your chest and reaching that elbow toward the ceiling.",
+      "Repeat for the desired number of repetitions and switch sides."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء جسر الظهر العلوي والتمدد للخلف.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الظهر العريضة) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الظهر العريضة",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1180.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1180.mp4",
+    "imageUrl": ""
+  },
+  "1181": {
+    "id": "1181",
+    "nameAr": "الانحناء والمُد في وضعية المثلث",
+    "nameEn": "reach hinge triangle pose detail",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الخلفية",
+    "secondaryMuscles": [
+      "المؤخرة",
+      "أسفل الظهر",
+      "الخصر والجانبان"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Reach hinge triangle pose detail is a bodyweight yoga exercise targeting the hamstrings, with secondary engagement of the glutes, lower back, and obliques. It involves a lateral hinge over one leg with a thoracic rotation component to stretch the hamstrings and improve spinal mobility.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
+    "steps": [
+      "Stand with feet wide apart and hinge from the hips over your front leg, keeping your back flat.",
+      "Reach one hand toward the floor or shin, extending the other arm to the ceiling.",
+      "Rotate your torso to open your chest and gaze up toward your raised hand.",
+      "Hold for 20-30 seconds, feeling the stretch in your hamstrings and the opening in your chest.",
+      "Return to standing and repeat on the other side."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء الانحناء والمُد في وضعية المثلث.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الخلفية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الفخذ الخلفية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1181.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1181.mp4",
+    "imageUrl": ""
+  },
+  "1182": {
+    "id": "1182",
+    "nameAr": "دوران مفصل الكتف الشامل",
+    "nameEn": "shoulder car",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الأكتاف",
+    "targetMuscle": "عضلات الكتف",
+    "secondaryMuscles": [
+      "عضلات الترافيز",
+      "الذراعان والبايل والتراي"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Shoulder car is a bodyweight mobility exercise targeting the deltoids, with secondary engagement of the traps and upper arms. CAR stands for controlled articular rotation; the movement involves taking the shoulder joint through its full range of motion in a slow, deliberate circle to improve joint health and mobility.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "cobra-stretch",
+    "steps": [
+      "Stand or kneel with your spine tall and core engaged.",
+      "Raise one arm forward to shoulder height with the elbow straight.",
+      "Slowly rotate the arm in the largest circle possible, moving it upward, backward, down, and forward.",
+      "Perform the full controlled articular rotation at a slow, deliberate pace, exploring the end range in every direction.",
+      "Complete the desired number of rotations and switch arms."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء دوران مفصل الكتف الشامل.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الكتف) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الكتف",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1182.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1182.mp4",
+    "imageUrl": ""
+  },
+  "1183": {
+    "id": "1183",
+    "nameAr": "دوائر الأكتاف للاسترخاء",
+    "nameEn": "shoulder circle",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الأكتاف",
+    "targetMuscle": "عضلات الكتف",
+    "secondaryMuscles": [
+      "عضلات الترافيز",
+      "الذراعان والبايل والتراي"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Shoulder circle is a bodyweight stretching exercise targeting the deltoids, with secondary engagement of the traps and upper arms. It involves rolling the shoulders in full circles to release tension, improve joint mobility, and warm up the shoulder girdle before training.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "cobra-stretch",
+    "steps": [
+      "Stand or sit upright with your arms hanging relaxed at your sides.",
+      "Slowly roll both shoulders forward in a circular motion, moving them up toward your ears, then back, then down.",
+      "Complete the desired number of circles in the forward direction.",
+      "Reverse the motion and perform the same number of circles in the backward direction.",
+      "Keep the movement slow and controlled, feeling the muscles around the shoulder loosen with each rotation."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء دوائر الأكتاف للاسترخاء.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الكتف) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الكتف",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1183.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1183.mp4",
+    "imageUrl": ""
+  },
+  "1184": {
+    "id": "1184",
+    "nameAr": "إطالة تسخين الأكتاف",
+    "nameEn": "shoulder stretch warm up",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الأكتاف",
+    "targetMuscle": "عضلات الكتف",
+    "secondaryMuscles": [
+      "عضلات الترافيز",
+      "الذراعان والبايل والتراي"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Shoulder stretch warm up is a bodyweight stretching exercise targeting the deltoids and anterior shoulder, with secondary engagement of the traps and upper arms. It involves clasping the hands behind the back and opening the chest to release tightness and prepare the shoulder joint for activity.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "cobra-stretch",
+    "steps": [
+      "Stand with your feet shoulder-width apart and your arms relaxed.",
+      "Interlace your fingers behind your back and straighten your arms.",
+      "Gently squeeze your shoulder blades together and lift your clasped hands slightly away from your body.",
+      "Hold for 10-15 seconds, feeling the stretch across the front of your shoulders and chest.",
+      "Release and repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء إطالة تسخين الأكتاف.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الكتف) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الكتف",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1184.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1184.mp4",
+    "imageUrl": ""
+  },
+  "1185": {
+    "id": "1185",
+    "nameAr": "تمرين إطالة وتليين الأكتاف",
+    "nameEn": "shoulder stretch",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الأكتاف",
+    "targetMuscle": "عضلات الكتف",
+    "secondaryMuscles": [
+      "عضلات الترافيز",
+      "الذراعان والبايل والتراي"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The shoulder stretch is a bodyweight stretching exercise targeting the posterior deltoids, with secondary engagement of the traps and upper arms. It involves drawing one arm horizontally across the body to alleviate shoulder tightness and improve joint flexibility and range of motion.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "cobra-stretch",
+    "steps": [
+      "Begin in a high plank position with your hands under your shoulders and your feet wider than hip-width apart.",
+      "Brace your core to keep your hips level and your body in a straight line.",
+      "Lift one hand off the floor and swing your straight arm backward and upward.",
+      "Allow your torso to rotate slightly to open up your chest and shoulder.",
+      "Smoothly swing the arm forward and back down toward the floor.",
+      "Repeat the swinging motion for the desired number of reps, then switch arms."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين إطالة وتليين الأكتاف.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الكتف) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الكتف",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1185.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1185.mp4",
+    "imageUrl": ""
+  },
+  "1186": {
+    "id": "1186",
+    "nameAr": "ثبات البلانك الجانبي على الكوع",
+    "nameEn": "side plank hold on elbow",
+    "category": "البطن والكرش",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات الخصر والجانبين",
+    "secondaryMuscles": [
+      "عضلات البطن",
+      "الأكتاف",
+      "المؤخرة"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The side plank hold on elbow is a bodyweight isometric exercise targeting the obliques, with secondary engagement of the abs, shoulders, and glutes. It involves maintaining a rigid lateral body position on one forearm to build lateral core stability and resist spinal rotation.",
+    "duration": 30,
+    "caloriesPerMin": 6,
+    "caloriesApprox": 3,
+    "animationType": "plank",
+    "steps": [
+      "Lie on your side with your legs stacked and prop yourself up on your forearm, with your elbow directly beneath your shoulder.",
+      "Lift your hips off the floor so your body forms a straight line from head to feet.",
+      "Keep your core engaged, your top hip pushed upward, and avoid letting your hips sag or rotate.",
+      "Hold the position for the desired duration while breathing steadily.",
+      "Lower your hips, rest, and repeat on the other side."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء ثبات البلانك الجانبي على الكوع.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الخصر والجانبين) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "البطن والكرش",
+      "عضلات الخصر والجانبين",
+      "مبتدئ"
+    ],
+    "muscleGroup": "عضلات البطن والخصر",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1186.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1186.mp4",
+    "imageUrl": ""
+  },
+  "1187": {
+    "id": "1187",
+    "nameAr": "أرجحة الساقين الجانبية الديناميكية",
+    "nameEn": "side to side dynamic leg swings",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات المؤخرة",
+    "secondaryMuscles": [
+      "مثنيات الورك",
+      "أسفل الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Side to side dynamic leg swings are a bodyweight dynamic stretching exercise targeting the glutes, with secondary engagement of the hip flexors and lower back. They involve swinging one leg horizontally across the body to improve frontal plane hip mobility and warm up the hip joints.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
+    "steps": [
+      "Stand facing a wall or support and place both hands on it for balance.",
+      "Shift your weight onto one leg and swing the other leg from side to side across the front of your body.",
+      "Allow each swing to gradually increase in range as your hip warms up.",
+      "Keep your core engaged and your torso stationary throughout the movement.",
+      "Complete the desired number of swings and switch legs."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء أرجحة الساقين الجانبية الديناميكية.",
+      "ركز على انقباض العضلات المستهدفة (عضلات المؤخرة) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات المؤخرة",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1187.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1187.mp4",
+    "imageUrl": ""
+  },
+  "1188": {
+    "id": "1188",
+    "nameAr": "تمرين المعدة الكامل (سِت أب)",
+    "nameEn": "sit ups version 1",
+    "category": "البطن والكرش",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
+    "secondaryMuscles": [
+      "مثنيات الورك",
+      "الخصر والجانبان"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Sit ups version 1 is a bodyweight core exercise targeting the abs, with secondary engagement of the hip flexors and obliques. It involves a full-range sit-up movement to strengthen the anterior core and develop abdominal endurance.",
+    "duration": 30,
+    "caloriesPerMin": 6,
+    "caloriesApprox": 3,
+    "animationType": "crunches",
+    "steps": [
+      "Lie flat on your back with your knees bent and feet flat on the floor.",
+      "Place your hands behind your head with elbows pointing outward.",
+      "Engage your core and curl your torso all the way up until your elbows approach your knees.",
+      "Pause briefly at the top, then slowly lower your torso back to the starting position.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين المعدة الكامل (سِت أب).",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "البطن والكرش",
+      "عضلات البطن",
+      "مبتدئ"
+    ],
+    "muscleGroup": "عضلات البطن والخصر",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1188.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1188.mp4",
+    "imageUrl": ""
+  },
+  "1189": {
+    "id": "1189",
+    "nameAr": "موجة العمود الفقري مع السكوات",
+    "nameEn": "spinal wave into squats",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
+    "secondaryMuscles": [
+      "أسفل الظهر",
+      "الفخذ الأمامي",
+      "المؤخرة"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Spinal wave into squats is a bodyweight mobility exercise targeting the abs and spine, with secondary engagement of the lower back, quads, and glutes. It combines sequential spinal articulation with a squat to improve spinal mobility, core awareness, and lower body strength in a fluid flowing movement.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "crunches",
+    "steps": [
+      "Stand with your feet hip-width apart and begin with a slow forward fold, rounding sequentially from the neck down through the spine.",
+      "Once fully folded, shift your weight into your heels and roll your spine down into a squat position.",
+      "Hold the squat briefly, engaging your core and keeping your chest open.",
+      "Drive through your heels to rise out of the squat, then sequentially uncurl your spine back to a tall standing position, head rising last.",
+      "Repeat the wave-like spinal articulation and squat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء موجة العمود الفقري مع السكوات.",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات البطن",
+      "متوسط"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1189.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1189.mp4",
+    "imageUrl": ""
+  },
+  "1190": {
+    "id": "1190",
+    "nameAr": "سباق الركض السريع الفترات",
+    "nameEn": "sprint interval fast running",
+    "category": "الكارديو",
+    "bodyPart": "كامل الجسم",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "الفخذ الخلفي",
+      "المؤخرة",
+      "lower legs"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Sprint interval fast running is a bodyweight cardio exercise targeting the quadriceps, with secondary engagement of the hamstrings, glutes, and lower legs. It involves alternating between maximum-effort sprints and recovery periods to build cardiovascular capacity, speed, and anaerobic endurance.",
+    "duration": 45,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 8,
+    "animationType": "squats",
+    "steps": [
+      "Begin standing or jogging to warm up, then transition into a full sprint.",
+      "Drive your knees forward and pump your arms powerfully to maximize your running speed.",
+      "Maintain maximum effort for the prescribed sprint duration, typically 10-30 seconds.",
+      "Slow to a jog or walk for the designated recovery period.",
+      "Repeat the sprint and recovery intervals for the desired number of rounds."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء سباق الركض السريع الفترات.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (45 ثانية)."
+    ],
+    "tags": [
+      "الكارديو",
+      "عضلات الفخذ الأمامية",
+      "متوسط"
+    ],
+    "muscleGroup": "كامل الجسم",
+    "difficulty": "متوسط",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1190.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1190.mp4",
+    "imageUrl": ""
+  },
+  "1191": {
+    "id": "1191",
+    "nameAr": "تدريب الفترات عالية الشدة للركض",
+    "nameEn": "sprint intervals fast running",
+    "category": "الكارديو",
+    "bodyPart": "كامل الجسم",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "الفخذ الخلفي",
+      "المؤخرة",
+      "lower legs"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Sprint intervals fast running is a bodyweight cardio training method targeting the quadriceps, with secondary engagement of the hamstrings, glutes, and lower legs. It structures repeated bouts of all-out sprinting with rest intervals to maximize anaerobic power output and metabolic conditioning.",
+    "duration": 60,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 10,
+    "animationType": "squats",
+    "steps": [
+      "Begin with a light jog to warm up your muscles.",
+      "Accelerate to a maximum sprint, focusing on powerful arm drive and high knee lift.",
+      "Sustain the sprint for the prescribed interval, typically 15-30 seconds.",
+      "Recover by walking or slow jogging for the prescribed rest period.",
+      "Repeat for the desired number of intervals."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تدريب الفترات عالية الشدة للركض.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (60 ثانية)."
+    ],
+    "tags": [
+      "الكارديو",
+      "عضلات الفخذ الأمامية",
+      "متقدم"
+    ],
+    "muscleGroup": "كامل الجسم",
+    "difficulty": "متقدم",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1191.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1191.mp4",
+    "imageUrl": ""
+  },
+  "1192": {
+    "id": "1192",
+    "nameAr": "تمرين الضغط القياسي للصدر",
+    "nameEn": "standard push up",
+    "category": "الصدر",
+    "bodyPart": "الصدر",
+    "targetMuscle": "عضلات الصدر",
+    "secondaryMuscles": [
+      "الأكتاف",
+      "الذراعان والبايل والتراي",
+      "عضلات البطن"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The standard push up is a fundamental bodyweight exercise targeting the chest, with secondary engagement of the shoulders, upper arms, and abs. It involves lowering and pressing the body in a plank position to develop upper body pushing strength and core stability.",
+    "duration": 30,
+    "caloriesPerMin": 6,
+    "caloriesApprox": 3,
+    "animationType": "jumping-jacks",
+    "steps": [
+      "Begin in a plank position with your hands placed slightly wider than shoulder-width apart and fingers pointing forward.",
+      "Engage your core and keep your body in a straight line from head to heels.",
+      "Lower your chest toward the floor by bending your elbows at roughly a 45-degree angle to your body.",
+      "Pause briefly when your chest is just above the floor, then press back up to the starting position.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين الضغط القياسي للصدر.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الصدر) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الصدر",
+      "عضلات الصدر",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الجزء العلوي والذراعين",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1192.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1192.mp4",
+    "imageUrl": ""
+  },
+  "1193": {
+    "id": "1193",
+    "nameAr": "الركل الواقف للأمام والخلف",
+    "nameEn": "standing front to back kick",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات المؤخرة",
+    "secondaryMuscles": [
+      "مثنيات الورك",
+      "الفخذ الخلفي",
+      "عضلات البطن"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Standing front to back kick is a bodyweight exercise targeting the glutes, with secondary engagement of the hip flexors, hamstrings, and abs. It involves swinging one leg forward and backward through a full sagittal arc to dynamically activate the posterior chain and improve hip mobility.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
+    "steps": [
+      "Stand with your feet hip-width apart and shift your weight onto one leg.",
+      "Kick your free leg forward to hip height, keeping the knee extended and core engaged.",
+      "Swing the leg back behind you, extending it at the hip, and squeeze your glute at the top.",
+      "Continue swinging the leg forward and backward in a controlled, continuous motion.",
+      "Complete the desired number of repetitions, then switch legs."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء الركل الواقف للأمام والخلف.",
+      "ركز على انقباض العضلات المستهدفة (عضلات المؤخرة) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات المؤخرة",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1193.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1193.mp4",
+    "imageUrl": ""
+  },
+  "1194": {
+    "id": "1194",
+    "nameAr": "إطالة عضلة الفخذ الخلفية واقفاً",
+    "nameEn": "standing hamstring stretch",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الخلفية",
+    "secondaryMuscles": [
+      "المؤخرة",
+      "أسفل الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The standing hamstring stretch is a bodyweight stretching exercise targeting the hamstrings, with secondary engagement of the glutes and lower back. It involves hinging forward over a straight leg to lengthen the hamstrings and improve flexibility in the posterior thigh.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
+    "steps": [
+      "Stand upright with your feet shoulder-width apart or slightly wider.",
+      "Keeping your legs straight, slowly hinge forward at your hips.",
+      "Let your arms and head hang heavy toward the floor as you lower your torso.",
+      "Lower yourself until you feel a stretch in both hamstrings.",
+      "Slowly lift your torso back up to the starting upright position.",
+      "Repeat the forward fold for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء إطالة عضلة الفخذ الخلفية واقفاً.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الخلفية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الفخذ الخلفية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1194.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1194.mp4",
+    "imageUrl": ""
+  },
+  "1195": {
+    "id": "1195",
+    "nameAr": "إطالة الورك والحوض واقفاً",
+    "nameEn": "standing hips stretch",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات المؤخرة",
+    "secondaryMuscles": [
+      "مثنيات الورك",
+      "أسفل الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Standing hips stretch is a bodyweight stretching exercise targeting the glutes and hip external rotators, with secondary engagement of the hip flexors and lower back. It involves performing a standing figure-4 stretch by crossing one ankle over the knee to open the hip joint and relieve tension in the glutes.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
+    "steps": [
+      "Stand upright with your feet wider than shoulder-width apart and place your hands on your hips.",
+      "Keeping your legs relatively straight, slowly push your hips out to one side.",
+      "Keep your chest up and your torso still as you feel a stretch along your outer hip.",
+      "Pause briefly, then bring your hips back to the centered starting position.",
+      "Push your hips out to the opposite side.",
+      "Continue alternating sides in a controlled motion for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء إطالة الورك والحوض واقفاً.",
+      "ركز على انقباض العضلات المستهدفة (عضلات المؤخرة) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات المؤخرة",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1195.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1195.mp4",
+    "imageUrl": ""
+  },
+  "1196": {
+    "id": "1196",
+    "nameAr": "إطالة عضلة الفخذ الأمامية واقفاً",
+    "nameEn": "standing quadriceps stretch",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "مثنيات الورك",
+      "lower legs"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The standing quadriceps stretch is a bodyweight stretching exercise targeting the quadriceps, with secondary engagement of the hip flexors and lower legs. It involves pulling the heel toward the glutes while standing to lengthen the front of the thigh and improve quad flexibility.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
+    "steps": [
+      "Stand on one leg and bring the other foot up behind you toward your glutes.",
+      "Grasp your ankle with the corresponding hand and keep your knees close together.",
+      "Stand tall, keeping your hips level and your core engaged.",
+      "Hold the stretch for 20-30 seconds, feeling tension along the front of your thigh.",
+      "Release and repeat on the other leg."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء إطالة عضلة الفخذ الأمامية واقفاً.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الفخذ الأمامية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1196.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1196.mp4",
+    "imageUrl": ""
+  },
+  "1197": {
+    "id": "1197",
+    "nameAr": "تمرين سكوات السومو بالفخذين",
+    "nameEn": "sumo squat",
+    "category": "الساقين",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الأمامية",
+    "secondaryMuscles": [
+      "المؤخرة",
+      "الفخذ الخلفي",
+      "أسفل الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The sumo squat is a bodyweight exercise targeting the quadriceps with increased emphasis on the inner thighs and glutes. The wide stance and externally rotated feet shift the workload to the adductors and glute muscles, distinguishing it from a standard squat.",
+    "duration": 30,
+    "caloriesPerMin": 6,
+    "caloriesApprox": 3,
+    "animationType": "squats",
+    "steps": [
+      "Stand with your feet wider than shoulder-width apart and your toes pointed out at approximately 45 degrees.",
+      "Place your hands together in front of your chest or on your hips.",
+      "Engage your core and push your hips back and down, lowering into a squat while keeping your chest upright and knees tracking over your toes.",
+      "Descend until your thighs are parallel to the floor or lower.",
+      "Drive through your heels to return to the starting position and repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين سكوات السومو بالفخذين.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الساقين",
+      "عضلات الفخذ الأمامية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الجزء السفلي والفخذين",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1197.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1197.mp4",
+    "imageUrl": ""
+  },
+  "1198": {
+    "id": "1198",
+    "nameAr": "التنفس الاستشفائي المستلقي",
+    "nameEn": "supine recovery breathing",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
+    "secondaryMuscles": [
+      "أسفل الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Supine recovery breathing is a bodyweight rehabilitation exercise targeting the abs through diaphragmatic activation, with secondary engagement of the lower back. It involves practicing deep belly breathing in a supine position to promote nervous system recovery, reduce tension, and restore core function after training.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "crunches",
+    "steps": [
+      "Lie flat on your back with your knees bent and feet flat on the floor, or with your legs elevated on a surface.",
+      "Place one hand on your chest and the other on your belly.",
+      "Inhale slowly through your nose, focusing on expanding your belly rather than your chest.",
+      "Exhale fully through your mouth, letting your abdomen fall and releasing all tension.",
+      "Continue for the desired duration, maintaining a slow and deliberate breathing rhythm."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء التنفس الاستشفائي المستلقي.",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات البطن",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1198.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1198.mp4",
+    "imageUrl": ""
+  },
+  "1199": {
+    "id": "1199",
+    "nameAr": "إطالة الفخذ الخلفي PNF المستلقية",
+    "nameEn": "supine setup - pnf hamstring stretch",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الخلفية",
+    "secondaryMuscles": [
+      "المؤخرة",
+      "أسفل الظهر"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "Supine setup PNF hamstring stretch is a bodyweight rehabilitation exercise targeting the hamstrings, with secondary engagement of the glutes and lower back. It uses proprioceptive neuromuscular facilitation from a lying position to progressively increase hamstring flexibility through alternating contraction and passive stretching.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
+    "steps": [
+      "Lie flat on your back with one knee bent and the foot flat on the floor.",
+      "Have a partner lift your opposite straight leg toward the ceiling until you feel a mild hamstring stretch.",
+      "Press your raised leg against your partner's hands with moderate force for 5-8 seconds while they resist.",
+      "Relax your leg completely.",
+      "Have your partner gently push the leg further into the stretch and hold for 20-30 seconds.",
+      "Lower the leg slowly and repeat on the other side."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء إطالة الفخذ الخلفي PNF المستلقية.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الخلفية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الفخذ الخلفية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1199.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1199.mp4",
+    "imageUrl": ""
+  },
+  "1200": {
+    "id": "1200",
+    "nameAr": "بداية الطاولة وجسر الظهر العلوي",
+    "nameEn": "tabletop start - thoracic bridge",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الظهر",
+    "targetMuscle": "عضلات الظهر العريضة",
+    "secondaryMuscles": [
+      "أسفل الظهر",
       "الأكتاف",
       "الصدر"
     ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين إطالة ممتاز لعضلات البطن بعد تمارين البطن الشديدة وتقوية العمود الفقري.",
-    "duration": 45,
-    "caloriesPerMin": 4,
-    "caloriesApprox": 20,
-    "animationType": "cobra-stretch",
-    "steps": [
-      "استلقِ على بطنك وضع كفيك بجانب صدرك.",
-      "ادفع الأرض بيديك وارفع صدرك وأعلى جسمك لأعلى مع إبقاء الحوض ملامساً للأرض.",
-      "تطلع للأعلى قليلاً واثبت لـ 20 ثانية."
-    ],
-    "tips": [
-      "لا تضغط بقوة مفرطة على أسفل الظهر."
-    ],
-    "tags": [
-      "إطالة",
-      "البطن",
-      "الكرش",
-      "الظهر",
-      "استشفاء",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الإطالات والاستشفاء",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/27-Cobra%20Pose.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/27-Cobra%20Pose.mp4",
-    "imageUrl": ""
-  },
-  "crunch": {
-    "id": "crunch",
-    "nameAr": "تمرين طحن البطن الكلاسيكي (كرانش)",
-    "nameEn": "Crunch",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن العلوي",
-    "targetMuscle": "عضلات البطن المستقيمة العلوية (Rectus Abdominis)",
-    "secondaryMuscles": [
-      "الكور"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "التمرين الأساسي الأشهر لتقوية وتحديد عضلات البطن العلوية والتخلص من البروز.",
-    "duration": 30,
-    "caloriesPerMin": 6,
-    "caloriesApprox": 30,
-    "animationType": "crunches",
-    "steps": [
-      "استلقِ على ظهرك واثنِ ركبتيك وضع أطراف أظافرك خلف رأسك.",
-      "ارفع لوحي كتفيك عن الأرض بعصر عضلات البطن.",
-      "اثبت في القمة لحظة ثم انزل ببطء."
-    ],
-    "tips": [
-      "تجنب شد الرقبة بيديك، ركز على العصر البطني."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "تخسيس",
-      "شد الجسم",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/28-Crunch.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/28-Crunch.mp4",
-    "imageUrl": ""
-  },
-  "crunch_reach_up": {
-    "id": "crunch_reach_up",
-    "nameAr": "تمرين طحن البطن مع المدى للقمة",
-    "nameEn": "Crunch Reach Up",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن العلوي والأوسط",
-    "targetMuscle": "عضلات البطن المستقيمة (Abs)",
-    "secondaryMuscles": [
-      "الأكتاف"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تعديل رائع للكرانش يضمن التفعيل الكامل لعضلات البطن بدون إجهاد الرقبة.",
-    "duration": 45,
-    "caloriesPerMin": 7,
-    "caloriesApprox": 35,
-    "animationType": "crunches",
-    "steps": [
-      "استلقِ على ظهرك واثنِ الركبتين وافرد الذراعين للأعلى باتجاه السقف.",
-      "ارفع الكتفين للأعلى كأنك تحاول لمس السقف بيديك.",
-      "اثبت في القمة ثم انزل ببطء للأسفل."
-    ],
-    "tips": [
-      "حافظ على بقاء الذراعين مفرودتين تماماً."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "شد الجسم",
-      "تخسيس",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/29-Crunch%20Reach%20Up.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/29-Crunch%20Reach%20Up.mp4",
-    "imageUrl": ""
-  },
-  "deadbug": {
-    "id": "deadbug",
-    "nameAr": "تمرين الحشرة الميتة لاستقرار الكور",
-    "nameEn": "DeadBug",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن والجذع",
-    "targetMuscle": "عضلات البطن العميقة (Transverse Abdominis)",
-    "secondaryMuscles": [
-      "مُثنيات الورك",
-      "أسفل الظهر"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين آمن جداً لحماية الظهر وتسطيح الكرش وتقوية الثبات المحوري للبطن.",
-    "duration": 45,
-    "caloriesPerMin": 5,
-    "caloriesApprox": 25,
-    "animationType": "crunches",
-    "steps": [
-      "استلقِ على ظهرك وافرد الذراعين للسقف واثنِ الركبتين لزاوية 90 درجة.",
-      "مدد ذراعك اليمنى للخلف وساقك اليسرى للأمام ببطء دون لمس الأرض.",
-      "عد للوضع الأصلي وكرر مع الذراع اليسرى والساق اليمنى."
-    ],
-    "tips": [
-      "الصق أسفل الظهر تماماً بالأرض طوال الحركة."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "شد الجسم",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/30-DeadBug.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/30-DeadBug.mp4",
-    "imageUrl": ""
-  },
-  "deadlift": {
-    "id": "deadlift",
-    "nameAr": "تمرين الرفعة المميتة (ديدليفت)",
-    "nameEn": "Deadlift",
-    "category": "الظهر",
-    "bodyPart": "السلسلة الخلفية بالجسم",
-    "targetMuscle": "عضلات الظهر السفلية والأرداف والفخذ الخلفي",
-    "secondaryMuscles": [
-      "الكور",
-      "عضلات الساعد والقدمين"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين ملكي لتقوية السلسلة الخلفية كاملة وبناء القوة والقامة المنتصبة.",
-    "duration": 45,
-    "caloriesPerMin": 8,
-    "caloriesApprox": 40,
-    "animationType": "squats",
-    "steps": [
-      "قف بفتح القدمين بعرض الحوض مع الانحناء من الورك.",
-      "اخفض جذعك للأمام مع إبقاء الظهر مستقيماً تماماً والركبتين منثنيتين قليلاً.",
-      "ادفع بالورك للأمام وضم الأرداف للوصول للانتصاب."
-    ],
-    "tips": [
-      "تجنب تقويس الظهر مطلقاً أثناء الحركة."
-    ],
-    "tags": [
-      "الظهر",
-      "الساقين",
-      "المؤخرة",
-      "بناء العضلات",
-      "شد الجسم",
-      "متوسط"
-    ],
-    "muscleGroup": "الجزء السفلي والفخذين",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/31-Deadlift.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/31-Deadlift.mp4",
-    "imageUrl": ""
-  },
-  "diamond_push_up": {
-    "id": "diamond_push_up",
-    "nameAr": "تمرين ضغط الماس لشد الترايسبس والصدر",
-    "nameEn": "Diamond Push Up",
-    "category": "الذراعين",
-    "bodyPart": "الذراعين والصدر",
-    "targetMuscle": "عضلة الترايسبس (Triceps)",
-    "secondaryMuscles": [
-      "الصدر الداخلي",
-      "الأكتاف الأمامية"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين متقدم بوضع السبابتين والإبهامين بشكل شكل ألماسة للتركيز العالي على الترايسبس.",
-    "duration": 60,
-    "caloriesPerMin": 9,
-    "caloriesApprox": 45,
-    "animationType": "plank",
-    "steps": [
-      "اصنع شكل ألماسة بيديك على الأرض تحت منتصف الصدر.",
-      "اخفض جسمك حتى يلمس صدرك يديك.",
-      "ادفع بصلابة للعودة لأعلى مع انقباض الترايسبس."
-    ],
-    "tips": [
-      "حافظ على استقامة خط الجسم من الرأس للكعبين."
-    ],
-    "tags": [
-      "الذراعين",
-      "الصدر",
-      "بناء العضلات",
-      "شد الجسم",
-      "متقدم"
-    ],
-    "muscleGroup": "الجزء العلوي والذراعين",
-    "difficulty": "متقدم",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/32-Diamond%20Push%20Up.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/32-Diamond%20Push%20Up.mp4",
-    "imageUrl": ""
-  },
-  "elevated_knee_crunch": {
-    "id": "elevated_knee_crunch",
-    "nameAr": "طحن البطن مع رفع الركبتين",
-    "nameEn": "Elevated Knee Crunch",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن السفلي والعلوي",
-    "targetMuscle": "عضلات البطن المستقيمة (Abs)",
-    "secondaryMuscles": [
-      "مُثنيات الورك"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين يزيد الضغط على البطن السفلي والعلوي بسبب وضعية رفع القدمين بالأعلى.",
-    "duration": 45,
-    "caloriesPerMin": 7,
-    "caloriesApprox": 35,
-    "animationType": "crunches",
-    "steps": [
-      "استلقِ على ظهرك واثنِ الركبتين بزاوية 90 درجة في الهواء.",
-      "ارفع رأسك وكتفيك بعصر عضلات البطن نحو الركبتين.",
-      "انزل ببطء وكرر التكرارات."
-    ],
-    "tips": [
-      "حافظ على تثبيت الزاوية في الركبتين أثناء الحركة."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "تخسيس",
-      "شد الجسم",
-      "متوسط"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/33-Elevated%20Knee%20Crunch.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/33-Elevated%20Knee%20Crunch.mp4",
-    "imageUrl": ""
-  },
-  "feet_elevated_bench_dip": {
-    "id": "feet_elevated_bench_dip",
-    "nameAr": "غطس الترايسبس مع رفع القدمين على بنش",
-    "nameEn": "Feet Elevated Bench Dip",
-    "category": "الذراعين",
-    "bodyPart": "الذراعين والأكتاف",
-    "targetMuscle": "عضلة الترايسبس (Triceps)",
-    "secondaryMuscles": [
-      "الأكتاف الخلفية",
-      "أعلى الصدر"
-    ],
-    "equipment": "بنش / مقعد",
-    "description": "تمرين غطس مكثف للذراعين باستخدام مقعد أو بنش لزيادة الحمل والتحدي العضلي.",
-    "duration": 60,
-    "caloriesPerMin": 9,
-    "caloriesApprox": 45,
-    "animationType": "plank",
-    "steps": [
-      "ضع يديك على بنش خلفك وقدميك مرفوعتين على مقعد أو سطح مرتفع آخر.",
-      "اخفض جسمك بثني الكوعين لزاوية 90 درجة.",
-      "ادفع بالذراعين للعودة لوضع البداية."
-    ],
-    "tips": [
-      "حافظ على الظهر قريباً جداً من حافة البنش."
-    ],
-    "tags": [
-      "الذراعين",
-      "شد الجسم",
-      "بناء العضلات",
-      "بنش / مقعد",
-      "متقدم"
-    ],
-    "muscleGroup": "الجزء العلوي والذراعين",
-    "difficulty": "متقدم",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/34-Feet%20Elevated%20Bench%20Dip.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/34-Feet%20Elevated%20Bench%20Dip.mp4",
-    "imageUrl": ""
-  },
-  "forward_rotations": {
-    "id": "forward_rotations",
-    "nameAr": "تدوير الأكتاف للأمام",
-    "nameEn": "Forward Rotations",
-    "category": "الإحماء",
-    "bodyPart": "الأكتاف والرقبة",
-    "targetMuscle": "عضلات الكتف وأعلى الظهر",
-    "secondaryMuscles": [
-      "الرقبة"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين حركي ببرنامج الإحماء لتنشيط وتليين مفصل الكتف وتجنب الإصابات.",
-    "duration": 30,
-    "caloriesPerMin": 3,
-    "caloriesApprox": 15,
-    "animationType": "jumping-jacks",
-    "steps": [
-      "قف بانتصاب وأرخِ ذراعيك بجانبك.",
-      "قم بتدوير كتفيك بحركات دائرية واسعة للأمام.",
-      "كرر الدوران لمدة 20-30 ثانية."
-    ],
-    "tips": [
-      "ركز على المدى الحركي الكامل للدوران."
-    ],
-    "tags": [
-      "إحماء",
-      "الكتفين",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الجزء العلوي والذراعين",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/35-Forward%20Rotations.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/35-Forward%20Rotations.mp4",
-    "imageUrl": ""
-  },
-  "glute_bridge_dip": {
-    "id": "glute_bridge_dip",
-    "nameAr": "جسر الأرداف مع الانخفاض والرفع",
-    "nameEn": "Glute Bridge Dip",
-    "category": "المؤخرة",
-    "bodyPart": "الحوض والأرداف",
-    "targetMuscle": "عضلات الأرداف الكبرى (Gluteus Maximus)",
-    "secondaryMuscles": [
-      "الفخذ الخلفي",
-      "أسفل الظهر"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين مستهدف جداً لرفع وتدوير المؤخرة وتقوية عضلات الحوض والظهر.",
-    "duration": 45,
-    "caloriesPerMin": 6,
-    "caloriesApprox": 30,
-    "animationType": "squats",
-    "steps": [
-      "استلقِ على ظهرك واثنِ الركبتين وثبّت كعبيك على الأرض.",
-      "ادفع بحوضك للأعلى حتى يصبح جسمك خطاً مستقيماً وانعصر الأرداف.",
-      "اخفض حوضك ببطء بالقرب من الأرض واعد الرفع."
-    ],
-    "tips": [
-      "اعصر عضلات المؤخرة بقوة عند الوصول للقمة."
-    ],
-    "tags": [
-      "المؤخرة",
-      "الساقين",
-      "شد الجسم",
-      "بناء العضلات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الجزء السفلي والفخذين",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/36-Glute%20Bridge%20Dip.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/36-Glute%20Bridge%20Dip.mp4",
-    "imageUrl": ""
-  },
-  "half_lotus_stretch": {
-    "id": "half_lotus_stretch",
-    "nameAr": "إطالة نصف اللوتس لفتح الورك",
-    "nameEn": "Half Lotus Stretch",
-    "category": "الإطالات والاستشفاء",
-    "bodyPart": "الحوض والفخذين",
-    "targetMuscle": "عضلات الورك والفخذ الداخلي",
-    "secondaryMuscles": [
-      "الركبتين",
-      "أسفل الظهر"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "وضعية يوجا كلاسيكية تحسن المرونة في الحوض والورك وتريح أسفل الظهر.",
-    "duration": 30,
-    "caloriesPerMin": 3,
-    "caloriesApprox": 15,
-    "animationType": "cobra-stretch",
-    "steps": [
-      "اجلس على الأرض واثنِ ساقاً وضع القدم فوق الفخذ المقابل.",
-      "دع الركبة الأخرى تنخفض نحو الأرض واجلس بظهر مستقيم.",
-      "اثبت واستنشق بهدوء لمدة 30 ثانية."
-    ],
-    "tips": [
-      "لا تجبر الركبة على الانخفاض إذا شعرت بألم."
-    ],
-    "tags": [
-      "إطالة",
-      "مرونة",
-      "الحوض",
-      "استشفاء",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الإطالات والاستشفاء",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/37-Half%20Lotus%20Stretch.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/37-Half%20Lotus%20Stretch.mp4",
-    "imageUrl": ""
-  },
-  "half_moon_stretch": {
-    "id": "half_moon_stretch",
-    "nameAr": "إطالة الهلال لنحت الجوانب",
-    "nameEn": "Half Moon Stretch",
-    "category": "الإطالات والاستشفاء",
-    "bodyPart": "الخصر والجذع",
-    "targetMuscle": "عضلات الخصر والجانبين (Obliques & Latissimus)",
-    "secondaryMuscles": [
-      "الظهر",
-      "الأكتاف"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "إطالة جانبية ممتازة لفك الشد في الخصر والعمود الفقري وزيادة المرونة الجانبية.",
+    "equipment": "وزن الجسم",
+    "description": "Tabletop start thoracic bridge is a bodyweight exercise targeting the lats and thoracic spine, with secondary engagement of the lower back, shoulders, and chest. It involves lifting the hips into a reverse tabletop to open the chest and extend the spine, serving as a foundational movement for deeper backbend progressions.",
     "duration": 30,
     "caloriesPerMin": 4,
-    "caloriesApprox": 20,
+    "caloriesApprox": 2,
     "animationType": "cobra-stretch",
     "steps": [
-      "قف واضم قدميك وافرد ذراعيك فوق رأسك مع شبك الأصابع.",
-      "انحنِ بجذعك ببطء نحو الجانب الأيمن ليشكل جسمك منحنى الهلال.",
-      "اثبت ثم كرر للجانب الأيسر."
+      "Sit on the floor with your knees bent and feet flat, and place your hands behind you with fingers pointing toward your body.",
+      "Press through your hands and feet to lift your hips until your body forms a flat tabletop position, parallel to the floor.",
+      "Squeeze your glutes, drop your head back slightly, and open your chest upward.",
+      "Hold the tabletop position for 2-3 seconds, then slowly lower your hips back to the floor.",
+      "Repeat for the desired number of repetitions."
     ],
     "tips": [
-      "احرص على تثبيت الحوض وعدم دورانه."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء بداية الطاولة وجسر الظهر العلوي.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الظهر العريضة) طوال مدة الأداء (30 ثانية)."
     ],
     "tags": [
-      "إطالة",
-      "الخصر",
-      "الكرش",
-      "مرونة",
+      "الإطالات والاستشفاء",
+      "عضلات الظهر العريضة",
       "مبتدئ"
     ],
     "muscleGroup": "الإطالات والاستشفاء",
     "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/38-Half%20Moon%20Stretch.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/38-Half%20Moon%20Stretch.mp4",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1200.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1200.mp4",
     "imageUrl": ""
   },
-  "hamstring_extension": {
-    "id": "hamstring_extension",
-    "nameAr": "تمديد وإطالة عضلات الفخذ الخلفية",
-    "nameEn": "Hamstring Extension",
+  "1201": {
+    "id": "1201",
+    "nameAr": "الانحناء الأمامي الجالس بظهر مستقيم",
+    "nameEn": "tall spine seated forward fold",
     "category": "الإطالات والاستشفاء",
-    "bodyPart": "الفخذ الخلفي",
-    "targetMuscle": "عضلات الفخذ الخلفية (Hamstrings)",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الخلفية",
     "secondaryMuscles": [
-      "ربلة الساق",
-      "أسفل الظهر"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين تمديد رائع لزيادة المرونة في الفخذ الخلفي وتقليل احتمالية الإصابات العضلية.",
-    "duration": 30,
-    "caloriesPerMin": 3,
-    "caloriesApprox": 15,
-    "animationType": "cobra-stretch",
-    "steps": [
-      "استلقِ على ظهرك وارفع ساقاً واحدة مستقيمة باتجاه السقف.",
-      "امسك الساق بيديك خلف الفخذ واسحبها ببطء ونحو صدرك.",
-      "حافظ على الساق الأخرى مفرودة على الأرض."
-    ],
-    "tips": [
-      "حافظ على الركبة مفرودة قدر الإمكان."
-    ],
-    "tags": [
-      "إطالة",
-      "الساقين",
-      "استشفاء",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الإطالات والاستشفاء",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/39-Hamstring%20Extension.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/39-Hamstring%20Extension.mp4",
-    "imageUrl": ""
-  },
-  "heel_touch_jumps": {
-    "id": "heel_touch_jumps",
-    "nameAr": "قفزات لمس الكعبين للياقة الحركية",
-    "nameEn": "Heel Touch Jumps",
-    "category": "الكارديو",
-    "bodyPart": "الساقين وجسم بالكامل",
-    "targetMuscle": "عضلات الساقين والأرداف والقلب",
-    "secondaryMuscles": [
-      "الكور"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين ديناميكي متفجر يحرق الدهون ويعزز اللياقة البدنية والسرعة الحركية.",
-    "duration": 60,
-    "caloriesPerMin": 11,
-    "caloriesApprox": 55,
-    "animationType": "jumping-jacks",
-    "steps": [
-      "اقفز للأعلى باعتدال وفي الهواء ثنِ ركبتيك للخلف للمس الكعبين بيديك.",
-      "اهبط بمرونة على مشط القدمين واكرر الحركة فوراً."
-    ],
-    "tips": [
-      "احرص على امتصاص الصدمة بالهبوط المرن."
-    ],
-    "tags": [
-      "الكارديو",
-      "حرق الدهون",
-      "تخسيس",
-      "الساقين",
-      "متوسط"
-    ],
-    "muscleGroup": "كامل الجسم",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/40-Heel%20Touch%20Jumps.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/40-Heel%20Touch%20Jumps.mp4",
-    "imageUrl": ""
-  },
-  "high_jumps": {
-    "id": "high_jumps",
-    "nameAr": "القفز العالي لتفجير الطاقة وحرق الدهون",
-    "nameEn": "High Jumps",
-    "category": "الكارديو",
-    "bodyPart": "الساقين والجسم بالكامل",
-    "targetMuscle": "عضلات الفخذين والأرداف وربلة الساق",
-    "secondaryMuscles": [
-      "الكور",
-      "عضلات القلب"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين قفز عمودي مكثف لرفع القوة التفجيرية وحرق كميات كبيرة من السعرات.",
-    "duration": 60,
-    "caloriesPerMin": 12,
-    "caloriesApprox": 60,
-    "animationType": "jumping-jacks",
-    "steps": [
-      "قف باعتدال واثنِ الركبتين قليلاً للتحضير.",
-      "ادفع بصلابة بقدميك وافقز لأعلى ارتفاع ممكن مع دفع الذراعين للسقف.",
-      "اهبط بمرونة واعد القفز فوراً."
-    ],
-    "tips": [
-      "حافظ على ثبات الكور أثناء القفز."
-    ],
-    "tags": [
-      "الكارديو",
-      "حرق الدهون",
-      "تخسيس",
-      "متقدم"
-    ],
-    "muscleGroup": "كامل الجسم",
-    "difficulty": "متقدم",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/41-High%20Jumps.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/41-High%20Jumps.mp4",
-    "imageUrl": ""
-  },
-  "high_knee": {
-    "id": "high_knee",
-    "nameAr": "تمرين رفع الركبتين العالي السريع",
-    "nameEn": "High Knee",
-    "category": "الكارديو",
-    "bodyPart": "البطن السفلي والساقين",
-    "targetMuscle": "مُثنيات الورك وعضلات البطن السفلية",
-    "secondaryMuscles": [
-      "الفخذين",
-      "القلب والأوعية"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "من أشهر تمارين الكارديو لحرق دهون الكرش والبطن وتنشيط الجسم بالكامل.",
-    "duration": 45,
-    "caloriesPerMin": 10,
-    "caloriesApprox": 50,
-    "animationType": "jumping-jacks",
-    "steps": [
-      "اركض في المكان مع رفع الركبتين متناوباً ليصل ارتفاعهما لمستوى الخصر.",
-      "حرك يديك بالتناغم مع الساقين بشكل سريع."
-    ],
-    "tips": [
-      "حافظ على استقامة الظهر والتنفس المنتظم."
-    ],
-    "tags": [
-      "الكارديو",
-      "البطن",
-      "الكرش",
-      "حرق الدهون",
-      "تخسيس",
-      "متوسط"
-    ],
-    "muscleGroup": "كامل الجسم",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/42-High%20Knee.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/42-High%20Knee.mp4",
-    "imageUrl": ""
-  },
-  "high_knee_march": {
-    "id": "high_knee_march",
-    "nameAr": "مشية رفع الركبتين العالي (للمبتدئين)",
-    "nameEn": "High Knee March",
-    "category": "الإحماء",
-    "bodyPart": "الساقين والبطن",
-    "targetMuscle": "مُثنيات الورك وعضلات البطن",
-    "secondaryMuscles": [
-      "الفخذين"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "نسخة معتدلة بدون قفز لرفع الركبتين، مناسبة للإحماء أو للمبتدئين وكبار السن.",
-    "duration": 30,
-    "caloriesPerMin": 6,
-    "caloriesApprox": 30,
-    "animationType": "jumping-jacks",
-    "steps": [
-      "قف بانتصاب واخطُ في المكان بخطوات منتظمة.",
-      "ارفع كل ركبة ببطء لأعلى مستوى ممكن مع تبديل الأذرع."
-    ],
-    "tips": [
-      "ركز على الانقباض في البطن عند رفع كل ركبة."
-    ],
-    "tags": [
-      "إحماء",
-      "البطن",
-      "الكارديو",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "كامل الجسم",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/43-High%20Knee%20March.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/43-High%20Knee%20March.mp4",
-    "imageUrl": ""
-  },
-  "high_knees_jogging": {
-    "id": "high_knees_jogging",
-    "nameAr": "هرولة رفع الركبتين العالي",
-    "nameEn": "High Knees Jogging",
-    "category": "الكارديو",
-    "bodyPart": "كامل الجسم والساقين",
-    "targetMuscle": "عضلات البطن والساقين والقلب",
-    "secondaryMuscles": [
-      "الكور"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تجميع بين الهرولة السريعة ورفع الركبتين العالي للتخلص السريع من دهون البطن والجسم.",
-    "duration": 45,
-    "caloriesPerMin": 10,
-    "caloriesApprox": 50,
-    "animationType": "jumping-jacks",
-    "steps": [
-      "هرول في المكان بمرونة عالية وزد ارتفاع رفع الركبتين تدريجياً لارتفاع الخصر.",
-      "استمر بإيقاع سريع متواصل لمدة 30-45 ثانية."
-    ],
-    "tips": [
-      "حافظ على الارتكاز على أمشاط القدمين."
-    ],
-    "tags": [
-      "الكارديو",
-      "حرق الدهون",
-      "تخسيس",
-      "البطن",
-      "متوسط"
-    ],
-    "muscleGroup": "كامل الجسم",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/44-High%20Knees%20Jogging.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/44-High%20Knees%20Jogging.mp4",
-    "imageUrl": ""
-  },
-  "high_knees_touch": {
-    "id": "high_knees_touch",
-    "nameAr": "رفع الركبتين العالي مع لمس اليدين",
-    "nameEn": "High Knees Touch",
-    "category": "الكارديو",
-    "bodyPart": "البطن والساقين",
-    "targetMuscle": "عضلات البطن السفلية ومُثنيات الورك",
-    "secondaryMuscles": [
-      "الفخذين",
-      "الأكتاف"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين يضمن الوصول لارتفاع الركبة الصحيح بلمس كفي اليدين مع كل تكرار.",
-    "duration": 45,
-    "caloriesPerMin": 9,
-    "caloriesApprox": 45,
-    "animationType": "jumping-jacks",
-    "steps": [
-      "اضبط كفي يديك أمام جسمك بمستوى الخصر.",
-      "ارفع ركبتك اليمنى للمس الكف الأيمن ثم اليسرى للمس الكف الأيسر بالتناوب السريع."
-    ],
-    "tips": [
-      "لا تخفض يديك للركبة، بل ارفع ركبتك لليدين."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "الكارديو",
-      "تخسيس",
-      "متوسط"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/45-High%20Knees%20Touch.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/45-High%20Knees%20Touch.mp4",
-    "imageUrl": ""
-  },
-  "hip_abductor_oblique_crunch": {
-    "id": "hip_abductor_oblique_crunch",
-    "nameAr": "طحن البطن الجانبي مع إبعاد الورك",
-    "nameEn": "Hip Abductor Oblique Crunch",
-    "category": "البطن والكرش",
-    "bodyPart": "الخصر والأرداف الجانبية",
-    "targetMuscle": "عضلات الخصر والعضلات المقربة للورك (Obliques & Abductors)",
-    "secondaryMuscles": [
+      "أسفل الظهر",
       "المؤخرة"
     ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين مزدوج ينحت الخصر ويقوي الجزء الجانبي من المؤخرة لتناسق الجوانب.",
-    "duration": 45,
-    "caloriesPerMin": 7,
-    "caloriesApprox": 35,
-    "animationType": "crunches",
-    "steps": [
-      "استلقِ جانباً مع إسناد رأسك بيدك.",
-      "ارفع ساقك العلوية جانباً وفي نفس الوقت انحنِ بجذعك العلوي نحو الساق المرفوعة.",
-      "اخفضهما ببطء وكرر للجانبين."
-    ],
-    "tips": [
-      "حافظ على العصر العضلي في الخصر والجوانب."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "الخصر",
-      "المؤخرة",
-      "شد الجسم",
-      "متوسط"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/46-Hip%20Abductor%20Oblique%20Crunch.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/46-Hip%20Abductor%20Oblique%20Crunch.mp4",
-    "imageUrl": ""
-  },
-  "hip_hinge": {
-    "id": "hip_hinge",
-    "nameAr": "انثناء مفصل الورك لتقوية السلسلة الخلفية",
-    "nameEn": "Hip Hinge",
-    "category": "الجسم بالكامل",
-    "bodyPart": "الحوض والظهر",
-    "targetMuscle": "عضلات الأرداف والفخذ الخلفي والظهر",
-    "secondaryMuscles": [
-      "الكور"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "التمرين الأساسي لتعلم الحركة الصحيحة لانثناء الورك وحماية الظهر في جميع التمارين.",
-    "duration": 45,
-    "caloriesPerMin": 5,
-    "caloriesApprox": 25,
-    "animationType": "squats",
-    "steps": [
-      "قف بانتصاب وضع يديك على الخصر أو خلف الرأس.",
-      "ادفع بمؤخرتك للخلف وانحنِ بجذعك للأمام مع إبقاء الظهر مسطحاً تماماً.",
-      "ادفع بالورك للأمام للعودة بانتصاب."
-    ],
-    "tips": [
-      "الانثناء يكون من مفصل الورك وليس من الظهر."
-    ],
-    "tags": [
-      "الظهر",
-      "الساقين",
-      "المؤخرة",
-      "تعلم التكنيك",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الجزء السفلي والفخذين",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/47-Hip%20Hinge.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/47-Hip%20Hinge.mp4",
-    "imageUrl": ""
-  },
-  "hollow_body_hold": {
-    "id": "hollow_body_hold",
-    "nameAr": "وضعية ثبات الجسم المجوف (هولو بودي)",
-    "nameEn": "Hollow Body Hold",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن والكور بالكامل",
-    "targetMuscle": "عضلات البطن العميقة والمستقيمة",
-    "secondaryMuscles": [
-      "مُثنيات الورك",
-      "الفخذ الأمامي"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "من أقوى تمارين الثبات لعصر كافة ألياف البطن وبناء كور صلب كالحديد.",
-    "duration": 60,
-    "caloriesPerMin": 8,
-    "caloriesApprox": 40,
-    "animationType": "plank",
-    "steps": [
-      "استلقِ على ظهرك وافرد ذراعيك فوق رأسك وساقيك للأمام.",
-      "ارفع كتفيك وساقيك بضعة سنتيمترات عن الأرض ليتخذ جسمك شكل القوس المجوف.",
-      "اثبت في هذه الوضعية مع تثبيت أسفل الظهر بالأرض."
-    ],
-    "tips": [
-      "إن وجدتها صعبة ثنِ الركبتين قليلاً نحو الصدر."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "شد الجسم",
-      "بناء العضلات",
-      "متقدم"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متقدم",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/48-Hollow%20Body%20Hold.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/48-Hollow%20Body%20Hold.mp4",
-    "imageUrl": ""
-  },
-  "incline_diamond_pushup": {
-    "id": "incline_diamond_pushup",
-    "nameAr": "تمرين ضغط الماس المنحدر على بنش",
-    "nameEn": "Incline Diamond Pushup",
-    "category": "الذراعين",
-    "bodyPart": "الذراعين والصدر السفلي",
-    "targetMuscle": "عضلة الترايسبس والصدر",
-    "secondaryMuscles": [
-      "الأكتاف"
-    ],
-    "equipment": "بنش / مقعد",
-    "description": "نسخة أسهل قليلاً من ضغط الماس باستخدام حافة بنش أو طاولة للتركيز على الذراعين.",
-    "duration": 45,
-    "caloriesPerMin": 7,
-    "caloriesApprox": 35,
-    "animationType": "plank",
-    "steps": [
-      "ضع يديك بوضعية ألماسة على بنش مرتفع.",
-      "اخفض صدرك نحو البنش ببطء.",
-      "ادفع للخلف بقوة مع شد الذراعين."
-    ],
-    "tips": [
-      "حافظ على ثبات الجذع واستقامة الظهر."
-    ],
-    "tags": [
-      "الذراعين",
-      "الصدر",
-      "شد الجسم",
-      "بنش / مقعد",
-      "متوسط"
-    ],
-    "muscleGroup": "الجزء العلوي والذراعين",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/49-Incline%20Diamond%20Pushup.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/49-Incline%20Diamond%20Pushup.mp4",
-    "imageUrl": ""
-  },
-  "inner_thigh_pulse": {
-    "id": "inner_thigh_pulse",
-    "nameAr": "نبضات الفخذ الداخلي لشد الترهلات",
-    "nameEn": "Inner Thigh Pulse",
-    "category": "الساقين",
-    "bodyPart": "الفخذ الداخلي",
-    "targetMuscle": "العضلات الضامة للفخذ (Inner Thighs)",
-    "secondaryMuscles": [
-      "عضلات الحوض"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين ممتاز ومستهدف للتخلص من ترهلات الفخذ الداخلي وشد المنطقة.",
-    "duration": 45,
-    "caloriesPerMin": 5,
-    "caloriesApprox": 25,
-    "animationType": "squats",
-    "steps": [
-      "استلقِ على جانبك مع وضع الساق العلوية مطوية أمامك.",
-      "ارفع الساق السفلية المفرودة لأعلى ولأسفل بحركات نبضية قصيرة متتابعة.",
-      "كرر للجانب الآخر."
-    ],
-    "tips": [
-      "حافظ على استقامة الساق المرفوعة طوال النبضات."
-    ],
-    "tags": [
-      "الساقين",
-      "شد الجسم",
-      "تخسيس",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الجزء السفلي والفخذين",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/50-Inner%20Thigh%20Pulse.mp4",
-    "mp4Url": "https://pub-23b284ea855b4820a78e476ee763b34d.r2.dev/app-videos/50-Inner%20Thigh%20Pulse.mp4",
-    "imageUrl": ""
-  },
-  "jump_rope": {
-    "id": "jump_rope",
-    "nameAr": "تمرين نط الحبل (أو القفز التخيلي)",
-    "nameEn": "Jump Rope",
-    "category": "الكارديو",
-    "bodyPart": "كامل الجسم",
-    "targetMuscle": "عضلات الساقين والقلب والأذرع",
-    "secondaryMuscles": [
-      "ربلة الساق",
-      "الكور"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "أحد أقوى تمارين الكارديو الشاملة لحرق الدهون وتنسيق قوام الجسم واللياقة.",
-    "duration": 60,
-    "caloriesPerMin": 12,
-    "caloriesApprox": 60,
-    "animationType": "jumping-jacks",
-    "steps": [
-      "تخيل أنك تمسك بحبل قفز أو امسك بحبل حقيقي.",
-      "ادور معصميك وافقز بمرونة أعلى الأرض ببضعة سنتيمترات.",
-      "حافظ على القفز المتناسق على أمشاط القدمين."
-    ],
-    "tips": [
-      "حافظ على انثناء بسيط جداً في الركبتين لمنع الصدمات."
-    ],
-    "tags": [
-      "الكارديو",
-      "حرق الدهون",
-      "تخسيس",
-      "شد الجسم",
-      "متوسط"
-    ],
-    "muscleGroup": "كامل الجسم",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/51-Jump%20Rope.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/51-Jump%20Rope.mp4",
-    "imageUrl": ""
-  },
-  "jump_squat": {
-    "id": "jump_squat",
-    "nameAr": "تمرين قرفصاء القفز المتفجر (جامب سكوات)",
-    "nameEn": "Jump Squat",
-    "category": "الكارديو",
-    "bodyPart": "الساقين والمؤخرة",
-    "targetMuscle": "العضلات الرباعية والأرداف",
-    "secondaryMuscles": [
-      "عضلات الساق الخلفية",
-      "القلب"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "دمج القرفصاء مع القفز العمودي لتفجير عضلات الساقين وحرق السعرات بكثافة.",
-    "duration": 60,
-    "caloriesPerMin": 11,
-    "caloriesApprox": 55,
-    "animationType": "squats",
-    "steps": [
-      "انزل في وضعية السكوات الكلاسيكية.",
-      "ادفع بالأرض بقوة وافقز لأعلى قدر مستطاع في الهواء.",
-      "اهبط بمرونة مباشرة بوضعية السكوات وكرر."
-    ],
-    "tips": [
-      "الهبوط يجب أن يكون سلس وناعم لحماية مفصل الركبة."
-    ],
-    "tags": [
-      "الكارديو",
-      "حرق الدهون",
-      "الساقين",
-      "المؤخرة",
-      "تخسيس",
-      "متقدم"
-    ],
-    "muscleGroup": "كامل الجسم",
-    "difficulty": "متقدم",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/52-Jump%20Squat.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/52-Jump%20Squat.mp4",
-    "imageUrl": ""
-  },
-  "jumping_jacks": {
-    "id": "jumping_jacks",
-    "nameAr": "تمرين القفز مع فتح وإغلاق الذراعين (جامبينج جاكس)",
-    "nameEn": "Jumping Jacks",
-    "category": "الإحماء",
-    "bodyPart": "كامل الجسم",
-    "targetMuscle": "عضلات الساقين والأكتاف والقلب",
-    "secondaryMuscles": [
-      "الكور"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "التمرين الإحمائي الأبرز لرفع حرارة الجسم وضخ الدم في كافة العضلات.",
-    "duration": 30,
-    "caloriesPerMin": 9,
-    "caloriesApprox": 45,
-    "animationType": "jumping-jacks",
-    "steps": [
-      "قف بانتصاب مع إغلاق القدمين بجانب بعضهما واليدين بجانب الجسم.",
-      "اقفز وافتح قدميك جانباً وفي نفس الوقت ارفع يديك لقتياعهما فوق رأسك.",
-      "عد فوراً بفضة ثانية لوضع الاستعداد وكرر بانتظام."
-    ],
-    "tips": [
-      "حافظ على الهبوط بمرونة على أمشاط القدمين."
-    ],
-    "tags": [
-      "إحماء",
-      "الكارديو",
-      "حرق الدهون",
-      "تخسيس",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "كامل الجسم",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/53-Jumping%20Jacks.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/53-Jumping%20Jacks.mp4",
-    "imageUrl": ""
-  },
-  "knee_back_stretch": {
-    "id": "knee_back_stretch",
-    "nameAr": "إطالة سحب الركبة للخلف للفخذ",
-    "nameEn": "Knee Back Stretch",
-    "category": "الإطالات والاستشفاء",
-    "bodyPart": "الساقين والفخذ",
-    "targetMuscle": "عضلة الفخذ الأمامية (Quadriceps)",
-    "secondaryMuscles": [
-      "مُثنيات الورك"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "إطالة ممتازة للفخذ الأمامي والورك لتخفيف الشد الناتج عن التمارين والسير.",
-    "duration": 30,
-    "caloriesPerMin": 3,
-    "caloriesApprox": 15,
-    "animationType": "cobra-stretch",
-    "steps": [
-      "قف واستند على حائط للتوازن.",
-      "امسك قدمك من الخلف بيديك واسحب الكعب نحو المؤخرة.",
-      "حافظ على توازي الركبتين واستقامة القامة."
-    ],
-    "tips": [
-      "لا تقوس ظهرك أثناء سحب القدم."
-    ],
-    "tags": [
-      "إطالة",
-      "الساقين",
-      "استشفاء",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الإطالات والاستشفاء",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/54-Knee%20Back%20Stretch.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/54-Knee%20Back%20Stretch.mp4",
-    "imageUrl": ""
-  },
-  "knee_chest_hug": {
-    "id": "knee_chest_hug",
-    "nameAr": "تمرين ضم الركبة للصدر لإطالة الظهر",
-    "nameEn": "Knee Chest Hug",
-    "category": "الإطالات والاستشفاء",
-    "bodyPart": "أسفل الظهر والحوض",
-    "targetMuscle": "عضلات أسفل الظهر والأرداف",
-    "secondaryMuscles": [
-      "مُثنيات الورك"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين إطالة مريح يزيل الشد عن أسفل الظهر والحوض ويعزز الاسترخاء.",
-    "duration": 30,
-    "caloriesPerMin": 3,
-    "caloriesApprox": 15,
-    "animationType": "cobra-stretch",
-    "steps": [
-      "استلقِ على ظهرك وافرد ساقيك.",
-      "ارفع ركبة واحدة واسحبها بكتفيك ويديك ببطء نحو صدرك واحضنها.",
-      "اثبت لـ 20 ثانية ثم كرر بالساق الأخرى."
-    ],
-    "tips": [
-      "حافظ على الرأس والرقبة مستقرين على الأرض."
-    ],
-    "tags": [
-      "إطالة",
-      "الظهر",
-      "استشفاء",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الإطالات والاستشفاء",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/55-Knee%20Chest%20Hug.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/55-Knee%20Chest%20Hug.mp4",
-    "imageUrl": ""
-  },
-  "knee_kicks": {
-    "id": "knee_kicks",
-    "nameAr": "تمرين ركلات الركبة الأمامية",
-    "nameEn": "Knee Kicks",
-    "category": "الكارديو",
-    "bodyPart": "البطن والساقين",
-    "targetMuscle": "عضلات البطن السفلية ومُثنيات الورك",
-    "secondaryMuscles": [
-      "الفخذ الأمامي"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "ركلات حركة ديناميكية لتنشيط عضلات البطن السفلي وحرق الدهون وتحسين المرونة.",
-    "duration": 30,
-    "caloriesPerMin": 7,
-    "caloriesApprox": 35,
-    "animationType": "jumping-jacks",
-    "steps": [
-      "قف بانتصاب واضم يديك أمام صدرك.",
-      "ارفع الركبة للأعلى ثم افرد الساق للركل للأمام بأسلوب متناسق ومرن.",
-      "كرر التبديل بين الساقين."
-    ],
-    "tips": [
-      "حافظ على شد عضلات البطن للتحكم بالحركة."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "الكارديو",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "كامل الجسم",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/56-Knee%20Kicks.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/56-Knee%20Kicks.mp4",
-    "imageUrl": ""
-  },
-  "knee_push_up": {
-    "id": "knee_push_up",
-    "nameAr": "تمرين الضغط على الركب (للمبتدئين)",
-    "nameEn": "Knee Push Up",
-    "category": "الصدر",
-    "bodyPart": "الجزء العلوي والذراعين",
-    "targetMuscle": "عضلات الصدر (Pectorals)",
-    "secondaryMuscles": [
-      "الترايسبس",
-      "الأكتاف الأمامية"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "النسخة التمهيدية الأفضل لتمرين الضغط لبناء قوة الجزء العلوي بثبات وأمان.",
-    "duration": 30,
-    "caloriesPerMin": 6,
-    "caloriesApprox": 30,
-    "animationType": "plank",
-    "steps": [
-      "ضع يديك وركبتيك على الأرض مع إبقاء خط الجسم من الرأس للركب مستقيماً.",
-      "اخفض صدرك نحو الأرض وثنِ الكوعين لزاوية 45 درجة.",
-      "ادفع الأرض بيديك للعودة للأعلى."
-    ],
-    "tips": [
-      "تجنب إسقاط الحوض للأسفل."
-    ],
-    "tags": [
-      "الصدر",
-      "الذراعين",
-      "شد الجسم",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الجزء العلوي والذراعين",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/57-Knee%20Push%20Up.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/57-Knee%20Push%20Up.mp4",
-    "imageUrl": ""
-  },
-  "knee_side_band": {
-    "id": "knee_side_band",
-    "nameAr": "رفع الركبة الجانبي بشريط المقاومة",
-    "nameEn": "Knee Side Band",
-    "category": "المؤخرة",
-    "bodyPart": "الأرداف والخصر",
-    "targetMuscle": "عضلات المؤخرة الجانبية (Gluteus Medius)",
-    "secondaryMuscles": [
-      "الخصر"
-    ],
-    "equipment": "شريط مقاومة (باند)",
-    "description": "تمرين تفعيل جانبي ممتاز لتشغيل المؤخرة وملء الخفسات ونحت الورك.",
-    "duration": 45,
-    "caloriesPerMin": 7,
-    "caloriesApprox": 35,
-    "animationType": "squats",
-    "steps": [
-      "ضع شريط المقاومة فوق الركبتين.",
-      "قف أو اجثُ وادفع الركبة جانباً ضد مقاومة الشريط.",
-      "اعصر المؤخرة الجانبية واعد الساق ببطء."
-    ],
-    "tips": [
-      "حافظ على ثبات الحوض وعدم ميلان الجسم."
-    ],
-    "tags": [
-      "المؤخرة",
-      "الساقين",
-      "شريط مقاومة",
-      "شد الجسم",
-      "متوسط"
-    ],
-    "muscleGroup": "الجزء السفلي والفخذين",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/58-Knee%20Side%20Band.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/58-Knee%20Side%20Band.mp4",
-    "imageUrl": ""
-  },
-  "leg_crunch": {
-    "id": "leg_crunch",
-    "nameAr": "طحن البطن مع رفـع الساقين العمودي",
-    "nameEn": "Leg Crunch",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن الكلي",
-    "targetMuscle": "عضلات البطن العلوي والسفلي",
-    "secondaryMuscles": [
-      "مُثنيات الورك"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين يجمع بين رفع الساقين والكرانش لاستهداف ألياف البطن بالكامل في نفس الوقت.",
-    "duration": 45,
-    "caloriesPerMin": 7,
-    "caloriesApprox": 35,
-    "animationType": "crunches",
-    "steps": [
-      "استلقِ على ظهرك وافرد ساقيك باتجاه السقف.",
-      "ارفع كتفيك عن الأرض بعصر عضلات البطن محاولاً لمس أصابع قدميك.",
-      "اخفض الكتفين ببطء وكرر."
-    ],
-    "tips": [
-      "حافظ على استقامة الساقين قدر المستطاع."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "تخسيس",
-      "شد الجسم",
-      "متوسط"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/59-Leg%20Crunch.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/59-Leg%20Crunch.mp4",
-    "imageUrl": ""
-  },
-  "leg_kicks": {
-    "id": "leg_kicks",
-    "nameAr": "ركلات الساقين الخلفية والجانبية",
-    "nameEn": "Leg Kicks",
-    "category": "المؤخرة",
-    "bodyPart": "الأرداف والساقين",
-    "targetMuscle": "عضلات الأرداف (Glutes)",
-    "secondaryMuscles": [
-      "الفخذ الخلفي"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين حركي لشد وتقوية عضلات المؤخرة والفخذ وتنشيط الجزء السفلي.",
-    "duration": 45,
-    "caloriesPerMin": 6,
-    "caloriesApprox": 30,
-    "animationType": "squats",
-    "steps": [
-      "استند على حائط أو اركب على أطرافك الأربعة.",
-      "اركل بساقك للخلف ببطء مع عصر عضلات المؤخرة.",
-      "اعد الساق ببطء للبدء وكرر للجانبين."
-    ],
-    "tips": [
-      "لا تقوس الظهر أثناء الركل للخلف."
-    ],
-    "tags": [
-      "المؤخرة",
-      "الساقين",
-      "شد الجسم",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الجزء السفلي والفخذين",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/60-Leg%20Kicks.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/60-Leg%20Kicks.mp4",
-    "imageUrl": ""
-  },
-  "leg_lifts": {
-    "id": "leg_lifts",
-    "nameAr": "تمرين رفع الساقين المستقيمة للبطن السفلي",
-    "nameEn": "Leg Lifts",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن السفلي",
-    "targetMuscle": "عضلات البطن السفلية (Lower Abs)",
-    "secondaryMuscles": [
-      "مُثنيات الورك"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "التمرين الذهبي المسئول عن شد أسفل البطن والتخلص من الكرش السفلي بفعالية.",
-    "duration": 45,
-    "caloriesPerMin": 7,
-    "caloriesApprox": 35,
-    "animationType": "leg-raises",
-    "steps": [
-      "استلقِ على ظهرك وضع يديك تحت حوضك للاسناد.",
-      "ارفع ساقيك المفرودتين لأعلى حتى تشكلا زاوية 90 درجة مع الجسم.",
-      "اخفضهما ببطء شديد دون أن تلمس الكعبان الأرض."
-    ],
-    "tips": [
-      "احرص على إبقاء أسفل الظهر ملاصقاً تماماً للأرض."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "حرق الدهون",
-      "تخسيس",
-      "شد الجسم",
-      "متوسط"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/61-Leg%20Lifts.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/61-Leg%20Lifts.mp4",
-    "imageUrl": ""
-  },
-  "leg_pull_in": {
-    "id": "leg_pull_in",
-    "nameAr": "سحب الساقين للصدر لشد الكرش",
-    "nameEn": "Leg Pull In",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن الكلي والسفلي",
-    "targetMuscle": "عضلات البطن السفلية والجذع",
-    "secondaryMuscles": [
-      "مُثنيات الورك"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين مريح وفعال جداً لضم الركبتين نحو الصدر وعصر البطن لتسطيح المعدة.",
-    "duration": 45,
-    "caloriesPerMin": 6,
-    "caloriesApprox": 30,
-    "animationType": "crunches",
-    "steps": [
-      "اجلس على الأرض مع إسناد يديك خلفك والانحناء للجذع للخلف قليلاً.",
-      "افرد ساقيك للأمام ثم اسحبهما بالثني نحو صدرك بعصر البطن.",
-      "اعد فرد الساقين ببطء وكرر."
-    ],
-    "tips": [
-      "حافظ على التوازن وثبات الجزء العلوي من الجسم."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "تخسيس",
-      "شد الجسم",
-      "مبتدئ"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/62-Leg%20Pull%20In.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/62-Leg%20Pull%20In.mp4",
-    "imageUrl": ""
-  },
-  "leg_up_to_sides": {
-    "id": "leg_up_to_sides",
-    "nameAr": "رفع الساقين وتوسيعهما للجانبين",
-    "nameEn": "Leg Up to Sides",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن والفخذ الداخلي",
-    "targetMuscle": "عضلات البطن السفلية والعضلات الضامة",
-    "secondaryMuscles": [
-      "مُثنيات الورك"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين مدمج يستهدف البطن السفلي ويفرد الفخذ الداخلي لنحت الساقين والبطن.",
-    "duration": 45,
-    "caloriesPerMin": 7,
-    "caloriesApprox": 35,
-    "animationType": "leg-raises",
-    "steps": [
-      "استلقِ على ظهرك وارفع ساقيك المفرودتين للسقف.",
-      "افتح الساقين للخارج جانباً ببطء ثم اجمعهما في المنتصف وافضهما قليلاً.",
-      "كرر الحركة بانتظام."
-    ],
-    "tips": [
-      "السيطرة والبطء أثناء الحركة يمنح نتائج أفضل."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "الساقين",
-      "تخسيس",
-      "متوسط"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/63-Leg%20Up%20to%20Sides.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/63-Leg%20Up%20to%20Sides.mp4",
-    "imageUrl": ""
-  },
-  "lying_reverse_crunch_up": {
-    "id": "lying_reverse_crunch_up",
-    "nameAr": "طحن البطن العكسي من الاستلقاء",
-    "nameEn": "Lying Reverse Crunch Up",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن السفلي",
-    "targetMuscle": "عضلات البطن السفلية",
-    "secondaryMuscles": [
-      "الكور"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين يعتمد على رفع الحوض عن الأرض بعصر عضلات البطن السفلي لتحديد البطن.",
-    "duration": 45,
-    "caloriesPerMin": 7,
-    "caloriesApprox": 35,
-    "animationType": "crunches",
-    "steps": [
-      "استلقِ على ظهرك واثنِ الركبتين بزاوية 90 درجة.",
-      "ارفع حوضك وأسفل ظهرك عن الأرض متجهاً بالركبتين نحو صدرك.",
-      "عد ببطء للأسفل وكرر التكرارات."
-    ],
-    "tips": [
-      "لا تستخدم النتوء أو المرجحة، استخدم القوة البطنية."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "تخسيس",
-      "شد الجسم",
-      "متوسط"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/64-Lying%20Reverse%20Crunch%20Up.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/64-Lying%20Reverse%20Crunch%20Up.mp4",
-    "imageUrl": ""
-  },
-  "mountain_climber": {
-    "id": "mountain_climber",
-    "nameAr": "تمرين تسلق الجبل (ماونتن كلايمبر)",
-    "nameEn": "Mountain Climber",
-    "category": "الكارديو",
-    "bodyPart": "كامل الجسم والبطن",
-    "targetMuscle": "عضلات البطن والقلب والأكتاف",
-    "secondaryMuscles": [
-      "الفخذين",
-      "الترايسبس"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "ديناميت حرق الدهون الأقوى الذي يجمع بين قوة البلانك وحرق الكارديو المكثف.",
-    "duration": 60,
-    "caloriesPerMin": 11,
-    "caloriesApprox": 55,
-    "animationType": "plank",
-    "steps": [
-      "ابدأ بوضعية الضغط مرتكزاً على يديك وأصابع قدميك.",
-      "اسحب ركبتك اليمنى نحو صدرك بسرعة ثم عد بها واسحب الركبة اليسرى.",
-      "استمر بالتبديل السريع كأنك تركض على الأرض."
-    ],
-    "tips": [
-      "حافظ على بقاء الحوض منخفضاً وثبات الأكتاف فوق اليدين."
-    ],
-    "tags": [
-      "الكارديو",
-      "البطن",
-      "الكرش",
-      "حرق الدهون",
-      "تخسيس",
-      "متوسط"
-    ],
-    "muscleGroup": "كامل الجسم",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/65-Mountain%20Climber.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/65-Mountain%20Climber.mp4",
-    "imageUrl": ""
-  },
-  "oblique_crunch": {
-    "id": "oblique_crunch",
-    "nameAr": "طحن البطن الجانبي لنحت الخصر",
-    "nameEn": "Oblique Crunch",
-    "category": "البطن والكرش",
-    "bodyPart": "الخصر والجوانب",
-    "targetMuscle": "عضلات البطن الجانبية (Obliques)",
-    "secondaryMuscles": [
-      "البطن العلوي"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين يستهدف إزالة الدهون الجانبية وتحديد انحناءات الخصر بأسلوب مباشر.",
-    "duration": 30,
-    "caloriesPerMin": 6,
-    "caloriesApprox": 30,
-    "animationType": "crunches",
-    "steps": [
-      "استلقِ على ظهرك واثنِ ركبتيك واسقطهما نحو الجانب الأيمن على الأرض.",
-      "ضع يديك خلف رأسك وارفع كتفيك لأعلى بعصر الخصر.",
-      "كرر للتكرارات المطلوبة ثم اعكس الساقين للجانب الآخر."
-    ],
-    "tips": [
-      "ركز على عصر الجانب العلوي للخصر عند الارتفاع."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "الخصر",
-      "تخسيس",
-      "شد الجسم",
-      "مبتدئ"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/66-Oblique%20Crunch.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/66-Oblique%20Crunch.mp4",
-    "imageUrl": ""
-  },
-  "plank": {
-    "id": "plank",
-    "nameAr": "تمرين ثبات البلانك الكلاسيكي",
-    "nameEn": "Plank",
-    "category": "البطن والكرش",
-    "bodyPart": "الجذع والكور بالكامل",
-    "targetMuscle": "عضلات الكور والبطن العميقة (Core)",
-    "secondaryMuscles": [
-      "الأكتاف",
-      "الأرداف",
-      "الظهر"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "التمرين الأسطوري لبناء القوة المحورية وتسطيح البطن وحماية الظهر من الآلام.",
-    "duration": 45,
-    "caloriesPerMin": 6,
-    "caloriesApprox": 30,
-    "animationType": "plank",
-    "steps": [
-      "ارتكز على الساعدين وأطراف أصابع القدمين على الأرض.",
-      "حافظ على خط مستقيم كالمسطرة من الرأس وحتى الكعبين.",
-      "اشدد عضلات البطن والأرداف واثبت لـ 30-60 ثانية."
-    ],
-    "tips": [
-      "تجنب رفع المؤخرة لأعلى أو إسقاط الحوض لأسفل."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "شد الجسم",
-      "توازن",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/67-Plank.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/67-Plank.mp4",
-    "imageUrl": ""
-  },
-  "plank_hip_rotation": {
-    "id": "plank_hip_rotation",
-    "nameAr": "بلانك مع تدوير وتناوب الورك",
-    "nameEn": "Plank Hip Rotation",
-    "category": "البطن والكرش",
-    "bodyPart": "الخصر والبطن",
-    "targetMuscle": "عضلات الخصر والبطن العميقة",
-    "secondaryMuscles": [
-      "الأكتاف",
-      "الظهر"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تعديل ديناميكي للبلانك يضيف التدوير لنحت الخصر وإذابة الدهون الجانبية.",
-    "duration": 45,
-    "caloriesPerMin": 8,
-    "caloriesApprox": 40,
-    "animationType": "plank",
-    "steps": [
-      "ابدأ بوضعية البلانك على الساعدين.",
-      "قم بدوران الحوض والورك ببطء ليلبس الجانب الأيمن كاد يلمس الأرض.",
-      "عد للمنتصف وادور نحو الجانب الأيسر بالتناوب."
-    ],
-    "tips": [
-      "حافظ على الساعدين مثبتين بصلابة على الأرض."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "الخصر",
-      "شد الجسم",
-      "تخسيس",
-      "متوسط"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/68-Plank%20Hip%20Rotation.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/68-Plank%20Hip%20Rotation.mp4",
-    "imageUrl": ""
-  },
-  "plank_kickback": {
-    "id": "plank_kickback",
-    "nameAr": "تمرين البلانك مع ركلة الساق الخلفية",
-    "nameEn": "Plank Kickback",
-    "category": "المؤخرة",
-    "bodyPart": "الأرداف والبطن",
-    "targetMuscle": "عضلات الأرداف والكور",
-    "secondaryMuscles": [
-      "الفخذ الخلفي",
-      "الأكتاف"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تجميع ذكي بين ثبات الكور وتقوية المؤخرة برفع الساق للخلف في وضعية البلانك.",
-    "duration": 45,
-    "caloriesPerMin": 8,
-    "caloriesApprox": 40,
-    "animationType": "plank",
-    "steps": [
-      "اصعد لوضعية البلانك على اليدين المفرودتين.",
-      "ارفع ساقك اليمنى المفرودة للخلف والأعلى بعصر المؤخرة.",
-      "اخفضها وكرر بالساق اليسرى بالتجانس."
-    ],
-    "tips": [
-      "لا تقوس الظهر عند رفع الساق."
-    ],
-    "tags": [
-      "المؤخرة",
-      "البطن",
-      "الكرش",
-      "شد الجسم",
-      "متوسط"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/69-Plank%20Kickback.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/69-Plank%20Kickback.mp4",
-    "imageUrl": ""
-  },
-  "plank_walk_out": {
-    "id": "plank_walk_out",
-    "nameAr": "تمرين المشي باليدين لثبات الجسم (المشية العنكبوتية)",
-    "nameEn": "Plank Walk Out",
-    "category": "الجسم بالكامل",
-    "bodyPart": "كامل الجسم والكور",
-    "targetMuscle": "عضلات البطن والأكتاف والهمسترينج",
-    "secondaryMuscles": [
-      "الصدر",
-      "الذراعين"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين وظيفي رائع يزيد المرونة ويقوي كافة عضلات والجذع والجسم.",
-    "duration": 45,
-    "caloriesPerMin": 9,
-    "caloriesApprox": 45,
-    "animationType": "plank",
-    "steps": [
-      "قف بانتصاب واثنِ جذعك للأمام حتى تلمس كفاك الأرض.",
-      "امشِ بيديك خطوة بخطوة للأمام حتى تصل لوضعية البلانك الكاملة.",
-      "توقف لحظة ثم امشِ بيديك للخلف للعودة للوقوف."
-    ],
-    "tips": [
-      " حافظ على استقامة الساقين قدر المستطاع أثناء المشي."
-    ],
-    "tags": [
-      "الجسم بالكامل",
-      "البطن",
-      "الكرش",
-      "مرونة",
-      "شد الجسم",
-      "متوسط"
-    ],
-    "muscleGroup": "كامل الجسم",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/70-Plank%20Walk%20Out.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/70-Plank%20Walk%20Out.mp4",
-    "imageUrl": ""
-  },
-  "plank_with_jumps": {
-    "id": "plank_with_jumps",
-    "nameAr": "بلانك القفز بفتح وإغلاق القدمين",
-    "nameEn": "Plank with Jumps",
-    "category": "الكارديو",
-    "bodyPart": "البطن والكور والجسم",
-    "targetMuscle": "عضلات البطن والقلب والأكتاف",
-    "secondaryMuscles": [
-      "الفخذين",
-      "الأرداف"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين يجمع بين الثبات العالي للبلانك والقفز الديناميكي لرفع حرق الدهون لقمته.",
-    "duration": 45,
-    "caloriesPerMin": 10,
-    "caloriesApprox": 50,
-    "animationType": "plank",
-    "steps": [
-      "ابدأ بوضعية البلانك مرتكزاً على اليدين المفرودتين.",
-      "اقفز وافتح قدميك جانباً ثم اقفز واجمعهما ثانية بأسلوب متواصل سريع.",
-      "حافظ على ثبات الأكتاف والجذع."
-    ],
-    "tips": [
-      "لا تدع الحوض يتذبذب لأعلى ولأسفل أثناء القفز."
-    ],
-    "tags": [
-      "الكارديو",
-      "البطن",
-      "الكرش",
-      "حرق الدهون",
-      "تخسيس",
-      "متوسط"
-    ],
-    "muscleGroup": "كامل الجسم",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/71-Plank%20with%20Jumps.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/71-Plank%20with%20Jumps.mp4",
-    "imageUrl": ""
-  },
-  "push_ups_with_feet_elevated_narrow": {
-    "id": "push_ups_with_feet_elevated_narrow",
-    "nameAr": "ضغط بقبضة ضيقة مع رفع القدمين على بنش",
-    "nameEn": "Push Ups with Feet Elevated, Narrow",
-    "category": "الصدر",
-    "bodyPart": "الصدر العلوي والترايسبس",
-    "targetMuscle": "عضلة الترايسبس والصدر العلوي",
-    "secondaryMuscles": [
-      "الأكتاف الأمامية"
-    ],
-    "equipment": "بنش / مقعد",
-    "description": "تمرين ضغط احترافي ومكثف جداً للتركيز الصارم على الترايسبس والصدر العلوي.",
-    "duration": 45,
-    "caloriesPerMin": 10,
-    "caloriesApprox": 50,
-    "animationType": "plank",
-    "steps": [
-      "ضع قدميك فوق بنش مرتفع ويديك على الأرض بقبضة ضيقة.",
-      "اخفض جسمك حتى يقترب صدرك من الأرض.",
-      "ادفع الأرض بقوة للعودة لوضع البداية."
-    ],
-    "tips": [
-      "يتطلب قوة عالية في الترايسبس والكور."
-    ],
-    "tags": [
-      "الصدر",
-      "الذراعين",
-      "بناء العضلات",
-      "شد الجسم",
-      "احترافي"
-    ],
-    "muscleGroup": "الجزء العلوي والذراعين",
-    "difficulty": "احترافي",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/72-Push%20Ups%20with%20Feet%20Elevated%2C%20Narrow.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/72-Push%20Ups%20with%20Feet%20Elevated%2C%20Narrow.mp4",
-    "imageUrl": ""
-  },
-  "quad_stretch": {
-    "id": "quad_stretch",
-    "nameAr": "إطالة عضلة الفخذ الأمامية (الرباعية)",
-    "nameEn": "Quad Stretch",
-    "category": "الإطالات والاستشفاء",
-    "bodyPart": "الفخذ الأمامي",
-    "targetMuscle": "عضلة الفخذ الأمامية (Quadriceps)",
-    "secondaryMuscles": [
-      "مُثنيات الورك",
-      "الكاحل"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "إطالة أساسية جداً بعد تمارين السكوات والطعن لإعادة المرونة للفخذ الأمامي.",
-    "duration": 30,
-    "caloriesPerMin": 3,
-    "caloriesApprox": 15,
-    "animationType": "cobra-stretch",
-    "steps": [
-      "قف على ساق واحدة واسند بيدك على حائط لثباتك.",
-      "اثنِ الساق الأخرى للخلف وامسك القدم بيديك واسحبها ببطء نحو الأرداف.",
-      "اثبت لـ 20-30 ثانية لكل ساق."
-    ],
-    "tips": [
-      "حافظ على بقاء الركبتين متجاورتين."
-    ],
-    "tags": [
-      "إطالة",
-      "الساقين",
-      "استشفاء",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الإطالات والاستشفاء",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/73-Quad%20Stretch.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/73-Quad%20Stretch.mp4",
-    "imageUrl": ""
-  },
-  "reverse_lunge": {
-    "id": "reverse_lunge",
-    "nameAr": "تمرين الطعن الخلفي (ريفرس لانج)",
-    "nameEn": "Reverse Lunge",
-    "category": "الساقين",
-    "bodyPart": "الساقين والمؤخرة",
-    "targetMuscle": "عضلات الفخذ والأرداف (Quads & Glutes)",
-    "secondaryMuscles": [
-      "الفخذ الخلفي",
-      "الكور"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين طعن آمن جداً على الركبة يركز على شد الفخذين وتدوير وتنسيق المؤخرة.",
-    "duration": 45,
-    "caloriesPerMin": 7,
-    "caloriesApprox": 35,
-    "animationType": "squats",
-    "steps": [
-      "قف بانتصاب واخطُ خطوة واسعة للخلف باحدى الساقين.",
-      "اخفض حوضك حتى تشكل الركبتان زاوية 90 درجة.",
-      "ادفع بصلابة بالقدم الأمامية للعودة بانتصاب وكرر."
-    ],
-    "tips": [
-      "حافظ على بقاء الوزن على كعب القدم الأمامية."
-    ],
-    "tags": [
-      "الساقين",
-      "المؤخرة",
-      "شد الجسم",
-      "تخسيس",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الجزء السفلي والفخذين",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/74-Reverse%20Lunge.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/74-Reverse%20Lunge.mp4",
-    "imageUrl": ""
-  },
-  "running_on_treadmill": {
-    "id": "running_on_treadmill",
-    "nameAr": "الركض على السير الرياضي (تريدميل)",
-    "nameEn": "Running on Treadmill",
-    "category": "الكارديو",
-    "bodyPart": "كامل الجسم",
-    "targetMuscle": "عضلات الساقين والقلب والأوعية",
-    "secondaryMuscles": [
-      "الكور",
-      "الأرداف"
-    ],
-    "equipment": "سير رياضي",
-    "description": "تمرين الكارديو التقليدي الأقوى لرفع اللياقة وتدمير الدهون المتراكمة بالجسم.",
-    "duration": 45,
-    "caloriesPerMin": 12,
-    "caloriesApprox": 60,
-    "animationType": "jumping-jacks",
-    "steps": [
-      "اصعد على السير الرياضي واضبط السرعة المناسبة لمستواك.",
-      "اركض بقامة منتصبة وتحريك مرن للأذرع.",
-      "استمر بالركض بانتظام."
-    ],
-    "tips": [
-      "اهبط بمرونة على منتصف القدم وتجنب الصدم بقوة."
-    ],
-    "tags": [
-      "الكارديو",
-      "حرق الدهون",
-      "تخسيس",
-      "سير رياضي",
-      "متوسط"
-    ],
-    "muscleGroup": "كامل الجسم",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/75-Running%20on%20Treadmill.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/75-Running%20on%20Treadmill.mp4",
-    "imageUrl": ""
-  },
-  "russian_twist": {
-    "id": "russian_twist",
-    "nameAr": "التوائي الروسي لشد البطن الجانبي",
-    "nameEn": "Russian Twist",
-    "category": "البطن والكرش",
-    "bodyPart": "الخصر والبطن",
-    "targetMuscle": "عضلات البطن الجانبية (Obliques)",
-    "secondaryMuscles": [
-      "البطن المستقيمة"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين رائع جداً ومجرب لإزالة دهون الخصر والجوانب ونحت البطن بامتياز.",
-    "duration": 45,
-    "caloriesPerMin": 8,
-    "caloriesApprox": 40,
-    "animationType": "russian-twist",
-    "steps": [
-      "اجلس على الأرض واثنِ ركبتيك وانحنِ بجذعك للخلف بزاوية 45 درجة.",
-      "ارفع قدميك عن الأرض قليلاً وشبك يديك أمامك.",
-      "ادور بجذعك ويديك يميناً ويساراً بالتجانس مع عصر الخصر."
-    ],
-    "tips": [
-      "الدوران يكون من الصدر والجذع وليس من الذراعين فقط."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "الخصر",
-      "تخسيس",
-      "شد الجسم",
-      "متوسط"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/76-Russian%20Twist.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/76-Russian%20Twist.mp4",
-    "imageUrl": ""
-  },
-  "russian_twist_with_kettlebell": {
-    "id": "russian_twist_with_kettlebell",
-    "nameAr": "التوائي الروسي مع وزن كيتل بل",
-    "nameEn": "Russian Twist with Kettlebell",
-    "category": "البطن والكرش",
-    "bodyPart": "الخصر والبطن",
-    "targetMuscle": "عضلات البطن الجانبية والجذع",
-    "secondaryMuscles": [
-      "الأكتاف",
-      "الذراعين"
-    ],
-    "equipment": "كيتل بل",
-    "description": "نسخة مكثفة من التوست الروسي باستخدام وزن إضافي لنحت وتحديد عضلات البطن والخصر.",
-    "duration": 60,
-    "caloriesPerMin": 10,
-    "caloriesApprox": 50,
-    "animationType": "russian-twist",
-    "steps": [
-      "امسك كيتل بل بكتفيك أمام صدرك في وضعية التوست الروسي.",
-      "ادور بالوزن وجذعك كاملاً نحو الجانب الأيمن ثم الأيسر ببطء وسيطرة.",
-      "حافظ على توازن القدمين بالمكث."
-    ],
-    "tips": [
-      "حافظ على السيطرة الكاملة على الوزن لمنع أي إجهاد لأسفل الظهر."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "الخصر",
-      "كيتل بل",
-      "تخسيس",
-      "متقدم"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متقدم",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/77-Russian%20Twist%20with%20Kettlebell.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/77-Russian%20Twist%20with%20Kettlebell.mp4",
-    "imageUrl": ""
-  },
-  "scalene_stretch": {
-    "id": "scalene_stretch",
-    "nameAr": "إطالة عضلات الرقبة والأكتاف الجانبية",
-    "nameEn": "Scalene Stretch",
-    "category": "الإطالات والاستشفاء",
-    "bodyPart": "الرقبة والأكتاف",
-    "targetMuscle": "عضلات الرقبة الجانبية (Scalenes)",
-    "secondaryMuscles": [
-      "أعلى الكتف"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين بسيط يزيل الشد والصداع الناتج عن التوتر وإجهاد الرقبة أمام الشاشات.",
-    "duration": 30,
-    "caloriesPerMin": 2,
-    "caloriesApprox": 10,
-    "animationType": "cobra-stretch",
-    "steps": [
-      "اجلس أو قف بانتصاب.",
-      "أمل رأسك ببطء نحو الكتف الأيمن وضع يدك اليمنى بلطف فوق الرأس للتثبيت.",
-      "استشعر الشاط اللطيف في الجانب الأيسر للرقبة واثبت 20 ثانية."
-    ],
-    "tips": [
-      "لا تسحب رأسك بقوة، دَع ثقل اليد يقوم بالإطالة."
-    ],
-    "tags": [
-      "إطالة",
-      "الرقبة",
-      "استشفاء",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الإطالات والاستشفاء",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/78-Scalene%20Stretch.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/78-Scalene%20Stretch.mp4",
-    "imageUrl": ""
-  },
-  "scissor_kick": {
-    "id": "scissor_kick",
-    "nameAr": "تمرين مقص الساقين للبطن السفلي (سيسور كيك)",
-    "nameEn": "Scissor Kick",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن السفلي والخصر",
-    "targetMuscle": "عضلات البطن السفلية",
-    "secondaryMuscles": [
-      "الفخذ الداخلي",
-      "مُثنيات الورك"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "حركة مقص متقاطعة للساقين بالقرب من الأرض لنحت وحرق دهون الكرش السفلي.",
-    "duration": 45,
-    "caloriesPerMin": 8,
-    "caloriesApprox": 40,
-    "animationType": "leg-raises",
-    "steps": [
-      "استلقِ على ظهرك وارفع ساقيك المفرودتين بضعة سنتيمترات عن الأرض.",
-      "قم بتبديل وتسالك الساقين فوق وتحت بعضهما بحركة المقص السريعة.",
-      "استمر بانتظام لمدة 30-45 ثانية."
-    ],
-    "tips": [
-      "ثبت أسفل ظهرك بالأرض طوال مدة الحركة."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "حرق الدهون",
-      "تخسيس",
-      "شد الجسم",
-      "متوسط"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/79-Scissor%20Kick.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/79-Scissor%20Kick.mp4",
-    "imageUrl": ""
-  },
-  "seated_leg_raise": {
-    "id": "seated_leg_raise",
-    "nameAr": "رفع الساقين من الجلوس لشد البطن",
-    "nameEn": "Seated Leg Raise",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن والمعدة",
-    "targetMuscle": "عضلات البطن السفلية والعلوية",
-    "secondaryMuscles": [
-      "الفخذ الأمامي"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين بطن مريح يمكن أداؤه على الأرض أو الكرسي لتضييق الخصر وتسطيح البطن.",
-    "duration": 30,
-    "caloriesPerMin": 6,
-    "caloriesApprox": 30,
-    "animationType": "crunches",
-    "steps": [
-      "اجلس بثبات واسند كفيك خلفك.",
-      "ارفع ركبتيك أو ساقيك المفرودتين لأعلى ببطء بعصر البطن.",
-      "اخفضهما ببطء واعد الرفع قبل ملامسة الأرض."
-    ],
-    "tips": [
-      "حافظ على انقباض عضلات البطن أثناء الانخفاض."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "تخسيس",
-      "شد الجسم",
-      "مبتدئ"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/80-Seated%20Leg%20Raise.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/80-Seated%20Leg%20Raise.mp4",
-    "imageUrl": ""
-  },
-  "shoulder_stretch": {
-    "id": "shoulder_stretch",
-    "nameAr": "تمرين إطالة وتليين عضلات الكتف",
-    "nameEn": "Shoulder Stretch",
-    "category": "الإطالات والاستشفاء",
-    "bodyPart": "الأكتاف",
-    "targetMuscle": "عضلات الكتف (Deltoids)",
-    "secondaryMuscles": [
-      "أعلى الظهر"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "إطالة كلاسيكية لإرخاء عضلات الكتف بعد تمارين الجزء العلوي وتجنب الشد.",
-    "duration": 30,
-    "caloriesPerMin": 3,
-    "caloriesApprox": 15,
-    "animationType": "cobra-stretch",
-    "steps": [
-      "اقطع ذراعك الأيمن أمام صدرك.",
-      "امسك الذراع بيدك اليسرى عند الكوع واسحبها ببطء نحو صدرك.",
-      "اثبت لـ 20 ثانية ثم اعكس الذراعين."
-    ],
-    "tips": [
-      "ابقِ كتفك منخفضاً ولا ترفعه نحو أذنك."
-    ],
-    "tags": [
-      "إطالة",
-      "الكتفين",
-      "استشفاء",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الإطالات والاستشفاء",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/81-Shoulder%20Stretch.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/81-Shoulder%20Stretch.mp4",
-    "imageUrl": ""
-  },
-  "side_bridge_with_leg_raise": {
-    "id": "side_bridge_with_leg_raise",
-    "nameAr": "الجسر الجانبي مع رفع الساق العلوي",
-    "nameEn": "Side Bridge with Leg Raise",
-    "category": "البطن والكرش",
-    "bodyPart": "الخصر والمؤخرة الجانبية",
-    "targetMuscle": "عضلات الخصر والأرداف الجانبية",
-    "secondaryMuscles": [
-      "الأكتاف",
-      "الكور"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين قوة وتوازن جانبي يشد الجوانب ويرفع المؤخرة ويقوي وثبات الكور.",
-    "duration": 60,
-    "caloriesPerMin": 9,
-    "caloriesApprox": 45,
-    "animationType": "plank",
-    "steps": [
-      "ارتكز بوضعية الجسر الجانبي على ساعدك وقدمك.",
-      "ارفع حوضك لأعلى ثم ارفع ساقك العلوية المفرودة باتجاه السقف.",
-      "اخفض الساق ببطء وكرر ثم اعكس للجانب الآخر."
-    ],
-    "tips": [
-      "حافظ على استقامة خط الجسم بالكامل."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "الخصر",
-      "المؤخرة",
-      "متقدم"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متقدم",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/82-Side%20Bridge%20with%20Leg%20Raise.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/82-Side%20Bridge%20with%20Leg%20Raise.mp4",
-    "imageUrl": ""
-  },
-  "side_leg_lifts": {
-    "id": "side_leg_lifts",
-    "nameAr": "رفع الساقين الجانبي لشد الورك والمؤخرة",
-    "nameEn": "Side Leg Lifts",
-    "category": "المؤخرة",
-    "bodyPart": "الورك والأرداف",
-    "targetMuscle": "عضلات الورك والمؤخرة الجانبية (Abductors)",
-    "secondaryMuscles": [
-      "الخصر"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين رائع ونظيف لشد منطقة الجوانب وملء العضلة الجانبية للمؤخرة.",
-    "duration": 30,
-    "caloriesPerMin": 5,
-    "caloriesApprox": 25,
-    "animationType": "squats",
-    "steps": [
-      "استلقِ على جانبك مع استقامة الجسم.",
-      "ارفع ساقك العلوية المفرودة لأعلى لزاوية 45 درجة.",
-      "اخفض الساق ببطء دون أن تلمس الساق الأخرى وكرر."
-    ],
-    "tips": [
-      "وجه أصابع القدم للأمام أثناء الرفع."
-    ],
-    "tags": [
-      "المؤخرة",
-      "الساقين",
-      "شد الجسم",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الجزء السفلي والفخذين",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/83-Side%20Leg%20Lifts.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/83-Side%20Leg%20Lifts.mp4",
-    "imageUrl": ""
-  },
-  "side_plank": {
-    "id": "side_plank",
-    "nameAr": "تمرين البلانك الجانبي للخصر",
-    "nameEn": "Side Plank",
-    "category": "البطن والكرش",
-    "bodyPart": "الخصر والجوانب",
-    "targetMuscle": "عضلات الخصر الجانبية (Obliques)",
-    "secondaryMuscles": [
-      "الكور",
-      "الأكتاف"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "التمرين الأساسي الأشهر لإذابة الدهون الجانبية وبناء قوة وثبات للخصر.",
-    "duration": 45,
-    "caloriesPerMin": 7,
-    "caloriesApprox": 35,
-    "animationType": "plank",
-    "steps": [
-      "استلقِ على جانبك وارفع جسمك مرتكزاً على ساعدك وحافة قدمك الجانبية.",
-      "ارفع حوضك لتشكل خطاً مستقيماً واثبت لـ 30 ثانية لكل جانب."
-    ],
-    "tips": [
-      "حافظ على بقاء الكوع تحت الكتف تماماً."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "الخصر",
-      "شد الجسم",
-      "تخسيس",
-      "متوسط"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/84-Side%20Plank.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/84-Side%20Plank.mp4",
-    "imageUrl": ""
-  },
-  "side_to_side_wheeling": {
-    "id": "side_to_side_wheeling",
-    "nameAr": "تأرجح وتدوير الجذع الجانبي",
-    "nameEn": "Side to Side Wheeling",
-    "category": "الإحماء",
-    "bodyPart": "الجذع والخصر",
-    "targetMuscle": "عضلات العمود الفقري والخصر",
-    "secondaryMuscles": [
-      "الأكتاف"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين تليين حركي ممتاز لإعداد الجذع والخصر للتمارين الرياضية.",
+    "equipment": "وزن الجسم",
+    "description": "Tall spine seated forward fold is a bodyweight stretching exercise targeting the hamstrings, with secondary engagement of the lower back and glutes. It emphasizes maintaining a long, flat spine throughout the forward fold to maximize hamstring lengthening while protecting the lumbar spine.",
     "duration": 30,
     "caloriesPerMin": 4,
-    "caloriesApprox": 20,
-    "animationType": "russian-twist",
-    "steps": [
-      "قف بفتح القدمين بعرض الكتفين وافرد ذراعيك جانباً.",
-      "ادور بجذعك وذراعيك جانباً يميناً ويساراً بسلاسة وانسيابية."
-    ],
-    "tips": [
-      "حافظ على ثبات القدمين بالأرض أثناء الدوران."
-    ],
-    "tags": [
-      "إحماء",
-      "الخصر",
-      "مرونة",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/85-Side%20to%20Side%20Wheeling.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/85-Side%20to%20Side%20Wheeling.mp4",
-    "imageUrl": ""
-  },
-  "single_leg_backwards": {
-    "id": "single_leg_backwards",
-    "nameAr": "ركلات الساق الأحادي للخلف للأرداف",
-    "nameEn": "Single Leg Backwards",
-    "category": "المؤخرة",
-    "bodyPart": "الأرداف والفخذ الخلفي",
-    "targetMuscle": "عضلة المؤخرة الكبرى (Gluteus Maximus)",
-    "secondaryMuscles": [
-      "الفخذ الخلفي"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين بسيط وفعال يستهدف رفع وتنسيق عضلات المؤخرة بوزن الجسم.",
-    "duration": 30,
-    "caloriesPerMin": 6,
-    "caloriesApprox": 30,
+    "caloriesApprox": 2,
     "animationType": "squats",
     "steps": [
-      "قف واستند بيديك على حائط.",
-      "ارفع ساقاً واحدة للخلف ببطء مع ضغط وعصر عضلات المؤخرة.",
-      "عد ببطء وكرر لكل ساق."
+      "Sit on the floor with your legs extended straight in front of you and your feet flexed.",
+      "Sit up as tall as possible, lengthening your spine and pulling your shoulders back.",
+      "Inhale to lengthen, then exhale and hinge forward from the hips with a flat back, reaching your hands toward your feet.",
+      "Maintain a long spine throughout the stretch rather than rounding the lower back.",
+      "Hold for 20-30 seconds, then slowly return to a tall seated position."
     ],
     "tips": [
-      "ركز على الانقباض العضلي في القمة."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء الانحناء الأمامي الجالس بظهر مستقيم.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الخلفية) طوال مدة الأداء (30 ثانية)."
     ],
     "tags": [
-      "المؤخرة",
-      "الساقين",
-      "شد الجسم",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الجزء السفلي والفخذين",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/86-Single%20Leg%20Backwards.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/86-Single%20Leg%20Backwards.mp4",
-    "imageUrl": ""
-  },
-  "sit_up": {
-    "id": "sit_up",
-    "nameAr": "تمرين الجلوس الكامل للبطن (سيت أب)",
-    "nameEn": "Sit Up",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن الكلي",
-    "targetMuscle": "عضلات البطن المستقيمة كاملة",
-    "secondaryMuscles": [
-      "مُثنيات الورك"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "التمرين الكلاسيكي القوي للنهوض بالكامل بعصر عضلات البطن وبناء قوة جدار البطن.",
-    "duration": 45,
-    "caloriesPerMin": 8,
-    "caloriesApprox": 40,
-    "animationType": "crunches",
-    "steps": [
-      "استلقِ على ظهرك واثنِ ركبتيك وثبت قدميك على الأرض.",
-      "ارفع جذعك بالكامل من الأرض للوصول لوضعية الجلوس بالقرب من الركبتين.",
-      "انزل ببطء وكنترول للظهر وكرر."
-    ],
-    "tips": [
-      "النزول البطين يزيد الاستفادة العضلية."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "حرق الدهون",
-      "تخسيس",
-      "شد الجسم",
-      "متوسط"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/87-Sit%20Up.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/87-Sit%20Up.mp4",
-    "imageUrl": ""
-  },
-  "sitting_twists": {
-    "id": "sitting_twists",
-    "nameAr": "التواء الخصر من وضع الجلوس",
-    "nameEn": "Sitting Twists",
-    "category": "البطن والكرش",
-    "bodyPart": "الخصر وأسفل الظهر",
-    "targetMuscle": "عضلات الخصر والعمود الفقري",
-    "secondaryMuscles": [
-      "الكور"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين مريح يلين فقرات الظهر وينحت منطقة الجوانب بسهولة ونعومة.",
-    "duration": 30,
-    "caloriesPerMin": 5,
-    "caloriesApprox": 25,
-    "animationType": "russian-twist",
-    "steps": [
-      "اجلس بانتصاب على الأرض مع فرد الساقين للأمام.",
-      "ادور بجذعك ويديك للجانب الأيمن واثبت لثانيتين.",
-      "عد للمنتصف وادور للجانب الأيسر."
-    ],
-    "tips": [
-      "حافظ على استقامة العمود الفقري أثناء الدوران."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "الخصر",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/88-Sitting%20Twists.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/88-Sitting%20Twists.mp4",
-    "imageUrl": ""
-  },
-  "spider_abs": {
-    "id": "spider_abs",
-    "nameAr": "تمرين عنكبوت البطن الجانبي (سبايدر أبس)",
-    "nameEn": "Spider Abs",
-    "category": "البطن والكرش",
-    "bodyPart": "الخصر والبطن الكلي",
-    "targetMuscle": "عضلات البطن الجانبية والكور",
-    "secondaryMuscles": [
-      "الأكتاف",
-      "الفخذين"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين حركي ممتع في وضعية البلانك يجذب الركبة جانباً للكوع لنحت الجوانب.",
-    "duration": 45,
-    "caloriesPerMin": 9,
-    "caloriesApprox": 45,
-    "animationType": "plank",
-    "steps": [
-      "ابدأ بوضعية البلانك على اليدين المفرودتين.",
-      "اسحب ركبتك اليمنى جانباً باتجاه كوعك الأيمن بعصر الخصر.",
-      "عد بها وكرر للركبة اليسرى كعنكبوت متسلق."
-    ],
-    "tips": [
-      "حافظ على استقرار الحوض وعدم انخفاضه."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "الخصر",
-      "شد الجسم",
-      "متوسط"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/89-Spider%20Abs.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/89-Spider%20Abs.mp4",
-    "imageUrl": ""
-  },
-  "spinal_twist": {
-    "id": "spinal_twist",
-    "nameAr": "إطالة التواء العمود الفقري للاسترخاء",
-    "nameEn": "Spinal Twist",
-    "category": "الإطالات والاستشفاء",
-    "bodyPart": "العمود الفقري والظهر",
-    "targetMuscle": "عضلات الظهر والخصر والعمود الفقري",
-    "secondaryMuscles": [
-      "الأكتاف"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "إطالة ممتازة لإلغاء إجهاد الضغط السكني وتليين فقرات الظهر بالكامل.",
-    "duration": 30,
-    "caloriesPerMin": 3,
-    "caloriesApprox": 15,
-    "animationType": "cobra-stretch",
-    "steps": [
-      "استلقِ على ظهرك واجذب ركبتك اليمنى نحو الصدر ثم اسقطها عبر جسمك للجانب الأيسر.",
-      "افرد ذراعك الأيمن جانباً وانظر نحوه.",
-      "اثبت 30 ثانية وكرر للجانب الآخر."
-    ],
-    "tips": [
-      "حافظ على ملامسة الكتفين للأرض."
-    ],
-    "tags": [
-      "إطالة",
-      "الظهر",
-      "استشفاء",
-      "بدون معدات",
+      "الإطالات والاستشفاء",
+      "عضلات الفخذ الخلفية",
       "مبتدئ"
     ],
     "muscleGroup": "الإطالات والاستشفاء",
     "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/90-Spinal%20Twist.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/90-Spinal%20Twist.mp4",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1201.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1201.mp4",
     "imageUrl": ""
   },
-  "squat": {
-    "id": "squat",
-    "nameAr": "تمرين القرفصاء الكلاسيكي (سكوات)",
-    "nameEn": "Squat",
-    "category": "الساقين",
-    "bodyPart": "الساقين والمؤخرة",
-    "targetMuscle": "العضلات الرباعية والأرداف (Quads & Glutes)",
+  "1202": {
+    "id": "1202",
+    "nameAr": "الوقوف على الرأس بقاعدة ثلاثية",
+    "nameEn": "tripod base headstand",
+    "category": "الكتفين",
+    "bodyPart": "الأكتاف",
+    "targetMuscle": "عضلات الكتف",
     "secondaryMuscles": [
-      "الفخذ الخلفي",
-      "الكور"
+      "عضلات البطن",
+      "عضلات الترافيز",
+      "الذراعان والبايل والتراي"
     ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "ملك تمارين الجزء السفلي لبناء وتقوية الفخذين والمؤخرة وحرق السعرات الحرارية.",
-    "duration": 45,
-    "caloriesPerMin": 8,
-    "caloriesApprox": 40,
-    "animationType": "squats",
-    "steps": [
-      "قف بفتح القدمين بعرض الكتفين مع توجيه الأصابع للخارج قليلاً.",
-      "ادفع بمؤخرتك للخلف وانزل كأنك تجلس على كرسي حتى توازي الفخذان الأرض.",
-      "ادفع بكعبيك للعودة بانتصاب."
-    ],
-    "tips": [
-      "حافظ على استقامة الظهر والصدر مرفوعاً."
-    ],
-    "tags": [
-      "الساقين",
-      "المؤخرة",
-      "بناء العضلات",
-      "شد الجسم",
-      "تخسيس",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الجزء السفلي والفخذين",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/91-Squat.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/91-Squat.mp4",
-    "imageUrl": ""
-  },
-  "standing_chest_fly": {
-    "id": "standing_chest_fly",
-    "nameAr": "تمرين فتح وضغط الصدر من الوقوف",
-    "nameEn": "Standing Chest Fly",
-    "category": "الصدر",
-    "bodyPart": "الصدر والأكتاف",
-    "targetMuscle": "عضلات الصدر (Pectorals)",
-    "secondaryMuscles": [
-      "الأكتاف الأمامية"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين حركي لفتح الصدر وتحسين القامة وتفعيل عضلات الصدر العلوي.",
-    "duration": 30,
-    "caloriesPerMin": 5,
-    "caloriesApprox": 25,
+    "equipment": "وزن الجسم",
+    "description": "The tripod base headstand is an advanced bodyweight balance exercise targeting the deltoids, with secondary engagement of the abs, traps, and upper arms. It involves balancing in an inverted position using the head and both hands as a three-point base, building shoulder strength, core stability, and body awareness.",
+    "duration": 60,
+    "caloriesPerMin": 10,
+    "caloriesApprox": 10,
     "animationType": "jumping-jacks",
     "steps": [
-      "قف بانتصاب وافتح ذراعيك جانباً بمستوى الصدر مع انحناء خفيف في الكوعين.",
-      "اجمع يديك وكوعيك معاً أمام صدرك واعصر الصدر.",
-      "افتح الذراعين للخلف ببطء وكرر."
+      "Kneel on the floor and place the crown of your head on the mat, positioning your hands shoulder-width apart to form a triangular base.",
+      "Press firmly through your hands and lift your knees off the floor, walking your feet in toward your head.",
+      "Engage your core and tuck your knees into your chest, lifting your feet off the floor to find a balanced tucked headstand.",
+      "Gradually extend your legs toward the ceiling when ready, pressing through the balls of your feet.",
+      "Hold for the desired duration, then tuck and lower with control."
     ],
     "tips": [
-      "اعصر الصدر بقوة عند التجميع."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء الوقوف على الرأس بقاعدة ثلاثية.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الكتف) طوال مدة الأداء (60 ثانية)."
     ],
     "tags": [
-      "الصدر",
-      "شد الجسم",
-      "بدون معدات",
-      "مبتدئ"
+      "الكتفين",
+      "عضلات الكتف",
+      "متقدم"
     ],
     "muscleGroup": "الجزء العلوي والذراعين",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/92-Standing%20Chest%20Fly.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/92-Standing%20Chest%20Fly.mp4",
+    "difficulty": "متقدم",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1202.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1202.mp4",
     "imageUrl": ""
   },
-  "standing_hamstring_curls": {
-    "id": "standing_hamstring_curls",
-    "nameAr": "ثني الفخذ الخلفي من الوقوف",
-    "nameEn": "Standing Hamstring Curls",
-    "category": "الساقين",
-    "bodyPart": "الفخذ الخلفي",
-    "targetMuscle": "عضلات الفخذ الخلفية (Hamstrings)",
+  "1203": {
+    "id": "1203",
+    "nameAr": "تمرين المعدة الملتوي للخصر",
+    "nameEn": "twisted sit-ups",
+    "category": "البطن والكرش",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات الخصر والجانبين",
     "secondaryMuscles": [
-      "الأرداف"
+      "عضلات البطن",
+      "مثنيات الورك"
     ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين بسيط وعزلي يركز على شد عضلات الفخذ الخلفية وإبرز تقسيمها.",
+    "equipment": "وزن الجسم",
+    "description": "Twisted sit-ups are a bodyweight core exercise targeting the obliques, with secondary engagement of the abs and hip flexors. They combine the sit-up movement with a rotational twist to effectively train the lateral core musculature and improve rotational strength.",
     "duration": 30,
-    "caloriesPerMin": 5,
-    "caloriesApprox": 25,
-    "animationType": "squats",
-    "steps": [
-      "قف باستقامة مع الاستناد على كرسي للتوازن.",
-      "اثنِ كعب قدمك ببطء نحو المؤخرة بعصر الفخذ الخلفي.",
-      "اخفض الساق ببطء وكرر بالتناوب."
-    ],
-    "tips": [
-      "حافظ على توازي الركبتين أثناء الثني."
-    ],
-    "tags": [
-      "الساقين",
-      "شد الجسم",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الجزء السفلي والفخذين",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/93-Standing%20Hamstring%20Curls.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/93-Standing%20Hamstring%20Curls.mp4",
-    "imageUrl": ""
-  },
-  "standing_isometric_pallof_press_hold": {
-    "id": "standing_isometric_pallof_press_hold",
-    "nameAr": "ثبات ثني الخصر الايزومتري من الوقوف",
-    "nameEn": "Standing Isometric Pallof Press Hold",
-    "category": "البطن والكرش",
-    "bodyPart": "الكور والخصر",
-    "targetMuscle": "العضلات العميقة للبطن والخصر",
-    "secondaryMuscles": [
-      "الأكتاف"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين ثبات يقاوم الدوران لتقوية ثبات الجذع وحماية الظهر من الإصابات.",
-    "duration": 45,
     "caloriesPerMin": 6,
-    "caloriesApprox": 30,
-    "animationType": "plank",
+    "caloriesApprox": 3,
+    "animationType": "russian-twist",
     "steps": [
-      "قف بفتح القدمين وافرد ذراعيك للأمام مع شبك اليدين بصلابة.",
-      "اقاوم أي حركة واثبت في المنتصف بعصر عضلات البطن بالكامل.",
-      "اثبت لـ 30 ثانية مع تنفس منتظم."
+      "Lie flat on your back with your knees bent and feet flat on the floor.",
+      "Place your hands behind your head with elbows pointing outward.",
+      "Engage your core and curl your torso upward, simultaneously rotating your right elbow toward your left knee.",
+      "Lower back to the starting position, then curl up again and rotate your left elbow toward your right knee.",
+      "Continue alternating sides for the desired number of repetitions."
     ],
     "tips": [
-      "اشدد البطن والأرداف بقوة طوال الثبات."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين المعدة الملتوي للخصر.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الخصر والجانبين) طوال مدة الأداء (30 ثانية)."
     ],
     "tags": [
-      "البطن",
-      "الكرش",
-      "شد الجسم",
-      "توازن",
-      "متوسط"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/94-Standing%20Isometric%20Pallof%20Press%20Hold.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/94-Standing%20Isometric%20Pallof%20Press%20Hold.mp4",
-    "imageUrl": ""
-  },
-  "standing_knee_to_elbow_crunches": {
-    "id": "standing_knee_to_elbow_crunches",
-    "nameAr": "طحن البطن من الوقوف (ركبة للكوع)",
-    "nameEn": "Standing Knee to Elbow Crunches",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن والخصر",
-    "targetMuscle": "عضلات البطن الجانبية والمستقيمة",
-    "secondaryMuscles": [
-      "مُثنيات الورك"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين بطن مريح بدون الحاجة للاستلقاء على الأرض، حارق ممتاز لدهون الخصر.",
-    "duration": 45,
-    "caloriesPerMin": 7,
-    "caloriesApprox": 35,
-    "animationType": "crunches",
-    "steps": [
-      "قف وضع يديك خلف رأسك.",
-      "ارفع ركبتك اليمنى جانباً واهبط بكوعك الأيمن للمسها بعصر الخصر.",
-      "عد لوضع الوقوف وكرر للجانب الأيسر بالتناوب."
-    ],
-    "tips": [
-      "ركز على عصر الجانب العضلي للخصر عند الالتقاء."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "الخصر",
-      "تخسيس",
+      "البطن والكرش",
+      "عضلات الخصر والجانبين",
       "مبتدئ"
     ],
     "muscleGroup": "عضلات البطن والخصر",
     "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/95-Standing%20Knee%20to%20Elbow%20Crunches.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/95-Standing%20Knee%20to%20Elbow%20Crunches.mp4",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1203.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1203.mp4",
     "imageUrl": ""
   },
-  "straight_arms_sit_up": {
-    "id": "straight_arms_sit_up",
-    "nameAr": "سيت أب مع ذراعين مفرودتين للسقف",
-    "nameEn": "Straight Arms Sit Up",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن الكلي",
-    "targetMuscle": "عضلات البطن المستقيمة كاملة",
+  "1204": {
+    "id": "1204",
+    "nameAr": "تنفس أوجايي لبناء الحرارة",
+    "nameEn": "ujjayi heat pranayama ladder",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "عضلات البطن والخصر",
+    "targetMuscle": "عضلات البطن",
     "secondaryMuscles": [
-      "الأكتاف"
+      "أسفل الظهر"
     ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تعديل رائع لسيت أب يساعد في الصعود المستقيم وتحديد عضلات البطن بوضوح.",
-    "duration": 45,
-    "caloriesPerMin": 8,
-    "caloriesApprox": 40,
+    "equipment": "وزن الجسم",
+    "description": "Ujjayi heat pranayama ladder is a bodyweight breathing exercise targeting the abs through diaphragmatic control, with secondary engagement of the lower back. It involves ujjayi breath work in a progressive ladder format to build internal heat, calm the mind, and deepen respiratory awareness.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
     "animationType": "crunches",
     "steps": [
-      "استلقِ على ظهرك وافرد ذراعيك دائماً باتجاه السقف.",
-      "اصعد بجذعك كاملاً لأعلى مع إبقاء الذراعين مفرودتين فوق الرأس.",
-      "انزل ببطء وكنترول للأرض وكرر."
+      "Sit in a comfortable cross-legged position with your spine tall and shoulders relaxed.",
+      "Partially constrict the back of your throat and breathe in through your nose, creating a soft ocean-like sound.",
+      "Exhale through your nose with the same throat constriction, maintaining steady sound and heat.",
+      "Begin with short, slow rounds and progressively increase the speed and length of each breath in a ladder pattern.",
+      "Complete the desired number of rounds, then transition to natural breathing."
     ],
     "tips": [
-      "حافظ على توجيه الذراعين للسقف طوال التمرين."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تنفس أوجايي لبناء الحرارة.",
+      "ركز على انقباض العضلات المستهدفة (عضلات البطن) طوال مدة الأداء (30 ثانية)."
     ],
     "tags": [
-      "البطن",
-      "الكرش",
-      "شد الجسم",
-      "تخسيس",
+      "الإطالات والاستشفاء",
+      "عضلات البطن",
       "متوسط"
     ],
-    "muscleGroup": "عضلات البطن والخصر",
+    "muscleGroup": "الإطالات والاستشفاء",
     "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/96-Straight%20Arms%20Sit%20Up.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/96-Straight%20Arms%20Sit%20Up.mp4",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1204.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1204.mp4",
     "imageUrl": ""
   },
-  "straight_leg_lift": {
-    "id": "straight_leg_lift",
-    "nameAr": "رفع الساق المفرودة لشد الفخذ والبطن",
-    "nameEn": "Straight Leg Lift",
-    "category": "الساقين",
-    "bodyPart": "الفخذ الأمامي والبطن",
-    "targetMuscle": "عضلة الفخذ الأمامية ومُثنيات الورك",
+  "1205": {
+    "id": "1205",
+    "nameAr": "إطالة التبريد للجزء العلوي",
+    "nameEn": "upper body cool down stretch",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الأكتاف",
+    "targetMuscle": "عضلات الكتف",
     "secondaryMuscles": [
-      "البطن السفلي"
+      "عضلات الترافيز",
+      "الصدر",
+      "الذراعان والبايل والتراي"
     ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين آمن وبسيط لتقوية الفخذ الأمامي والمفصل وتثبيت الركبة.",
-    "duration": 45,
-    "caloriesPerMin": 5,
-    "caloriesApprox": 25,
-    "animationType": "leg-raises",
-    "steps": [
-      "استلقِ على ظهرك واثنِ ساقاً وافرد الأخرى على الأرض.",
-      "ارفع الساق المفرودة لأعلى ببطء حتى تتوازى مع ركبة الساق المنثنية.",
-      "اخفضها ببطء دون أن تلمس الأرض وكرر."
-    ],
-    "tips": [
-      "حافظ على الساق مفرودة تماماً أثناء الرفع."
-    ],
-    "tags": [
-      "الساقين",
-      "شد الجسم",
-      "بدون معدات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الجزء السفلي والفخذين",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/97-Straight%20Leg%20Lift.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/97-Straight%20Leg%20Lift.mp4",
-    "imageUrl": ""
-  },
-  "straight_sit_up": {
-    "id": "straight_sit_up",
-    "nameAr": "تمرين سيت أب المستقيم للبطن",
-    "nameEn": "Straight Sit Up",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن المستقيمة",
-    "targetMuscle": "عضلات البطن المستقيمة (Rectus Abdominis)",
-    "secondaryMuscles": [
-      "الكور"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين سيت أب مستقيم لبناء قوة وتحمل عضلات الجذع وتسطيح الكرش.",
-    "duration": 45,
-    "caloriesPerMin": 8,
-    "caloriesApprox": 40,
-    "animationType": "crunches",
-    "steps": [
-      "استلقِ على ظهرك واثنِ الركبتين مع وضع يديك على الصدر.",
-      "اصعد ببطء للجلوس بعصر عضلات البطن.",
-      "انزل بتدرج وسيطرة للأسفل وكرر."
-    ],
-    "tips": [
-      "لا تستخدم الدفع السريع، اعتمد على انقباض البطن."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "تخسيس",
-      "شد الجسم",
-      "متوسط"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/98-Straight%20Sit%20Up.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/98-Straight%20Sit%20Up.mp4",
-    "imageUrl": ""
-  },
-  "superman_with_scaption": {
-    "id": "superman_with_scaption",
-    "nameAr": "سوبرمان مع ضم وعصر لوحي الكتف",
-    "nameEn": "Superman with Scaption",
-    "category": "الظهر",
-    "bodyPart": "الظهر والأكتاف",
-    "targetMuscle": "عضلات الظهر وأعلى الظهر (Erector Spinae & Rhomboids)",
-    "secondaryMuscles": [
-      "الأكتاف الخلفية",
-      "الأرداف"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تعديل محترف لتمرين السوبرمان يضيف حركة سحب الذراعين لعلاج تحدب الظهر.",
-    "duration": 45,
-    "caloriesPerMin": 6,
-    "caloriesApprox": 30,
+    "equipment": "وزن الجسم",
+    "description": "Upper body cool down stretch is a bodyweight stretching exercise targeting the deltoids, with secondary engagement of the traps, chest, and upper arms. It alternates between a chest-rounded forward stretch and an open-chest backward stretch to systematically release tension across the upper body after training.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
     "animationType": "cobra-stretch",
     "steps": [
-      "استلقِ على بطنك وافرد ذراعيك بشكل حرف Y.",
-      "ارفع صدرك وساقيك عن الأرض وسحب كوعيك للخلف لعصر لوحي الكتف.",
-      "مدد ذراعيك واعد التكرار بانتظام."
+      "Stand upright with your feet shoulder-width apart.",
+      "Raise one arm overhead and gently bend your torso to the opposite side, letting your other arm reach toward the floor.",
+      "Smoothly return to the upright position, extending both arms wide to the sides to open your chest.",
+      "Raise your opposite arm overhead and bend your torso to the other side.",
+      "Return to the center with your arms extended wide.",
+      "Continue alternating sides in a fluid, continuous motion for the desired number of repetitions."
     ],
     "tips": [
-      "اعصر أعلى الظهر بقوة في قمة الحركة."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء إطالة التبريد للجزء العلوي.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الكتف) طوال مدة الأداء (30 ثانية)."
     ],
     "tags": [
-      "الظهر",
-      "الأكتاف",
-      "تحسين القامة",
-      "شد الجسم",
-      "متوسط"
+      "الإطالات والاستشفاء",
+      "عضلات الكتف",
+      "مبتدئ"
     ],
-    "muscleGroup": "الجزء العلوي والذراعين",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/99-Superman%20with%20Scaption.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/99-Superman%20with%20Scaption.mp4",
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1205.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1205.mp4",
     "imageUrl": ""
   },
-  "supine_bicycle": {
-    "id": "supine_bicycle",
-    "nameAr": "دراجة البطن من الاستلقاء الأرضي",
-    "nameEn": "Supine Bicycle",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن والخصر",
-    "targetMuscle": "عضلات البطن الكلية والخصر",
+  "1206": {
+    "id": "1206",
+    "nameAr": "وضعية أوتاناسانا (الانحناء الأمامي)",
+    "nameEn": "uttanasana (standing forward fold)",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الخلفية",
     "secondaryMuscles": [
-      "مُثنيات الورك"
+      "المؤخرة",
+      "أسفل الظهر"
     ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "حركة البدال للتبادل السريع بالقدمين مع تقريب الكوع المقابل لنحت الخصر والبطن.",
-    "duration": 45,
-    "caloriesPerMin": 8,
-    "caloriesApprox": 40,
-    "animationType": "crunches",
-    "steps": [
-      "استلقِ على ظهرك وضغط يديك خلف رأسك.",
-      "حرك ساقيك بحركة البدال الدائرية مع تدوير الصدر للمس الكوع بالركبة المقابلة بالتناوب."
-    ],
-    "tips": [
-      "حافظ على سلاسة وانسيابية الحركة."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "الخصر",
-      "تخسيس",
-      "متوسط"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/100-Supine%20Bicycle.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/100-Supine%20Bicycle.mp4",
-    "imageUrl": ""
-  },
-  "supine_k_c": {
-    "id": "supine_k_c",
-    "nameAr": "تمرين سحب الركبة للصدر من الاستلقاء",
-    "nameEn": "Supine K-C",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن السفلي",
-    "targetMuscle": "عضلات البطن السفلية",
-    "secondaryMuscles": [
-      "مُثنيات الورك"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين بسيط وسلس لسحب الركبتين معاً نحو الصدر لتشغيل أسفل البطن.",
+    "equipment": "وزن الجسم",
+    "description": "Uttanasana, or standing forward fold, is a bodyweight yoga stretching exercise targeting the hamstrings, with secondary engagement of the glutes and lower back. It involves folding the torso forward from a standing position to deeply stretch the posterior chain while encouraging spinal decompression and relaxation.",
     "duration": 30,
-    "caloriesPerMin": 6,
-    "caloriesApprox": 30,
-    "animationType": "crunches",
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
     "steps": [
-      "استلقِ على ظهرك وافرد ساقيك على الأرض.",
-      "اثنِ الركبتين واسحبهما معاً نحو صدرك بعصر البطن.",
-      "اعد فرد الساقين ببطء وكرر."
+      "Stand with your feet hip-width apart and your arms by your sides.",
+      "Inhale to lengthen your spine, then exhale and hinge forward from your hips, folding your torso toward the floor.",
+      "Allow your hands to rest on the floor, your shins, or your ankles, depending on your flexibility.",
+      "Let your head hang heavy and relax your neck completely.",
+      "Hold the position for 20-30 seconds, breathing deeply, then slowly roll back up to standing."
     ],
     "tips": [
-      "لا تلمس الأرض بكعبيك عند فرد الساقين."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء وضعية أوتاناسانا (الانحناء الأمامي).",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الخلفية) طوال مدة الأداء (30 ثانية)."
     ],
     "tags": [
-      "البطن",
-      "الكرش",
-      "تخسيس",
-      "شد الجسم",
+      "الإطالات والاستشفاء",
+      "عضلات الفخذ الخلفية",
       "مبتدئ"
     ],
-    "muscleGroup": "عضلات البطن والخصر",
+    "muscleGroup": "الإطالات والاستشفاء",
     "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/101-Supine%20K-C.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/101-Supine%20K-C.mp4",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1206.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1206.mp4",
     "imageUrl": ""
   },
-  "the_pilates_hundred": {
-    "id": "the_pilates_hundred",
-    "nameAr": "تمرين مئة بيلاتس الشهير للبطن",
-    "nameEn": "The Pilates Hundred",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن والجذع بالكامل",
-    "targetMuscle": "عضلات البطن العميقة والمستقيمة",
+  "1207": {
+    "id": "1207",
+    "nameAr": "وضعية المحارب 1 للاستقرار",
+    "nameEn": "warrior 1 alignment",
+    "category": "الإطالات والاستشفاء",
+    "bodyPart": "الفخذين والساقين",
+    "targetMuscle": "عضلات الفخذ الأمامية",
     "secondaryMuscles": [
-      "الذراعين",
-      "الفخذين"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين البيلاتس الكلاسيكي لرفع القوة والتحمل في الكور مع النبض المتواصل بالذراعين.",
-    "duration": 45,
-    "caloriesPerMin": 8,
-    "caloriesApprox": 40,
-    "animationType": "crunches",
-    "steps": [
-      "استلقِ على ظهرك وارفع كتفيك وساقيك المفرودتين لزاوية 45 درجة.",
-      "افرد ذراعيك بجانبك وقم بالنبض بالذراعين لأعلى ولأسفل بحركات سريعة.",
-      "تنفس بشهيق لـ 5 نبضات وزفير لـ 5 نبضات حتى تصل لـ 100 نبضة."
-    ],
-    "tips": [
-      "حافظ على ثبات الكور وأسفل الظهر على الأرض."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "بيلاتس",
-      "شد الجسم",
-      "متوسط"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/102-The%20Pilates%20Hundred.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/102-The%20Pilates%20Hundred.mp4",
-    "imageUrl": ""
-  },
-  "toe_touch": {
-    "id": "toe_touch",
-    "nameAr": "تمرين لمس أصابع القدمين للبطن",
-    "nameEn": "Toe Touch",
-    "category": "البطن والكرش",
-    "bodyPart": "البطن العلوي والأوسط",
-    "targetMuscle": "عضلات البطن المستقيمة (Abs)",
-    "secondaryMuscles": [
-      "الفخذ الخلفي"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين مستهدف جداً لرفع الصدر ومحاولة لمس أصابع القدم المرفوعة بالسقف.",
-    "duration": 45,
-    "caloriesPerMin": 7,
-    "caloriesApprox": 35,
-    "animationType": "crunches",
-    "steps": [
-      "استلقِ على ظهرك وارفع ساقيك مفرودتين تماماً للسقف.",
-      "افرد يديك وارفع لوحي الكتف عن الأرض محاولاً لمس أصابع قدميك بيدك.",
-      "اخفض الكتفين ببطء وكرر."
-    ],
-    "tips": [
-      "حافظ على الساقين مفرودتين لأعلى قدر المستطاع."
-    ],
-    "tags": [
-      "البطن",
-      "الكرش",
-      "شد الجسم",
-      "تخسيس",
-      "مبتدئ"
-    ],
-    "muscleGroup": "عضلات البطن والخصر",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/103-Toe%20Touch.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/103-Toe%20Touch.mp4",
-    "imageUrl": ""
-  },
-  "triceps_dip": {
-    "id": "triceps_dip",
-    "nameAr": "تمرين غطس الذراعين للترايسبس (ترايسبس ديب)",
-    "nameEn": "Triceps Dip",
-    "category": "الذراعين",
-    "bodyPart": "الذراعين والصدر",
-    "targetMuscle": "عضلة الترايسبس (Triceps)",
-    "secondaryMuscles": [
-      "الأكتاف الأمامية",
-      "أعلى الصدر"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "التمرين الأساسي الفعال لشد ترهلات الذراعين وتقوية عضلة الترايسبس.",
-    "duration": 45,
-    "caloriesPerMin": 7,
-    "caloriesApprox": 35,
-    "animationType": "plank",
-    "steps": [
-      "اجلس على الأرض واثنِ ركبتيك وضع كفيك خلفك متوجهين للأمام.",
-      "ارفع حوضك قليلاً عن الأرض واثنِ كوعيك للخلف للانخفاض ببطء.",
-      "ادفع الأرض بيديك للعودة بانتصاب الذراعين."
-    ],
-    "tips": [
-      "حافظ على بقاء الكوعين متجهين للخلف وليس للجانبين."
-    ],
-    "tags": [
-      "الذراعين",
-      "شد الجسم",
-      "بناء العضلات",
-      "مبتدئ"
-    ],
-    "muscleGroup": "الجزء العلوي والذراعين",
-    "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/104-Triceps%20Dip.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/104-Triceps%20Dip.mp4",
-    "imageUrl": ""
-  },
-  "triceps_dip_bench_assisted": {
-    "id": "triceps_dip_bench_assisted",
-    "nameAr": "غطس الترايسبس بمساعدة الكرسي أو البنش",
-    "nameEn": "Triceps Dip, Bench Assisted",
-    "category": "الذراعين",
-    "bodyPart": "الذراعين والصدر",
-    "targetMuscle": "عضلة الترايسبس (Triceps)",
-    "secondaryMuscles": [
-      "الأكتاف الأمامية"
-    ],
-    "equipment": "بنش / مقعد",
-    "description": "استخدام مقعد يزيد من مدى الحركة وعمق الانخفاض لنتائج أفضل في شد الذراعين.",
-    "duration": 45,
-    "caloriesPerMin": 8,
-    "caloriesApprox": 40,
-    "animationType": "plank",
-    "steps": [
-      "ضع يديك على حافة بنش أو كرسي ثابت خلفك وافرد قدميك للأمام.",
-      "اخفض جسمك عمودياً بثني الكوعين لزاوية 90 درجة.",
-      "ادفع بصلابة بيديك للعودة لأعلى مع شد الترايسبس."
-    ],
-    "tips": [
-      "ابقِ ظهرك قريباً جداً من حافة الكرسي."
-    ],
-    "tags": [
-      "الذراعين",
-      "شد الجسم",
-      "بنش / مقعد",
-      "متوسط"
-    ],
-    "muscleGroup": "الجزء العلوي والذراعين",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/105-Triceps%20Dip%2C%20Bench%20Assisted.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/105-Triceps%20Dip%2C%20Bench%20Assisted.mp4",
-    "imageUrl": ""
-  },
-  "up_down_plank": {
-    "id": "up_down_plank",
-    "nameAr": "بلانك الصعود والهبوط (أب داون بلانك)",
-    "nameEn": "Up Down Plank",
-    "category": "الجسم بالكامل",
-    "bodyPart": "الأكتاف والذراعين والكور",
-    "targetMuscle": "عضلات الترايسبس والأكتاف والبطن",
-    "secondaryMuscles": [
-      "الصدر",
-      "الكور"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "تمرين حركي يرفع قوة الذراعين والأكتاف ويختبر ثبات الكور في التنقل.",
-    "duration": 45,
-    "caloriesPerMin": 9,
-    "caloriesApprox": 45,
-    "animationType": "plank",
-    "steps": [
-      "ابدأ بوضعية البلانك على الساعدين.",
-      "ادفع بيدك اليمنى ثم اليسرى للصعود لوضية البلانك المفرود.",
-      "اخفض ساعدك الأيمن ثم الأيسر للعودة للساعدين وكرر بالتناوب."
-    ],
-    "tips": [
-      "قلل من اهتزاز الحوض أثناء التنقل."
-    ],
-    "tags": [
-      "الجسم بالكامل",
-      "الذراعين",
-      "البطن",
-      "الكارديو",
-      "متوسط"
-    ],
-    "muscleGroup": "كامل الجسم",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/106-Up%20Down%20Plank.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/106-Up%20Down%20Plank.mp4",
-    "imageUrl": ""
-  },
-  "wide_arm_push_up": {
-    "id": "wide_arm_push_up",
-    "nameAr": "تمرين الضغط بقبضة واسعة لبناء الصدر",
-    "nameEn": "Wide Arm Push Up",
-    "category": "الصدر",
-    "bodyPart": "الصدر والأكتاف",
-    "targetMuscle": "عضلات الصدر الخارجية (Pectorals)",
-    "secondaryMuscles": [
-      "الأكتاف الأمامية",
-      "الترايسبس"
-    ],
-    "equipment": "بدون معدات (وزن الجسم)",
-    "description": "توسيع مسافة اليدين يركز الضغط العضلي بشكل أكبر على تكبير وتحديد الصدر.",
-    "duration": 45,
-    "caloriesPerMin": 8,
-    "caloriesApprox": 40,
-    "animationType": "plank",
-    "steps": [
-      "ضع كفيك على الأرض بمسافة أوسع من الكتفين بشكل ملحوظ.",
-      "اخفض صدرك نحو الأرض مع فتح الكوعين للجانبين.",
-      "ادفع الأرض بقوة للعودة لوضعية البداية."
-    ],
-    "tips": [
-      "حافظ على خط جسمك مستقيماً وثابت الكور."
-    ],
-    "tags": [
-      "الصدر",
-      "بناء العضلات",
-      "شد الجسم",
-      "متوسط"
-    ],
-    "muscleGroup": "الجزء العلوي والذراعين",
-    "difficulty": "متوسط",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/107-Wide%20Arm%20Push%20Up.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/107-Wide%20Arm%20Push%20Up.mp4",
-    "imageUrl": ""
-  },
-  "wide_grip_incline_push_up": {
-    "id": "wide_grip_incline_push_up",
-    "nameAr": "ضغط بقبضة واسعة منحدر على بنش",
-    "nameEn": "Wide Grip Incline Push Up",
-    "category": "الصدر",
-    "bodyPart": "الصدر السفلي والأكتاف",
-    "targetMuscle": "عضلات الصدر السفلي والواسع",
-    "secondaryMuscles": [
-      "الترايسبس",
+      "المؤخرة",
+      "الفخذ الخلفي",
       "الأكتاف"
     ],
-    "equipment": "بنش / مقعد",
-    "description": "استخدام سطح مرتفع يسهل الضغط الواسع ويوجهه لنحت الصدر السفلي بكل أريحية.",
-    "duration": 45,
-    "caloriesPerMin": 7,
-    "caloriesApprox": 35,
-    "animationType": "plank",
+    "equipment": "وزن الجسم",
+    "description": "Warrior 1 alignment is a bodyweight yoga exercise targeting the quadriceps, with secondary engagement of the glutes, hamstrings, and shoulders. It involves holding a deep lunge position with arms raised overhead to simultaneously strengthen the lower body, open the hip flexors, and develop postural awareness.",
+    "duration": 30,
+    "caloriesPerMin": 4,
+    "caloriesApprox": 2,
+    "animationType": "squats",
     "steps": [
-      "ضع يديك بقبضة واسعة على بنش مرتفع.",
-      "اخفض صدرك ببطء نحو حافة البنش.",
-      "ادفع للأعلى للعودة بانتصاب."
+      "Step one foot forward into a wide lunge, keeping your front knee bent at approximately 90 degrees directly over your ankle.",
+      "Turn your back foot out at a 45-degree angle and press through the outer edge of that foot.",
+      "Square your hips toward the front of the mat as much as possible.",
+      "Raise both arms overhead with palms facing each other and draw your shoulders down away from your ears.",
+      "Hold for 20-30 seconds while breathing steadily, then switch sides."
     ],
     "tips": [
-      "مناسب جداً لبناء قوة الصدر للمبتدئين."
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء وضعية المحارب 1 للاستقرار.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الفخذ الأمامية) طوال مدة الأداء (30 ثانية)."
+    ],
+    "tags": [
+      "الإطالات والاستشفاء",
+      "عضلات الفخذ الأمامية",
+      "مبتدئ"
+    ],
+    "muscleGroup": "الإطالات والاستشفاء",
+    "difficulty": "مبتدئ",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1207.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1207.mp4",
+    "imageUrl": ""
+  },
+  "1208": {
+    "id": "1208",
+    "nameAr": "تمرين الضغط بقبضة واسعة",
+    "nameEn": "wide grip push up",
+    "category": "الصدر",
+    "bodyPart": "الصدر",
+    "targetMuscle": "عضلات الصدر",
+    "secondaryMuscles": [
+      "الأكتاف",
+      "الذراعان والبايل والتراي",
+      "عضلات البطن"
+    ],
+    "equipment": "وزن الجسم",
+    "description": "The wide grip push up is a bodyweight exercise targeting the chest with increased emphasis on the outer pectoral muscles. The wider hand position reduces triceps involvement and places greater stress on the chest, making it an effective variation for developing chest width and strength.",
+    "duration": 30,
+    "caloriesPerMin": 6,
+    "caloriesApprox": 3,
+    "animationType": "jumping-jacks",
+    "steps": [
+      "Begin in a push-up position with your hands placed significantly wider than shoulder-width apart.",
+      "Keep your fingers pointing forward or slightly outward and your body in a straight line from head to heels.",
+      "Lower your chest toward the floor by bending your elbows outward.",
+      "Pause briefly when your chest is just above the floor, then press back up to the starting position.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "حافظ على استقامة الظهر والتنفس المنتظم أثناء أداء تمرين الضغط بقبضة واسعة.",
+      "ركز على انقباض العضلات المستهدفة (عضلات الصدر) طوال مدة الأداء (30 ثانية)."
     ],
     "tags": [
       "الصدر",
-      "شد الجسم",
-      "بنش / مقعد",
+      "عضلات الصدر",
       "مبتدئ"
     ],
     "muscleGroup": "الجزء العلوي والذراعين",
     "difficulty": "مبتدئ",
-    "videoUrl": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/108-Wide%20Grip%20Incline%20Push%20Up.mp4",
-    "mp4Url": "https://pub-c3e565e1d89048dabb8cc76bda59ede4.r2.dev/app-videos%202/108-Wide%20Grip%20Incline%20Push%20Up.mp4",
+    "videoUrl": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1208.mp4",
+    "mp4Url": "https://pub-e5d59e9dddd94ba9b74e5e54caa957f7.r2.dev/1208.mp4",
     "imageUrl": ""
   }
 };

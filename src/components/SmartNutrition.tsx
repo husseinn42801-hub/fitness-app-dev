@@ -31,6 +31,7 @@ import {
 import { UserStats, FoodItem, FoodLogItem, DailyNutritionLog } from '../types';
 import { NUTRITION_DB, MEAL_TEMPLATES, INGREDIENT_REPLACEMENTS, MealTemplate } from '../data/nutritionDb';
 import { LazyImage } from './LazyImage';
+import { ConfirmModal } from './ConfirmModal';
 
 interface SmartNutritionProps {
   userStats: UserStats;
@@ -179,6 +180,7 @@ export function SmartNutrition({ userStats, isDark, onUpdateStats }: SmartNutrit
 
   // Custom Macronutrients Logging State
   const [isCustomMacroModalOpen, setIsCustomMacroModalOpen] = useState<boolean>(false);
+  const [isClearConfirmOpen, setIsClearConfirmOpen] = useState<boolean>(false);
   const [customMealName, setCustomMealName] = useState<string>('');
   const [customMealType, setCustomMealType] = useState<'breakfast' | 'lunch' | 'dinner' | 'snack' | 'pre_workout' | 'post_workout' | 'before_sleep'>('lunch');
   const [customProtein, setCustomProtein] = useState<string>('25');
@@ -347,12 +349,14 @@ export function SmartNutrition({ userStats, isDark, onUpdateStats }: SmartNutrit
   };
 
   const handleClearAllLogs = () => {
-    if (window.confirm('هل أنت متأكد من رغبتك في تفريغ سجل وجباتك لهذا اليوم بأكمله؟')) {
-      setNutritionLog(prev => ({
-        ...prev,
-        items: []
-      }));
-    }
+    setIsClearConfirmOpen(true);
+  };
+
+  const executeClearAllLogs = () => {
+    setNutritionLog(prev => ({
+      ...prev,
+      items: []
+    }));
   };
 
   const getFoodEmoji = (category?: string) => {
@@ -1495,6 +1499,19 @@ export function SmartNutrition({ userStats, isDark, onUpdateStats }: SmartNutrit
           </div>
         )}
       </AnimatePresence>
+
+      {/* Confirmation Modal for Clearing Today's Meals */}
+      <ConfirmModal
+        isOpen={isClearConfirmOpen}
+        onClose={() => setIsClearConfirmOpen(false)}
+        onConfirm={executeClearAllLogs}
+        title="تصفير وجبات اليوم"
+        message="هل أنت متأكد من رغبتك في تفريغ سجل وجباتك لهذا اليوم بأكمله؟"
+        confirmText="تصفير الوجبات"
+        cancelText="إلغاء"
+        type="danger"
+        isDark={isDark}
+      />
 
     </div>
   );

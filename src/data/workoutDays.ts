@@ -1,17 +1,17 @@
 import { WorkoutDay, UserStats } from '../types';
 import { EXERCISES_DB } from './exercises';
+import { getSwappedExercisesMap } from '../utils/exerciseSwapper';
 
 /**
- * Professional Intelligent Workout Generator Engine
- * Generates 30 highly structured, adaptive workout days.
- * Strictly adheres to user body metrics, fitness level, and goals.
- *
- * Key Capabilities:
- * 1. 4 Distinct Levels (Beginner 15-20m/8-10ex, Intermediate 20-30m/10-14ex, Advanced 30-40m/12-16ex, Pro 40-60m/15-20ex).
- * 2. 30-Day Progressive Overload & Dynamic Exercise Scaling.
- * 3. Dynamic MET-based Calorie Burning Formula based on Weight, Age, Gender, Duration, Sets & Intensity.
- * 4. Goal-Tailored Exercise Pools (Fat Loss / Belly Shredding, Body Toning, Muscle Gain, Fitness & Endurance).
- * 5. Full Workout Summary Metadata (Duration, Exercises Count, Sets Count, Calories, Target Muscles, Difficulty).
+ * Intelligent Personalized Workout Engine
+ * Generates custom 30-day adaptive workout levels (120 Days total across 4 Levels).
+ * Tailors workout structure, exercise selection, duration, rest times, and calorie burn based on:
+ * 1. User Goal ('loss' / 'maintain' / 'gain' / 'fitness')
+ * 2. User Activity Level (Sedentary <=1.2, Light 1.375, Moderate 1.55, Very Active >=1.725)
+ * 3. Level Progression (Level 1, Level 2, Level 3, Level 4)
+ * 4. Time-based Exercises (No reps, fixed 30s or 45s rest per exercise complexity)
+ * 5. Dynamic Calorie Burn calculation per exercise and full session
+ * 6. Non-repetition & variety across consecutive days
  */
 export const generateWorkoutDaysForUser = (userStats: UserStats, seasonId: string): WorkoutDay[] => {
   const allExercises = Object.values(EXERCISES_DB);
@@ -28,164 +28,174 @@ export const generateWorkoutDaysForUser = (userStats: UserStats, seasonId: strin
 
   // 1. Determine Level/Season (Level 1, 2, 3, or 4)
   let seasonLevel = 1;
-  if (seasonId.includes('season_2') || seasonId.endsWith('2')) seasonLevel = 2;
-  else if (seasonId.includes('season_3') || seasonId.endsWith('3')) seasonLevel = 3;
-  else if (seasonId.includes('season_4') || seasonId.endsWith('4')) seasonLevel = 4;
+  if (seasonId.includes('season_2') || seasonId.endsWith('2') || seasonId.includes('level_2')) seasonLevel = 2;
+  else if (seasonId.includes('season_3') || seasonId.endsWith('3') || seasonId.includes('level_3')) seasonLevel = 3;
+  else if (seasonId.includes('season_4') || seasonId.endsWith('4') || seasonId.includes('level_4')) seasonLevel = 4;
 
-  // 2. Body Safety Analysis
+  // 2. Normalize Goal
+  const normalizedGoal: 'loss' | 'maintain' | 'gain' = 
+    goal === 'maintain' ? 'maintain' : goal === 'gain' ? 'gain' : 'loss';
+
+  // 3. User Activity Level Classification
+  const isSedentary = activityLevel <= 1.25;
+  const isLight = activityLevel > 1.25 && activityLevel <= 1.45;
+  const isModerate = activityLevel > 1.45 && activityLevel <= 1.65;
+  const isVeryActive = activityLevel > 1.65;
+
+  // 4. Safety & Body Analysis
   const heightMeters = height / 100;
   const bmi = heightMeters > 0 ? weight / (heightMeters * heightMeters) : 22;
-
-  const isOverweight = bmi >= 28;
+  const isHighBmi = bmi >= 28;
   const isOlder = age >= 40;
-  const isTeen = age < 18;
 
-  // 3. Level-Based Constraints Table
-  let minEx = 8, maxEx = 10;
-  let minDur = 15, maxDur = 20;
-  let minRest = 25, maxRest = 30;
-  let baseLevelMET = 5.0;
-  let levelIntensityLabel = 'منخفضة';
-  let difficultyLabel: 'مبتدئ' | 'متوسط' | 'متقدم' | 'احترافي' = 'مبتدئ';
+  // 5. Allowed Difficulties per Season Level
   const allowedDifficulties: ('مبتدئ' | 'متوسط' | 'متقدم' | 'احترافي')[] = [];
-
-  if (seasonLevel === 1) { // Level 1 (مبتدئ)
-    minEx = 8; maxEx = 10;
-    minDur = 15; maxDur = 20;
-    minRest = 25; maxRest = 30;
-    baseLevelMET = 5.0;
-    levelIntensityLabel = 'منخفضة خفيفة';
-    difficultyLabel = 'مبتدئ';
+  if (seasonLevel === 1) {
     allowedDifficulties.push('مبتدئ', 'متوسط');
-  } else if (seasonLevel === 2) { // Level 2 (متوسط)
-    minEx = 10; maxEx = 14;
-    minDur = 20; maxDur = 30;
-    minRest = 20; maxRest = 25;
-    baseLevelMET = 6.8;
-    levelIntensityLabel = 'متوسطة متناسقة';
-    difficultyLabel = 'متوسط';
+  } else if (seasonLevel === 2) {
     allowedDifficulties.push('مبتدئ', 'متوسط', 'متقدم');
-  } else if (seasonLevel === 3) { // Level 3 (متقدم)
-    minEx = 12; maxEx = 16;
-    minDur = 30; maxDur = 40;
-    minRest = 15; maxRest = 20;
-    baseLevelMET = 8.8;
-    levelIntensityLabel = 'عالية المجهود';
-    difficultyLabel = 'متقدم';
+  } else if (seasonLevel === 3) {
     allowedDifficulties.push('متوسط', 'متقدم', 'احترافي');
-  } else { // Level 4 (احترافي)
-    minEx = 15; maxEx = 20;
-    minDur = 40; maxDur = 60;
-    minRest = 10; maxRest = 15;
-    baseLevelMET = 11.2;
-    levelIntensityLabel = 'عالية جداً (HIIT & Supersets)';
-    difficultyLabel = 'احترافي';
+  } else {
     allowedDifficulties.push('متوسط', 'متقدم', 'احترافي');
   }
 
-  // 4. Exercise Pools Creation from EXERCISES_DB
-  const warmupPool = allExercises.filter(
-    ex => ex.category === 'الإحماء' || ex.tags?.includes('إحماء')
-  );
-
-  const stretchPool = allExercises.filter(
-    ex => ex.category === 'الإطالات والاستشفاء' || ex.tags?.includes('إطالة')
-  );
-
-  // Filter Safe Main Candidates
-  const safeMainCandidates = allExercises.filter(ex => {
-    if (
-      ex.category === 'الإحماء' ||
-      ex.category === 'الإطالات والاستشفاء' ||
-      ex.tags?.includes('إحماء') ||
-      ex.tags?.includes('إطالة')
-    ) {
-      return false;
-    }
-
+  // Filter Safe Candidates matching level difficulties and health safety
+  const safeCandidates = allExercises.filter(ex => {
+    // Difficulty match
     if (!allowedDifficulties.includes(ex.difficulty)) return false;
 
-    // Safety checks for overweight or older adults
-    if ((isOverweight || isOlder) && ['high_jumps', 'jump_squat', 'plank_with_jumps'].includes(ex.id)) {
-      return false;
+    // Health safety filter for high BMI or older adults in early levels
+    if ((isHighBmi || isOlder) && seasonLevel <= 2) {
+      if (['1127', '1152', '1153', '1176'].includes(ex.id)) return false; // High impact depth/box jumps
     }
-
-    if (isTeen && ['push_ups_with_feet_elevated_narrow', 'side_bridge_with_leg_raise'].includes(ex.id)) {
-      return false;
-    }
-
     return true;
   });
 
-  // 5. Categorize Main Pools based on Goal
+  // 6. Build Specialized Pools Based on Goal (Requirement #5)
+  // Warmup Pool
+  const warmupPool = allExercises.filter(ex => 
+    ex.category === 'الإحماء' || 
+    ex.category === 'الإطالات والاستشفاء' || 
+    ex.tags?.includes('إحماء') ||
+    ['1132', '1133', '1182', '1183', '1184', '1185', '1168', '1175'].includes(ex.id)
+  );
+
+  // Cool-down / Stretch Pool
+  const stretchPool = allExercises.filter(ex => 
+    ex.category === 'الإطالات والاستشفاء' || 
+    ex.tags?.includes('إطالة') ||
+    ['1108', '1109', '1116', '1118', '1121', '1123', '1124', '1135', '1138', '1194', '1198', '1199'].includes(ex.id)
+  );
+
   let poolA: typeof allExercises = [];
   let poolB: typeof allExercises = [];
   let poolC: typeof allExercises = [];
 
-  if (goal === 'loss') {
-    // FAT LOSS / BELLY SHREDDING: Cardio, Core/Abs, Full-body
-    poolA = safeMainCandidates.filter(
-      ex => ex.category === 'الكارديو' || ex.category === 'الجسم بالكامل' || ex.tags?.some(t => ['الكارديو', 'حرق الدهون', 'تخسيس'].includes(t))
+  if (normalizedGoal === 'loss') {
+    // GOAL 1: FAT LOSS & BELLY SHREDDING (تخسيس دهون البطن والكرش)
+    // Strictly Cardio, Abs, Waist, Obliques & Core exercises only
+    const lossCandidates = safeCandidates.filter(ex => {
+      const isCardio = ex.category === 'الكارديو' || ex.tags?.some(t => ['الكارديو', 'حرق الدهون', 'تخسيس', 'كارديو'].includes(t));
+      const isAbsWaist = ex.category === 'البطن والكرش' || ex.muscleGroup === 'عضلات البطن والخصر' || 
+        ex.targetMuscle?.includes('بطن') || ex.targetMuscle?.includes('خصر') || ex.targetMuscle?.includes('جانبين') ||
+        ['abs', 'waist', 'obliques'].includes(ex.bodyPart || '');
+      return isCardio || isAbsWaist;
+    });
+
+    poolA = lossCandidates.filter(ex => ex.category === 'الكارديو' || ex.tags?.includes('كارديو'));
+    poolB = lossCandidates.filter(ex => ex.category === 'البطن والكرش' || ex.targetMuscle?.includes('بطن'));
+    poolC = lossCandidates.filter(ex => ex.targetMuscle?.includes('خصر') || ex.targetMuscle?.includes('جانبين') || ex.muscleGroup === 'عضلات البطن والخصر');
+
+    // Fallbacks if pool is narrow
+    if (poolA.length < 5) poolA = lossCandidates.length > 0 ? lossCandidates : safeCandidates;
+    if (poolB.length < 5) poolB = lossCandidates.length > 0 ? lossCandidates : safeCandidates;
+    if (poolC.length < 5) poolC = lossCandidates.length > 0 ? lossCandidates : safeCandidates;
+
+  } else if (normalizedGoal === 'maintain') {
+    // GOAL 2: TONING & WAIST SCULPTING (شد الترهلات والحصول على خصر مثالي)
+    // Toning, waist, abs, core, posture, flexibility, and full-body sculpting
+    poolA = safeCandidates.filter(ex => 
+      ex.category === 'البطن والكرش' || 
+      ex.targetMuscle?.includes('خصر') || 
+      ex.targetMuscle?.includes('بطن') ||
+      ex.tags?.some(t => ['شد', 'خصر', 'تنسيق', 'قوام'].includes(t))
     );
-    poolB = safeMainCandidates.filter(
-      ex => ex.category === 'البطن والكرش' || ex.muscleGroup === 'عضلات البطن والخصر' || ex.tags?.some(t => ['البطن', 'الكرش', 'الخصر'].includes(t))
+    poolB = safeCandidates.filter(ex => 
+      ex.category === 'الساقين' || 
+      ex.targetMuscle?.includes('مؤخرة') || 
+      ex.targetMuscle?.includes('فخذ') ||
+      ex.muscleGroup === 'الجزء السفلي والفخذين'
     );
-    poolC = safeMainCandidates.filter(
-      ex => ['الساقين', 'المؤخرة', 'الذراعين', 'الصدر'].includes(ex.category || '')
+    poolC = safeCandidates.filter(ex => 
+      ['الصدر', 'الظهر', 'الكتفين'].includes(ex.category || '') || 
+      ex.muscleGroup === 'الجزء العلوي والذراعين' ||
+      ex.category === 'الإطالات والاستشفاء'
     );
-  } else if (goal === 'maintain') {
-    // TONING & SCULPTING: Posture, Glutes/Legs, Upper Toning
-    poolA = safeMainCandidates.filter(
-      ex => ex.category === 'البطن والكرش' || ex.category === 'الظهر' || ex.tags?.some(t => ['شد الجسم', 'تنسيق', 'الخصر'].includes(t))
-    );
-    poolB = safeMainCandidates.filter(
-      ex => ['المؤخرة', 'الساقين'].includes(ex.category || '') || ex.tags?.some(t => ['المؤخرة', 'الساقين'].includes(t))
-    );
-    poolC = safeMainCandidates.filter(
-      ex => ['الذراعين', 'الصدر', 'الكتفين'].includes(ex.category || '')
-    );
-  } else if (goal === 'gain') {
-    // MUSCLE GAIN / HYPERTROPHY: Compound Strength, Power Core
-    poolA = safeMainCandidates.filter(
-      ex => ['الصدر', 'الذراعين', 'الظهر', 'الكتفين'].includes(ex.category || '')
-    );
-    poolB = safeMainCandidates.filter(
-      ex => ['الساقين', 'المؤخرة'].includes(ex.category || '')
-    );
-    poolC = safeMainCandidates.filter(
-      ex => ex.category === 'البطن والكرش' || ex.category === 'الجسم بالكامل'
-    );
+
+    if (poolA.length < 5) poolA = safeCandidates;
+    if (poolB.length < 5) poolB = safeCandidates;
+    if (poolC.length < 5) poolC = safeCandidates;
+
   } else {
-    // FITNESS & ENDURANCE: Cardio, Circuit, Flexibility & Core
-    poolA = safeMainCandidates.filter(
-      ex => ex.category === 'الكارديو' || ex.category === 'الجسم بالكامل'
+    // GOAL 3: MUSCLE GAIN & HYPERTROPHY (بناء اللياقة البدنية والكتلة العضلية)
+    // Full body strength exercises with weekly muscle group distribution
+    poolA = safeCandidates.filter(ex => 
+      ['الصدر', 'الكتفين'].includes(ex.category || '') || 
+      ex.muscleGroup === 'الجزء العلوي والذراعين'
     );
-    poolB = safeMainCandidates.filter(
-      ex => ex.category === 'البطن والكرش' || ex.category === 'الساقين'
+    poolB = safeCandidates.filter(ex => 
+      ['الظهر', 'البطن والكرش'].includes(ex.category || '') || 
+      ex.targetMuscle?.includes('ظهر') || ex.targetMuscle?.includes('بطن')
     );
-    poolC = safeMainCandidates.filter(
-      ex => ['الذراعين', 'الكتفين', 'الظهر'].includes(ex.category || '')
+    poolC = safeCandidates.filter(ex => 
+      ['الساقين'].includes(ex.category || '') || 
+      ex.muscleGroup === 'الجزء السفلي والفخذين'
     );
+
+    if (poolA.length < 5) poolA = safeCandidates;
+    if (poolB.length < 5) poolB = safeCandidates;
+    if (poolC.length < 5) poolC = safeCandidates;
   }
 
-  // Safety Fallbacks
-  if (poolA.length === 0) poolA = safeMainCandidates;
-  if (poolB.length === 0) poolB = safeMainCandidates;
-  if (poolC.length === 0) poolC = safeMainCandidates;
+  // 7. Session Size & Intensity Base based on Activity Level (Requirement #6)
+  let baseMinEx = 7;
+  let baseMaxEx = 9;
+
+  if (isSedentary) {
+    baseMinEx = 5;
+    baseMaxEx = 7;
+  } else if (isLight) {
+    baseMinEx = 7;
+    baseMaxEx = 9;
+  } else if (isModerate) {
+    baseMinEx = 8;
+    baseMaxEx = 11;
+  } else { // Very active
+    baseMinEx = 10;
+    baseMaxEx = 14;
+  }
+
+  // Scale with Season Level
+  baseMinEx += (seasonLevel - 1) * 2;
+  baseMaxEx += (seasonLevel - 1) * 2;
 
   const workoutDaysList: WorkoutDay[] = [];
+  let previousDayExercises: string[] = [];
 
-  // 6. Generate 30 Progressive Overload Days
+  // 8. Generate 30 Progressive Days for Current Level
   for (let dayNum = 1; dayNum <= 30; dayNum++) {
-    // Progress factor (0.0 to 1.0)
+    // Progressive Overload ratio across the 30 days (0.0 to 1.0)
     const monthProgress = (dayNum - 1) / 29;
 
-    // Rest Day condition: every 5th or 6th day
+    // Rest Day condition: Every 5th or 6th day
     const isRestDay = dayNum % 5 === 0;
 
-    let titleAr = '';
-    let titleEn = '';
-    let workoutType = '';
+    let difficultyLabel: 'مبتدئ' | 'متوسط' | 'متقدم' | 'احترافي' = 'مبتدئ';
+    if (seasonLevel === 1) difficultyLabel = dayNum > 20 ? 'متوسط' : 'مبتدئ';
+    else if (seasonLevel === 2) difficultyLabel = dayNum > 15 ? 'متقدم' : 'متوسط';
+    else if (seasonLevel === 3) difficultyLabel = dayNum > 15 ? 'احترافي' : 'متقدم';
+    else difficultyLabel = 'احترافي';
 
     if (isRestDay) {
       const restTitlesAr = [
@@ -200,14 +210,11 @@ export const generateWorkoutDaysForUser = (userStats: UserStats, seasonId: strin
         `Day ${dayNum}: Relax & Light Stretch`,
         `Day ${dayNum}: Body Recovery Day`
       ];
-      titleAr = restTitlesAr[dayNum % restTitlesAr.length];
-      titleEn = restTitlesEn[dayNum % restTitlesEn.length];
-      workoutType = 'راحه واستشفاء';
 
       workoutDaysList.push({
         dayNumber: dayNum,
-        titleAr,
-        titleEn,
+        titleAr: restTitlesAr[dayNum % restTitlesAr.length],
+        titleEn: restTitlesEn[dayNum % restTitlesEn.length],
         exercises: [],
         difficulty: difficultyLabel,
         isRestDay: true,
@@ -217,121 +224,145 @@ export const generateWorkoutDaysForUser = (userStats: UserStats, seasonId: strin
         targetMuscles: ['راحة عضلية تامة'],
         restTimePerSet: 0,
         intensityLabel: 'استشفاء',
-        workoutType
+        workoutType: 'راحة واستشفاء'
       });
+
+      previousDayExercises = [];
       continue;
     }
 
-    // Dynamic exercise count for this day (Progressive Overload)
+    // Target exercise count for this day (Progressive Overload)
     const targetExerciseCount = Math.min(
-      maxEx,
-      Math.max(minEx, Math.round(minEx + (maxEx - minEx) * monthProgress))
+      18,
+      Math.max(5, Math.round(baseMinEx + (baseMaxEx - baseMinEx) * monthProgress))
     );
 
-    // Dynamic rest time between sets (decreases over 30 days)
-    const restTimePerSet = Math.max(
-      minRest,
-      Math.round(maxRest - (maxRest - minRest) * monthProgress)
-    );
-
-    // Dynamic Sets per exercise
+    // Number of sets (Requirement #3 & Overload)
     const totalSets = seasonLevel >= 3 ? (dayNum > 15 ? 4 : 3) : 3;
 
-    // Build Titles based on Goal
-    if (goal === 'loss') {
-      titleAr = `اليوم ${dayNum}: حرق الدهون ونحت البطن والخصر`;
-      titleEn = `Day ${dayNum}: Fat Shred & Waist Sculpt`;
+    // Titles based on Goal & Level
+    let titleAr = '';
+    let titleEn = '';
+    let workoutType = '';
+
+    if (normalizedGoal === 'loss') {
+      titleAr = `اليوم ${dayNum}: حرق الدهون ونحت البطن والخصر (المستوى ${seasonLevel})`;
+      titleEn = `Day ${dayNum}: Fat Shred & Waist Sculpt (Level ${seasonLevel})`;
       workoutType = 'كارديو وحرق دهون مكثف';
-    } else if (goal === 'maintain') {
-      titleAr = `اليوم ${dayNum}: شد الترهلات ونحت القوام المثالي`;
-      titleEn = `Day ${dayNum}: Body Toning & Posture Sculpt`;
+    } else if (normalizedGoal === 'maintain') {
+      titleAr = `اليوم ${dayNum}: شد الترهلات ونحت القوام (المستوى ${seasonLevel})`;
+      titleEn = `Day ${dayNum}: Body Toning & Posture (Level ${seasonLevel})`;
       workoutType = 'شد وتقوية العضلات';
-    } else if (goal === 'gain') {
-      titleAr = `اليوم ${dayNum}: بناء العضلات القوية وتطوير القوة`;
-      titleEn = `Day ${dayNum}: Muscle Hypertrophy & Strength`;
-      workoutType = 'تضخيم وبناء القوة';
     } else {
-      titleAr = `اليوم ${dayNum}: رفع اللياقة وقوة التحمل والمرونة`;
-      titleEn = `Day ${dayNum}: Fitness, Endurance & Balance`;
-      workoutType = 'تحمل ولياقة شاملة';
+      titleAr = `اليوم ${dayNum}: بناء القوة والكتلة العضلية (المستوى ${seasonLevel})`;
+      titleEn = `Day ${dayNum}: Hypertrophy & Strength (Level ${seasonLevel})`;
+      workoutType = 'تضخيم وبناء القوة';
     }
 
-    // 7. Assemble Non-repeating Exercise Selection
+    // 9. Select Exercises for Day (Requirement #10: Non-repetition across consecutive days)
     const dayExercises: string[] = [];
 
     // Warmup Exercise (1)
     if (warmupPool.length > 0) {
-      const warmupEx = warmupPool[(dayNum * 11 + seasonLevel * 7) % warmupPool.length];
-      dayExercises.push(warmupEx.id);
+      const warmupCandidate = warmupPool.find(ex => !previousDayExercises.includes(ex.id)) || warmupPool[0];
+      if (warmupCandidate) dayExercises.push(warmupCandidate.id);
     }
 
-    // Main Exercises (targetExerciseCount - 2)
+    // Main Exercises
     const mainPools = [poolA, poolB, poolC];
     let attempt = 0;
-    const requiredMains = targetExerciseCount - 2;
+    const requiredMains = Math.max(3, targetExerciseCount - 2);
 
-    while (dayExercises.length < requiredMains + 1 && attempt < 40) {
-      const slot = dayExercises.length - 1 + attempt;
-      const poolIdx = (dayNum * 13 + slot * 17 + seasonLevel * 23) % mainPools.length;
+    while (dayExercises.length < requiredMains + 1 && attempt < 80) {
+      const poolIdx = (dayNum * 13 + attempt * 7 + seasonLevel * 17) % mainPools.length;
       const currentPool = mainPools[poolIdx];
-      const exIdx = (dayNum * 29 + slot * 19 + seasonLevel * 37) % currentPool.length;
+      const exIdx = (dayNum * 29 + attempt * 19 + seasonLevel * 31) % currentPool.length;
       const candidate = currentPool[exIdx];
 
-      if (candidate && !dayExercises.includes(candidate.id)) {
-        dayExercises.push(candidate.id);
+      if (candidate) {
+        const notInCurrentDay = !dayExercises.includes(candidate.id);
+        const notInPreviousDay = !previousDayExercises.includes(candidate.id) || attempt > 40;
+
+        if (notInCurrentDay && notInPreviousDay) {
+          dayExercises.push(candidate.id);
+        }
       }
       attempt++;
     }
 
     // Cool-down / Stretch Exercise (1)
     if (stretchPool.length > 0) {
-      const stretchEx = stretchPool[(dayNum * 7 + seasonLevel * 13) % stretchPool.length];
-      if (!dayExercises.includes(stretchEx.id)) {
-        dayExercises.push(stretchEx.id);
+      const stretchCandidate = stretchPool.find(ex => !dayExercises.includes(ex.id) && !previousDayExercises.includes(ex.id)) || stretchPool[0];
+      if (stretchCandidate && !dayExercises.includes(stretchCandidate.id)) {
+        dayExercises.push(stretchCandidate.id);
       }
     }
 
     // Deduplicate
     const uniqueExercises = Array.from(new Set(dayExercises));
+    previousDayExercises = [...uniqueExercises];
 
-    // 8. Scientific Dynamic Calorie & Time Calculation Engine
-    // MET formula: Burn per min = (MET * 3.5 * weight) / 200
-    // Adjustments: Gender (male +8%, female -6%), Age (-0.2% per year above 25)
+    // 10. Time-Based Exercise Duration & Fixed Rest Time Calculation (Requirements #7 & #8)
+    // Requirement #8: Fixed rest per exercise: 30s for simple exercises, 45s for difficult/intermediate exercises
+    let sumActiveSec = 0;
+    let sumRestSec = 0;
+    let sumCalories = 0;
+    let simpleCount = 0;
+    let hardCount = 0;
+
     const genderFactor = gender === 'ذكر' ? 1.08 : 0.94;
     const ageFactor = Math.max(0.85, 1 - Math.max(0, age - 25) * 0.002);
+    const actMultiplier = Math.max(0.9, Math.min(1.3, activityLevel / 1.375));
 
-    let totalActiveSec = 0;
-    let sumMETs = 0;
-
-    uniqueExercises.forEach(exId => {
+    uniqueExercises.forEach((exId, idx) => {
       const ex = exerciseMap[exId];
       if (ex) {
-        const dur = ex.duration || 30;
-        totalActiveSec += dur * totalSets;
-        
-        // Approximate MET from exercise metadata
-        const exMET = (ex.caloriesPerMin ? ex.caloriesPerMin * 1.2 : 6.0) + (seasonLevel * 0.5);
-        sumMETs += exMET;
+        // Requirement #7: Duration calculation if missing or scaling
+        let durationSec = ex.duration || 30;
+        if (ex.difficulty === 'مبتدئ' || ex.category === 'الإحماء' || ex.category === 'الإطالات والاستشفاء') {
+          durationSec = 30;
+        } else if (ex.difficulty === 'متوسط') {
+          durationSec = 40;
+        } else if (ex.difficulty === 'متقدم' || ex.difficulty === 'احترافي') {
+          durationSec = 45;
+        }
+
+        // Slight duration adjustment based on level progress (+5s in higher levels)
+        if (seasonLevel >= 3) durationSec += 5;
+
+        // Requirement #8: Fixed rest times: 30s for simple exercises, 45s for difficult exercises
+        const isSimple = ex.difficulty === 'مبتدئ' || ex.category === 'الإحماء' || ex.category === 'الإطالات والاستشفاء';
+        const exRestSec = isSimple ? 30 : 45;
+
+        if (isSimple) simpleCount++;
+        else hardCount++;
+
+        // Active duration total across all sets
+        const exTotalActiveSec = durationSec * totalSets;
+        sumActiveSec += exTotalActiveSec;
+
+        // Rest duration (between sets and after exercise)
+        const exTotalRestSec = exRestSec * totalSets;
+        sumRestSec += exTotalRestSec;
+
+        // Requirement #9: Calorie calculation per exercise
+        const met = (ex.caloriesPerMin ? ex.caloriesPerMin * 1.15 : 6.5) + (seasonLevel * 0.3);
+        const calPerSec = ((met * 3.5 * weight) / 200 / 60) * genderFactor * ageFactor * actMultiplier;
+        const exCalories = calPerSec * exTotalActiveSec;
+        sumCalories += exCalories;
       }
     });
 
-    const totalRestSec = restTimePerSet * ((uniqueExercises.length * totalSets) - 1);
-    const totalSessionSec = totalActiveSec + totalRestSec;
+    // Add rest calorie burn (resting MET ~1.5)
+    const restCalPerSec = ((1.5 * 3.5 * weight) / 200 / 60) * genderFactor * ageFactor;
+    sumCalories += restCalPerSec * sumRestSec;
 
-    const avgActiveMET = uniqueExercises.length > 0 ? (sumMETs / uniqueExercises.length) : baseLevelMET;
-    
-    const activeMinutes = totalActiveSec / 60;
-    const restMinutes = totalRestSec / 60;
+    // Average rest time per set for the day metadata (Requirement #8: 30s or 45s)
+    const restTimePerSet = hardCount >= simpleCount ? 45 : 30;
 
-    // Active CPM & Rest CPM
-    const activeCPM = (avgActiveMET * 3.5 * weight / 200) * genderFactor * ageFactor;
-    const restCPM = (1.8 * 3.5 * weight / 200) * genderFactor * ageFactor;
-
-    // Session Calories Burned
-    const sessionCalories = Math.round((activeCPM * activeMinutes) + (restCPM * restMinutes));
-    
-    // Estimated time in minutes
-    const estimatedTime = Math.max(minDur, Math.round(totalSessionSec / 60));
+    // Total estimated duration in minutes
+    const totalSessionSec = sumActiveSec + sumRestSec;
+    const estimatedTime = Math.max(8, Math.round(totalSessionSec / 60));
 
     // Target Muscles Aggregation
     const muscleSet = new Set<string>();
@@ -347,19 +378,41 @@ export const generateWorkoutDaysForUser = (userStats: UserStats, seasonId: strin
     const targetMuscles = Array.from(muscleSet).slice(0, 4);
     if (targetMuscles.length === 0) targetMuscles.push('كامل الجسم', 'عضلات الكور');
 
+    let intensityLabel = 'مناسبة ومتدرجة';
+    if (seasonLevel === 1) intensityLabel = 'منخفضة خفيفة';
+    else if (seasonLevel === 2) intensityLabel = 'متوسطة متناسقة';
+    else if (seasonLevel === 3) intensityLabel = 'عالية المجهود';
+    else intensityLabel = 'عالية جداً (HIIT)';
+
+    const swappedMap = getSwappedExercisesMap();
+    const swapKey = `${seasonId}_day_${dayNum}`;
+    let finalExercises = uniqueExercises;
+
+    if (swappedMap[swapKey] && Array.isArray(swappedMap[swapKey]) && swappedMap[swapKey].length === uniqueExercises.length) {
+      finalExercises = swappedMap[swapKey];
+      // Recalculate calories for swapped list
+      const swappedExerciseObjects = finalExercises.map(id => EXERCISES_DB[id]).filter(Boolean);
+      const swappedCaloriesOneSet = swappedExerciseObjects.reduce((acc, ex) => {
+        const rate = ex.caloriesPerMin || 6;
+        const dur = (ex.duration || 30) / 60;
+        return acc + (rate * dur * (weight / 70) * (activityLevel / 1.375));
+      }, 0);
+      sumCalories = swappedCaloriesOneSet * totalSets;
+    }
+
     workoutDaysList.push({
       dayNumber: dayNum,
       titleAr,
       titleEn,
-      exercises: uniqueExercises,
+      exercises: finalExercises,
       difficulty: difficultyLabel,
       isRestDay: false,
       estimatedTime,
-      caloriesEstimate: Math.max(25, sessionCalories),
+      caloriesEstimate: Math.max(30, Math.round(sumCalories)),
       totalSets,
       targetMuscles,
       restTimePerSet,
-      intensityLabel: levelIntensityLabel,
+      intensityLabel,
       workoutType
     });
   }
@@ -367,7 +420,7 @@ export const generateWorkoutDaysForUser = (userStats: UserStats, seasonId: strin
   return workoutDaysList;
 };
 
-// Default export for initial state/fallbacks
+// Default export for initial state
 export const WORKOUT_DAYS_DB: WorkoutDay[] = generateWorkoutDaysForUser(
   {
     weight: 70,

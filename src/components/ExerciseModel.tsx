@@ -10,7 +10,7 @@ interface ExerciseModelProps {
   heightClass?: string;
 }
 
-export const ExerciseModel: React.FC<ExerciseModelProps> = ({ type, isPlaying = true, mp4Url, exerciseNameEn, heightClass = 'h-52 sm:h-64' }) => {
+export const ExerciseModel: React.FC<ExerciseModelProps> = ({ type, isPlaying = true, mp4Url, exerciseNameEn }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isBuffering, setIsBuffering] = useState<boolean>(true);
   const [hasLoadedData, setHasLoadedData] = useState<boolean>(false);
@@ -105,7 +105,7 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = ({ type, isPlaying = 
 
   return (
     <div 
-      className={`relative w-full ${heightClass} flex items-center justify-center bg-gradient-to-b from-[#1C1816] via-[#120F0D] to-[#0A0807] rounded-3xl border-2 border-white/10 ring-1 ring-white/10 overflow-hidden shadow-2xl group`}
+      className="relative w-full aspect-square max-w-[260px] xs:max-w-[280px] sm:max-w-[300px] mx-auto flex items-center justify-center bg-[#0D0A08] rounded-2xl border-2 border-white/10 ring-1 ring-white/10 overflow-hidden shadow-xl group"
       style={{
         WebkitMaskImage: '-webkit-radial-gradient(white, black)',
         transform: 'translateZ(0)',
@@ -137,31 +137,31 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = ({ type, isPlaying = 
             </div>
           )}
 
-          {/* HTML5 Video Element with High-Performance Mobile & Web Attributes - Seamless Loop */}
+          {/* HTML5 Video Element with High-Performance Mobile & Web Attributes - Seamless Loop & Full Object-Contain */}
           {videoSource ? (
             <video
               ref={videoRef}
               src={videoSource}
-            className="absolute inset-0 w-full h-full object-cover rounded-3xl opacity-100 transition-opacity duration-300"
-            loop
-            muted
-            playsInline
-            // @ts-ignore
-            webkit-playsinline="true"
-            autoPlay
-            preload="auto"
-            controlsList="nodownload"
-            disablePictureInPicture
-            referrerPolicy="no-referrer"
-            onCanPlay={markVideoReady}
-            onCanPlayThrough={markVideoReady}
-            onLoadedData={markVideoReady}
-            onLoadedMetadata={markVideoReady}
-            onPlaying={markVideoReady}
-            onTimeUpdate={markVideoReady}
-            onError={markVideoReady}
-            onEnded={handleLoopEnd}
-          />
+              className="w-full h-full object-contain mx-auto my-auto rounded-2xl opacity-100 transition-opacity duration-300"
+              loop
+              muted
+              playsInline
+              // @ts-ignore
+              webkit-playsinline="true"
+              autoPlay
+              preload="auto"
+              controlsList="nodownload"
+              disablePictureInPicture
+              referrerPolicy="no-referrer"
+              onCanPlay={markVideoReady}
+              onCanPlayThrough={markVideoReady}
+              onLoadedData={markVideoReady}
+              onLoadedMetadata={markVideoReady}
+              onPlaying={markVideoReady}
+              onTimeUpdate={markVideoReady}
+              onError={markVideoReady}
+              onEnded={handleLoopEnd}
+            />
           ) : null}
 
           {/* Top Left Media badge */}

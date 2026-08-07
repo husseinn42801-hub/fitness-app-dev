@@ -1,6 +1,8 @@
 {
-  "name": "تطبيق رشاقة 30 يوم",
-  "description": "تطبيق لياقة وتغذية متكامل لتحدي 30 يوم لخسارة الوزن ونحت الجسم",
+  "name": "Remix تحديث العداد وإضافة الفيديوهات ",
+  "description": "",
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

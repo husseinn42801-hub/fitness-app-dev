@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion } from 'motion/react';
-import { Lock, Unlock, Trophy, Star, ChevronLeft, Flame, Calendar, Award } from 'lucide-react';
-import { Season } from '../types';
+import { Lock, Trophy, Star, ChevronLeft, Flame, Calendar, Dumbbell, Clock, Target, CheckCircle2 } from 'lucide-react';
+import { Season, UserStats } from '../types';
 import { SEASONS_DB, LEVEL_IMAGES } from '../data/seasons';
+import { generateWorkoutDaysForUser } from '../data/workoutDays';
 
 interface SeasonsPageProps {
   completedDaysBySeason: Record<string, number[]>;
@@ -11,6 +12,7 @@ interface SeasonsPageProps {
   isDark: boolean;
   seasonsList?: Season[];
   isFreeChallengeMode?: boolean;
+  userStats?: UserStats;
 }
 
 const LevelCardImage: React.FC<{ season: Season; index: number }> = ({ season, index }) => {
@@ -44,11 +46,13 @@ export const SeasonsPage: React.FC<SeasonsPageProps> = ({
   isDark,
   seasonsList = SEASONS_DB,
   isFreeChallengeMode = false,
+  userStats
 }) => {
+  const stats = userStats || { weight: 70, height: 168, age: 26, gender: 'أنثى', activityLevel: 1.375, goal: 'loss' };
+
   // Helper to check if a season is unlocked
   const isSeasonUnlocked = (seasonId: string): boolean => {
     if (isFreeChallengeMode) {
-      // In free challenge mode, only the current active season is visually unlocked
       return seasonId === currentSeasonId;
     }
     if (seasonsList.length === 0) return false;
@@ -66,6 +70,10 @@ export const SeasonsPage: React.FC<SeasonsPageProps> = ({
     ? 'bg-[#1F1F23]/80 border-white/5 text-white' 
     : 'bg-white border-gray-200 text-gray-900 shadow-xs';
 
+  const pillClass = isDark
+    ? 'bg-white/5 border-white/10 text-gray-200'
+    : 'bg-gray-50 border-gray-200 text-gray-700';
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -80,7 +88,7 @@ export const SeasonsPage: React.FC<SeasonsPageProps> = ({
         </span>
         <h2 className={`text-base font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>مستويات الرشاقة والتحول البدني</h2>
         <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-          أكمل كل مستوى بنسبة 100% لفتح المستوى التالي واكتساب ميداليات وشهادات إنجاز ذهبية!
+          تتفاعل بيانات وإحصائيات كل مستوى تلقائياً مع برنامج تمارينك اليومي ونسبة إنجازك. أكمل كل مستوى 100% لفتح التالي!
         </p>
       </div>
 
@@ -89,40 +97,70 @@ export const SeasonsPage: React.FC<SeasonsPageProps> = ({
         {seasonsList.map((season, index) => {
           const completedDays = completedDaysBySeason[season.id] || [];
           const completedCount = completedDays.length;
-          const progressPercent = Math.round((completedCount / 30) * 100);
+          const progressPercent = Math.min(100, Math.round((completedCount / 30) * 100));
           const unlocked = isSeasonUnlocked(season.id);
           const isActive = currentSeasonId === season.id;
+          const isCompleted = completedCount >= 30;
+
+          // Dynamically compute level statistics from user program
+          const seasonWorkoutDays = generateWorkoutDaysForUser(stats, season.id);
+          const activeDays = seasonWorkoutDays.filter(d => !d.isRestDay);
+          const totalExercisesInLevel = seasonWorkoutDays.reduce((sum, d) => sum + (d.exercises?.length || 0), 0);
+          const avgExercisesPerDay = Math.round(totalExercisesInLevel / Math.max(1, activeDays.length));
+          
+          const totalLevelMinutes = seasonWorkoutDays.reduce((sum, d) => sum + (d.estimatedTime || 0), 0);
+          const avgMinutesPerDay = Math.round(totalLevelMinutes / Math.max(1, activeDays.length));
+
+          const totalTargetCalories = seasonWorkoutDays.reduce((sum, d) => sum + (d.caloriesEstimate || 0), 0);
+          const burnedCalories = seasonWorkoutDays
+            .filter(d => completedDays.includes(d.dayNumber))
+            .reduce((sum, d) => sum + (d.caloriesEstimate || 0), 0);
+
+          let goalLabel = 'حرق الدهون والبطن';
+          if (stats.goal === 'maintain') goalLabel = 'شد القوام والخصر';
+          else if (stats.goal === 'gain') goalLabel = 'بناء العضلات والقوة';
 
           return (
             <div
               key={season.id}
               className={`border rounded-3xl p-5 relative overflow-hidden transition-all duration-300 group ${cardClass} ${
-                isActive ? 'ring-2 ring-[#FF5F2E] scale-[1.01] shadow-lg shadow-[#FF5F2E]/10' : 'opacity-90 hover:opacity-100'
+                isActive 
+                  ? 'border-[#FF5F2E]/60 ring-2 ring-[#FF5F2E]/50 scale-[1.01] shadow-xl shadow-[#FF5F2E]/20 shadow-[0_0_20px_rgba(255,95,46,0.18)]' 
+                  : 'border-[#FF5F2E]/25 hover:border-[#FF5F2E]/50 opacity-95 hover:opacity-100 shadow-md shadow-[#FF5F2E]/5 hover:shadow-[#FF5F2E]/15'
               }`}
             >
+              {/* Top Glowing Orange Edge Line */}
+              <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[#FF5F2E] to-transparent ${isActive ? 'opacity-100' : 'opacity-60 group-hover:opacity-90'} rounded-t-3xl pointer-events-none transition-opacity duration-300`} />
+
+              {/* Outer/Inner Glowing Orange Border Effect */}
+              <div className={`absolute inset-0 rounded-3xl border ${isActive ? 'border-[#FF5F2E]/40' : 'border-[#FF5F2E]/20 group-hover:border-[#FF5F2E]/35'} pointer-events-none transition-colors duration-300 shadow-[0_0_12px_rgba(255,95,46,0.08)_inset]`} />
+
               {/* Subtle Level Color Gradient Edge Overlay */}
               <div className={`absolute inset-0 rounded-3xl pointer-events-none border border-transparent bg-gradient-to-br ${season.color || 'from-[#FF5F2E] to-[#FF912E]'} ${isActive ? 'opacity-35' : 'opacity-20 group-hover:opacity-30'} transition-opacity duration-300 [mask:linear-gradient(#fff_0_0)_padding-box,linear-gradient(#fff_0_0)] [mask-composite:exclude]`} />
 
-              {/* Top Edge Highlight */}
-              <div className={`absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r ${season.color || 'from-[#FF5F2E] to-[#FF912E]'} opacity-40 rounded-t-3xl pointer-events-none`} />
-
               {/* Season Background Decorative Glow */}
-              <div className={`absolute -right-8 -bottom-8 w-36 h-36 bg-gradient-to-br ${season.color || 'from-[#FF5F2E] to-[#FF912E]'} opacity-10 blur-2xl rounded-full pointer-events-none`}></div>
+              <div className={`absolute -right-8 -bottom-8 w-36 h-36 bg-gradient-to-br ${season.color || 'from-[#FF5F2E] to-[#FF912E]'} ${isActive ? 'opacity-25' : 'opacity-10 group-hover:opacity-20'} blur-2xl rounded-full pointer-events-none transition-opacity duration-300`}></div>
 
               {/* Card top row */}
               <div className="flex justify-between items-start gap-3 relative z-10">
                 <div className="flex items-center gap-3">
                   <LevelCardImage season={season} index={index} />
                   <div>
-                    <h3 className={`text-sm font-extrabold ${isDark ? 'text-white' : 'text-gray-900'} flex items-center gap-2`}>
+                    <h3 className={`text-sm font-extrabold ${isDark ? 'text-white' : 'text-gray-900'} flex items-center gap-2 flex-wrap`}>
                       <span>{season.nameAr}</span>
                       {isActive && (
                         <span className="text-[9px] bg-[#FF5F2E]/10 text-[#FF5F2E] border border-[#FF5F2E]/20 font-black px-2 py-0.5 rounded-md animate-pulse">
-                          المستوى النشط حالياً
+                          المستوى النشط حالياً ⚡
+                        </span>
+                      )}
+                      {isCompleted && (
+                        <span className="text-[9px] bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 font-black px-2 py-0.5 rounded-md flex items-center gap-1">
+                          <Trophy className="w-3 h-3 text-emerald-500" />
+                          <span>مكتمل 100% 🏆</span>
                         </span>
                       )}
                     </h3>
-                    <p className={`text-[10px] leading-relaxed mt-1 max-w-[200px] ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                    <p className={`text-[10px] leading-relaxed mt-1 max-w-[210px] ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
                       {season.description}
                     </p>
                   </div>
@@ -139,7 +177,7 @@ export const SeasonsPage: React.FC<SeasonsPageProps> = ({
                       </span>
                     </div>
                   ) : (
-                    <div className="flex flex-col items-end text-rose-500 bg-rose-500/10 border border-rose-500/20 px-2 py-1 rounded-xl">
+                    <div className="flex flex-col items-end text-rose-500 bg-rose-500/10 border border-rose-500/20 px-2.5 py-1 rounded-xl">
                       <Lock className="w-3.5 h-3.5" />
                       <span className="text-[8px] font-black mt-0.5">مغلق</span>
                     </div>
@@ -147,12 +185,56 @@ export const SeasonsPage: React.FC<SeasonsPageProps> = ({
                 </div>
               </div>
 
+              {/* Dynamic Level Stats Summary Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4 relative z-10">
+                <div className={`p-2.5 rounded-xl border flex items-center gap-2 ${pillClass}`}>
+                  <Dumbbell className="w-3.5 h-3.5 text-[#FF5F2E] shrink-0" />
+                  <div className="text-right">
+                    <span className="text-[8px] text-gray-400 block font-bold">التمارين</span>
+                    <span className="text-[10px] font-black font-mono">~{avgExercisesPerDay} تمارين/يوم</span>
+                  </div>
+                </div>
+
+                <div className={`p-2.5 rounded-xl border flex items-center gap-2 ${pillClass}`}>
+                  <Clock className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+                  <div className="text-right">
+                    <span className="text-[8px] text-gray-400 block font-bold">المدة</span>
+                    <span className="text-[10px] font-black font-mono">~{avgMinutesPerDay} د/يوم</span>
+                  </div>
+                </div>
+
+                <div className={`p-2.5 rounded-xl border flex items-center gap-2 ${pillClass}`}>
+                  <Flame className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                  <div className="text-right">
+                    <span className="text-[8px] text-gray-400 block font-bold">السعرات</span>
+                    <span className="text-[10px] font-black font-mono">{totalTargetCalories.toLocaleString()} سعرة</span>
+                  </div>
+                </div>
+
+                <div className={`p-2.5 rounded-xl border flex items-center gap-2 ${pillClass}`}>
+                  <Target className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <div className="text-right truncate">
+                    <span className="text-[8px] text-gray-400 block font-bold">الهدف</span>
+                    <span className="text-[10px] font-black truncate block">{goalLabel}</span>
+                  </div>
+                </div>
+              </div>
+
               {/* Progress bar visual */}
               {unlocked && (
                 <div className="mt-4 space-y-1 relative z-10">
+                  <div className="flex justify-between items-center text-[9px] font-bold">
+                    <span className="text-gray-400 flex items-center gap-1">
+                      <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+                      إنجاز الأيام: {completedCount} / 30
+                    </span>
+                    <span className="text-[#FF5F2E] font-mono">
+                      السعرات المحروقة: {Math.round(burnedCalories)} / {Math.round(totalTargetCalories)}
+                    </span>
+                  </div>
                   <div className={`w-full h-2 rounded-full overflow-hidden ${isDark ? 'bg-[#222222]' : 'bg-gray-100'}`}>
                     <div 
-                      className={`bg-gradient-to-r ${season.color} h-full rounded-full transition-all duration-500`}
+                      className={`bg-gradient-to-r ${season.color || 'from-[#FF5F2E] to-[#FF912E]'} h-full rounded-full transition-all duration-500`}
                       style={{ width: `${progressPercent}%` }}
                     ></div>
                   </div>
@@ -164,7 +246,7 @@ export const SeasonsPage: React.FC<SeasonsPageProps> = ({
                 <span className="text-[10px] text-gray-400 flex items-center gap-1">
                   <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
                   <span className={isDark ? 'text-gray-300' : 'text-gray-600'}>
-                    مستوى الصعوبة: {season.difficulty}
+                    الصعوبة: {season.difficulty}
                   </span>
                 </span>
 

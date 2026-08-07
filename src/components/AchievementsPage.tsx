@@ -205,10 +205,30 @@ export const AchievementsPage: React.FC<AchievementsPageProps> = ({
       currentSeason = (seasonsList || [])[0] || SEASONS_DB[0];
     }
 
-    const completedDays = (completedDaysBySeason[currentSeason.id] || []).length;
+    const completedDaysArray = completedDaysBySeason[currentSeason.id] || [];
+    const completedDays = completedDaysArray.length;
     const remainingDays = Math.max(0, 30 - completedDays);
     const progressPercent = Math.min(100, Math.round((completedDays / 30) * 100));
     const isCompleted = completedDays >= 30;
+
+    // Dynamically calculate level statistics from generated workout program
+    const stats = userStats || { weight: 70, height: 168, age: 26, gender: 'أنثى', activityLevel: 1.375, goal: 'loss' };
+    const seasonWorkoutDays = generateWorkoutDaysForUser(stats, currentSeason.id);
+
+    const totalExercises = seasonWorkoutDays.reduce((sum, d) => sum + (d.exercises?.length || 0), 0);
+    const completedExercises = seasonWorkoutDays
+      .filter(d => completedDaysArray.includes(d.dayNumber))
+      .reduce((sum, d) => sum + (d.exercises?.length || 0), 0);
+
+    const totalTargetCalories = seasonWorkoutDays.reduce((sum, d) => sum + (d.caloriesEstimate || 0), 0);
+    const burnedCalories = seasonWorkoutDays
+      .filter(d => completedDaysArray.includes(d.dayNumber))
+      .reduce((sum, d) => sum + (d.caloriesEstimate || 0), 0);
+
+    const totalMinutes = seasonWorkoutDays.reduce((sum, d) => sum + (d.estimatedTime || 0), 0);
+    const completedMinutes = seasonWorkoutDays
+      .filter(d => completedDaysArray.includes(d.dayNumber))
+      .reduce((sum, d) => sum + (d.estimatedTime || 0), 0);
 
     return {
       season: currentSeason,
@@ -216,8 +236,14 @@ export const AchievementsPage: React.FC<AchievementsPageProps> = ({
       remainingDays,
       progressPercent,
       isCompleted,
+      totalExercises,
+      completedExercises,
+      totalTargetCalories,
+      burnedCalories,
+      totalMinutes,
+      completedMinutes,
     };
-  }, [seasonsList, completedDaysBySeason, currentSeasonId]);
+  }, [seasonsList, completedDaysBySeason, currentSeasonId, userStats]);
 
   const statCardClass = isDark 
     ? 'bg-[#1E1E22] border-white/5 text-white' 
@@ -445,6 +471,41 @@ export const AchievementsPage: React.FC<AchievementsPageProps> = ({
             </div>
           </div>
 
+          {/* Dynamic 4 Mini Stats Grid inside Current Progress Card */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
+            <div className="p-2.5 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-2">
+              <span className="text-lg">📅</span>
+              <div className="text-right">
+                <span className="text-[8px] text-gray-400 block font-bold">الأيام المكتملة</span>
+                <span className="text-[10px] font-black font-mono text-amber-400">{activeLevelInfo.completedDays} / 30</span>
+              </div>
+            </div>
+
+            <div className="p-2.5 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-2">
+              <span className="text-lg">🏋️</span>
+              <div className="text-right">
+                <span className="text-[8px] text-gray-400 block font-bold">التمارين المنجزة</span>
+                <span className="text-[10px] font-black font-mono text-sky-400">{activeLevelInfo.completedExercises} / {activeLevelInfo.totalExercises}</span>
+              </div>
+            </div>
+
+            <div className="p-2.5 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-2">
+              <span className="text-lg">🔥</span>
+              <div className="text-right">
+                <span className="text-[8px] text-gray-400 block font-bold">السعرات المحروقة</span>
+                <span className="text-[10px] font-black font-mono text-emerald-400">{Math.round(activeLevelInfo.burnedCalories)} / {Math.round(activeLevelInfo.totalTargetCalories)}</span>
+              </div>
+            </div>
+
+            <div className="p-2.5 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-2">
+              <span className="text-lg">⏱️</span>
+              <div className="text-right">
+                <span className="text-[8px] text-gray-400 block font-bold">الوقت المنجز</span>
+                <span className="text-[10px] font-black font-mono text-indigo-300">{activeLevelInfo.completedMinutes} / {activeLevelInfo.totalMinutes} د</span>
+              </div>
+            </div>
+          </div>
+
           {/* Congratulatory & Encouraging Message Box */}
           <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
             <div className="text-2xl shrink-0 mt-0.5">
@@ -453,8 +514,8 @@ export const AchievementsPage: React.FC<AchievementsPageProps> = ({
             <div className="space-y-1 text-right">
               <p className="text-xs font-extrabold text-white leading-relaxed">
                 {activeLevelInfo.isCompleted
-                  ? `مبارك الإنجاز الذهبي! لقد أكملت 30 يوماً متتالياً بنجاح في ${activeLevelInfo.season.nameAr}! 🏆`
-                  : `أحسنت صنعاً يا بطل! تم إنهاء ${activeLevelInfo.completedDays} يوماً بنجاح.`}
+                  ? `مبارك الإنجاز الذهبي يا ${userStats?.userName || 'بطل'}! لقد أكملت 30 يوماً متتالياً بنجاح في ${activeLevelInfo.season.nameAr}! 🏆`
+                  : `أحسنت صنعاً يا ${userStats?.userName || 'بطل'}! تم إنهاء ${activeLevelInfo.completedDays} يوماً بنجاح.`}
               </p>
               <p className="text-[10px] text-gray-300 leading-relaxed font-medium">
                 {activeLevelInfo.isCompleted
@@ -464,8 +525,8 @@ export const AchievementsPage: React.FC<AchievementsPageProps> = ({
             </div>
           </div>
 
-          {activeLevelInfo.isCompleted && (
-            <div className="pt-2">
+          <div className="flex flex-col sm:flex-row gap-2 pt-1">
+            {activeLevelInfo.isCompleted ? (
               <button
                 onClick={() => {
                   const currentIndex = seasonsList.findIndex(s => s.id === activeLevelInfo.season.id);
@@ -478,8 +539,19 @@ export const AchievementsPage: React.FC<AchievementsPageProps> = ({
               >
                 <span>الانتقال للمستوى التالي 🚀</span>
               </button>
-            </div>
-          )}
+            ) : (
+              <button
+                onClick={() => {
+                  if (onSelectSeason) {
+                    onSelectSeason(activeLevelInfo.season.id);
+                  }
+                }}
+                className="w-full py-3 bg-gradient-to-r from-[#FF5F2E] to-[#FF912E] hover:opacity-95 active:scale-98 text-white font-black rounded-2xl text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#FF5F2E]/20 cursor-pointer"
+              >
+                <span>متابعة جدول التمارين لمستوى اليوم 🏋️‍♂️</span>
+              </button>
+            )}
+          </div>
         </div>
       </motion.div>
 

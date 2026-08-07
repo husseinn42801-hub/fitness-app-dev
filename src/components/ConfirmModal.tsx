@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { AlertCircle, RotateCcw, X } from 'lucide-react';
+import { AlertTriangle, RotateCcw, X } from 'lucide-react';
 
 interface ConfirmModalProps {
   isOpen: boolean;
@@ -21,14 +21,14 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
   title,
   message,
   confirmText = 'نعم، متأكد',
-  cancelText = 'إغلاق',
+  cancelText = 'إلغاء',
   type = 'warning',
   isDark = false
 }) => {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div id="confirm-modal-portal" className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div id="confirm-modal-portal" className="fixed inset-0 z-[100] flex items-center justify-center p-4" dir="rtl">
           {/* Backdrop Blur Overlay */}
           <motion.div
             id="confirm-modal-backdrop"
@@ -36,68 +36,66 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/70 backdrop-blur-md cursor-pointer"
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm cursor-pointer"
           />
 
           {/* Modal Content Box */}
           <motion.div
             id="confirm-modal-box"
-            initial={{ opacity: 0, scale: 0.9, y: 15 }}
+            initial={{ opacity: 0, scale: 0.92, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 15 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 350 }}
-            className={`relative w-full max-w-sm rounded-3xl p-6 overflow-hidden border shadow-2xl flex flex-col items-center text-center ${
+            exit={{ opacity: 0, scale: 0.92, y: 10 }}
+            transition={{ type: 'spring', damping: 25, stiffness: 380 }}
+            className={`relative w-full max-w-xs rounded-2xl p-5 overflow-hidden border shadow-xl flex flex-col items-center text-center ${
               isDark 
-                ? 'bg-[#18181C] border-white/5 text-white' 
-                : 'bg-white border-gray-100 text-gray-900'
+                ? 'bg-[#1C1C20] border-white/10 text-white' 
+                : 'bg-white border-gray-200/80 text-gray-900 shadow-lg'
             }`}
           >
-            {/* Close Cross Button */}
+            {/* Close Button */}
             <button
               id="confirm-modal-close-btn"
               onClick={onClose}
-              className={`absolute top-4 right-4 p-1.5 rounded-full transition-all cursor-pointer ${
+              className={`absolute top-3 left-3 p-1 rounded-lg transition-all cursor-pointer ${
                 isDark 
                   ? 'hover:bg-white/10 text-gray-400 hover:text-white' 
-                  : 'hover:bg-gray-100 text-gray-500 hover:text-gray-900'
+                  : 'hover:bg-gray-100 text-gray-400 hover:text-gray-700'
               }`}
             >
               <X className="w-4 h-4" />
             </button>
 
-            {/* Glowing Main Icon Container */}
-            <div className="mb-4 mt-2">
+            {/* Glowing Icon Container */}
+            <div className="mb-3 mt-1">
               {type === 'danger' ? (
-                <div className="w-14 h-14 rounded-2xl bg-rose-500/10 flex items-center justify-center relative">
-                  <div className="absolute inset-0 rounded-2xl bg-rose-500/20 animate-ping opacity-75" />
-                  <RotateCcw className="w-7 h-7 text-rose-500 relative z-10" />
+                <div className="w-11 h-11 rounded-xl bg-rose-500/15 text-rose-500 flex items-center justify-center">
+                  <RotateCcw className="w-5 h-5" />
                 </div>
               ) : (
-                <div className="w-14 h-14 rounded-2xl bg-[#FF5F2E]/10 flex items-center justify-center relative">
-                  <div className="absolute inset-0 rounded-2xl bg-[#FF5F2E]/20 animate-ping opacity-75" />
-                  <AlertCircle className="w-7 h-7 text-[#FF5F2E] relative z-10" />
+                <div className="w-11 h-11 rounded-xl bg-[#FF5F2E]/15 text-[#FF5F2E] flex items-center justify-center">
+                  <AlertTriangle className="w-5 h-5" />
                 </div>
               )}
             </div>
 
             {/* Title & Description */}
-            <h3 className="text-base font-black mb-2 tracking-tight px-2">{title}</h3>
-            <p className={`text-xs leading-relaxed mb-6 px-3 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+            <h3 className="text-sm font-bold mb-1.5 tracking-tight px-1">{title}</h3>
+            <p className={`text-[11px] leading-relaxed mb-5 px-1 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
               {message}
             </p>
 
-            {/* Actions Stack */}
-            <div className="w-full space-y-2.5">
+            {/* Action Buttons */}
+            <div className="w-full flex items-center gap-2">
               <button
                 id="confirm-modal-yes-btn"
                 onClick={() => {
                   onConfirm();
                   onClose();
                 }}
-                className={`w-full py-3 px-6 rounded-2xl text-xs font-extrabold transition-all duration-200 active:scale-98 shadow-md flex justify-center items-center gap-2 cursor-pointer ${
+                className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all active:scale-98 shadow-2xs flex justify-center items-center cursor-pointer ${
                   type === 'danger'
-                    ? 'bg-gradient-to-r from-rose-500 to-red-600 hover:from-rose-600 hover:to-red-700 text-white'
-                    : 'bg-gradient-to-r from-[#FF5F2E] to-[#FF912E] hover:from-[#e55025] hover:to-[#e58025] text-white'
+                    ? 'bg-rose-500 hover:bg-rose-600 text-white'
+                    : 'bg-[#FF5F2E] hover:bg-[#e55025] text-white'
                 }`}
               >
                 <span>{confirmText}</span>
@@ -106,10 +104,10 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
               <button
                 id="confirm-modal-no-btn"
                 onClick={onClose}
-                className={`w-full py-3 px-6 rounded-2xl text-xs font-bold transition-all duration-200 active:scale-98 border flex justify-center items-center gap-2 cursor-pointer ${
+                className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all active:scale-98 border flex justify-center items-center cursor-pointer ${
                   isDark
-                    ? 'bg-[#222226] border-white/5 hover:bg-[#2c2c32] text-gray-300 hover:text-white'
-                    : 'bg-gray-100 hover:bg-gray-200 border-transparent text-gray-700'
+                    ? 'bg-white/5 border-white/10 hover:bg-white/10 text-gray-300'
+                    : 'bg-gray-100 border-gray-200/80 hover:bg-gray-200 text-gray-700'
                 }`}
               >
                 <span>{cancelText}</span>
@@ -121,3 +119,4 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
     </AnimatePresence>
   );
 };
+

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { UserStats } from '../types';
 import { Calculator, Sparkles, Scale, Activity, Trophy, Apple, Flame, Droplet, Plus, Trash2, Utensils, CheckCircle2, AlertTriangle, User, Target, Save, RefreshCw } from 'lucide-react';
+import { ConfirmModal } from './ConfirmModal';
 
 interface CalorieCalculatorProps {
   onSaveStats: (stats: UserStats) => void;
@@ -25,6 +26,7 @@ export const CalorieCalculator: React.FC<CalorieCalculatorProps> = React.memo(({
   const [activityLevel, setActivityLevel] = useState<number>(savedStats?.activityLevel || 1.375);
   const [goal, setGoal] = useState<'loss' | 'maintain' | 'gain'>(savedStats?.goal || 'loss');
   const [saveSuccess, setSaveSuccess] = useState<boolean>(false);
+  const [isClearConfirmOpen, setIsClearConfirmOpen] = useState<boolean>(false);
 
   // Sync state if savedStats prop updates from outside
   useEffect(() => {
@@ -182,9 +184,11 @@ export const CalorieCalculator: React.FC<CalorieCalculatorProps> = React.memo(({
   };
 
   const handleClearMeals = () => {
-    if (window.confirm('هل أنت متأكد من تفريغ سجل وجباتك اليومية لهذا اليوم؟')) {
-      setCalcMeals([]);
-    }
+    setIsClearConfirmOpen(true);
+  };
+
+  const executeClearMeals = () => {
+    setCalcMeals([]);
   };
 
   // Macros Calculation
@@ -603,6 +607,18 @@ export const CalorieCalculator: React.FC<CalorieCalculatorProps> = React.memo(({
         </div>
 
       </div>
+
+      <ConfirmModal
+        isOpen={isClearConfirmOpen}
+        onClose={() => setIsClearConfirmOpen(false)}
+        onConfirm={executeClearMeals}
+        title="تصفير وجبات اليوم"
+        message="هل أنت متأكد من تفريغ سجل وجباتك اليومية لهذا اليوم؟"
+        confirmText="تصفير الوجبات"
+        cancelText="إلغاء"
+        type="danger"
+        isDark={isDark}
+      />
     </div>
   );
 });

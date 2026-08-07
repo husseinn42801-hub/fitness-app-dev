@@ -6,12 +6,14 @@ import goldenTrophyImg from '../assets/images/golden_trophy_cup_1785369511939.jp
 
 interface SuccessCelebrationProps {
   seasonName: string;
+  userName?: string;
   onNextSeason: () => void;
   isDark: boolean;
 }
 
 export const SuccessCelebration: React.FC<SuccessCelebrationProps> = ({
   seasonName,
+  userName,
   onNextSeason,
   isDark
 }) => {
@@ -78,11 +80,26 @@ export const SuccessCelebration: React.FC<SuccessCelebrationProps> = ({
       speedY: number;
       rotation: number;
       rotationSpeed: number;
+      shape: 'rect' | 'circle' | 'star';
+      opacity: number;
 
-      constructor() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * -height - 20; // start above viewport
-        this.size = Math.random() * 8 + 6;
+      constructor(isInitialBurst = false) {
+        if (isInitialBurst) {
+          this.x = width / 2 + (Math.random() * 200 - 100);
+          this.y = height * 0.3 + (Math.random() * 100 - 50);
+          const angle = Math.random() * Math.PI * 2;
+          const speed = Math.random() * 10 + 3;
+          this.speedX = Math.cos(angle) * speed;
+          this.speedY = Math.sin(angle) * speed - 3;
+        } else {
+          this.x = Math.random() * width;
+          this.y = Math.random() * -height - 20; // start above viewport
+          this.speedX = Math.random() * 4 - 2;
+          this.speedY = Math.random() * 5 + 2.5;
+        }
+        
+        this.size = Math.random() * 9 + 5;
+        this.opacity = Math.random() * 0.4 + 0.6;
         
         // Shiny celebratory palette
         const colors = [
@@ -92,26 +109,30 @@ export const SuccessCelebration: React.FC<SuccessCelebrationProps> = ({
           '#38BDF8', // Sky Blue
           '#34D399', // Emerald Green
           '#EC4899', // Pink
-          '#8B5CF6'  // Purple
+          '#A855F7', // Purple
+          '#F43F5E'  // Rose
         ];
         this.color = colors[Math.floor(Math.random() * colors.length)];
         
-        this.speedX = Math.random() * 4 - 2;
-        this.speedY = Math.random() * 5 + 3;
-        this.rotation = Math.random() * Math.PI;
-        this.rotationSpeed = Math.random() * 0.05 - 0.025;
+        this.rotation = Math.random() * Math.PI * 2;
+        this.rotationSpeed = Math.random() * 0.08 - 0.04;
+
+        const shapes: ('rect' | 'circle' | 'star')[] = ['rect', 'rect', 'circle', 'star'];
+        this.shape = shapes[Math.floor(Math.random() * shapes.length)];
       }
 
       update() {
         this.x += this.speedX;
         this.y += this.speedY;
+        this.speedY += 0.03; // slight gravity
         this.rotation += this.rotationSpeed;
 
         // Reset particle if it drifts off bottom
-        if (this.y > height) {
+        if (this.y > height + 20) {
           this.y = -20;
           this.x = Math.random() * width;
-          this.speedY = Math.random() * 5 + 3;
+          this.speedX = Math.random() * 3 - 1.5;
+          this.speedY = Math.random() * 5 + 2.5;
         }
       }
 
@@ -119,14 +140,36 @@ export const SuccessCelebration: React.FC<SuccessCelebrationProps> = ({
         c.save();
         c.translate(this.x, this.y);
         c.rotate(this.rotation);
+        c.globalAlpha = this.opacity;
         c.fillStyle = this.color;
-        // Draw elegant diamond/rectangle confetti piece
-        c.fillRect(-this.size / 2, -this.size / 2, this.size, this.size / 1.5);
+        
+        if (this.shape === 'rect') {
+          c.fillRect(-this.size / 2, -this.size / 3, this.size, this.size / 1.5);
+        } else if (this.shape === 'circle') {
+          c.beginPath();
+          c.arc(0, 0, this.size / 2, 0, Math.PI * 2);
+          c.fill();
+        } else {
+          // Star shape
+          c.beginPath();
+          for (let i = 0; i < 5; i++) {
+            c.lineTo(Math.cos((18 + i * 72) * Math.PI / 180) * this.size,
+                     -Math.sin((18 + i * 72) * Math.PI / 180) * this.size);
+            c.lineTo(Math.cos((54 + i * 72) * Math.PI / 180) * (this.size / 2),
+                     -Math.sin((54 + i * 72) * Math.PI / 180) * (this.size / 2));
+          }
+          c.closePath();
+          c.fill();
+        }
+
         c.restore();
       }
     }
 
-    const particles: Particle[] = Array.from({ length: 120 }, () => new Particle());
+    const particles: Particle[] = [
+      ...Array.from({ length: 60 }, () => new Particle(true)),
+      ...Array.from({ length: 90 }, () => new Particle(false))
+    ];
 
     const loop = () => {
       ctx.clearRect(0, 0, width, height);
@@ -221,10 +264,23 @@ export const SuccessCelebration: React.FC<SuccessCelebrationProps> = ({
         </div>
 
         {/* Celebratory Text */}
-        <div className="space-y-1.5">
+        <div className="space-y-2">
+          {userName && (
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.15, type: 'spring' }}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-amber-500/20 border border-amber-400/40 text-amber-300 font-extrabold text-xs shadow-xs"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-spin-slow shrink-0" />
+              <span>البطل الرياضي: {userName}</span>
+              <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-spin-slow shrink-0" />
+            </motion.div>
+          )}
+
           <h2 className="text-2.5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 flex items-center justify-center gap-2 drop-shadow-sm">
             <Sparkles className="w-6 h-6 text-amber-400 animate-spin-slow" />
-            <span>ألــف مَــبـرُوكــ! 🎉</span>
+            <span>ألــف مَــبـرُوك يا {userName || 'بطل'}! 🎉</span>
           </h2>
           <p className="text-xs sm:text-sm font-extrabold text-amber-400">لقد أكملت الموسم بجدارة واحترافية عالية!</p>
           

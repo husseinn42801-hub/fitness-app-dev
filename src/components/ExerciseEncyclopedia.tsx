@@ -105,7 +105,7 @@ const VideoThumbnail: React.FC<{ videoSrc: string; isDark?: boolean }> = React.m
           onLoadedData={() => setIsVideoLoaded(true)}
           onCanPlay={() => setIsVideoLoaded(true)}
           onError={() => setHasError(true)}
-          className={`w-full h-full object-cover pointer-events-none transition-opacity duration-300 ${
+          className={`w-full h-full object-contain pointer-events-none transition-opacity duration-300 ${
             isVideoLoaded ? 'opacity-100' : 'opacity-0'
           }`}
         />
@@ -482,22 +482,28 @@ export const ExerciseEncyclopedia: React.FC<ExerciseEncyclopediaProps> = ({ isDa
                 isDark ? 'bg-[#1A1A1A] border-white/5' : 'bg-gray-50 border-gray-100'
               }`}>
                 <div className="flex-1">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 flex-wrap">
                     <span className="text-xl shrink-0">{getExerciseEmoji(selectedExercise)}</span>
-                    <h3 className={`text-base font-black font-mono uppercase tracking-wide ${isDark ? 'text-white' : 'text-gray-950'}`}>
-                      {selectedExercise.nameEn}
-                    </h3>
-                    <button
-                      onClick={(e) => toggleFavorite(selectedExercise.id, e)}
-                      className="p-1 rounded-full hover:scale-110 active:scale-95 transition-all cursor-pointer"
-                      title={favoriteIds.includes(selectedExercise.id) ? "إزالة من المفضلة" : "إضافة إلى المفضلة"}
-                    >
-                      <Star className={`w-4.5 h-4.5 ${
-                        favoriteIds.includes(selectedExercise.id) 
-                          ? 'text-amber-400 fill-amber-400' 
-                          : (isDark ? 'text-gray-600 hover:text-gray-400' : 'text-gray-400 hover:text-gray-600')
-                      }`} />
-                    </button>
+                    <div className="flex flex-col">
+                      <div className="flex items-center gap-2">
+                        <h3 className={`text-base font-black ${isDark ? 'text-white' : 'text-gray-950'}`}>
+                          {selectedExercise.nameAr}
+                        </h3>
+
+                        <button
+                          onClick={(e) => toggleFavorite(selectedExercise.id, e)}
+                          className="p-1 rounded-full hover:scale-110 active:scale-95 transition-all cursor-pointer"
+                          title={favoriteIds.includes(selectedExercise.id) ? "إزالة من المفضلة" : "إضافة إلى المفضلة"}
+                        >
+                          <Star className={`w-4.5 h-4.5 ${
+                            favoriteIds.includes(selectedExercise.id) 
+                              ? 'text-amber-400 fill-amber-400' 
+                              : (isDark ? 'text-gray-600 hover:text-gray-400' : 'text-gray-400 hover:text-gray-600')
+                          }`} />
+                        </button>
+                      </div>
+                      <span className="text-[10px] font-mono text-gray-400 uppercase font-medium">{selectedExercise.nameEn}</span>
+                    </div>
                   </div>
                 </div>
                 <button

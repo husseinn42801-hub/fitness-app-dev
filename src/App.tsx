@@ -31,10 +31,14 @@ import {
   ThumbsUp,
   Trophy,
   Lock,
+  Unlock,
   Bell,
   Copy,
   Check,
-  HelpCircle
+  HelpCircle,
+  FileText,
+  AlertTriangle,
+  Copyright
 } from 'lucide-react';
 
 import { UserStats, DailyLog, JournalTask, WorkoutDay, SeasonCertificate } from './types';
@@ -48,6 +52,7 @@ import { OnboardingWizard } from './components/OnboardingWizard';
 import { AppSplashScreen } from './components/AppSplashScreen';
 import { SuccessCelebration } from './components/SuccessCelebration';
 import { ConfirmModal } from './components/ConfirmModal';
+import { LegalModal, LegalModalType } from './components/LegalModal';
 // @ts-ignore
 import appIcon from './assets/images/app_icon_1784528616960.jpg';
 
@@ -153,7 +158,8 @@ export default function App() {
   // --- HAMBURGER MENU & COMPLIANCE MODALS STATE ---
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isTutorialModalOpen, setIsTutorialModalOpen] = useState<boolean>(false);
-  const [complianceModal, setComplianceModal] = useState<'rate' | 'privacy' | null>(null);
+  const [complianceModal, setComplianceModal] = useState<'rate' | 'social' | 'privacy' | null>(null);
+  const [legalModalType, setLegalModalType] = useState<LegalModalType>(null);
 
   // --- CUSTOM CONFIRMATION MODALS STATE ---
   const [isResetConfirmOpen, setIsResetConfirmOpen] = useState<boolean>(false);
@@ -1403,8 +1409,14 @@ export default function App() {
                       className="space-y-6 pb-20"
                     >
                       {/* Profile progress card */}
-                      <div className={`border rounded-3xl p-5 shadow-lg relative overflow-hidden transition-all ${cardClass}`}>
-                        <div className="absolute right-0 bottom-0 w-32 h-32 bg-[#FF5F2E]/10 rounded-full blur-2xl"></div>
+                      <div className={`border border-[#FF5F2E]/35 rounded-3xl p-5 shadow-lg relative overflow-hidden transition-all duration-300 shadow-[#FF5F2E]/15 hover:shadow-[#FF5F2E]/25 shadow-[0_0_20px_rgba(255,95,46,0.12)] ${cardClass}`}>
+                        {/* Top Glowing Orange Edge Line */}
+                        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[#FF5F2E] to-transparent opacity-90 rounded-t-3xl pointer-events-none" />
+                        
+                        {/* Glowing Orange Inner Border Effect */}
+                        <div className="absolute inset-0 rounded-3xl border border-[#FF5F2E]/20 pointer-events-none shadow-[0_0_12px_rgba(255,95,46,0.1)_inset]" />
+
+                        <div className="absolute right-0 bottom-0 w-36 h-36 bg-[#FF5F2E]/15 rounded-full blur-2xl pointer-events-none"></div>
                         <div className="flex justify-between items-start">
                           <div className="space-y-1.5">
                             <span className="text-[10px] bg-[#FF5F2E] text-white font-bold px-2.5 py-0.5 rounded-full font-sans">
@@ -1568,6 +1580,7 @@ export default function App() {
                         isDark={isDark}
                         seasonsList={seasonsList}
                         isFreeChallengeMode={isFreeChallengeMode}
+                        userStats={userStats}
                       />
                     </motion.div>
                   )}
@@ -1758,6 +1771,8 @@ export default function App() {
                 onClose={() => {
                   window.location.href = window.location.pathname + "?tab=workout";
                 }}
+                userStats={userStats}
+                seasonId={currentSeasonId}
               />
             )}
 
@@ -1800,69 +1815,122 @@ export default function App() {
                         </button>
                       </div>
 
-                      {/* Profile brief */}
-                      <div className={`p-4 rounded-2xl border ${isDark ? 'bg-white/5 border-white/5' : 'bg-gray-50 border-gray-100'}`}>
-                        <div className="flex items-center gap-2.5">
-                          <span className="text-xl">🏆</span>
-                          <div>
-                            <span className="text-[10px] text-gray-400 block font-semibold">مستواك الحالي</span>
-                            <span className="text-xs font-bold text-[#FF5F2E]">{currentLevelTitle}</span>
+                      {/* Profile brief - Compact & Aesthetic Current Level Card */}
+                      <div className={`px-3.5 py-2 rounded-xl border flex items-center justify-between gap-2 transition-all ${
+                        isDark 
+                          ? 'bg-gradient-to-r from-[#FF5F2E]/15 via-[#FF5F2E]/5 to-white/5 border-[#FF5F2E]/20 text-white' 
+                          : 'bg-gradient-to-r from-orange-50/90 via-amber-50/40 to-gray-50 border-orange-200/60 text-gray-800 shadow-2xs'
+                      }`}>
+                        <div className="flex items-center gap-2">
+                          <div className="w-6 h-6 rounded-lg bg-[#FF5F2E]/15 border border-[#FF5F2E]/30 flex items-center justify-center text-xs shrink-0">
+                            🏆
                           </div>
+                          <span className={`text-[10px] font-bold ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>مستواك الحالي</span>
                         </div>
+                        <span className="text-[11px] font-extrabold text-[#FF5F2E] bg-[#FF5F2E]/10 px-2 py-0.5 rounded-md border border-[#FF5F2E]/20 truncate max-w-[140px] text-left" dir="auto">
+                          {currentLevelTitle}
+                        </span>
                       </div>
 
                       {/* Navigation list */}
                       <div className="space-y-3">
-                        {/* 1. Dark Mode Toggle */}
-                        <div className={`p-3 rounded-xl border flex items-center justify-between gap-2.5 ${
-                          isDark ? 'bg-white/5 border-white/5 text-white' : 'bg-gray-50 border-gray-100 text-gray-800'
+                        {/* 1. Dark/Light Theme Selector Card - Ultra Compact */}
+                        <div className={`px-3 py-2 rounded-xl border flex items-center justify-between gap-2 transition-all ${
+                          isDark 
+                            ? 'bg-zinc-900/80 border-zinc-800 text-white' 
+                            : 'bg-white border-gray-200/80 text-gray-800 shadow-2xs'
                         }`}>
-                          <div>
-                            <span className="text-[10px] font-bold block text-right">الوضع الداكن 🌙</span>
-                            <span className="text-[8px] text-gray-400 block text-right mt-0.5">تفعيل المظهر الداكن</span>
+                          <div className="flex items-center gap-2 min-w-0">
+                            <div className={`w-6 h-6 rounded-lg flex items-center justify-center shrink-0 border ${
+                              isDark 
+                                ? 'bg-indigo-500/15 border-indigo-500/30 text-indigo-300' 
+                                : 'bg-amber-500/15 border-amber-500/30 text-amber-600'
+                            }`}>
+                              {isDark ? <Moon className="w-3 h-3" /> : <Sun className="w-3 h-3 text-amber-500" />}
+                            </div>
+                            <span className={`text-[11px] font-bold truncate ${isDark ? 'text-gray-200' : 'text-gray-700'}`}>
+                              {isDark ? 'الوضع الداكن' : 'الوضع المضيء'}
+                            </span>
                           </div>
                           <button
+                            type="button"
                             onClick={handleToggleTheme}
-                            className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-300 focus:outline-hidden cursor-pointer shrink-0 ${
-                              isDark ? 'bg-[#FF5F2E]' : 'bg-gray-300'
+                            className={`w-8 h-4.5 rounded-full p-0.5 transition-all duration-300 focus:outline-hidden cursor-pointer shrink-0 ${
+                              isDark ? 'bg-indigo-600' : 'bg-gray-300 hover:bg-gray-400'
                             }`}
                             title={isDark ? "تفعيل الوضع المضيء" : "تفعيل الوضع الداكن"}
                           >
-                            <div className={`w-4 h-4 rounded-full bg-white shadow-xs transition-transform duration-300 ${
-                              isDark ? 'translate-x-0' : '-translate-x-4'
-                            }`} />
+                            <div className={`w-3.5 h-3.5 rounded-full bg-white shadow-xs flex items-center justify-center transition-transform duration-300 ${
+                              isDark ? 'translate-x-0' : '-translate-x-3.5'
+                            }`}>
+                              {isDark ? <Moon className="w-2 h-2 text-indigo-600" /> : <Sun className="w-2 h-2 text-amber-500" />}
+                            </div>
                           </button>
                         </div>
 
-                        {/* 2. Free Challenge Mode Toggle */}
-                        <div className={`p-3 rounded-xl border flex items-center justify-between gap-2.5 ${
-                          isDark ? 'bg-white/5 border-white/5 text-white' : 'bg-gray-50 border-gray-100 text-gray-800'
+                        {/* 2. Free Challenge Mode Toggle Card - Ultra Compact */}
+                        <div className={`px-3 py-2 rounded-xl border flex items-center justify-between gap-2 transition-all ${
+                          isFreeChallengeMode
+                            ? (isDark 
+                                ? 'bg-amber-950/20 border-amber-500/30 text-white' 
+                                : 'bg-orange-50/70 border-orange-200 text-gray-800 shadow-2xs')
+                            : (isDark 
+                                ? 'bg-zinc-900/80 border-zinc-800 text-white' 
+                                : 'bg-white border-gray-200/80 text-gray-800 shadow-2xs')
                         }`}>
-                          <div>
-                            <span className="text-[10px] font-bold block text-right">وضع التحدي الحر 🔓</span>
-                            <span className="text-[8px] text-gray-400 block text-right mt-0.5">فتح جميع المستويات دون قيود</span>
+                          <div className="flex items-center gap-2 min-w-0">
+                            <div className={`w-6 h-6 rounded-lg flex items-center justify-center shrink-0 border ${
+                              isFreeChallengeMode 
+                                ? 'bg-[#FF5F2E]/20 border-[#FF5F2E]/40 text-[#FF5F2E]' 
+                                : (isDark ? 'bg-zinc-800 border-zinc-700 text-gray-400' : 'bg-gray-100 border-gray-200 text-gray-500')
+                            }`}>
+                              {isFreeChallengeMode ? <Unlock className="w-3 h-3 text-[#FF5F2E]" /> : <Lock className="w-3 h-3" />}
+                            </div>
+                            <div className="flex items-center gap-1.5 truncate">
+                              <span className={`text-[11px] font-bold truncate ${isDark ? 'text-gray-200' : 'text-gray-700'}`}>
+                                التحدي الحر
+                              </span>
+                              <span className={`text-[8px] font-bold px-1.5 py-0.2 rounded-md border shrink-0 ${
+                                isFreeChallengeMode
+                                  ? 'bg-[#FF5F2E]/15 border-[#FF5F2E]/30 text-[#FF5F2E]'
+                                  : (isDark ? 'bg-zinc-800 border-zinc-700 text-gray-400' : 'bg-gray-100 border-gray-200 text-gray-500')
+                              }`}>
+                                {isFreeChallengeMode ? 'مفتوح 🔓' : 'مقيد 🔒'}
+                              </span>
+                            </div>
                           </div>
                           <button
+                            type="button"
                             onClick={handleToggleFreeChallengeMode}
-                            className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-300 focus:outline-hidden cursor-pointer shrink-0 ${
-                              isFreeChallengeMode ? 'bg-[#FF5F2E]' : (isDark ? 'bg-zinc-800' : 'bg-gray-300')
+                            className={`w-8 h-4.5 rounded-full p-0.5 transition-all duration-300 focus:outline-hidden cursor-pointer shrink-0 ${
+                              isFreeChallengeMode ? 'bg-[#FF5F2E]' : (isDark ? 'bg-zinc-800' : 'bg-gray-300 hover:bg-gray-400')
                             }`}
                             title="تفعيل التحدي الحر"
                           >
-                            <div className={`w-4 h-4 rounded-full bg-white shadow-xs transition-transform duration-300 ${
-                              isFreeChallengeMode ? 'translate-x-0' : '-translate-x-4'
-                            }`} />
+                            <div className={`w-3.5 h-3.5 rounded-full bg-white shadow-xs flex items-center justify-center transition-transform duration-300 ${
+                              isFreeChallengeMode ? 'translate-x-0' : '-translate-x-3.5'
+                            }`}>
+                              {isFreeChallengeMode ? (
+                                <Sparkles className="w-2 h-2 text-[#FF5F2E]" />
+                              ) : (
+                                <Lock className="w-2 h-2 text-gray-400" />
+                              )}
+                            </div>
                           </button>
                         </div>
 
-                        {/* Lock Switched Season Return Button */}
-                        {savedNormalSeasonId && (
+                        {/* Status Banner when Free Challenge Mode is active */}
+                        {(isFreeChallengeMode || savedNormalSeasonId) && (
                           <button
                             onClick={handleLockCurrentSeason}
-                            className="w-full py-2.5 px-4 bg-rose-500/10 border border-rose-500/25 text-rose-400 rounded-xl text-right text-[10px] font-black transition-all hover:bg-rose-500/15 flex items-center justify-between cursor-pointer"
+                            className={`w-full py-2 px-3 rounded-xl border text-center text-[11px] font-bold transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                              isDark 
+                                ? 'bg-emerald-500/10 border-emerald-500/25 text-emerald-400 hover:bg-emerald-500/15' 
+                                : 'bg-emerald-50 border-emerald-200 text-emerald-700 hover:bg-emerald-100/80 shadow-2xs'
+                            }`}
                           >
-                            <span>قفل المستوى المفتوح والعودة 🔒</span>
-                            <span className="font-mono text-[9px] bg-rose-500/15 px-2 py-0.5 rounded-md">العودة للرئيسي</span>
+                            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+                            <span>تم فتح جميع المستويات</span>
                           </button>
                         )}
 
@@ -1879,15 +1947,15 @@ export default function App() {
                         >
                           <div className="flex items-center gap-2">
                             <HelpCircle className="w-4 h-4 text-[#FF5F2E]" />
-                            <span>دليل الاستخدام والتعليمات 📖</span>
+                            <span>دليل الاستخدام</span>
                           </div>
                           <ChevronLeft className="w-4 h-4 text-[#FF5F2E]" />
                         </button>
 
-                        {/* 4. Privacy Policy & Terms */}
+                        {/* 4. Privacy Policy */}
                         <button
                           onClick={() => {
-                            setComplianceModal('privacy');
+                            setLegalModalType('privacy');
                           }}
                           className={`w-full py-2.5 px-3.5 rounded-xl text-right text-xs font-bold transition-all flex items-center justify-between cursor-pointer ${
                             isDark ? 'hover:bg-white/5 text-gray-200' : 'hover:bg-gray-50 text-gray-700'
@@ -1895,18 +1963,78 @@ export default function App() {
                         >
                           <div className="flex items-center gap-2">
                             <Shield className="w-4 h-4 text-[#FF5F2E]" />
-                            <span>سياسة الخصوصية والأحكام</span>
+                            <span>سياسة الخصوصية</span>
+                          </div>
+                          <ChevronLeft className="w-4 h-4 text-gray-400" />
+                        </button>
+
+                        {/* 5. Terms of Use */}
+                        <button
+                          onClick={() => {
+                            setLegalModalType('terms');
+                          }}
+                          className={`w-full py-2.5 px-3.5 rounded-xl text-right text-xs font-bold transition-all flex items-center justify-between cursor-pointer ${
+                            isDark ? 'hover:bg-white/5 text-gray-200' : 'hover:bg-gray-50 text-gray-700'
+                          }`}
+                        >
+                          <div className="flex items-center gap-2">
+                            <FileText className="w-4 h-4 text-[#FF5F2E]" />
+                            <span>شروط الاستخدام</span>
+                          </div>
+                          <ChevronLeft className="w-4 h-4 text-gray-400" />
+                        </button>
+
+                        {/* 6. Medical Disclaimer */}
+                        <button
+                          onClick={() => {
+                            setLegalModalType('disclaimer');
+                          }}
+                          className={`w-full py-2.5 px-3.5 rounded-xl text-right text-xs font-bold transition-all flex items-center justify-between cursor-pointer ${
+                            isDark ? 'hover:bg-white/5 text-gray-200' : 'hover:bg-gray-50 text-gray-700'
+                          }`}
+                        >
+                          <div className="flex items-center gap-2">
+                            <AlertTriangle className="w-4 h-4 text-amber-500" />
+                            <span>إخلاء المسؤولية الطبية</span>
+                          </div>
+                          <ChevronLeft className="w-4 h-4 text-gray-400" />
+                        </button>
+
+                        {/* 7. Intellectual Property & Copyright */}
+                        <button
+                          onClick={() => {
+                            setLegalModalType('copyright');
+                          }}
+                          className={`w-full py-2.5 px-3.5 rounded-xl text-right text-xs font-bold transition-all flex items-center justify-between cursor-pointer ${
+                            isDark ? 'hover:bg-white/5 text-gray-200' : 'hover:bg-gray-50 text-gray-700'
+                          }`}
+                        >
+                          <div className="flex items-center gap-2">
+                            <Copyright className="w-4 h-4 text-[#FF5F2E]" />
+                            <span>حقوق الملكية الفكرية</span>
                           </div>
                           <ChevronLeft className="w-4 h-4 text-gray-400" />
                         </button>
                       </div>
                     </div>
 
-                    {/* Bottom dismiss trigger */}
-                    <div className={`p-6 pt-4 border-t shrink-0 ${isDark ? 'border-white/5' : 'border-gray-100'}`}>
+                    {/* Version & Bottom dismiss trigger */}
+                    <div className={`p-5 pt-3 border-t shrink-0 space-y-3 ${isDark ? 'border-white/5' : 'border-gray-100'}`}>
+                      {/* Version Badge with Aesthetic Styling */}
+                      <div className={`flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl border transition-all ${
+                        isDark 
+                          ? 'bg-gradient-to-r from-[#FF5F2E]/10 via-amber-500/5 to-emerald-500/10 border-white/5' 
+                          : 'bg-gradient-to-r from-orange-50 via-amber-50 to-emerald-50 border-orange-100/80 shadow-xs'
+                      }`}>
+                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-xs shadow-emerald-500/50 shrink-0"></span>
+                        <span className="font-mono font-bold text-xs tracking-wide text-[#FF5F2E]" dir="ltr">
+                          Home Workouts - v1.0.0.
+                        </span>
+                      </div>
+
                       <button
                         onClick={() => setIsMenuOpen(false)}
-                        className="w-full py-2.5 bg-[#FF5F2E] hover:bg-[#FF912E] text-white font-extrabold text-xs rounded-xl transition-all text-center cursor-pointer"
+                        className="w-full py-2.5 bg-[#FF5F2E] hover:bg-[#FF912E] text-white font-extrabold text-xs rounded-xl transition-all text-center cursor-pointer shadow-lg shadow-[#FF5F2E]/20 active:scale-[0.98]"
                       >
                         إغلاق القائمة
                       </button>
@@ -2122,6 +2250,14 @@ export default function App() {
               )}
             </AnimatePresence>
 
+            {/* Modular Legal Modal for Privacy, Terms, Disclaimer, Copyright */}
+            <LegalModal
+              type={legalModalType}
+              isOpen={!!legalModalType}
+              onClose={() => setLegalModalType(null)}
+              isDark={isDark}
+            />
+
             {/* Bottom Smartphone Navigation Bar (Fixed Bottom & Sticky layout as requested) */}
             <div className={`border-t flex flex-col shrink-0 z-30 transition-all ${headerBgClass}`}>
               <div className="px-2 py-2 flex justify-around items-center w-full">
@@ -2215,6 +2351,7 @@ export default function App() {
             {celebrationSeasonName && (
               <SuccessCelebration
                 seasonName={celebrationSeasonName}
+                userName={userStats.userName}
                 isDark={isDark}
                 onNextSeason={() => {
                   const currentIndex = seasonsList.findIndex(s => s.id === currentSeasonId);
