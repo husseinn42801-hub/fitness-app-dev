@@ -382,6 +382,7 @@ export function SmartNutrition({ userStats, isDark, onUpdateStats }: SmartNutrit
   // Food items category dictionary
   const CATEGORIES = [
     { id: 'all', label: 'الكل', emoji: '🍽' },
+    { id: 'favorites', label: 'المفضلة', emoji: '❤️' },
     { id: 'protein', label: 'البروتينات', emoji: '🥩' },
     { id: 'poultry', label: 'الدواجن', emoji: '🍗' },
     { id: 'meat', label: 'اللحوم الحمراء', emoji: '🥩' },
@@ -398,9 +399,20 @@ export function SmartNutrition({ userStats, isDark, onUpdateStats }: SmartNutrit
     { id: 'fruit', label: 'الفواكه', emoji: '🍎' }
   ];
 
+  // Randomized shuffle of all food items for the "all" tab
+  const randomizedAllFoods = useMemo(() => {
+    const array = [...NUTRITION_DB];
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }, []);
+
   // Filters food items list based on query, category, and health system checkboxes
   const filteredFoodItems = useMemo(() => {
-    return NUTRITION_DB.filter(item => {
+    const sourceDb = selectedCategory === 'all' ? randomizedAllFoods : NUTRITION_DB;
+    return sourceDb.filter(item => {
       // 1. Text search
       const q = searchQuery.toLowerCase().trim();
       const matchText = q === '' ||
@@ -410,6 +422,7 @@ export function SmartNutrition({ userStats, isDark, onUpdateStats }: SmartNutrit
 
       // 2. Category selection
       const matchCategory = selectedCategory === 'all' || 
+        (selectedCategory === 'favorites' && favorites.includes(item.id)) ||
         item.category === selectedCategory ||
         (selectedCategory === 'vegetable' && (item.category === 'veg' || item.category === 'vegetable')) ||
         (selectedCategory === 'protein' && ['poultry', 'meat', 'fish', 'egg', 'dairy'].includes(item.category)) ||
@@ -430,7 +443,7 @@ export function SmartNutrition({ userStats, isDark, onUpdateStats }: SmartNutrit
 
       return matchText && matchCategory && matchDiet && matchNutrient;
     });
-  }, [searchQuery, selectedCategory, dietFilter, nutrientFilter]);
+  }, [searchQuery, selectedCategory, dietFilter, nutrientFilter, randomizedAllFoods, favorites]);
 
   // Selected meal plan template depending on goal
   const currentGoalPlan: MealTemplate[] = useMemo(() => {
@@ -810,32 +823,51 @@ export function SmartNutrition({ userStats, isDark, onUpdateStats }: SmartNutrit
                   key={meal.id}
                   className={`group border rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-[#FF5F2E]/10 hover:-translate-y-1 hover:border-[#FF5F2E]/40 flex flex-col ${themeCardClass}`}
                 >
-                  {/* Photo Banner with Lazy Loading */}
-                  <div className="relative h-32 bg-gray-900 overflow-hidden">
-                    <LazyImage
-                      src={meal.imageUrl}
-                      categoryOrType={meal.type}
-                      fallbackEmoji="🍲"
-                      alt={meal.nameAr}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                    <div className="absolute right-4 bottom-3 text-right">
-                      <span className="inline-flex items-center gap-1 text-[10px] bg-black/60 backdrop-blur-md text-[#FF7A2E] font-black px-2.5 py-1 rounded-full border border-[#FF5F2E]/30 shadow-xs mb-1">
-                        {mealTypeIcons[meal.type] || '🍽'} {meal.timeAr}
-                      </span>
-                      <h4 className="text-sm font-black text-white drop-shadow-sm">{meal.nameAr}</h4>
+                  {/* Banner */}
+                  {meal.imageUrl ? (
+                    <div className="relative h-32 bg-gray-900 overflow-hidden">
+                      <LazyImage
+                        src={meal.imageUrl}
+                        categoryOrType={meal.type}
+                        fallbackEmoji="🍲"
+                        alt={meal.nameAr}
+                        referrerPolicy="no-referrer"
+                        className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                      <div className="absolute right-4 bottom-3 text-right">
+                        <span className="inline-flex items-center gap-1 text-[10px] bg-black/60 backdrop-blur-md text-[#FF7A2E] font-black px-2.5 py-1 rounded-full border border-[#FF5F2E]/30 shadow-xs mb-1">
+                          {mealTypeIcons[meal.type] || '🍽'} {meal.timeAr}
+                        </span>
+                        <h4 className="text-sm font-black text-white drop-shadow-sm">{meal.nameAr}</h4>
+                      </div>
+                      <div className="absolute left-4 bottom-3 text-left flex flex-col items-end">
+                        <span className="text-xs font-black text-emerald-300 bg-emerald-950/70 backdrop-blur-md border border-emerald-500/30 px-2.5 py-1 rounded-full shadow-xs font-mono">
+                          {meal.calories} سعرة
+                        </span>
+                        <span className="text-[8.5px] text-gray-200 font-bold font-mono mt-1 bg-black/40 px-2 py-0.5 rounded-full backdrop-blur-xs">
+                          ب:{meal.protein}ج • ك:{meal.carbs}ج • د:{meal.fats}ج
+                        </span>
+                      </div>
                     </div>
-                    <div className="absolute left-4 bottom-3 text-left flex flex-col items-end">
-                      <span className="text-xs font-black text-emerald-300 bg-emerald-950/70 backdrop-blur-md border border-emerald-500/30 px-2.5 py-1 rounded-full shadow-xs font-mono">
-                        {meal.calories} سعرة
-                      </span>
-                      <span className="text-[8.5px] text-gray-200 font-bold font-mono mt-1 bg-black/40 px-2 py-0.5 rounded-full backdrop-blur-xs">
-                        ب:{meal.protein}ج • ك:{meal.carbs}ج • د:{meal.fats}ج
-                      </span>
+                  ) : (
+                    <div className="p-4 bg-gradient-to-r from-[#FF5F2E]/15 via-[#FF5F2E]/5 to-transparent border-b border-gray-500/10 flex justify-between items-center">
+                      <div className="space-y-1">
+                        <span className="inline-flex items-center gap-1 text-[10px] bg-[#FF5F2E]/20 text-[#FF5F2E] font-black px-2.5 py-0.5 rounded-full">
+                          {mealTypeIcons[meal.type] || '🍽'} {meal.timeAr}
+                        </span>
+                        <h4 className={`text-sm font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>{meal.nameAr}</h4>
+                      </div>
+                      <div className="text-left flex flex-col items-end">
+                        <span className="text-xs font-black text-emerald-500 font-mono">
+                          {meal.calories} سعرة
+                        </span>
+                        <span className="text-[9px] text-gray-400 font-bold font-mono mt-0.5">
+                          ب:{meal.protein}ج • ك:{meal.carbs}ج • د:{meal.fats}ج
+                        </span>
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   {/* Ingredients and Instructions */}
                   <div className="p-4 space-y-3">
@@ -895,6 +927,11 @@ export function SmartNutrition({ userStats, isDark, onUpdateStats }: SmartNutrit
               >
                 <span>{cat.emoji}</span>
                 <span>{cat.label}</span>
+                {cat.id === 'favorites' && favorites.length > 0 && (
+                  <span className="mr-0.5 px-1.5 py-0.2 text-[8px] bg-rose-500 text-white rounded-full font-black">
+                    {favorites.length}
+                  </span>
+                )}
               </button>
             ))}
           </div>
@@ -931,90 +968,129 @@ export function SmartNutrition({ userStats, isDark, onUpdateStats }: SmartNutrit
             </select>
           </div>
 
-          {/* Food Grid Display list */}
-          <div className="grid grid-cols-2 gap-3">
-            {filteredFoodItems.map((item) => {
-              const isFav = favorites.includes(item.id);
-              return (
-                <div
-                  key={item.id}
-                  onClick={() => {
-                    setSelectedFoodItem(item);
-                    setSelectedFoodSource('library');
-                  }}
-                  className={`border rounded-2xl overflow-hidden transition-all duration-300 hover:scale-101 cursor-pointer flex flex-col justify-between ${themeCardClass}`}
-                >
-                  <div className="relative h-20 bg-gray-900">
-                    <LazyImage
-                      src={item.imageUrl}
-                      fallbackSrc={item.fallbackImageUrl}
-                      categoryOrType={item.category}
-                      fallbackEmoji={getFoodEmoji(item.category)}
-                      alt={item.nameAr}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover opacity-85"
-                    />
-                    
-                    {/* Favorite Button */}
-                    <button
-                      onClick={(e) => handleToggleFavorite(item.id, e)}
-                      className={`absolute left-2.5 top-2.5 p-1.5 rounded-full backdrop-blur-md transition-all cursor-pointer ${
-                        isFav
-                          ? 'bg-rose-500 text-white'
-                          : 'bg-black/40 text-gray-300 hover:text-white hover:bg-black/60'
-                      }`}
+          {/* Food Grid Display list with smooth transition */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={selectedCategory + '-' + dietFilter + '-' + nutrientFilter}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.22, ease: 'easeOut' }}
+              className="space-y-4"
+            >
+              <div className="grid grid-cols-2 gap-3">
+                {filteredFoodItems.map((item) => {
+                  const isFav = favorites.includes(item.id);
+                  return (
+                    <div
+                      key={item.id}
+                      onClick={() => {
+                        setSelectedFoodItem(item);
+                        setSelectedFoodSource('library');
+                      }}
+                      className={`border rounded-2xl overflow-hidden transition-all duration-300 hover:scale-101 cursor-pointer flex flex-col justify-between ${themeCardClass}`}
                     >
-                      <Heart className="w-3.5 h-3.5 fill-current" />
-                    </button>
+                      {item.imageUrl ? (
+                        <div className="relative h-20 bg-gray-900">
+                          <LazyImage
+                            src={item.imageUrl}
+                            fallbackSrc={item.fallbackImageUrl}
+                            categoryOrType={item.category}
+                            fallbackEmoji={getFoodEmoji(item.category)}
+                            alt={item.nameAr}
+                            referrerPolicy="no-referrer"
+                            className="w-full h-full object-cover opacity-85"
+                          />
+                          
+                          {/* Favorite Button */}
+                          <button
+                            onClick={(e) => handleToggleFavorite(item.id, e)}
+                            className={`absolute left-2.5 top-2.5 p-1.5 rounded-full backdrop-blur-md transition-all cursor-pointer ${
+                              isFav
+                                ? 'bg-rose-500 text-white'
+                                : 'bg-black/40 text-gray-300 hover:text-white hover:bg-black/60'
+                            }`}
+                          >
+                            <Heart className="w-3.5 h-3.5 fill-current" />
+                          </button>
 
-                    {/* Satiety Index badge */}
-                    <div className="absolute right-2.5 top-2.5 px-2 py-0.5 bg-black/40 backdrop-blur-md rounded-md text-[8px] font-black text-amber-400">
-                      مؤشر شبع: {item.satietyIndex}/5
-                    </div>
-                  </div>
+                          {/* Satiety Index badge */}
+                          <div className="absolute right-2.5 top-2.5 px-2 py-0.5 bg-black/40 backdrop-blur-md rounded-md text-[8px] font-black text-amber-400">
+                            مؤشر شبع: {item.satietyIndex}/5
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="relative p-3 bg-gradient-to-r from-gray-500/10 via-gray-500/5 to-transparent border-b border-gray-500/10 flex justify-between items-center">
+                          <div className="flex items-center gap-1.5">
+                            <span className="text-lg">{getFoodEmoji(item.category)}</span>
+                            <span className="text-[9px] px-2 py-0.5 rounded-full font-black bg-[#FF5F2E]/10 text-[#FF5F2E]">
+                              مؤشر شبع: {item.satietyIndex}/5
+                            </span>
+                          </div>
 
-                  <div className="p-3 space-y-1.5 flex-1 flex flex-col justify-between">
-                    <div>
-                      <h4 className={`text-xs font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>{item.nameAr}</h4>
-                      <span className="text-[8px] text-gray-400 font-medium font-mono uppercase block">{item.nameEn}</span>
-                    </div>
+                          <button
+                            onClick={(e) => handleToggleFavorite(item.id, e)}
+                            className={`p-1.5 rounded-full transition-all cursor-pointer ${
+                              isFav
+                                ? 'bg-rose-500 text-white'
+                                : (isDark ? 'bg-white/5 text-gray-400 hover:text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200')
+                            }`}
+                          >
+                            <Heart className="w-3.5 h-3.5 fill-current" />
+                          </button>
+                        </div>
+                      )}
 
-                    <div className="space-y-1.5 pt-2 border-t border-dashed border-gray-500/10">
-                      <div className="flex justify-between items-center text-[10px]">
-                        <span className="text-emerald-500 font-mono font-black">{item.calories} سعرة</span>
-                        <span className="text-gray-400 font-mono text-[8px]">{item.servingSize}</span>
+                      <div className="p-3 space-y-1.5 flex-1 flex flex-col justify-between">
+                        <div>
+                          <h4 className={`text-xs font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>{item.nameAr}</h4>
+                          <span className="text-[8px] text-gray-400 font-medium font-mono uppercase block">{item.nameEn}</span>
+                        </div>
+
+                        <div className="space-y-1.5 pt-2 border-t border-dashed border-gray-500/10">
+                          <div className="flex justify-between items-center text-[10px]">
+                            <span className="text-emerald-500 font-mono font-black">{item.calories} سعرة</span>
+                            <span className="text-gray-400 font-mono text-[8px]">{item.servingSize}</span>
+                          </div>
+
+                          {/* Micro visual bar representation */}
+                          <div className="grid grid-cols-3 gap-1 text-[8px] font-mono font-bold text-center">
+                            <div className="bg-emerald-500/10 text-emerald-500 px-1 py-0.5 rounded-md">ب:{item.protein}ج</div>
+                            <div className="bg-sky-500/10 text-sky-400 px-1 py-0.5 rounded-md">ك:{item.carbs}ج</div>
+                            <div className="bg-amber-500/10 text-amber-500 px-1 py-0.5 rounded-md">د:{item.fats}ج</div>
+                          </div>
+
+                          {/* Add directly to daily logger button */}
+                          <button
+                            onClick={(e) => handleOpenLoggingModal(item, e)}
+                            className="w-full py-1.5 bg-[#FF5F2E] hover:bg-[#FF5F2E]/90 text-white rounded-lg font-black text-[9px] flex items-center justify-center gap-1 mt-1 cursor-pointer"
+                          >
+                            <Plus className="w-3 h-3" />
+                            <span>تسجيل باليوميات</span>
+                          </button>
+                        </div>
                       </div>
-
-                      {/* Micro visual bar representation */}
-                      <div className="grid grid-cols-3 gap-1 text-[8px] font-mono font-bold text-center">
-                        <div className="bg-emerald-500/10 text-emerald-500 px-1 py-0.5 rounded-md">ب:{item.protein}ج</div>
-                        <div className="bg-sky-500/10 text-sky-400 px-1 py-0.5 rounded-md">ك:{item.carbs}ج</div>
-                        <div className="bg-amber-500/10 text-amber-500 px-1 py-0.5 rounded-md">د:{item.fats}ج</div>
-                      </div>
-
-                      {/* Add directly to daily logger button */}
-                      <button
-                        onClick={(e) => handleOpenLoggingModal(item, e)}
-                        className="w-full py-1.5 bg-[#FF5F2E] hover:bg-[#FF5F2E]/90 text-white rounded-lg font-black text-[9px] flex items-center justify-center gap-1 mt-1 cursor-pointer"
-                      >
-                        <Plus className="w-3 h-3" />
-                        <span>تسجيل باليوميات</span>
-                      </button>
                     </div>
-                  </div>
+                  );
+                })}
+              </div>
+
+              {filteredFoodItems.length === 0 && (
+                <div className={`text-center py-10 px-4 rounded-2xl border ${themeCardClass}`}>
+                  <span className="text-4xl block mb-2">
+                    {selectedCategory === 'favorites' ? '❤️' : '🔍'}
+                  </span>
+                  <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'} font-bold`}>
+                    {selectedCategory === 'favorites'
+                      ? (favorites.length === 0
+                          ? 'لم تقم بإضافة أي أصناف إلى المفضلة بعد. اضغط على أيقونة القلب ❤️ على أي صنف لإضافته هنا.'
+                          : 'لا توجد أصناف في المفضلة تطابق البحث أو الفلاتر المختارة.')
+                      : 'عذراً، لم نجد أي مادة غذائية تطابق بحثك حالياً. يرجى تجربة كلمات بحثية أخرى.'}
+                  </p>
                 </div>
-              );
-            })}
-          </div>
-
-          {filteredFoodItems.length === 0 && (
-            <div className={`text-center py-10 rounded-2xl border ${themeCardClass}`}>
-              <span className="text-4xl block mb-2">🔍</span>
-              <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'} font-bold`}>
-                عذراً، لم نجد أي مادة غذائية تطابق بحثك حالياً. يرجى تجربة كلمات بحثية أخرى.
-              </p>
-            </div>
-          )}
+              )}
+            </motion.div>
+          </AnimatePresence>
         </div>
       )}
 
@@ -1129,36 +1205,60 @@ export function SmartNutrition({ userStats, isDark, onUpdateStats }: SmartNutrit
                 isDark ? 'bg-[#161618] border-white/10 text-white' : 'bg-white border-gray-200 text-gray-900 shadow-2xl'
               }`}
             >
-              <div className="relative h-44 bg-gray-900">
-                <LazyImage
-                  src={selectedFoodItem.imageUrl}
-                  fallbackSrc={selectedFoodItem.fallbackImageUrl}
-                  categoryOrType={selectedFoodItem.category}
-                  fallbackEmoji={getFoodEmoji(selectedFoodItem.category)}
-                  alt={selectedFoodItem.nameAr}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                
-                {/* Close Button */}
-                <button
-                  onClick={() => setSelectedFoodItem(null)}
-                  className={`absolute left-5 top-5 p-2 rounded-full transition-all cursor-pointer ${
-                    isDark ? 'bg-black/40 text-gray-300 hover:text-white' : 'bg-white/80 text-gray-700 hover:text-gray-900'
-                  }`}
-                >
-                  <X className="w-5 h-5" />
-                </button>
+              {selectedFoodItem.imageUrl ? (
+                <div className="relative h-44 bg-gray-900">
+                  <LazyImage
+                    src={selectedFoodItem.imageUrl}
+                    fallbackSrc={selectedFoodItem.fallbackImageUrl}
+                    categoryOrType={selectedFoodItem.category}
+                    fallbackEmoji={getFoodEmoji(selectedFoodItem.category)}
+                    alt={selectedFoodItem.nameAr}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                  
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setSelectedFoodItem(null)}
+                    className={`absolute left-5 top-5 p-2 rounded-full transition-all cursor-pointer ${
+                      isDark ? 'bg-black/40 text-gray-300 hover:text-white' : 'bg-white/80 text-gray-700 hover:text-gray-900'
+                    }`}
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
 
-                <div className="absolute right-5 bottom-4 text-right">
-                  <span className="text-[10px] bg-[#FF5F2E] text-white font-black px-2.5 py-0.5 rounded-full block w-max uppercase mb-1">
-                    {selectedFoodItem.servingSize}
-                  </span>
-                  <h3 className="text-base font-black text-white">{selectedFoodItem.nameAr}</h3>
-                  <span className="text-[10px] text-gray-300 font-medium font-mono uppercase mt-0.5 block">{selectedFoodItem.nameEn}</span>
+                  <div className="absolute right-5 bottom-4 text-right">
+                    <span className="text-[10px] bg-[#FF5F2E] text-white font-black px-2.5 py-0.5 rounded-full block w-max uppercase mb-1">
+                      {selectedFoodItem.servingSize}
+                    </span>
+                    <h3 className="text-base font-black text-white">{selectedFoodItem.nameAr}</h3>
+                    <span className="text-[10px] text-gray-300 font-medium font-mono uppercase mt-0.5 block">{selectedFoodItem.nameEn}</span>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="p-6 border-b border-gray-500/10 bg-gradient-to-r from-[#FF5F2E]/10 via-[#FF5F2E]/5 to-transparent relative">
+                  <button
+                    onClick={() => setSelectedFoodItem(null)}
+                    className={`absolute left-5 top-5 p-2 rounded-full transition-all cursor-pointer ${
+                      isDark ? 'bg-white/5 text-gray-300 hover:text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+
+                  <div className="space-y-1.5 pr-1 text-right">
+                    <div className="flex items-center gap-2">
+                      <span className="text-2xl">{getFoodEmoji(selectedFoodItem.category)}</span>
+                      <span className="text-[10px] bg-[#FF5F2E] text-white font-black px-2.5 py-0.5 rounded-full block w-max uppercase">
+                        {selectedFoodItem.servingSize}
+                      </span>
+                    </div>
+                    <h3 className={`text-lg font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>{selectedFoodItem.nameAr}</h3>
+                    <span className="text-[10px] text-gray-400 font-medium font-mono uppercase block">{selectedFoodItem.nameEn}</span>
+                  </div>
+                </div>
+              )}
 
               {/* Nutrition & Detailed values */}
               <div className="p-6 space-y-5">

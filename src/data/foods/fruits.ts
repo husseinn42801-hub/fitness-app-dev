@@ -34,7 +34,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '150 جرام (ثمرة متوسطة)',
     weightGrams: 150,
     satietyIndex: 4.9,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/1-Fresh%20Green%20Apple.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/1-Fresh%20Green%20Apple.webp',
     prepMethods: ['تناوله طازجاً بقشرته مع رشة قرفة طازجة'],
     recipes: ['شرائح التفاح الأخضر بالقرفة واللوز النيء', 'سلطة التفاح الأخضر بالكرفس والزبادي اليوناني'],
     alternatives: ['red_apple', 'pear', 'kiwi']
@@ -72,7 +72,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '150 جرام (ثمرة متوسطة بقشرتها)',
     weightGrams: 150,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/2-Red%20Apple.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/2-Red%20Apple.webp',
     prepMethods: ['غسله وتناوله طازجاً بقشرته أو تقطيعه شرائح مع زبدة الفول السوداني'],
     recipes: ['شرائح التفاح الأحمر مع رشة قرفة وزبدة الفول السوداني', 'سلطة التفاح بالجرجير وعين الجمل'],
     alternatives: ['apple_fresh', 'peach', 'strawberry']
@@ -110,7 +110,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (ثمرة متوسطة)',
     weightGrams: 100,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/3-Fresh%20Banana.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/3-Fresh%20Banana.webp',
     prepMethods: ['تقطيعه فوق عصيدة الشوفان أو خفقه في سموذي البروتين الصباحي'],
     recipes: ['موز طازج مع زبدة الفول السوداني والشوفان', 'سموذي الموز باللبن خالي الدسم والكاكاو'],
     alternatives: ['mango', 'red_grapes', 'green_grapes']
@@ -148,7 +148,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '130 جرام (ثمرة متوسطة)',
     weightGrams: 130,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/4-Orange.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/4-Orange.webp',
     prepMethods: ['تقشيره وتناوله كاملاً بفصوصه وأليافه الطبيعية'],
     recipes: ['فصوص برتقال طازجة مع رشة قرفة', 'سلطة البرتقال بالسبانخ الطازجة واللوز'],
     alternatives: ['mandarin', 'strawberry', 'kiwi']
@@ -186,7 +186,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '120 جرام (2 ثمرة متوسطة)',
     weightGrams: 120,
     satietyIndex: 4.5,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/5-Mandarin.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/5-Mandarin.webp',
     prepMethods: ['تقشير وتناول الفصوص طازجة'],
     recipes: ['فصوص اليوسفي مع سلطة الفواكه المشكلة', 'سناك اليوسفي البارد بعد الوجبات'],
     alternatives: ['orange', 'strawberry', 'apricot']
@@ -224,7 +224,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '150 جرام (ثمرة متوسطة)',
     weightGrams: 150,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/6-Pear.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/6-Pear.webp',
     prepMethods: ['تقطيعها شرائح وتناولها بقشرتها طازجة'],
     recipes: ['شرائح الكمثرى الطازجة مع الجبن القريش', 'سلطة الكمثرى مع الجرجير وعين الجمل'],
     alternatives: ['apple_fresh', 'red_apple', 'peach']
@@ -262,7 +262,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '150 جرام (ثمرة متوسطة)',
     weightGrams: 150,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/7-Peach.webp',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/7-Peach.webp',
     prepMethods: ['تقطيعه شرائح طازجة أو إضافته للزبادي'],
     recipes: ['شرائح الخوخ الطازج مع الزبادي اليوناني', 'سلطة الخوخ والنعناع الصيفية'],
     alternatives: ['apricot', 'plum', 'mandarin']
@@ -300,7 +300,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (حوالي 3-4 حبات)',
     weightGrams: 100,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/8-Apricot.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/8-Apricot.webp',
     prepMethods: ['غسله وتناوله طازجاً بنواته المزالة'],
     recipes: ['حبات المشمش الطازج مع الجوز النيء', 'سلطة المشمش والشوفان الصباحية'],
     alternatives: ['peach', 'plum', 'mandarin']
@@ -338,7 +338,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (2 ثمرة متوسطة)',
     weightGrams: 100,
     satietyIndex: 4.5,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/9-Plum.webp',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/9-Plum.webp',
     prepMethods: ['غسله وتناوله طازجاً كاملاً'],
     recipes: ['شرائح البرقوق الطازج في أطباق الفواكه', 'برقوق طازج مع اللوز النيء'],
     alternatives: ['apricot', 'peach', 'strawberry']
@@ -376,7 +376,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (حوالي 2 ثمرة كيوي)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/10-Kiwi.webp',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/10-Kiwi.webp',
     prepMethods: ['تقشيره وتقطيعه شرائح طازجة أو تناوله بالملعقة'],
     recipes: ['شرائح الكيوي الطازج مع التفاح الأخضر', 'كيوي طازج مقطع فوق الزبادي اليوناني'],
     alternatives: ['pineapple', 'strawberry', 'orange']
@@ -414,7 +414,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (كوب فراولة طازجة)',
     weightGrams: 100,
     satietyIndex: 4.9,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/11-Strawberry.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/11-Strawberry.webp',
     prepMethods: ['غسلها وتقطيعها طازجة أو خفقها مع الزبادي اليوناني'],
     recipes: ['طبق فراولة طازجة مع الزبادي اليوناني والشيا', 'سموذي الفراولة بالحليب خالي الدسم'],
     alternatives: ['blueberries', 'blackberries', 'watermelon']
@@ -452,7 +452,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (كوب توت أزرق طازج)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/12-Blueberries.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/12-Blueberries.webp',
     prepMethods: ['تناوله طازجاً أو إضافته لأطباق الزبادي اليوناني والشوفان'],
     recipes: ['توت أزرق طازج مع الزبادي اليوناني وبذور الشيا', 'عصيدة الشوفان بالتوت الأزرق والعسل'],
     alternatives: ['blackberries', 'strawberry', 'pomegranate']
@@ -490,7 +490,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (كوب توت أسود)',
     weightGrams: 100,
     satietyIndex: 4.9,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/13-Blackberries.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/13-Blackberries.webp',
     prepMethods: ['تناوله طازجاً أو خفقه في السموذي الصحي'],
     recipes: ['توت أسود طازج مع زبادي يوناني ودبّس التمر الخفيف', 'سموذي التوت الأسود مع البروتين'],
     alternatives: ['blueberries', 'strawberry', 'kiwi']
@@ -528,7 +528,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (شرائح أناناس طازج)',
     weightGrams: 100,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/14-Pineapple.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/14-Pineapple.webp',
     prepMethods: ['تقطيعه شرائح طازجة وتناوله فوراً'],
     recipes: ['شرائح الأناناس الطازج مع الكيوي', 'سلطة الأناناس الاستوائية بشرائح الدجاج المشوي'],
     alternatives: ['kiwi', 'papaya', 'mango']
@@ -566,7 +566,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مكعبات مانجو طازجة)',
     weightGrams: 100,
     satietyIndex: 4.3,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/15-Mango.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/15-Mango.webp',
     prepMethods: ['تقطيعها مكعبات طازجة باردة'],
     recipes: ['مكعبات المانجو الباردة مع الشيا والزبادي اليوناني', 'سموذي المانجو الاستوائي بالبروتين'],
     alternatives: ['papaya', 'pineapple', 'banana_fresh']
@@ -604,7 +604,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '150 جرام (كوب مكعبات)',
     weightGrams: 150,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/16-Papaya.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/16-Papaya.webp',
     prepMethods: ['تقشيرها وتخليصها من البذور وتقطيعها مكعبات'],
     recipes: ['مكعبات البابايا الباردة مع رشة ليمون', 'سلطة الفواكه الاستوائية بالبابايا والأناناس'],
     alternatives: ['pineapple', 'kiwi', 'mango']
@@ -642,7 +642,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '200 جرام (شريحة بطيخ كبيرة)',
     weightGrams: 200,
     satietyIndex: 4.5,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/17-Watermelon.webp',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/17-Watermelon.webp',
     prepMethods: ['تقطيعه مكعبات باردة وتناوله طازجاً مع جبن قريش أو فيتا لايت'],
     recipes: ['مكعبات البطيخ البارد مع جبن الفيتا لايت والنعناع', 'شريحة بطيخ طازجة مرطبة بعد التمرين'],
     alternatives: ['cantaloupe', 'strawberry', 'pineapple']
@@ -680,7 +680,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '150 جرام (مكعبات شمام)',
     weightGrams: 150,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/18-Cantaloupe.webp',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/18-Cantaloupe.webp',
     prepMethods: ['تقطيعه مكعبات باردة في أطباق الفاكهة المشكلة'],
     recipes: ['مكعبات الشمام الباردة مع عصير الليمون', 'سلطة الفواكه الصيفية بالشمام والفراولة'],
     alternatives: ['watermelon', 'peach', 'mango']
@@ -718,7 +718,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (حبوب رمان طازجة)',
     weightGrams: 100,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/19-Pomegranate.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/19-Pomegranate.webp',
     prepMethods: ['تفريط الحبوب وتناولها أو رشها فوق السلطات والزبادي'],
     recipes: ['حبوب الرمان الطازجة مرشوشة فوق سلطة الكينوا', 'زبادي يوناني بحبوب الرمان والعسل'],
     alternatives: ['blueberries', 'blackberries', 'strawberry']
@@ -756,7 +756,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (كوب صغير)',
     weightGrams: 100,
     satietyIndex: 4.1,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/20-Red%20Grapes.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/20-Red%20Grapes.webp',
     prepMethods: ['غسله وتناوله طازجاً أو تجميده كسناك صيفي صحي'],
     recipes: ['حبات العنب المجمدة كسناك مثلج صحي', 'عنب أحمر طازج مع الجبن الفيتا لايت'],
     alternatives: ['green_grapes', 'blueberries', 'strawberry']
@@ -794,7 +794,7 @@ export const FRUIT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (كوب صغير)',
     weightGrams: 100,
     satietyIndex: 4.1,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/21-Green%20Grapes.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/21-Green%20Grapes.webp',
     prepMethods: ['غسله جيداً وتناوله طازجاً أو بارداً'],
     recipes: ['عنب أخضر طازج مع اللوز النيء', 'حبات العنب الأخضر المجمدة بالثلاجة'],
     alternatives: ['red_grapes', 'kiwi', 'apple_fresh']

@@ -34,7 +34,7 @@ export const NUT_ITEMS: FoodItem[] = [
     servingSize: '30 جرام (قبضة يد صغيرة)',
     weightGrams: 30,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/1-Raw%20Almonds.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/1-Raw%20Almonds.webp',
     prepMethods: ['تناوله نيئاً طازجاً أو نقعه في الماء طوال الليل لسهولة الهضم'],
     recipes: ['قبضة لوز نيء مع التفاح الأخضر كسناك صحي', 'لوز مفروم فوق الزبادي اليوناني والعسل'],
     alternatives: ['walnuts', 'cashews_raw', 'hazelnuts_raw']
@@ -72,7 +72,7 @@ export const NUT_ITEMS: FoodItem[] = [
     servingSize: '30 جرام (قبضة يد صغيرة)',
     weightGrams: 30,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/2-Walnuts.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/2-Walnuts.webp',
     prepMethods: ['تناوله نياً أو تكسيره فوق سلطة الخضار والشوفان'],
     recipes: ['سلطة الجرجير بعين الجمل والتفاح والجبن الفيتا لايت', 'عين جمل مكسر فوق طبق الشوفان الصباحي'],
     alternatives: ['almonds_raw', 'flax_seeds', 'chia_seeds']
@@ -110,7 +110,7 @@ export const NUT_ITEMS: FoodItem[] = [
     servingSize: '30 جرام',
     weightGrams: 30,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/3-Raw%20Cashews.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/3-Raw%20Cashews.webp',
     prepMethods: ['تناوله نيئاً بدون تحميص مملح'],
     recipes: ['قبضة كاجو نيء مع شريحة توست وقرفة', 'كاجو مكسر داخل سلطة الخضار السوتيه'],
     alternatives: ['almonds_raw', 'pistachios_raw', 'hazelnuts_raw']
@@ -148,7 +148,7 @@ export const NUT_ITEMS: FoodItem[] = [
     servingSize: '30 جرام',
     weightGrams: 30,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/4-Pistachios.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/4-Pistachios.webp',
     prepMethods: ['تقشيره وتناوله نيئاً طازجاً'],
     recipes: ['قبضة فستق نيء مع التين المجفف الدايت', 'فستق مفروم فوق الزبادي اليوناني'],
     alternatives: ['almonds_raw', 'cashews_raw', 'pumpkin_seeds']
@@ -186,7 +186,7 @@ export const NUT_ITEMS: FoodItem[] = [
     servingSize: '30 جرام',
     weightGrams: 30,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/5-Hazelnuts.webp',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/5-Hazelnuts.webp',
     prepMethods: ['تناوله نيئاً أو تحميصه خفيفاً جداً بالفرن بدون زيت'],
     recipes: ['قبضة بندق نيء مع الشوكولاتة الداكنة 85%', 'بندق مكسر فوق عصيدة الشوفان والكاكاو'],
     alternatives: ['almonds_raw', 'walnuts', 'cashews_raw']
@@ -224,7 +224,7 @@ export const NUT_ITEMS: FoodItem[] = [
     servingSize: '30 جرام',
     weightGrams: 30,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/6-Peanuts.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/6-Peanuts.webp',
     prepMethods: ['تقشيره وتناوله نيئاً أو محمّصاً جافاً بدون زيت ومألوح'],
     recipes: ['قبضة فول سوداني نيء مع التمر كوجبة قبل التمرين', 'سوداني نيء مكسر مع أرز بالحليب خالي الدسم'],
     alternatives: ['almonds_raw', 'sunflower_seeds', 'cashews_raw']
@@ -262,7 +262,7 @@ export const NUT_ITEMS: FoodItem[] = [
     servingSize: '15 جرام (ملعقة طعام كبيرة)',
     weightGrams: 15,
     satietyIndex: 5.0,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/7-Chia%20Seeds.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/7-Chia%20Seeds.webp',
     prepMethods: ['نقعها في ماء أو حليب خالي الدسم لمدة 15 دقيقة لعمل بودينغ الشيا'],
     recipes: ['بودينغ بذور الشيا بالحليب والتوت والعسل', 'إضافة ملعقة بذور شيا منقوعة لكوب الماء الصباحي'],
     alternatives: ['flax_seeds', 'pumpkin_seeds', 'almonds_raw']
@@ -300,7 +300,7 @@ export const NUT_ITEMS: FoodItem[] = [
     servingSize: '15 جرام (ملعقة طعام مطحونة)',
     weightGrams: 15,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/8-Flaxseeds.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/8-Flaxseeds.webp',
     prepMethods: ['طحنها طازجة ورشها فوق الزبادي والسلطات والعصائر'],
     recipes: ['زبادي يوناني مرشوش بملعقة بذور كتان مطحونة', 'إضافة بذور الكتان المطحونة لعجينة الخبز الصحي'],
     alternatives: ['chia_seeds', 'flaxseed_oil', 'walnuts']
@@ -338,7 +338,7 @@ export const NUT_ITEMS: FoodItem[] = [
     servingSize: '30 جرام (قبضة يد)',
     weightGrams: 30,
     satietyIndex: 4.9,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/9-Pumpkin%20Seeds.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/9-Pumpkin%20Seeds.webp',
     prepMethods: ['تقشيرها وتناولها نيئة خضراء أو إضافتها للسلطة والزبادي'],
     recipes: ['قبضة بذور القرع النيئة الخضراء قبل النوم', 'بذور القرع رش فوق الزبادي اليوناني والسلطة'],
     alternatives: ['sunflower_seeds', 'almonds_raw', 'chia_seeds']
@@ -376,7 +376,7 @@ export const NUT_ITEMS: FoodItem[] = [
     servingSize: '30 جرام (لب مقشر غير مملح)',
     weightGrams: 30,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/10-Sunflower%20Seeds.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/10-Sunflower%20Seeds.webp',
     prepMethods: ['تقشيره وتناوله نيئاً أو إضافته للسلطة'],
     recipes: ['قبضة لب دوار الشمس مقشر غير مملح', 'بذور دوار الشمس رش فوق سلطة الجرجير'],
     alternatives: ['pumpkin_seeds', 'almonds_raw', 'peanuts_raw']
@@ -413,7 +413,7 @@ export const NUT_ITEMS: FoodItem[] = [
     servingSize: '10 جرام (حبتان كاملتان)',
     weightGrams: 10,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/11-Brazil%20Nuts.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/11-Brazil%20Nuts.webp',
     prepMethods: ['تناوله نيئاً طازجاً بدون تحميص'],
     recipes: ['حبتان جوز برازيل مع كوب قهوة صباحية'],
     alternatives: ['walnuts', 'almonds_raw']
@@ -450,7 +450,7 @@ export const NUT_ITEMS: FoodItem[] = [
     servingSize: '30 جرام (قبضة يد صغيرة)',
     weightGrams: 30,
     satietyIndex: 4.9,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/12-Macadamia%20Nuts.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%85%D9%83%D8%B3%D8%B1%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D8%A8%D8%B0%D9%88%D8%B1/12-Macadamia%20Nuts.webp',
     prepMethods: ['تناولها نيئة أو محمصة خفيفاً'],
     recipes: ['قبضة مكاديميا كسناك غني بالدهون المفيدة'],
     alternatives: ['walnuts', 'hazelnuts_raw']

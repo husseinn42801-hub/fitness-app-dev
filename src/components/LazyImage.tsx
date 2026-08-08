@@ -1,31 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 /**
  * Transforms nutrition image URLs into optimal WebP format.
- * Supports Unsplash CDN (fm=webp), R2/S3 (.webp conversion), and external CDN parameters.
+ * Supports Unsplash CDN (fm=webp), while preserving static CDN/R2 URLs as is.
  */
 export const ensureWebPUrl = (url: string): string => {
   if (!url || typeof url !== 'string') return url;
   
-  // If already explicitly WebP or formatted
-  if (url.includes('.webp') || url.includes('fm=webp') || url.includes('format=webp')) {
-    return url;
-  }
-
-  // Unsplash URLs
+  // Unsplash URLs support parameter transformation
   if (url.includes('images.unsplash.com')) {
+    if (url.includes('fm=webp') || url.includes('format=webp')) return url;
     const separator = url.includes('?') ? '&' : '?';
     return `${url}${separator}fm=webp`;
   }
 
-  // Cloudflare R2 or direct image file extensions (.jpeg, .jpg, .png)
-  if (url.match(/\.(jpeg|jpg|png)(\?.*)?$/i)) {
-    return url.replace(/\.(jpeg|jpg|png)(\?.*)?$/i, '.webp$2');
-  }
-
-  // Fallback for generic image URLs
-  const separator = url.includes('?') ? '&' : '?';
-  return `${url}${separator}format=webp&fm=webp`;
+  // Return static storage URLs (R2, S3, Firebase, local, etc.) directly
+  return url;
 };
 
 const DEFAULT_CATEGORY_PHOTOS: Record<string, string> = {
@@ -86,6 +76,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const imgRef = useRef<HTMLImageElement | null>(null);
 
   const autoFallback = getAutoFoodPhoto(alt, categoryOrType, fallbackSrc);
   const rawSrc = src && typeof src === 'string' && src.trim() !== '' ? src : autoFallback;
@@ -99,17 +90,21 @@ export const LazyImage: React.FC<LazyImageProps> = ({
     setHasError(false);
     setRetryStage('webp');
     const initialRaw = src && typeof src === 'string' && src.trim() !== '' ? src : autoFallback;
-    setCurrentSrc(ensureWebPUrl(initialRaw));
+    const initialUrl = ensureWebPUrl(initialRaw);
+    setCurrentSrc(initialUrl);
+
+    // If already complete in browser cache
+    if (imgRef.current && imgRef.current.complete && imgRef.current.naturalWidth > 0) {
+      setIsLoaded(true);
+    }
   }, [src, fallbackSrc, alt, categoryOrType]);
 
   const handleError = () => {
     if (retryStage === 'webp' && currentSrc !== rawSrc) {
-      // If converted WebP URL fails, try original URL
       setRetryStage('original');
       setCurrentSrc(rawSrc);
       setIsLoaded(false);
     } else if (retryStage !== 'autofallback' && currentSrc !== autoFallback) {
-      // Fallback to high-quality Unsplash WebP photo
       setRetryStage('autofallback');
       setCurrentSrc(autoFallback);
       setIsLoaded(false);
@@ -118,12 +113,25 @@ export const LazyImage: React.FC<LazyImageProps> = ({
     }
   };
 
+  const handleImageRef = (node: HTMLImageElement | null) => {
+    imgRef.current = node;
+    if (node) {
+      if (node.complete) {
+        if (node.naturalWidth > 0) {
+          setIsLoaded(true);
+        } else if (!hasError) {
+          handleError();
+        }
+      }
+    }
+  };
+
   return (
     <div className={`relative overflow-hidden w-full h-full ${className || ''}`}>
       {/* Pulse skeleton placeholder */}
       {!isLoaded && !hasError && (
         <div className="absolute inset-0 bg-neutral-800 animate-pulse flex items-center justify-center">
-          <span className="text-[9px] text-gray-400 font-bold tracking-wider">جاري تحميل الصورة...</span>
+          <span className="text-[9px] text-gray-400 font-bold tracking-wider">جاري التحميل...</span>
         </div>
       )}
 
@@ -138,13 +146,14 @@ export const LazyImage: React.FC<LazyImageProps> = ({
         </div>
       ) : (
         <img
+          ref={handleImageRef}
           src={currentSrc}
           alt={alt}
-          loading="lazy"
+          decoding="async"
           referrerPolicy="no-referrer"
           onLoad={() => setIsLoaded(true)}
           onError={handleError}
-          className={`w-full h-full object-cover transition-opacity duration-300 ${
+          className={`w-full h-full object-cover transition-opacity duration-200 ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
           {...props}

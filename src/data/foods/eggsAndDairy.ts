@@ -34,7 +34,7 @@ export const EGG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (حوالي 2 بيضة كبيرة مسلوقة)',
     weightGrams: 100,
     satietyIndex: 4.9,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%8A%D8%B6/1-Boiled%20Egg.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A8%D9%8A%D8%B6/1-Boiled%20Egg.webp',
     prepMethods: ['السلق الجيد في ماء مغلي لمدة 8-10 دقائق', 'السلق الخفيف مع كمون ورشة ملح خفيفة'],
     recipes: ['بيض مسلوق مع الشوفان والخيار', 'سلطة البيض المسلوق بالزبادي اليوناني والكمون'],
     alternatives: ['egg_white', 'scrambled_eggs', 'cottage_cheese']
@@ -72,7 +72,7 @@ export const EGG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (بياض حوالي 3 بيضات)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%8A%D8%B6/2-Egg%20White.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A8%D9%8A%D8%B6/2-Egg%20White.webp',
     prepMethods: ['السلق وفصل الصفار جانبياً', 'طهي البياض في مقلاة غير لاصقة بدون أي نقطة زيت'],
     recipes: ['أومليت بياض البيض بالسبانخ والمشروم', 'بياض بيض خافق مع جبن قريش وأعشاب'],
     alternatives: ['boiled_egg', 'cottage_cheese', 'tuna_water']
@@ -110,7 +110,7 @@ export const EGG_ITEMS: FoodItem[] = [
     servingSize: '50 جرام (صفار حوالي 3 بيضات)',
     weightGrams: 50,
     satietyIndex: 4.4,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%8A%D8%B6/3-Egg%20Yolk.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A8%D9%8A%D8%B6/3-Egg%20Yolk.webp',
     prepMethods: ['تناوله مطهواً كاملاً مع البياض في البيض المسلوق'],
     recipes: ['بيض كامل مسلوق مزين بالكمون والزعتر الطبيعي'],
     alternatives: ['boiled_egg', 'avocado', 'almonds_raw']
@@ -148,7 +148,7 @@ export const EGG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مخفوق بدون دهون مضافة)',
     weightGrams: 100,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%8A%D8%B6/4-Scrambled%20Eggs.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A8%D9%8A%D8%B6/4-Scrambled%20Eggs.webp',
     prepMethods: ['الخفق الجيد وطهيه في مقلاة غير لاصقة رذاذ بخاخ زيت زيتون بسيط'],
     recipes: ['بيض مخفوق مع قطع الطماطم والفلفل رومي', 'بيض مخفوق بالجبن القريش والأعشاب'],
     alternatives: ['omelet', 'boiled_egg', 'fried_egg_no_oil']
@@ -186,7 +186,7 @@ export const EGG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (أومليت بالخضار دايت)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%8A%D8%B6/5-Omelet.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A8%D9%8A%D8%B6/5-Omelet.webp',
     prepMethods: ['خفق البيض مع قطع الفلفل والسبانخ وطهيه بمقلاة تيفال بدون زيوت'],
     recipes: ['أومليت دايت بالسبانخ والمشروم وجبن الفينيس', 'أومليت بالفلفل الألوان والديك الرومي المدخن'],
     alternatives: ['scrambled_eggs', 'boiled_egg', 'egg_white']
@@ -224,7 +224,7 @@ export const EGG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (عيون بدون زيت)',
     weightGrams: 100,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%8A%D8%B6/6-Oil-Free%20Fried%20Egg.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A8%D9%8A%D8%B6/6-Oil-Free%20Fried%20Egg.webp',
     prepMethods: ['الطهي في مقلاة سيراميك غير لاصقة مغطاة على نار هادئة'],
     recipes: ['بيض عيون بدون زيت مع الخبز الكامل والشوفان', 'بيض عيون مع شرائح الأفوكادو والطماطم'],
     alternatives: ['boiled_egg', 'scrambled_eggs', 'omelet']
@@ -262,7 +262,7 @@ export const EGG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (حوالي 8-10 بيضات سمان)',
     weightGrams: 100,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%8A%D8%B6/7-Quail%20Egg.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A8%D9%8A%D8%B6/7-Quail%20Egg.webp',
     prepMethods: ['السلق السريع لمدة 3-4 دقائق في ماء مغلي'],
     recipes: ['بيض سمان مسلوق مقشر ومزين بالرشات العشبية', 'سلطة بيض السمان بالجرجير والطماطم الكرزية'],
     alternatives: ['boiled_egg', 'quail_meat', 'egg_white']
@@ -303,7 +303,7 @@ export const DAIRY_ITEMS: FoodItem[] = [
     servingSize: '100 جرام',
     weightGrams: 100,
     satietyIndex: 5,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A7%D9%84%D8%A8%D8%A7%D9%86%20%D9%88%D8%A7%D9%84%D8%A7%D8%AC%D8%A8%D8%A7%D9%86/1-Natural%20Cottage%20Cheese.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A3%D9%84%D8%A8%D8%A7%D9%86/1-Natural%20Cottage%20Cheese.webp',
     prepMethods: ['تناولها طازجة ومبهرة برشة كمون وزيت زيتون خفيف', 'خلطها بالخلاط مع الفواكه لصنع كريم بروتيني صحي'],
     recipes: ['طبق الجبن القريش بالخيار وزيت الزيتون وحبة البركة', 'سلطة القريش بالطماطم والجرجير'],
     alternatives: ['greek_yogurt', 'egg_white', 'ricotta_cheese']
@@ -341,7 +341,7 @@ export const DAIRY_ITEMS: FoodItem[] = [
     servingSize: '100 جرام',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A7%D9%84%D8%A8%D8%A7%D9%86%20%D9%88%D8%A7%D9%84%D8%A7%D8%AC%D8%A8%D8%A7%D9%86/2-Non-Fat%20Greek%20Yogurt.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A3%D9%84%D8%A8%D8%A7%D9%86/2-Non-Fat%20Greek%20Yogurt.webp',
     prepMethods: ['تناوله مباشره مع رشة عسل أو التوت طازج', 'دمجه مع الشوفان والفواكه الصباحية'],
     recipes: ['زبادي يوناني بالتوت الأزرق وبذور الشيا والعسل', 'سلطة خيار بالزبادي اليوناني والثوم والنعناع'],
     alternatives: ['cottage_cheese', 'kefir_plain', 'skim_milk']
@@ -379,7 +379,7 @@ export const DAIRY_ITEMS: FoodItem[] = [
     servingSize: '100 مل',
     weightGrams: 100,
     satietyIndex: 4.0,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A7%D9%84%D8%A8%D8%A7%D9%86%20%D9%88%D8%A7%D9%84%D8%A7%D8%AC%D8%A8%D8%A7%D9%86/3-Skim%20Milk.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A3%D9%84%D8%A8%D8%A7%D9%86/3-Skim%20Milk.webp',
     prepMethods: ['تسخينه مع الشوفان والكاكاو الخام', 'مزجه في العصائر الطبيعية والمشروبات'],
     recipes: ['مخفوق الحليب خالي الدسم مع الشوفان والموز', 'قهوة باللبن خالي الدسم بدون سكر'],
     alternatives: ['low_fat_milk', 'greek_yogurt', 'kefir_plain']
@@ -417,7 +417,7 @@ export const DAIRY_ITEMS: FoodItem[] = [
     servingSize: '100 مل',
     weightGrams: 100,
     satietyIndex: 4.1,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A7%D9%84%D8%A8%D8%A7%D9%86%20%D9%88%D8%A7%D9%84%D8%A7%D8%AC%D8%A8%D8%A7%D9%86/4-Low-Fat%20Milk.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A3%D9%84%D8%A8%D8%A7%D9%86/4-Low-Fat%20Milk.webp',
     prepMethods: ['شربه دافئاً أو بارداً أو استخدامه في العصائر'],
     recipes: ['عصيدة الشوفان باللبن قليل الدسم والقرفة', 'سموذي اللبن قليل الدسم بالفراولة'],
     alternatives: ['skim_milk', 'greek_yogurt', 'kefir_plain']
@@ -455,7 +455,7 @@ export const DAIRY_ITEMS: FoodItem[] = [
     servingSize: '50 جرام (مبشور)',
     weightGrams: 50,
     satietyIndex: 4.4,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A7%D9%84%D8%A8%D8%A7%D9%86%20%D9%88%D8%A7%D9%84%D8%A7%D8%AC%D8%A8%D8%A7%D9%86/5-Light%20Mozzarella%20Cheese.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A3%D9%84%D8%A8%D8%A7%D9%86/5-Light%20Mozzarella%20Cheese.webp',
     prepMethods: ['رشها فوق بيتزا الشوفان أو أومليت البيض ثم إذابتها بالحرارة'],
     recipes: ['بيتزا خبز الشوفان بموزاريلا لايت وشرائح الفلفل', 'أومليت البيض بموزاريلا لايت والسبانخ'],
     alternatives: ['cottage_cheese', 'feta_light', 'ricotta_cheese']
@@ -493,7 +493,7 @@ export const DAIRY_ITEMS: FoodItem[] = [
     servingSize: '50 جرام',
     weightGrams: 50,
     satietyIndex: 4.3,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A7%D9%84%D8%A8%D8%A7%D9%86%20%D9%88%D8%A7%D9%84%D8%A7%D8%AC%D8%A8%D8%A7%D9%86/6-Light%20Feta%20Cheese.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A3%D9%84%D8%A8%D8%A7%D9%86/6-Light%20Feta%20Cheese.webp',
     prepMethods: ['فتها فوق السلطة الخضراء أو الخيار والطماطم'],
     recipes: ['سلطة يونانية بجبن الفيتا لايت وزيت الزيتون والزيتون', 'شطيرة جبن الفيتا لايت بالطماطم والنعناع'],
     alternatives: ['cottage_cheese', 'labneh_light', 'halloumi_light']
@@ -531,7 +531,7 @@ export const DAIRY_ITEMS: FoodItem[] = [
     servingSize: '100 جرام',
     weightGrams: 100,
     satietyIndex: 4.5,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A7%D9%84%D8%A8%D8%A7%D9%86%20%D9%88%D8%A7%D9%84%D8%A7%D8%AC%D8%A8%D8%A7%D9%86/7-Ricotta%20Cheese.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A3%D9%84%D8%A8%D8%A7%D9%86/7-Ricotta%20Cheese.webp',
     prepMethods: ['دهنها على الخبز الكامل مع رشة قرفة وعسل', 'إضافتها للمخبوزات الصحية'],
     recipes: ['فطيرة التوت بالجبن الريكوتا والعسل', 'خبز كامل مدهون بالريكوتا والفرولة'],
     alternatives: ['cottage_cheese', 'greek_yogurt', 'labneh_light']
@@ -569,7 +569,7 @@ export const DAIRY_ITEMS: FoodItem[] = [
     servingSize: '50 جرام (مشوية)',
     weightGrams: 50,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A7%D9%84%D8%A8%D8%A7%D9%86%20%D9%88%D8%A7%D9%84%D8%A7%D8%AC%D8%A8%D8%A7%D9%86/8-Light%20Halloumi%20Cheese.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A3%D9%84%D8%A8%D8%A7%D9%86/8-Light%20Halloumi%20Cheese.webp',
     prepMethods: ['الشوي على مقلاة جافة غير لاصقة حتى تحمر الجوانب بدون زيت'],
     recipes: ['شرائح جبن حلوم لايت مشوية مع طماطم وريحان', 'سلطة الحلوم المشوي بالجرجير الدايت'],
     alternatives: ['feta_light', 'mozzarella_light', 'cottage_cheese']
@@ -607,7 +607,7 @@ export const DAIRY_ITEMS: FoodItem[] = [
     servingSize: '50 جرام',
     weightGrams: 50,
     satietyIndex: 4.4,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A7%D9%84%D8%A8%D8%A7%D9%86%20%D9%88%D8%A7%D9%84%D8%A7%D8%AC%D8%A8%D8%A7%D9%86/9-Light%20Labneh.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A3%D9%84%D8%A8%D8%A7%D9%86/9-Light%20Labneh.webp',
     prepMethods: ['دهنها على الخبز الكامل وإضافة الزعتر والخيار'],
     recipes: ['خبز كامل مدهون باللبنة اللايت والزعتر والخيار', 'طبق لبنة لايت بزيت الزيتون خفيف والنعناع'],
     alternatives: ['greek_yogurt', 'cottage_cheese', 'feta_light']
@@ -645,7 +645,7 @@ export const DAIRY_ITEMS: FoodItem[] = [
     servingSize: '100 مل',
     weightGrams: 100,
     satietyIndex: 4.5,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A7%D9%84%D8%A8%D8%A7%D9%86%20%D9%88%D8%A7%D9%84%D8%A7%D8%AC%D8%A8%D8%A7%D9%86/10-Plain%20Kefir.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A3%D9%84%D8%A8%D8%A7%D9%86/10-Plain%20Kefir.webp',
     prepMethods: ['شربه طازجاً أو خفقه مع التوت والتفاح'],
     recipes: ['مشروب الكفير السادة بالنعناع', 'سموذي الكفير البروبيوتيك مع التوت الأزرق'],
     alternatives: ['greek_yogurt', 'skim_milk', 'low_fat_milk']

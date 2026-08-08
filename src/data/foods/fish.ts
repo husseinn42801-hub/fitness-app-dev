@@ -34,7 +34,7 @@ export const FISH_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (فيلييه مشوي)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D8%B3%D9%85%D8%A7%D9%83/1-Grilled%20Salmon.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A7%D8%B3%D9%85%D8%A7%D9%83/1-Grilled%20Salmon.webp',
     prepMethods: ['الشوي في الفرن على ورق زبدة بتتبيلة الليمون وشبت', 'الشوي على مقلاة غير لاصقة بدقيقة واحدة للجانبين'],
     recipes: ['سلمون مشوي بالليمون والشبت مع الكينوا', 'شرائح السلمون بالفرن مع سوتيه السبانخ والبروكلي'],
     alternatives: ['mackerel', 'sardines', 'tuna_water']
@@ -72,7 +72,7 @@ export const FISH_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مصفاة تماماً من الماء)',
     weightGrams: 100,
     satietyIndex: 4.9,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D8%B3%D9%85%D8%A7%D9%83/2-Canned%20Tuna%20in%20Water.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A7%D8%B3%D9%85%D8%A7%D9%83/2-Canned%20Tuna%20in%20Water.webp',
     prepMethods: ['تصفية التونة خفيفة وتناولها مع سلطة الخضار', 'مزجها مع الزبادي اليوناني والليمون بدلاً من المايونيز'],
     recipes: ['سلطة التونة الدايت بالذرة والليمون والجرجير', 'طبق تونة بالماء مع الأرز البني والأفوكادو'],
     alternatives: ['chicken_breast', 'salmon_grilled', 'tilapia_grilled']
@@ -110,7 +110,7 @@ export const FISH_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (طازج أو معلب بالماء)',
     weightGrams: 100,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D8%B3%D9%85%D8%A7%D9%83/3-Sardines.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A7%D8%B3%D9%85%D8%A7%D9%83/3-Sardines.webp',
     prepMethods: ['الشوي بالفرن مع الثوم والليمون والكمون', 'التصفيات الشتوية مع الكرفس والطماطم'],
     recipes: ['صينية سردين طازج بالفرن مع الليمون والثوم', 'سلطة السردين الصحية بالبصل والقدونس'],
     alternatives: ['salmon_grilled', 'mackerel', 'tuna_water']
@@ -148,7 +148,7 @@ export const FISH_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مشوي بالفرن)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D8%B3%D9%85%D8%A7%D9%83/4-Mackerel.png',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A7%D8%B3%D9%85%D8%A7%D9%83/4-Mackerel.webp',
     prepMethods: ['الشوي السنجاري بالفرن مع الليمون والكرفس والفلفل', 'الشوي على الفحم بتتبيلة الثوم'],
     recipes: ['ماكريل سنجاري دايت بالفرن مع الخضار', 'سمك ماكريل مشوي بصوص الليمون والثوم'],
     alternatives: ['salmon_grilled', 'sardines', 'sea_bream']
@@ -186,7 +186,7 @@ export const FISH_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مشوي بالردة أو بالفرن)',
     weightGrams: 100,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D8%B3%D9%85%D8%A7%D9%83/5-Grilled%20Tilapia.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A7%D8%B3%D9%85%D8%A7%D9%83/5-Grilled%20Tilapia.webp',
     prepMethods: ['الشوي بالردة الطبيعية أو على الجريل', 'الخبز بالفرن بتتبيلة الثوم والكمون والليمون'],
     recipes: ['سمك بلطي مشوي بالردة مع سلطة بلدي وأرز بني', 'فيلييه بلطي بالفرن مع الليمون والكمون'],
     alternatives: ['sea_bass', 'sea_bream', 'chicken_breast']
@@ -224,7 +224,7 @@ export const FISH_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مشوي بالفرن)',
     weightGrams: 100,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D8%B3%D9%85%D8%A7%D9%83/6-Grilled%20Sea%20Bream.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A7%D8%B3%D9%85%D8%A7%D9%83/6-Grilled%20Sea%20Bream.webp',
     prepMethods: ['الخبز في صينية بالفرن مع شرايح الليمون والبطاطا الحلوة', 'الشوي بالزيت زيتون الخفيف والأعشاب'],
     recipes: ['سمك دنيس مشوي بالفرن مع شرائح الليمون والأعشاب', 'دنيس بالفرن مع صوص زيت الزيتون والكزبرة'],
     alternatives: ['sea_bass', 'tilapia_grilled', 'salmon_grilled']
@@ -262,7 +262,7 @@ export const FISH_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مطبوخ)',
     weightGrams: 100,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D8%B3%D9%85%D8%A7%D9%83/7-Grilled%20Sea%20Bass.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A7%D8%B3%D9%85%D8%A7%D9%83/7-Grilled%20Sea%20Bass.webp',
     prepMethods: ['الشوي على الفحم بتتبيلة كلاسيكية', 'الطهي بالفرن داخل ورق القصدير بالليمون والثوم'],
     recipes: ['فيلييه قاروص مشوي بالفرن بالأعشاب الطازجة', 'سمك قاروص سنجاري دايت بالكرفس والثوم'],
     alternatives: ['sea_bream', 'tilapia_grilled', 'tuna_water']
@@ -300,7 +300,7 @@ export const FISH_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوق مقشر)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D8%B3%D9%85%D8%A7%D9%83/8-Boiled%20Shrimp.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A7%D8%B3%D9%85%D8%A7%D9%83/8-Boiled%20Shrimp.webp',
     prepMethods: ['السلق السريع في ماء مضاف إليه الليمون والكمون والثوم', 'الشوي على الجريل بدقيقة واحدة لكل جانب'],
     recipes: ['سلطة الجمبري المسلوق بالأفوكادو والخس', 'طاجن جمبري مسلوق بالطماطم والثوم والأعشاب'],
     alternatives: ['squid', 'crab', 'tuna_water']
@@ -338,7 +338,7 @@ export const FISH_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (لحم مسلوق)',
     weightGrams: 100,
     satietyIndex: 4.5,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D8%B3%D9%85%D8%A7%D9%83/9-Crab.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A7%D8%B3%D9%85%D8%A7%D9%83/9-Crab.webp',
     prepMethods: ['السلق بالبخار مع الثوم والليمون والكرفس', 'الطهي في شوربة الفواكه البحرية الخفيفة'],
     recipes: ['شوربة الكابوريا البحرية بالثوم والليمون الدايت', 'لحم كابوريا مسلوق مع سلطة خضراء'],
     alternatives: ['shrimp_boiled', 'mussels', 'squid']
@@ -376,7 +376,7 @@ export const FISH_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوق أو مشوي)',
     weightGrams: 100,
     satietyIndex: 4.4,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D8%B3%D9%85%D8%A7%D9%83/10-Squid.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A7%D8%B3%D9%85%D8%A7%D9%83/10-Squid.webp',
     prepMethods: ['الشوي على الجريل مع ثوم وليمون وكزبرة', 'السلق الخفيف داخل شوربة السي فود دايت'],
     recipes: ['طاجن حبار مشوي بالفلفل الألوان والثوم', 'سلطة الحبار المسلوق بالليمون والبقدونس'],
     alternatives: ['octopus', 'shrimp_boiled', 'mussels']
@@ -414,7 +414,7 @@ export const FISH_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوق مطبوخ)',
     weightGrams: 100,
     satietyIndex: 4.9,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D8%B3%D9%85%D8%A7%D9%83/11-Octopus.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A7%D8%B3%D9%85%D8%A7%D9%83/11-Octopus.webp',
     prepMethods: ['السلق البطولي أولاً مع الليمون ثم الشوي السريع', 'التقطيع وإضافته للسلطات البحرية'],
     recipes: ['أخطبوط مشوي بالليمون وزيت الزيتون خفيف الدسم', 'سلطة الأخطبوط المتوسطية بالثوم والأعشاب'],
     alternatives: ['squid', 'shrimp_boiled', 'mussels']
@@ -452,7 +452,7 @@ export const FISH_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (لحم مسلوق بدون صدف)',
     weightGrams: 100,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D8%B3%D9%85%D8%A7%D9%83/12-Mussels.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A7%D8%B3%D9%85%D8%A7%D9%83/12-Mussels.webp',
     prepMethods: ['الطهي بالبخار مع الثوم والليمون والبقدونس', 'إضافته لطاجن البحريات بالفرن'],
     recipes: ['بلح البحر مطهو بالبخار مع الليمون والثوم', 'طاجن بلح البحر الدايت بالأعشاب الطبيعية'],
     alternatives: ['crab', 'shrimp_boiled', 'octopus']

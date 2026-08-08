@@ -34,7 +34,7 @@ export const VEG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوق بالبخار)',
     weightGrams: 100,
     satietyIndex: 4.9,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA/1-Boiled%20Broccoli.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA/1-Boiled%20Broccoli.webp',
     prepMethods: ['السلق بالبخار وتناوله بالثوم والليمون أو الخبز بالفرن'],
     recipes: ['بروكلي مسلوق بالبخار مع الليمون والثوم وزيت الزيتون', 'بروكلي سوتيه مع صدور الدجاج المشوية'],
     alternatives: ['cauliflower', 'spinach_fresh', 'zucchini']
@@ -72,7 +72,7 @@ export const VEG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (أوراق مطبوخة)',
     weightGrams: 100,
     satietyIndex: 4.9,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA/2-Cooked%20Spinach.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA/2-Cooked%20Spinach.webp',
     prepMethods: ['طهيها بالبخار أو تشويحها سوتيه خفيف بالثوم والليمون'],
     recipes: ['سبانخ مطبوخة بالثوم وزيت الزيتون', 'أومليت دايت بالسبانخ والجبن القريش'],
     alternatives: ['arugula', 'lettuce', 'broccoli_fresh']
@@ -110,7 +110,7 @@ export const VEG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (أوراق طازجة)',
     weightGrams: 100,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA/3-Lettuce.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA/3-Lettuce.webp',
     prepMethods: ['تناوله طازجاً في السلطة أو استخدام أوراقه كبديل لخبز التورتيلا في السندويشات'],
     recipes: ['لفائف أوراق الخس المحشوة بالتونة والذرة', 'سلطة خس بلدي بالليمون وزيت الزيتون'],
     alternatives: ['cucumber', 'arugula', 'cabbage']
@@ -148,7 +148,7 @@ export const VEG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (حوالي خيارة كبيرة)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA/4-Cucumber.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA/4-Cucumber.webp',
     prepMethods: ['تقطيعه شرائح طازجة ومشروبة بالليمون والنعناع'],
     recipes: ['شرائح خيار طازجة مع رشة كمون وليمون', 'سلطة خيار بالزبادي اليوناني والنعناع'],
     alternatives: ['lettuce', 'zucchini', 'celery']
@@ -186,7 +186,7 @@ export const VEG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (ثمرة متوسطة)',
     weightGrams: 100,
     satietyIndex: 4.4,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA/5-Tomato.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA/5-Tomato.webp',
     prepMethods: ['تقطيعها للسلطة أو طهيها كعصير طماطم طازج للطهي'],
     recipes: ['سلطة طماطم بالخيار والبصل وزيت الزيتون', 'عصير طماطم طازج بدون سكر'],
     alternatives: ['green_pepper', 'cucumber', 'red_pepper']
@@ -224,7 +224,7 @@ export const VEG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (ثمرة متوسطة)',
     weightGrams: 100,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA/6-Green%20Bell%20Pepper.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA/6-Green%20Bell%20Pepper.webp',
     prepMethods: ['تقطيعه شرائح طازجة في السلطات أو تشويحه سوتيه'],
     recipes: ['شرائح الفلفل الأخضر في السلطة الخضراء', 'سوتيه فلفل أخضر مع صدور الدجاج'],
     alternatives: ['red_pepper', 'yellow_pepper', 'cucumber']
@@ -262,7 +262,7 @@ export const VEG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (ثمرة متوسطة)',
     weightGrams: 100,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA/7-Red%20Bell%20Pepper.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA/7-Red%20Bell%20Pepper.webp',
     prepMethods: ['تقطيعه طازجاً أو شوائه بالفرن'],
     recipes: ['شرائح فلفل أحمر طازجة مع اللبنة اللايت', 'فلفل أحمر مشوي بالفرن مع الثوم وزيت الزيتون'],
     alternatives: ['green_pepper', 'yellow_pepper', 'tomato']
@@ -300,7 +300,7 @@ export const VEG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (ثمرة متوسطة)',
     weightGrams: 100,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA/8-Yellow%20Bell%20Pepper.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA/8-Yellow%20Bell%20Pepper.webp',
     prepMethods: ['شرائح طازجة في السلطات أو خضار سوتيه'],
     recipes: ['سلطة الفلفل الألوان المشكلة', 'شرائح الفلفل الأصفر مع الحمص بطحينة'],
     alternatives: ['red_pepper', 'green_pepper', 'cucumber']
@@ -338,7 +338,7 @@ export const VEG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوقة أو سوتيه)',
     weightGrams: 100,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA/9-Zucchini.webp',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA/9-Zucchini.webp',
     prepMethods: ['الطهي بالبخار أو عمل شوربة كوسة دافئة'],
     recipes: ['شوربة الكوسة الدايت بالأعشاب', 'كوسة سوتيه بالثوم والنعناع وزيت الزيتون'],
     alternatives: ['cucumber', 'green_beans', 'broccoli_fresh']
@@ -376,7 +376,7 @@ export const VEG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مشوي بدون زيوت)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA/10-eggplant.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA/10-eggplant.webp',
     prepMethods: ['الشوي كاملاً بالفرن أو الفحم وعمل بابا غنوج دايت مع طحينة خفيفة وزيت زيتون'],
     recipes: ['بابا غنوج دايت بالباذنجان المشوي والثوم والليمون', 'شرائح باذنجان مشوي بالفرن بالثوم والكزبرة'],
     alternatives: ['zucchini', 'tomato', 'green_pepper']
@@ -414,7 +414,7 @@ export const VEG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوق بالبخار)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA/11-Cauliflower.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA/11-Cauliflower.webp',
     prepMethods: ['بشره وعمل أرز القرنبيط الدايت أو الخبز بالفرن بالبابريكا'],
     recipes: ['أرز القرنبيط الدايت المبشور والمطبوخ بالكمون', 'قرنبيط مشوي بالفرن بالكمون وزيت الزيتون خفيف'],
     alternatives: ['broccoli_fresh', 'cabbage', 'zucchini']
@@ -452,7 +452,7 @@ export const VEG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (شرائح ملفوف)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA/12-Cabbage.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA/12-Cabbage.webp',
     prepMethods: ['تقطيعه بشرائح رقيقة للسلطة أو عمل شوربة حارقة الدهون'],
     recipes: ['شوربة الكرنب التخسيسية بالثوم والليمون', 'سلطة كولسلو دايت بالكرنب والزبادي اليوناني'],
     alternatives: ['broccoli_fresh', 'cauliflower', 'lettuce']
@@ -490,7 +490,7 @@ export const VEG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مطبوخة بالبخار أو بالصلصة الدايت)',
     weightGrams: 100,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA/13-Green%20Beans.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA/13-Green%20Beans.webp',
     prepMethods: ['الطهي بالبخار مع الثوم وعصير الطماطم والكزبرة'],
     recipes: ['طاجن فاصوليا خضراء بالطماطم والثوم الدايت', 'فاصوليا خضراء سوتيه بملعقة زيت زيتون وثوم'],
     alternatives: ['zucchini', 'asparagus', 'mushrooms']
@@ -528,7 +528,7 @@ export const VEG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (سيقان هليون مطبوخة)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA/14-Asparagus.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA/14-Asparagus.webp',
     prepMethods: ['الشواء بالفرن برشة زيت زيتون وفلفل أسود أو الطهي بالبخار'],
     recipes: ['هليون مشوي بالفرن مع الليمون وزيت الزيتون', 'هليون سوتيه بجانب سلمون مشوي'],
     alternatives: ['green_beans', 'zucchini', 'broccoli_fresh']
@@ -566,7 +566,7 @@ export const VEG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مشروم طازج)',
     weightGrams: 100,
     satietyIndex: 4.9,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA/15-Mushrooms.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA/15-Mushrooms.webp',
     prepMethods: ['تشويحه بالثوم والأعشاب أو إضافته للأومليت'],
     recipes: ['أومليت دايت بالمشروم والأعشاب', 'مشروم سوتيه بالثوم وزيت الزيتون'],
     alternatives: ['spinach_fresh', 'zucchini', 'green_beans']
@@ -604,7 +604,7 @@ export const VEG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (حزمتين جرجير)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA/16-Arugula.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA/16-Arugula.webp',
     prepMethods: ['تناوله طازجاً مع عصير الليمون وزيت الزيتون'],
     recipes: ['سلطة الجرجير بعين الجمل وشرائح التفاح والليمون', 'جرجير طازج بجانب الستيك أو المشويات'],
     alternatives: ['spinach_fresh', 'lettuce', 'celery']
@@ -642,7 +642,7 @@ export const VEG_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (ساق كرفس طازج)',
     weightGrams: 100,
     satietyIndex: 4.5,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA/17-Celery.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA/17-Celery.webp',
     prepMethods: ['تقطيعه طازجاً للسلطة أو خفقه في العصير الأخضر المنظف'],
     recipes: ['عصير الكرفس الأخضر المنظف مع الخيار والليمون', 'شرائح الكرفس الطازجة مع زبدة الفول السوداني'],
     alternatives: ['cucumber', 'arugula', 'lettuce']

@@ -51,7 +51,7 @@ export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
       carbs: 35,
       fats: 8,
       timeAr: '7:30 - 9:00 صباحاً',
-      imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%8A%D8%B6/1-Boiled%20Egg.jpeg',
+      imageUrl: '',
       ingredients: [
         'بيضتين كاملتين مسلوقتين',
         '40 جرام شوفان كامل مطبوخ بماء ورشة قرفة',
@@ -74,7 +74,7 @@ export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
       carbs: 40,
       fats: 10,
       timeAr: '1:30 - 3:00 مساءً',
-      imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AF%D9%88%D8%A7%D8%AC%D9%86/1-Grilled%20Chicken%20Breast.jpeg',
+      imageUrl: '',
       ingredients: [
         '150 جرام صدور دجاج مشوية ومتبلة بالأعشاب والزعتر',
         '100 جرام أرز بني دايت مسلوق بماء وملح بحري فقط',
@@ -97,7 +97,7 @@ export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
       carbs: 28,
       fats: 1,
       timeAr: 'قبل التمرين بـ 45 دقيقة',
-      imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/1-Fresh%20Green%20Apple.jpg',
+      imageUrl: '',
       ingredients: [
         'تفاحة خضراء متوسطة مقطعة شرائح',
         'رشة قرفة مطحونة ناعمة لضبط حساسية الأنسولين',
@@ -119,7 +119,7 @@ export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
       carbs: 15,
       fats: 6,
       timeAr: 'خلال 45 دقيقة بعد التمرين',
-      imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D8%B3%D9%85%D8%A7%D9%83/2-Canned%20Tuna%20in%20Water.jpeg',
+      imageUrl: '',
       ingredients: [
         'علبة تونة دايت بالماء مصفاة ومغسولة بالخل والليمون',
         'شريحة واحدة خبز توست بني كامل الحبوب',
@@ -140,7 +140,7 @@ export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
       carbs: 8,
       fats: 9,
       timeAr: '7:30 - 9:00 مساءً',
-      imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A7%D9%84%D8%A8%D8%A7%D9%86%20%D9%88%D8%A7%D9%84%D8%A7%D8%AC%D8%A8%D8%A7%D9%86/2-Non-Fat%20Greek%20Yogurt.jpeg',
+      imageUrl: '',
       ingredients: [
         '150 جرام زبادي يوناني خالي الدسم',
         'ملعقة صغيرة بذور الشيا الغنية بالألياف',
@@ -163,7 +163,7 @@ export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
       carbs: 2,
       fats: 3,
       timeAr: 'قبل النوم بنصف ساعة',
-      imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A7%D9%84%D8%A8%D8%A7%D9%86%20%D9%88%D8%A7%D9%84%D8%A7%D8%AC%D8%A8%D8%A7%D9%86/1-Natural%20Cottage%20Cheese.jpg',
+      imageUrl: '',
       ingredients: [
         '50 جرام جبنة قريش طبيعية مهروسة بالكمون ورشة نعناع جاف',
         'كوب بابونج (شيح) دافئ لتهدئة الأعصاب والنوم العميق والمريح'
@@ -185,7 +185,7 @@ export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
       carbs: 75,
       fats: 18,
       timeAr: '7:00 - 8:30 صباحاً',
-      imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/1-Rolled%20Oats.webp',
+      imageUrl: '',
       ingredients: [
         '3 بيضات كاملة مطبوخة بمسحة زبدة طبيعية',
         '70 جرام شوفان خام مطبوخ بكوب حليب كامل الدسم',
@@ -208,7 +208,7 @@ export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
       carbs: 95,
       fats: 22,
       timeAr: '1:00 - 2:30 مساءً',
-      imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D9%84%D8%AD%D9%88%D9%85/1-Grilled%20Beef%20Steak.jpeg',
+      imageUrl: '',
       ingredients: [
         '180 جرام ستيك لحم بقري مشوي ببهارات الثوم والروزماري',
         '200 جرام أرز بني أو أبيض بسمتي مطهو بلمسات صحية',
@@ -231,7 +231,7 @@ export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
       carbs: 48,
       fats: 12,
       timeAr: 'قبل التمرين بساعة ونصف',
-      imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/3-Fresh%20Banana.jpg',
+      imageUrl: '',
       ingredients: [
         'موزة متوسطة الحجم',
         'ملعقة كبيرة زبدة فول سوداني طبيعية ناعمة',
@@ -253,7 +253,7 @@ export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
       carbs: 55,
       fats: 10,
       timeAr: 'خلال 30 دقيقة بعد التمرين',
-      imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%83%D9%85%D8%A7%D9%83/1-Grilled%20Salmon.jpeg',
+      imageUrl: '',
       ingredients: [
         '150 جرام سلمون مشوي بالفرن',
         '150 جرام بطاطا حلوة مشوية ومهروسة',
@@ -274,7 +274,7 @@ export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
       carbs: 45,
       fats: 12,
       timeAr: '8:00 - 9:30 مساءً',
-      imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/1-Boiled%20Lentils.jpg',
+      imageUrl: '',
       ingredients: [
         '150 جرام عدس أحمر أو أصفر مطبوخ كشوربة سميكة بالتوابل',
         '100 جرام صدر ديك رومي مشوي شرائح باردة ونظيفة',
@@ -295,7 +295,7 @@ export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
       carbs: 8,
       fats: 10,
       timeAr: 'قبل النوم بـ 30 دقيقة',
-      imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A7%D9%84%D8%A8%D8%A7%D9%86%20%D9%88%D8%A7%D9%84%D8%A7%D8%AC%D8%A8%D8%A7%D9%86/1-Natural%20Cottage%20Cheese.jpg',
+      imageUrl: '',
       ingredients: [
         '150 جرام جبنة قريش طبيعية مخلوطة بملعقة خلاط لصوص كريمي',
         'حفنة صغيرة لوز نيء (حوالي 15 حبة)',
@@ -318,7 +318,7 @@ export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
       carbs: 50,
       fats: 11,
       timeAr: '7:30 - 9:00 صباحاً',
-      imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%8A%D8%B6/1-Boiled%20Egg.jpeg',
+      imageUrl: '',
       ingredients: [
         'بيضتين مسلوقتين كاملتين + بياض بيضتين إضافي',
         '50 جرام شوفان خام مطبوخ بنصف كوب حليب قليل الدسم',
@@ -341,7 +341,7 @@ export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
       carbs: 60,
       fats: 14,
       timeAr: '1:30 - 3:00 مساءً',
-      imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%83%D9%85%D8%A7%D9%83/1-Grilled%20Salmon.jpeg',
+      imageUrl: '',
       ingredients: [
         '150 جرام سلمون مشوي بالفرن أو صدور دجاج متبلة',
         '120 جرام أرز بني مسلوق ومطبوخ جيداً',
@@ -363,7 +363,7 @@ export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
       carbs: 35,
       fats: 6,
       timeAr: 'قبل التمرين بساعة ونصف',
-      imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/1-Fresh%20Green%20Apple.jpg',
+      imageUrl: '',
       ingredients: [
         'تفاحة طازجة كاملة بجميع أليافها',
         '10 حبات لوز نيء مقرمش وطبيعي',
@@ -383,7 +383,7 @@ export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
       carbs: 35,
       fats: 8,
       timeAr: 'خلال ساعة بعد تمرينك',
-      imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AF%D9%88%D8%A7%D8%AC%D9%86/1-Grilled%20Chicken%20Breast.jpeg',
+      imageUrl: '',
       ingredients: [
         '120 جرام صدور دجاج مشوية بنعومة على البخار',
         '120 جرام بطاطا حلوة مشوية بالفرن',
@@ -404,7 +404,7 @@ export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
       carbs: 20,
       fats: 10,
       timeAr: '7:30 - 9:00 مساءً',
-      imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A7%D9%84%D8%A8%D8%A7%D9%86%20%D9%88%D8%A7%D9%84%D8%A7%D8%AC%D8%A8%D8%A7%D9%86/2-Non-Fat%20Greek%20Yogurt.jpeg',
+      imageUrl: '',
       ingredients: [
         '150 جرام زبادي يوناني أو جبنة قريش خفيفة',
         'نصف كوب فراولة وتوت طازج مفروم',
@@ -425,7 +425,7 @@ export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
       carbs: 3,
       fats: 4,
       timeAr: 'قبل النوم بنصف ساعة',
-      imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A7%D9%84%D8%A8%D8%A7%D9%86%20%D9%88%D8%A7%D9%84%D8%A7%D8%AC%D8%A8%D8%A7%D9%86/1-Natural%20Cottage%20Cheese.jpg',
+      imageUrl: '',
       ingredients: [
         '50 جرام جبنة قريش ناعمة بالزعتر وزيت الزيتون البكر',
         'كوب يانسون دافئ مهدئ لتنظيم الضغط وعمل هرمون النمو'

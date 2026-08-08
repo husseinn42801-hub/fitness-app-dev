@@ -34,7 +34,7 @@ export const MEAT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مشوي بدون دهون ظاهرة)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D9%84%D8%AD%D9%88%D9%85/1-Grilled%20Beef%20Steak.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%84%D8%AD%D9%88%D9%85/1-Grilled%20Beef%20Steak.webp',
     prepMethods: ['الشوي على الشواية الكهربائية أو الفحم مع الثوم والروزماري', 'الطهي بفرن حراري مع أعشاب برية'],
     recipes: ['ستيك بقري مشوي مع سوتيه البروكلي وفطر الفطور', 'شرائح الستيك المشوي مع سلطة الجرجير'],
     alternatives: ['beef_tenderloin', 'buffalo_meat', 'lean_ground_beef']
@@ -72,7 +72,7 @@ export const MEAT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مطبوخ)',
     weightGrams: 100,
     satietyIndex: 4.9,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D9%84%D8%AD%D9%88%D9%85/2-Beef%20Tenderloin.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%84%D8%AD%D9%88%D9%85/2-Beef%20Tenderloin.webp',
     prepMethods: ['الشوي السريع على مقلاة صلبة بدون دهون مضافة', 'التحمير الخفيف في الفرن بالأعشاب الطازجة'],
     recipes: ['فيليه بقري مشوي مع الفلفل الألوان والشوفان', 'شرائح فيليه البقر المشوية مع الأرز البني'],
     alternatives: ['beef_ribeye', 'buffalo_meat', 'chicken_breast']
@@ -110,7 +110,7 @@ export const MEAT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مطهو مصفى)',
     weightGrams: 100,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D9%84%D8%AD%D9%88%D9%85/3-Lean%20Ground%20Beef.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%84%D8%AD%D9%88%D9%85/3-Lean%20Ground%20Beef.webp',
     prepMethods: ['الطهي في مقلاة جافة غير لاصقة وتصفية عصارة الدهون', 'صنع كفتة صحية مشوية بالفرن بالأعشاب'],
     recipes: ['كفتة دايت مشوية بالفرن مع البقدونس والبصل', 'لحم مفروم دايت مع مكرونة القمح الكامل'],
     alternatives: ['beef_tenderloin', 'buffalo_meat', 'veal']
@@ -148,7 +148,7 @@ export const MEAT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (شرائح مطبوخة)',
     weightGrams: 100,
     satietyIndex: 4.5,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D9%84%D8%AD%D9%88%D9%85/4-Roast%20Beef.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%84%D8%AD%D9%88%D9%85/4-Roast%20Beef.webp',
     prepMethods: ['تقديم الشرائح الباردة مباشرة في السلطات', 'تسخين خفيف بدون زيوت خارجية'],
     recipes: ['سندوتش روست بيف بخبز الجاودار والجرجير', 'سلطة روست بيف بالخيار وطماطم الشيري'],
     alternatives: ['smoked_turkey', 'beef_tenderloin', 'smoked_chicken']
@@ -186,7 +186,7 @@ export const MEAT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مطبوخ)',
     weightGrams: 100,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D9%84%D8%AD%D9%88%D9%85/5-Veal.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%84%D8%AD%D9%88%D9%85/5-Veal.webp',
     prepMethods: ['الطهي بالفرن مع صونية خضار', 'الشوي على الجريل بتتبيلة الليمون والأعشاب'],
     recipes: ['شرائح لحم العجل المشوية بالثوم والروزماري', 'طاجن لحم العجل بالخضار المشكلة دايت'],
     alternatives: ['beef_tenderloin', 'lean_ground_beef', 'chicken_breast']
@@ -224,7 +224,7 @@ export const MEAT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (بدون دهون ظاهرة)',
     weightGrams: 100,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D9%84%D8%AD%D9%88%D9%85/6-Lean%20Lamb.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%84%D8%AD%D9%88%D9%85/6-Lean%20Lamb.webp',
     prepMethods: ['الشوي على الفحم أو الفرن مع الهيل والزعتر', 'السلق الهادئ وتصفية الدهون السطحية'],
     recipes: ['لحم غنم مشوي بالفرن مع الثوم والأعشاب', 'كبسة دايت بلحم الغنم الخالي من الدهون وأرز بني'],
     alternatives: ['beef_ribeye', 'veal', 'buffalo_meat']
@@ -262,7 +262,7 @@ export const MEAT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مطهوة خفيفاً)',
     weightGrams: 100,
     satietyIndex: 5.0,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D9%84%D8%AD%D9%88%D9%85/7-Beef%20Liver.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%84%D8%AD%D9%88%D9%85/7-Beef%20Liver.webp',
     prepMethods: ['التشويح السريع مع الثوم والفلفل رومي بزيت زيتون نقطة واحدة', 'الشوي على الجريل بدون إضافة دهون'],
     recipes: ['كبدة بقري إسكندراني دايت بالفلفل والثوم', 'شرائح كبدة بقري مشوية بالثوم والليمون'],
     alternatives: ['lamb_liver', 'beef_tenderloin', 'quail_meat']
@@ -300,7 +300,7 @@ export const MEAT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مطبوخة)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D9%84%D8%AD%D9%88%D9%85/8-Lamb%20Liver.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%84%D8%AD%D9%88%D9%85/8-Lamb%20Liver.webp',
     prepMethods: ['التشويح على المقلاة مع البصل والفلفل الألوان', 'الشوي السريع على الفحم'],
     recipes: ['كبدة ضأن دايت مشوحة بالبصل والكمون', 'شرائح كبدة الغنم بالليمون والكزبرة'],
     alternatives: ['beef_liver', 'lean_lamb', 'quail_meat']
@@ -338,7 +338,7 @@ export const MEAT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوق ومقشر)',
     weightGrams: 100,
     satietyIndex: 4.5,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D9%84%D8%AD%D9%88%D9%85/9-Beef%20Tongue.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%84%D8%AD%D9%88%D9%85/9-Beef%20Tongue.webp',
     prepMethods: ['السلق الطويل مع الأعشاب ثم التقشير والتقطيع', 'التحمير الجاف بعد المسلوق مع الليمون'],
     recipes: ['شرائح لسان بقري مسلوق بالثوم والليمون', 'طاجن لسان البقر بالأعشاب الصحية'],
     alternatives: ['beef_ribeye', 'lean_lamb', 'veal']
@@ -376,7 +376,7 @@ export const MEAT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مطبوخ)',
     weightGrams: 100,
     satietyIndex: 5.0,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D9%84%D8%AD%D9%88%D9%85/10-Buffalo%20Meat.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%84%D8%AD%D9%88%D9%85/10-Buffalo%20Meat.webp',
     prepMethods: ['الطهي البطيء مع صوص الطماطم الدايت والأعشاب', 'الشوي على الجريل بدرجة طهي متوسطة'],
     recipes: ['ستيك لحم الجاموس المشوي بالروزماري', 'كفتة جاموسي ناصعة البروتين مع الخضار'],
     alternatives: ['beef_tenderloin', 'chicken_breast', 'turkey_breast']

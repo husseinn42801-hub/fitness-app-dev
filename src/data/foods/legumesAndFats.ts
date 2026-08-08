@@ -34,7 +34,7 @@ export const LEGUME_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوق)',
     weightGrams: 100,
     satietyIndex: 4.9,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/1-Boiled%20Lentils.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/1-Boiled%20Lentils.webp',
     prepMethods: ['السلق بالماء مع الكمون والثوم والبصل', 'طهيه كشوربة عدس صفراء دافئة دايت'],
     recipes: ['شوربة العدس الصفراء بالكمون والليمون', 'سلطة العدس البني بالجرجير وطماطم الشيري'],
     alternatives: ['chickpeas_boiled', 'kidney_beans', 'fava_beans']
@@ -72,7 +72,7 @@ export const LEGUME_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوق ناضج)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/2-Boiled%20Chickpeas.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/2-Boiled%20Chickpeas.webp',
     prepMethods: ['السلق الكامل وتناوله مسلوقاً أو هرسه مع الطحينة والليمون خفيف الدسم'],
     recipes: ['حمص الشام المسلوق بالكمون والشطة والليمون', 'سلطة الحمص المسلوق بالخيار وزيت الزيتون'],
     alternatives: ['lentils_cooked', 'white_beans', 'fava_beans']
@@ -110,7 +110,7 @@ export const LEGUME_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوقة)',
     weightGrams: 100,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/3-Boiled%20Red%20Kidney%20Beans.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/3-Boiled%20Red%20Kidney%20Beans.webp',
     prepMethods: ['السلق الجيد وإضافتها فوراً لسلطات الدايت والمكسيكاني'],
     recipes: ['سلطة الفاصوليا الحمراء بالذرة والتونة', 'طبق فاصوليا حمراء مسلوقة مع الأرز البني'],
     alternatives: ['white_beans', 'black_eyed_peas', 'lentils_cooked']
@@ -148,7 +148,7 @@ export const LEGUME_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوقة)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/4-Boiled%20White%20Beans.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/4-Boiled%20White%20Beans.webp',
     prepMethods: ['الطهي في صوص الطماطم والكمون والثوم'],
     recipes: ['طاجن فاصوليا بيضاء بالطماطم والثوم الدايت', 'سلطة الفاصوليا البيضاء بالبقدونس وزيت الزيتون'],
     alternatives: ['kidney_beans', 'black_eyed_peas', 'chickpeas_boiled']
@@ -186,7 +186,7 @@ export const LEGUME_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوقة)',
     weightGrams: 100,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/5-Boiled%20Black-Eyed%20Peas.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/5-Boiled%20Black-Eyed%20Peas.webp',
     prepMethods: ['السلق والطهي في صوص طماطم خفيف'],
     recipes: ['طاجن اللوبيا بالطماطم واللحم الصافي', 'لوبيا مسلوقة بالكمون والليمون'],
     alternatives: ['white_beans', 'kidney_beans', 'lentils_cooked']
@@ -224,7 +224,7 @@ export const LEGUME_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مدمس ومهروس)',
     weightGrams: 100,
     satietyIndex: 4.9,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/6-Cooked%20Fava%20Beans.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/6-Cooked%20Fava%20Beans.webp',
     prepMethods: ['هرس الفول المدمس وإضافة زيت الزيتون البكر والكمون والليمون والطماطم'],
     recipes: ['طبق فول مدمس بزيت الزيتون والكمون والليمون', 'فول مدمس بالطماطم والفلفل رومي خفيف'],
     alternatives: ['green_fava_beans', 'chickpeas_boiled', 'lentils_cooked']
@@ -262,7 +262,7 @@ export const LEGUME_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوق أو سوتيه)',
     weightGrams: 100,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/7-Green%20Fava%20Beans.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/7-Green%20Fava%20Beans.webp',
     prepMethods: ['السلق بالبخار وتناوله بالثوم والكزبرة والليمون'],
     recipes: ['فول أخضر سوتيه بالثوم والكزبرة وزيت الزيتون', 'شوربة الفول الأخضر بالليمون'],
     alternatives: ['fava_beans', 'edamame', 'green_peas']
@@ -300,7 +300,7 @@ export const LEGUME_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مطبوخ)',
     weightGrams: 100,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/8-Soybeans.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/8-Soybeans.webp',
     prepMethods: ['السلق الجيد وتناوله داخل الأطباق النباتية'],
     recipes: ['سلطة فول الصويا بالخضار المشكلة', 'فول صويا مطبوخ بصوص الطماطم والثوم'],
     alternatives: ['edamame', 'tofu', 'chickpeas_boiled']
@@ -338,7 +338,7 @@ export const LEGUME_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوق بالقرون)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/9-Edamame.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/9-Edamame.webp',
     prepMethods: ['السلق في ماء مغلي 4 دقائق ورشه بالملح البحري والبابريكا'],
     recipes: ['قرون الإدامامي المسلوقة بالملح البحري والليمون', 'سلطة حبوب الإدامامي المقشرة بالسسم والتونة'],
     alternatives: ['soybeans', 'green_fava_beans', 'green_peas']
@@ -376,7 +376,7 @@ export const LEGUME_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوقة)',
     weightGrams: 100,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/10-Boiled%20Yellow%20Peas.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%A8%D9%82%D9%88%D9%84%D9%8A%D8%A7%D8%AA/10-Boiled%20Yellow%20Peas.webp',
     prepMethods: ['السلق وعمل شوربة البازلاء الصفراء الهادئة'],
     recipes: ['شوربة البازلاء الصفراء بالكمون وزيت الزيتون', 'بازلاء صفراء مسلوقة مع سلطة خضراء'],
     alternatives: ['green_peas', 'lentils_cooked', 'chickpeas_boiled']
@@ -417,7 +417,7 @@ export const FAT_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (نصف ثمرة)',
     weightGrams: 100,
     satietyIndex: 4.9,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%B2%D9%8A%D9%88%D8%AA%20%D8%B5%D8%AD%D9%8A%D9%87/1-Fresh%20Avocado.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%B2%D9%8A%D9%88%D8%AA/1-Fresh%20Avocado.webp',
     prepMethods: ['تقطيعه شرائح فوق التوست أو مهروساً مع الليمون والملح'],
     recipes: ['غواكامولي الأفوكادو الطبيعي بالثوم والليمون والطماطم', 'شرائح الأفوكادو مع سلطة التونة والليمون'],
     alternatives: ['olive_oil', 'almonds_raw', 'walnuts']
@@ -455,7 +455,7 @@ export const FAT_ITEMS: FoodItem[] = [
     servingSize: '15 مل (ملعقة طعام واحدة)',
     weightGrams: 15,
     satietyIndex: 4.0,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%B2%D9%8A%D9%88%D8%AA%20%D8%B5%D8%AD%D9%8A%D9%87/2-Extra%20Virgin%20Olive%20Oil.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%B2%D9%8A%D9%88%D8%AA/2-Extra%20Virgin%20Olive%20Oil.webp',
     prepMethods: ['إضافته نيئاً فوق الأطباق والسلطات والجبن والفول بعد الطهي'],
     recipes: ['تتبيلة السلطة الخضراء بزيت الزيتون والليمون', 'إضافة ملعقة زيت زيتون فوق طبق الفول المدمس'],
     alternatives: ['avocado', 'avocado_oil', 'walnut_oil']
@@ -493,7 +493,7 @@ export const FAT_ITEMS: FoodItem[] = [
     servingSize: '10 مل (ملعقة طعام)',
     weightGrams: 10,
     satietyIndex: 4.1,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%B2%D9%8A%D9%88%D8%AA%20%D8%B5%D8%AD%D9%8A%D9%87/3-Coconut%20Oil.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%B2%D9%8A%D9%88%D8%AA/3-Coconut%20Oil.webp',
     prepMethods: ['إضافته للقهوة الصباحية الكيتونية أو المخبوزات الصحية'],
     recipes: ['قهوة بوليت بروف بزيت جوز الهند', 'بان كيك صحي مطهو برشة زيت جوز الهند'],
     alternatives: ['olive_oil', 'avocado_oil', 'sesame_oil']
@@ -531,7 +531,7 @@ export const FAT_ITEMS: FoodItem[] = [
     servingSize: '15 مل (ملعقة طعام)',
     weightGrams: 15,
     satietyIndex: 4.0,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%B2%D9%8A%D9%88%D8%AA%20%D8%B5%D8%AD%D9%8A%D9%87/4-Avocado%20Oil.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%B2%D9%8A%D9%88%D8%AA/4-Avocado%20Oil.webp',
     prepMethods: ['مسح المقلاة الصحية أو رش اللحوم والدواجن قبل الشوي بالفرن'],
     recipes: ['تتبيل الستيك بزيت الأفوكادو والروزماري', 'تتبيلة سلطة زيت الأفوكادو بالخردل والليمون'],
     alternatives: ['olive_oil', 'avocado', 'canola_oil']
@@ -569,7 +569,7 @@ export const FAT_ITEMS: FoodItem[] = [
     servingSize: '15 مل',
     weightGrams: 15,
     satietyIndex: 3.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%B2%D9%8A%D9%88%D8%AA%20%D8%B5%D8%AD%D9%8A%D9%87/5-Canola%20Oil.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%B2%D9%8A%D9%88%D8%AA/5-Canola%20Oil.webp',
     prepMethods: ['مسح المقلاة رذاذ بسيط للطهي'],
     recipes: ['خضار سوتيه مطهو برذاذ زيت الكانولا'],
     alternatives: ['olive_oil', 'avocado_oil', 'sesame_oil']
@@ -607,7 +607,7 @@ export const FAT_ITEMS: FoodItem[] = [
     servingSize: '10 مل',
     weightGrams: 10,
     satietyIndex: 4.0,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%B2%D9%8A%D9%88%D8%AA%20%D8%B5%D8%AD%D9%8A%D9%87/6-Sesame%20Oil.webp',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%B2%D9%8A%D9%88%D8%AA/6-Sesame%20Oil.webp',
     prepMethods: ['إضافة قطرات على طبق السوتيه الخضار والجمبري في النهاية'],
     recipes: ['دجاج سوتيه بالخضار ونقطة زيت السمسم', 'سلطة كرنب آسيوية بزيت السمسم والخل'],
     alternatives: ['olive_oil', 'walnut_oil', 'avocado_oil']
@@ -645,7 +645,7 @@ export const FAT_ITEMS: FoodItem[] = [
     servingSize: '15 مل (زيت حار نيء)',
     weightGrams: 15,
     satietyIndex: 4.0,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%B2%D9%8A%D9%88%D8%AA%20%D8%B5%D8%AD%D9%8A%D9%87/7-Flaxseed%20Oil.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%B2%D9%8A%D9%88%D8%AA/7-Flaxseed%20Oil.webp',
     prepMethods: ['إضافته نيئاً كزيت حار طبيعي فوق طبق الجبن القريش أو السلطة'],
     recipes: ['طبق الجبن القريش بزيت بذور الكتان البارد والكمون', 'إضافة ملعقة زيت كتان فوق السلطة الخضراء'],
     alternatives: ['olive_oil', 'walnut_oil', 'avocado']
@@ -683,7 +683,7 @@ export const FAT_ITEMS: FoodItem[] = [
     servingSize: '15 مل',
     weightGrams: 15,
     satietyIndex: 4.0,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%B2%D9%8A%D9%88%D8%AA%20%D8%B5%D8%AD%D9%8A%D9%87/8-Walnut%20Oil.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%B2%D9%8A%D9%88%D8%AA/8-Walnut%20Oil.webp',
     prepMethods: ['رش ملعقة فوق السلطات الشتوية والمقبلات'],
     recipes: ['سلطة الجرجير والتفاح بزيت الجوز والجوز النيء', 'إضافة زيت الجوز فوق الخضار المشوية'],
     alternatives: ['flaxseed_oil', 'olive_oil', 'avocado_oil']

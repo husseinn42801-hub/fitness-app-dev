@@ -34,7 +34,7 @@ export const POULTRY_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مشوي منزوع الجلد)',
     weightGrams: 100,
     satietyIndex: 5,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AF%D9%88%D8%A7%D8%AC%D9%86/1-Grilled%20Chicken%20Breast.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AF%D8%AC%D8%A7%D8%AC/1-Grilled%20Chicken%20Breast.webp',
     prepMethods: ['الشوي على الشواية الكهربائية بدون زيوت مضافة', 'الطهي في المقلاة الهوائية بأعشاب صحية', 'السلق الهادئ مع بهارات ورق الغار والليمون'],
     recipes: ['سلطة الدجاج المشوي بالأفوكادو والليمون', 'شرائح الدجاج المشوي مع الأرز البني والبروكلي'],
     alternatives: ['turkey_breast', 'chicken_boiled', 'smoked_chicken']
@@ -72,7 +72,7 @@ export const POULTRY_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (منزوع الجلد مطبوخ)',
     weightGrams: 100,
     satietyIndex: 4.5,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AF%D9%88%D8%A7%D8%AC%D9%86/2-Skinless%20Chicken%20Thigh.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AF%D8%AC%D8%A7%D8%AC/2-Skinless%20Chicken%20Thigh.webp',
     prepMethods: ['الخبز بالفرن مع الليمون والثوم والأعشاب البرية', 'الشوي بالجرجير وزيت الزيتون خفيف الدسم'],
     recipes: ['أفخاذ دجاج مشوية بالفرن مع الخضار المشكلة', 'طاجن أفخاذ الدجاج بالثوم والليمون الدايت'],
     alternatives: ['chicken_breast', 'roasted_chicken', 'quail_meat']
@@ -110,7 +110,7 @@ export const POULTRY_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوق)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AF%D9%88%D8%A7%D8%AC%D9%86/3-Boiled%20Chicken.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AF%D8%AC%D8%A7%D8%AC/3-Boiled%20Chicken.webp',
     prepMethods: ['السلق في ماء مضاف إليه البصل والهيل وورق الغار', 'تقطيع الدجاج المسلوق وتتبيله بالليمون والشوفان'],
     recipes: ['شوربة الدجاج المسلوق الصحية مع الشوفان والنعناع', 'سلطة الدجاج المسلوق بالخيار والزبادي اليوناني'],
     alternatives: ['chicken_breast', 'turkey_breast', 'smoked_chicken']
@@ -148,7 +148,7 @@ export const POULTRY_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (بدون جلد)',
     weightGrams: 100,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AF%D9%88%D8%A7%D8%AC%D9%86/4-Roasted%20Chicken.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AF%D8%AC%D8%A7%D8%AC/4-Roasted%20Chicken.webp',
     prepMethods: ['التحمير في الفرن بالحرارة الجافة متبل بالأعشاب والليمون', 'الطهي بالشواية الدوارة دون استخدام زيوت خارجية'],
     recipes: ['دجاج مشوي كامل بالأعشاب مع البطاطا الحلوة', 'دجاج مشوي منزوع الجلد مع سلطة خضراء فتوش دايت'],
     alternatives: ['chicken_breast', 'chicken_thigh_skinless', 'turkey_thigh']
@@ -186,7 +186,7 @@ export const POULTRY_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (شرائح جاهزة)',
     weightGrams: 100,
     satietyIndex: 4.2,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AF%D9%88%D8%A7%D8%AC%D9%86/5-Smoked%20Chicken%20Breast.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AF%D8%AC%D8%A7%D8%AC/5-Smoked%20Chicken%20Breast.webp',
     prepMethods: ['إضافة الشرائح مباشرة إلى السلطات الشتوية والخفيفة', 'تسخين خفيف في مقلاة غير لاصقة بدون أي زيوت'],
     recipes: ['سلطة الدجاج المدخن بالجرجير والجبن القريش', 'ساندوتش دجاج مدخن بخبز الشوفان الكامل'],
     alternatives: ['chicken_breast', 'smoked_turkey', 'turkey_breast']
@@ -224,7 +224,7 @@ export const POULTRY_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (طازج مطبوخ)',
     weightGrams: 100,
     satietyIndex: 5.0,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AF%D9%88%D8%A7%D8%AC%D9%86/6-Turkey%20Breast.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AF%D8%AC%D8%A7%D8%AC/6-Turkey%20Breast.webp',
     prepMethods: ['الروستو في الفرن مع الأعشاب والروزماري', 'الطهي في المقلاة الهوائية بدون أي زيوت'],
     recipes: ['شرائح صدر الديك الرومي المشوي مع الخضار', 'سلطة الرومي الدايت بالأفوكادو والليمون'],
     alternatives: ['chicken_breast', 'smoked_turkey', 'chicken_boiled']
@@ -262,7 +262,7 @@ export const POULTRY_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (بدون جلد مطبوخ)',
     weightGrams: 100,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AF%D9%88%D8%A7%D8%AC%D9%86/7-Turkey%20Thigh.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AF%D8%AC%D8%A7%D8%AC/7-Turkey%20Thigh.webp',
     prepMethods: ['الطهي البطولي بالفرن كصينية روستو مع الأعشاب', 'الشوي بالفرن بدون إضافات دهنية'],
     recipes: ['فخذ ديك رومي مشوي بالفرن مع الثوم والليمون', 'شرائح الديك الرومي الأسمر مع الأرز البني'],
     alternatives: ['turkey_breast', 'chicken_thigh_skinless', 'duck_skinless']
@@ -300,7 +300,7 @@ export const POULTRY_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (شرائح)',
     weightGrams: 100,
     satietyIndex: 4.1,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AF%D9%88%D8%A7%D8%AC%D9%86/8-Smoked%20Turkey.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AF%D8%AC%D8%A7%D8%AC/8-Smoked%20Turkey.webp',
     prepMethods: ['تقطيع الشرائح ووضعها داخل سندويشات دايت', 'إضافتها لطبق البيض الأومليت الصباحي'],
     recipes: ['لفة بيض بالديك الرومي المدخن والسبانخ', 'سلطة خضراء بالديك الرومي المدخن والتفاح'],
     alternatives: ['turkey_breast', 'smoked_chicken', 'chicken_breast']
@@ -338,7 +338,7 @@ export const POULTRY_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (منزوع الجلد مطبوخ)',
     weightGrams: 100,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AF%D9%88%D8%A7%D8%AC%D9%86/9-Skinless%20Duck%20Breast.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AF%D8%AC%D8%A7%D8%AC/9-Skinless%20Duck%20Breast.webp',
     prepMethods: ['التحمير الجاف بالفرن بالبرتقال الطبيعي ودبس الرمان الدايت', 'الشوي على الجريل بدون استخدام زبدة أو زيوت'],
     recipes: ['صدر بط مشوي بالفرن بنكهة البرتقال الدايت', 'شرائح البط المشوي مع سلطة الكينوا'],
     alternatives: ['turkey_thigh', 'chicken_thigh_skinless', 'quail_meat']
@@ -376,7 +376,7 @@ export const POULTRY_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مطبوخ)',
     weightGrams: 100,
     satietyIndex: 4.4,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AF%D9%88%D8%A7%D8%AC%D9%86/10-Quail%20Meat.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AF%D8%AC%D8%A7%D8%AC/10-Quail%20Meat.webp',
     prepMethods: ['الشوي على الفحم أو الجريل بالأعشاب والزعتر', 'الطهي في الفرن داخل صينية خضار مشكلة دايت'],
     recipes: ['سمان مشوي بالأعشاب والليمون على الجريل', 'صينية السمان بالفرن مع البطاطا الحلوة والبروكلي'],
     alternatives: ['chicken_breast', 'turkey_breast', 'duck_skinless']

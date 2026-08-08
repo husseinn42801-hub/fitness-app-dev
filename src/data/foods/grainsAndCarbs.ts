@@ -34,7 +34,7 @@ export const GRAIN_ITEMS: FoodItem[] = [
     servingSize: '50 جرام (حوالي نصف كوب)',
     weightGrams: 50,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/1-Rolled%20Oats.webp',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/1-Rolled%20Oats.webp',
     prepMethods: ['طهيه مع ماء أو حليب دافئ لعمل عصيدة دافئة', 'طحنه لعمل دقيق الشوفان الصحي للمخبوزات'],
     recipes: ['عصيدة الشوفان الصباحية بالحليب والموز والعسل', 'بان كيك الشوفان الصحي بالبيض والفانيليا'],
     alternatives: ['brown_rice', 'sweet_potato', 'quinoa_cooked']
@@ -72,7 +72,7 @@ export const GRAIN_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوق مطبوخ)',
     weightGrams: 100,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/2-Boiled%20Brown%20Rice.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/2-Boiled%20Brown%20Rice.webp',
     prepMethods: ['السلق بالماء مع رشة هيل ومستخلص بهارات بدون زيوت'],
     recipes: ['أرز بني مسلوق مع صدور الدجاج المشوية والبروكلي', 'طبق أرز بني مع فيليه السلمون المشوي'],
     alternatives: ['quinoa_cooked', 'bulgur_cooked', 'white_rice']
@@ -110,7 +110,7 @@ export const GRAIN_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوق بدون زيوت)',
     weightGrams: 100,
     satietyIndex: 3.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/3-Boiled%20White%20Rice.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/3-Boiled%20White%20Rice.webp',
     prepMethods: ['السلق في الماء الممتص بدون سمن أو زيوت'],
     recipes: ['أرز أبيض مسلوق بعد التمرين مع صدور دجاج مسلوقة'],
     alternatives: ['brown_rice', 'sweet_potato', 'potato_boiled']
@@ -148,7 +148,7 @@ export const GRAIN_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مطبوخة)',
     weightGrams: 100,
     satietyIndex: 4.7,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/4-Cooked%20Quinoa.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/4-Cooked%20Quinoa.webp',
     prepMethods: ['السلق بالماء مثل الأرز بنسبة 1 كينوا إلى 2 ماء'],
     recipes: ['سلطة الكينوا بالأفوكادو والرمان وجبن الفيتا لايت', 'كينوا مطبوخة مع شرائح السلمون المشوي'],
     alternatives: ['brown_rice', 'freekeh_cooked', 'oats_raw']
@@ -186,7 +186,7 @@ export const GRAIN_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مطبوخ بالبخار)',
     weightGrams: 100,
     satietyIndex: 4.9,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/5-Cooked%20Bulgur.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/5-Cooked%20Bulgur.webp',
     prepMethods: ['النقع بالماء الساخن والطهي الخفيف مع الطماطم والأعشاب'],
     recipes: ['تبولة دايت بالبرغل وزيت الزيتون والبقدونس', 'برغل مطبوخ بالطماطم مع كفتة دايت مشوية'],
     alternatives: ['freekeh_cooked', 'brown_rice', 'quinoa_cooked']
@@ -224,7 +224,7 @@ export const GRAIN_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مطبوخ)',
     weightGrams: 100,
     satietyIndex: 4.9,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/6-Cooked%20Freekeh.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/6-Cooked%20Freekeh.webp',
     prepMethods: ['السلق والطهي الهادئ مع مرق دجاج خالٍ من الدهون'],
     recipes: ['فريك مطبوخ بالدواجن والمكسرات النيئة', 'طاجن الفريك بالدجاج بالفرن الدايت'],
     alternatives: ['bulgur_cooked', 'brown_rice', 'quinoa_cooked']
@@ -262,7 +262,7 @@ export const GRAIN_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مطبوخ)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/7-Cooked%20Barley.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/7-Cooked%20Barley.webp',
     prepMethods: ['السلق الطويل وعمل التلبينة بالحليب خالي الدسم والعسل'],
     recipes: ['تلبينة الشعير الصحية بالحليب والعسل والقرفة', 'شوربة الشعير بالخضار والليمون'],
     alternatives: ['oats_raw', 'bulgur_cooked', 'freekeh_cooked']
@@ -300,7 +300,7 @@ export const GRAIN_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوقة بدون صلصة زيتية)',
     weightGrams: 100,
     satietyIndex: 4.4,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/8-Whole%20Wheat%20Pasta.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/8-Whole%20Wheat%20Pasta.webp',
     prepMethods: ['السلق في ماء مغلي مملح خفيفاً وتصفيتها دون غسل بالماء البارد'],
     recipes: ['مكرونة القمح الكامل باللحم المفروم الصافي وعصير الطماطم', 'مكرونة كاملة بشرائح صدور الدجاج والمشروم'],
     alternatives: ['brown_rice', 'oats_raw', 'sweet_potato']
@@ -338,7 +338,7 @@ export const GRAIN_ITEMS: FoodItem[] = [
     servingSize: '50 جرام (حوالي رغيف دايت صغير)',
     weightGrams: 50,
     satietyIndex: 4.5,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/9-Whole%20Wheat%20Bread.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/9-Whole%20Wheat%20Bread.webp',
     prepMethods: ['تحميصه خفيفاً واستخدامه للسندويشات الصحية'],
     recipes: ['سندوتش جبن قريش بخبز القمح الكامل والجرجير', 'توست القمح الكامل بالأفوكادو والبيض المسلوق'],
     alternatives: ['oat_bread', 'rye_bread', 'oats_raw']
@@ -376,7 +376,7 @@ export const GRAIN_ITEMS: FoodItem[] = [
     servingSize: '50 جرام (رغيف شوفان دايت)',
     weightGrams: 50,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/10-Oat%20Bread.png',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/10-Oat%20Bread.webp',
     prepMethods: ['خبزه بالمقلاة أو تحميصه بالتوستر'],
     recipes: ['رغيف شوفان مدهون باللبنة اللايت والزعتر', 'سندوتش الديك الرومي المدخن بخبز الشوفان'],
     alternatives: ['whole_wheat_bread', 'rye_bread', 'oats_raw']
@@ -414,7 +414,7 @@ export const GRAIN_ITEMS: FoodItem[] = [
     servingSize: '50 جرام (شريحة خبز الجاودار)',
     weightGrams: 50,
     satietyIndex: 4.9,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/11-Rye%20Bread.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/11-Rye%20Bread.webp',
     prepMethods: ['تناوله مع الشرائح الباردة والجبن القريش'],
     recipes: ['شريحة خبز الجاودار مع الروست بيف والجرجير', 'توست الجاودار بالريكوتا والتوت'],
     alternatives: ['oat_bread', 'whole_wheat_bread', 'barley_cooked']
@@ -452,7 +452,7 @@ export const GRAIN_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مطبوخ بالبخار)',
     weightGrams: 100,
     satietyIndex: 4.4,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/12-Whole%20Wheat%20Couscous.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AD%D8%A8%D9%88%D8%A8%20%D9%88%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A7%D8%AA/12-Whole%20Wheat%20Couscous.webp',
     prepMethods: ['الطهي بالبخار أو النقع بالماء المغلي وتغطيته 5 دقائق'],
     recipes: ['كسكس القمح الكامل بالخضار المشوية وصدور الدجاج', 'سلطة الكسكس بالمكسرات النيئة والتفاح'],
     alternatives: ['quinoa_cooked', 'bulgur_cooked', 'brown_rice']
@@ -493,7 +493,7 @@ export const CARB_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مشوية بقشرتها)',
     weightGrams: 100,
     satietyIndex: 4.9,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A9/1-Baked%20Sweet%20Potato.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D9%87/1-Baked%20Sweet%20Potato.webp',
     prepMethods: ['الشوي بالفرن بقشرتها حتى تتسبك حلاوتها الطبيعية', 'السلق بالبخار وتناولها هرساً'],
     recipes: ['بطاطا حلوة مشوية بالفرن مع رشة قرفة', 'شرائح البطاطا الحلوة المشوية في المقلاة الهوائية'],
     alternatives: ['potato_baked', 'potato_boiled', 'oats_raw']
@@ -531,7 +531,7 @@ export const CARB_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوقة)',
     weightGrams: 100,
     satietyIndex: 5.0,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A9/2-Boiled%20Potato.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D9%87/2-Boiled%20Potato.webp',
     prepMethods: ['السلق الكامل بالماء والمقشرة ثم رشها بالكمون وزيت زيتون بسيط', 'هرسها مع الأعشاب'],
     recipes: ['بطاطس مسلوقة مهروسة بالكمون والنعناع وزيت الزيتون', 'سلطة البطاطس المسلوقة بالأعشاب والليمون'],
     alternatives: ['potato_baked', 'sweet_potato', 'brown_rice']
@@ -569,7 +569,7 @@ export const CARB_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مشوية بالفرن بقشرها)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A9/3-Baked%20Potato.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D9%87/3-Baked%20Potato.webp',
     prepMethods: ['التقطيع إلى ودجز الخبز بالفرن أو المقلاة الهوائية مع الأعشاب'],
     recipes: ['بطاطس ودجز مشوية بالفرن بالروزماري والثوم', 'بطاطس مشوية محشوة بالجبن القريش والأعشاب'],
     alternatives: ['potato_boiled', 'sweet_potato', 'pumpkin_roasted']
@@ -607,7 +607,7 @@ export const CARB_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (حبوب مسلوقة)',
     weightGrams: 100,
     satietyIndex: 4.3,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A9/4-Boiled%20Corn.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D9%87/4-Boiled%20Corn.webp',
     prepMethods: ['السلق في الماء المغلي أو الشوي بالفرن'],
     recipes: ['كوز ذرة مسلوق مع الليمون والبابريكا', 'سلطة الذرة المسلوقة مع الفلفل الألوان والتونة'],
     alternatives: ['sweet_potato', 'green_peas', 'potato_boiled']
@@ -645,7 +645,7 @@ export const CARB_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مشوي)',
     weightGrams: 100,
     satietyIndex: 4.8,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A9/5-Roasted%20Pumpkin.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D9%87/5-Roasted%20Pumpkin.webp',
     prepMethods: ['التقطيع مكعبات والخبز بالفرن مع القرفة أو البابريكا'],
     recipes: ['شوربة القرع المشوي الصحية بالثوم والأعشاب', 'مكعبات اليقطين المشوي بالفرن مع القرفة'],
     alternatives: ['sweet_potato', 'carrot_cooked', 'potato_boiled']
@@ -683,7 +683,7 @@ export const CARB_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوق أو مطبوخ)',
     weightGrams: 100,
     satietyIndex: 4.3,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A9/6-Cooked%20Carrot.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D9%87/6-Cooked%20Carrot.webp',
     prepMethods: ['السلق بالبخار أو الطهي داخل صواني الخضار المشكلة'],
     recipes: ['شوربة الجزر بالزنجبيل الدايت', 'شرائح الجزر المطبوخ على البخار مع زيت الزيتون خفيف'],
     alternatives: ['pumpkin_roasted', 'beetroot_boiled', 'sweet_potato']
@@ -721,7 +721,7 @@ export const CARB_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوق)',
     weightGrams: 100,
     satietyIndex: 4.4,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A9/7-Boiled%20Beetroot.jpg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D9%87/7-Boiled%20Beetroot.webp',
     prepMethods: ['السلق بقشرته لمنع فقد العصارة الحمراء ثم تقشيره وتقطيعه'],
     recipes: ['سلطة البنجر المسلوق مع التفاح وعصير الليمون', 'عصير البنجر والبرتقال الطبيعي قبل التمرين'],
     alternatives: ['carrot_cooked', 'sweet_potato', 'pumpkin_roasted']
@@ -759,7 +759,7 @@ export const CARB_ITEMS: FoodItem[] = [
     servingSize: '100 جرام (مسلوقة)',
     weightGrams: 100,
     satietyIndex: 4.6,
-    imageUrl: 'https://pub-84cd88da68d64f358673a64b20d67d90.r2.dev/%D9%82%D8%B3%D9%85%20%D8%B5%D9%88%D8%B1%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D8%A7%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D8%A9/8-Boiled%20Green%20Peas.jpeg',
+    imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D8%AE%D8%B6%D8%B1%D9%88%D8%A7%D8%AA%20%D8%A7%D9%84%D9%86%D8%B4%D9%88%D9%8A%D9%87/8-Boiled%20Green%20Peas.webp',
     prepMethods: ['السلق بالبخار وتناولها أو إضافتها للأرز والأطباق'],
     recipes: ['أرز بني بالبازلاء الخضراء والجزر', 'شوربة البازلاء الخضراء بالنعناع الدايت'],
     alternatives: ['corn_boiled', 'sweet_potato', 'lentils_cooked']
