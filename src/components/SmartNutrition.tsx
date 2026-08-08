@@ -29,7 +29,7 @@ import {
 } from 'lucide-react';
 
 import { UserStats, FoodItem, FoodLogItem, DailyNutritionLog } from '../types';
-import { NUTRITION_DB, MEAL_TEMPLATES, INGREDIENT_REPLACEMENTS, MealTemplate } from '../data/nutritionDb';
+import { NUTRITION_DB, MEAL_TEMPLATES, INGREDIENT_REPLACEMENTS, MealTemplate, getMealImage } from '../data/nutritionDb';
 import { LazyImage } from './LazyImage';
 import { ConfirmModal } from './ConfirmModal';
 
@@ -818,16 +818,18 @@ export function SmartNutrition({ userStats, isDark, onUpdateStats }: SmartNutrit
                 before_sleep: '🥛'
               };
 
+              const mealImageUrl = meal.imageUrl || getMealImage(meal);
+
               return (
                 <div
                   key={meal.id}
                   className={`group border rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-[#FF5F2E]/10 hover:-translate-y-1 hover:border-[#FF5F2E]/40 flex flex-col ${themeCardClass}`}
                 >
                   {/* Banner */}
-                  {meal.imageUrl ? (
+                  {mealImageUrl ? (
                     <div className="relative h-32 bg-gray-900 overflow-hidden">
                       <LazyImage
-                        src={meal.imageUrl}
+                        src={mealImageUrl}
                         categoryOrType={meal.type}
                         fallbackEmoji="🍲"
                         alt={meal.nameAr}
@@ -981,6 +983,7 @@ export function SmartNutrition({ userStats, isDark, onUpdateStats }: SmartNutrit
               <div className="grid grid-cols-2 gap-3">
                 {filteredFoodItems.map((item) => {
                   const isFav = favorites.includes(item.id);
+                  const itemImageUrl = item.imageUrl || getMealImage(item);
                   return (
                     <div
                       key={item.id}
@@ -990,10 +993,10 @@ export function SmartNutrition({ userStats, isDark, onUpdateStats }: SmartNutrit
                       }}
                       className={`border rounded-2xl overflow-hidden transition-all duration-300 hover:scale-101 cursor-pointer flex flex-col justify-between ${themeCardClass}`}
                     >
-                      {item.imageUrl ? (
+                      {itemImageUrl ? (
                         <div className="relative h-20 bg-gray-900">
                           <LazyImage
-                            src={item.imageUrl}
+                            src={itemImageUrl}
                             fallbackSrc={item.fallbackImageUrl}
                             categoryOrType={item.category}
                             fallbackEmoji={getFoodEmoji(item.category)}
@@ -1205,10 +1208,10 @@ export function SmartNutrition({ userStats, isDark, onUpdateStats }: SmartNutrit
                 isDark ? 'bg-[#161618] border-white/10 text-white' : 'bg-white border-gray-200 text-gray-900 shadow-2xl'
               }`}
             >
-              {selectedFoodItem.imageUrl ? (
+              {selectedFoodItem && (selectedFoodItem.imageUrl || getMealImage(selectedFoodItem)) ? (
                 <div className="relative h-44 bg-gray-900">
                   <LazyImage
-                    src={selectedFoodItem.imageUrl}
+                    src={selectedFoodItem.imageUrl || getMealImage(selectedFoodItem)}
                     fallbackSrc={selectedFoodItem.fallbackImageUrl}
                     categoryOrType={selectedFoodItem.category}
                     fallbackEmoji={getFoodEmoji(selectedFoodItem.category)}

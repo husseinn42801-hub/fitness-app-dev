@@ -39,6 +39,55 @@ export interface MealTemplate {
   prepInstructions: string[];
 }
 
+/**
+ * Automatically retrieves the matching food item image from NUTRITION_DB for a given meal template or card.
+ */
+export function getMealImage(item: { nameAr: string; ingredients?: string[]; category?: string; imageUrl?: string }): string {
+  if (item.imageUrl && item.imageUrl.trim() !== '') return item.imageUrl;
+
+  const textToSearch = (item.nameAr + ' ' + (item.ingredients || []).join(' ') + ' ' + (item.category || '')).toLowerCase();
+
+  const keywordMap = [
+    { keywords: ['دجاج', 'صدور'], id: 'chicken_breast' },
+    { keywords: ['سلمون', 'سمك'], id: 'salmon_grilled' },
+    { keywords: ['ستيك', 'لحم بقري', 'فيليه', 'وحشية'], id: 'beef_ribeye' },
+    { keywords: ['تونة'], id: 'tuna_water' },
+    { keywords: ['رومي', 'حبش', 'ديك رومي'], id: 'turkey_breast' },
+    { keywords: ['شوفان'], id: 'oats_raw' },
+    { keywords: ['بيض', 'عجة'], id: 'boiled_egg' },
+    { keywords: ['تفاح أخضر', 'تفاحة', 'تفاح طازج', 'كارديو'], id: 'apple_fresh' },
+    { keywords: ['موز', 'موزة'], id: 'banana_fresh' },
+    { keywords: ['زبادي'], id: 'greek_yogurt' },
+    { keywords: ['قريش'], id: 'cottage_cheese' },
+    { keywords: ['عدس'], id: 'lentils_cooked' },
+    { keywords: ['بطاطا'], id: 'sweet_potato' },
+    { keywords: ['توست', 'خبز'], id: 'whole_wheat_bread' },
+    { keywords: ['أرز'], id: 'brown_rice' },
+    { keywords: ['لوز', 'مكسرات'], id: 'almonds_raw' },
+    { keywords: ['خيار'], id: 'cucumber' }
+  ];
+
+  for (const entry of keywordMap) {
+    if (entry.keywords.some(kw => textToSearch.includes(kw))) {
+      const found = NUTRITION_DB.find(f => f.id === entry.id);
+      if (found && found.imageUrl) return found.imageUrl;
+    }
+  }
+
+  for (const food of NUTRITION_DB) {
+    if (food.nameAr && textToSearch.includes(food.nameAr.toLowerCase())) {
+      return food.imageUrl;
+    }
+  }
+
+  if (item.category) {
+    const categoryFound = NUTRITION_DB.find(f => f.category === item.category && f.imageUrl);
+    if (categoryFound) return categoryFound.imageUrl;
+  }
+
+  return NUTRITION_DB[0]?.imageUrl || '';
+}
+
 export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
   loss: [
     {
@@ -97,7 +146,7 @@ export const MEAL_TEMPLATES: Record<string, MealTemplate[]> = {
       carbs: 28,
       fats: 1,
       timeAr: 'قبل التمرين بـ 45 دقيقة',
-      imageUrl: '',
+      imageUrl: 'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D9%82%D8%B3%D9%85%20%D8%A7%D9%84%D9%81%D9%88%D8%A7%D9%83%D9%87/1-Fresh%20Green%20Apple.webp',
       ingredients: [
         'تفاحة خضراء متوسطة مقطعة شرائح',
         'رشة قرفة مطحونة ناعمة لضبط حساسية الأنسولين',
