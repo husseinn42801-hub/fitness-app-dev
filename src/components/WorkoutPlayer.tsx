@@ -3,7 +3,7 @@ import { Exercise, WorkoutDay, UserStats } from '../types';
 import { EXERCISES_DB } from '../data/exercises';
 import { getAlternativeExercise, saveSwappedExerciseInStorage, calculateExerciseCalories } from '../utils/exerciseSwapper';
 import { ExerciseModel } from './ExerciseModel';
-import { ProCircularTimer } from './ProCircularTimer';
+import { HudBannerTimer } from './HudBannerTimer';
 import { CountUp } from './CountUp';
 // @ts-ignore
 import goldenTrophyImg from '../assets/images/golden_trophy_cup_1785369511939.jpg';
@@ -35,7 +35,8 @@ import {
   Layers,
   Activity,
   Languages,
-  RotateCw
+  RotateCw,
+  Repeat1
 } from 'lucide-react';
 import { audioManager } from '../lib/audioManager';
 import { COACHES } from '../config/audioConfig';
@@ -118,6 +119,7 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
   const [restTotalTime, setRestTotalTime] = useState<number>(day.restTimePerSet || 15);
   
   const [isFinished, setIsFinished] = useState<boolean>(false);
+  const [isRepeatOne, setIsRepeatOne] = useState<boolean>(false); // Single exercise repeat mode
   const [muted, setMuted] = useState<boolean>(() => audioManager.getMuted());
   const [showTipsModal, setShowTipsModal] = useState<boolean>(false);
   const [tipsModalLang, setTipsModalLang] = useState<'ar' | 'en'>('ar');
@@ -736,6 +738,13 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
   const handleSetCompletion = () => {
     playBeep(900, 0.3);
     
+    // If repeat single exercise mode is enabled, restart current exercise continuously
+    if (isRepeatOne) {
+      setTimeLeft(activeExercise.duration);
+      audioManager.playAudio('start');
+      return;
+    }
+
     if (currentSet < totalSets) {
       // Move to rest timer before starting next set
       const restDuration = day.restTimePerSet || 15;
@@ -1198,6 +1207,7 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
                   mp4Url={activeExercise.mp4Url} 
                   exerciseNameEn={activeExercise.nameEn}
                   isPlaying={isPlaying}
+                  showBadge={false}
                 />
               </div>
 
@@ -1237,16 +1247,18 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
                 </div>
               </div>
 
-              {/* Pro Circular Countdown Timer */}
-              <div className="my-0.5">
-                <ProCircularTimer 
-                  value={readyTimeLeft} 
-                  total={15} 
-                  label="انطلاق خلال" 
-                  theme="orange" 
-                  isDark={isDark} 
-                  size={88} 
-                />
+              {/* Sci-Fi HUD Banner Countdown Timer */}
+              <div className="my-1 w-full flex justify-center">
+                <div className="max-w-[160px] xs:max-w-[180px] sm:max-w-[200px] w-full flex justify-center">
+                  <HudBannerTimer 
+                    value={readyTimeLeft} 
+                    total={15} 
+                    label="" 
+                    theme="orange" 
+                    isDark={isDark} 
+                    className="!max-w-[160px] xs:!max-w-[180px] sm:!max-w-[200px]"
+                  />
+                </div>
               </div>
 
               {/* Daily Workout Session Circular Progress Indicator */}
@@ -1368,14 +1380,15 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
                   -10ث
                 </button>
 
-                <ProCircularTimer 
-                  value={restTimeLeft} 
-                  total={restTotalTime} 
-                  label="راحة" 
-                  theme="sky" 
-                  isDark={isDark} 
-                  size={96} 
-                />
+                <div className="max-w-[200px] w-full flex justify-center">
+                  <HudBannerTimer 
+                    value={restTimeLeft} 
+                    total={restTotalTime} 
+                    label="راحة" 
+                    theme="cyan" 
+                    isDark={isDark} 
+                  />
+                </div>
 
                 <button
                   onClick={() => {
@@ -1456,27 +1469,16 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
               </div>
 
               {/* Middle displays with compact size */}
-              <div className="flex justify-center items-center gap-4 py-0.5">
-                
-                <div className="text-gray-400 text-[10px] text-center">
-                  <span className="block text-[8px] font-medium text-gray-400">مقدر للحرق</span>
-                  <span className="font-extrabold text-[#FF5F2E] font-mono text-xs">
-                    ~{isTimeBased 
-                      ? Math.max(1, Math.round((activeExercise.caloriesPerMin || 6) * ((activeExercise.duration || 30) / 60))) 
-                      : Math.max(1, Math.round((activeExercise.caloriesPerMin || 6) * 0.75))
-                    }
-                  </span> <span className="text-[9px]">سعرة</span>
-                </div>
-
+              <div className="flex justify-center items-center py-1">
                 {isTimeBased ? (
-                  /* Pro Active Exercise HUD Countdown Circle with +10s / -10s Quick Adjustment */
-                  <div className="flex items-center gap-2.5">
+                  /* Sci-Fi Banner Timer with +10s / -10s Quick Adjustment */
+                  <div className="flex items-center justify-center gap-2.5 w-full max-w-xs mx-auto">
                     <button
                       onClick={() => {
                         setTimeLeft((prev) => Math.max(1, prev - 10));
                         playBeep(500, 0.1);
                       }}
-                      className={`px-2.5 py-1.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer border active:scale-95 ${
+                      className={`px-2.5 py-1.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer border active:scale-95 shrink-0 ${
                         isDark ? 'bg-white/5 border-white/10 text-gray-300 hover:text-white' : 'bg-gray-100 border-gray-200 text-gray-700 hover:bg-gray-200'
                       }`}
                       title="إنقاص 10 ثوانٍ"
@@ -1484,21 +1486,22 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
                       -10ث
                     </button>
 
-                    <ProCircularTimer 
-                      value={timeLeft} 
-                      total={activeExercise.duration || 30} 
-                      subLabel="ثانية" 
-                      theme="orange" 
-                      isDark={isDark} 
-                      size={88} 
-                    />
+                    <div className="max-w-[200px] w-full flex justify-center">
+                      <HudBannerTimer 
+                        value={timeLeft} 
+                        total={activeExercise.duration || 30} 
+                        label="" 
+                        theme="orange" 
+                        isDark={isDark} 
+                      />
+                    </div>
 
                     <button
                       onClick={() => {
                         setTimeLeft((prev) => prev + 10);
                         playBeep(700, 0.1);
                       }}
-                      className={`px-2.5 py-1.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer border active:scale-95 ${
+                      className={`px-2.5 py-1.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer border active:scale-95 shrink-0 ${
                         isDark ? 'bg-[#FF5F2E]/10 border-[#FF5F2E]/20 text-[#FF5F2E] hover:bg-[#FF5F2E]/20' : 'bg-[#FF5F2E]/10 border-[#FF5F2E]/20 text-[#FF5F2E] hover:bg-[#FF5F2E]/20'
                       }`}
                       title="إضافة 10 ثوانٍ"
@@ -1518,21 +1521,6 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
                     </div>
                   </div>
                 )}
-
-                {/* Reset/Restart set button */}
-                <button 
-                  onClick={() => {
-                    setTimeLeft(isTimeBased ? activeExercise.duration : 0);
-                    playBeep(600, 0.15);
-                    audioManager.playAudio('start');
-                  }}
-                  className={`p-2 rounded-full transition-all cursor-pointer border ${
-                    isDark ? 'bg-[#1A1A1A] border-white/5 text-gray-300 hover:text-white' : 'bg-white border-gray-100 text-gray-600 hover:bg-gray-50 shadow-xs'
-                  }`}
-                  title="إعادة جولة التمرين"
-                >
-                  <RefreshCw className="w-3.5 h-3.5" />
-                </button>
               </div>
 
               {/* Reps interactive validation button */}
@@ -1548,18 +1536,44 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
                 </div>
               )}
 
-              {/* Controller row: Back, Play/Pause/Mute, Next */}
-              <div className="flex items-center justify-center gap-4">
-                <button
-                  onClick={handlePreviousExerciseManual}
-                  disabled={currentIndex === 0}
-                  className={`p-2 rounded-xl border transition-all cursor-pointer ${
-                    isDark ? 'border-white/10 text-white hover:bg-white/5' : 'border-gray-200 text-gray-800 hover:bg-gray-50'
-                  } disabled:opacity-30 disabled:pointer-events-none`}
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
+              {/* Controller row: Back (with Calories beside it), Play/Pause, Next (with Reset time beside it) */}
+              <div className="flex items-center justify-center gap-2.5 sm:gap-4 my-1">
+                
+                {/* Back / Previous exercise button + Calories Estimate beside it */}
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <button
+                    onClick={handlePreviousExerciseManual}
+                    disabled={currentIndex === 0}
+                    className={`p-2 rounded-xl border transition-all cursor-pointer ${
+                      isDark ? 'border-white/10 text-white hover:bg-white/5' : 'border-gray-200 text-gray-800 hover:bg-gray-50'
+                    } disabled:opacity-30 disabled:pointer-events-none`}
+                    title="التمرين السابق"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
 
+                  <button 
+                    onClick={() => {
+                      setIsRepeatOne(prev => !prev);
+                      playBeep(700, 0.15);
+                    }}
+                    className={`p-2 rounded-xl transition-all cursor-pointer border relative flex items-center justify-center ${
+                      isRepeatOne
+                        ? 'bg-[#FF5F2E]/20 border-[#FF5F2E]/50 text-[#FF5F2E] shadow-xs'
+                        : (isDark ? 'bg-[#1A1A1A] border-white/10 text-gray-300 hover:text-white' : 'bg-white border-gray-100 text-gray-600 hover:bg-gray-50 shadow-xs')
+                    }`}
+                    title={isRepeatOne ? "إلغاء تكرار التمرين الحالي" : "تكرار التمرين الحالي باستمرار"}
+                  >
+                    <Repeat1 className="w-4 h-4" />
+                    {isRepeatOne && (
+                      <span className="absolute -top-1 -right-1 bg-[#FF5F2E] text-white text-[9px] font-black w-3.5 h-3.5 rounded-full flex items-center justify-center shadow-xs">
+                        1
+                      </span>
+                    )}
+                  </button>
+                </div>
+
+                {/* Play / Pause button in center */}
                 {isTimeBased && (
                   <button
                     onClick={handlePlayPause}
@@ -1568,20 +1582,39 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
                         ? 'bg-[#FF5F2E] text-white hover:bg-[#FF912E]' 
                         : (isDark ? 'bg-white text-black hover:bg-gray-100' : 'bg-gray-900 text-white hover:bg-black')
                     }`}
+                    title={isPlaying ? 'إيقاف مؤقت' : 'تشغيل'}
                   >
                     {isPlaying ? <Pause className="w-4.5 h-4.5 fill-current" /> : <Play className="w-4.5 h-4.5 fill-current translate-x-[-1px]" />}
                   </button>
                 )}
 
-                <button
-                  onClick={handleNextExerciseManual}
-                  className={`p-2 rounded-xl border transition-all cursor-pointer ${
-                    isDark ? 'border-white/10 text-white hover:bg-white/5' : 'border-gray-200 text-gray-800 hover:bg-gray-50'
-                  }`}
-                  title="التمرين التالي"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
+                {/* Reset Time button + Next exercise button beside it */}
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <button 
+                    onClick={() => {
+                      setTimeLeft(isTimeBased ? activeExercise.duration : 0);
+                      playBeep(600, 0.15);
+                      audioManager.playAudio('start');
+                    }}
+                    className={`p-2 rounded-xl transition-all cursor-pointer border ${
+                      isDark ? 'bg-[#1A1A1A] border-white/10 text-gray-300 hover:text-white' : 'bg-white border-gray-100 text-gray-600 hover:bg-gray-50 shadow-xs'
+                    }`}
+                    title="إعادة وقت التمرين"
+                  >
+                    <RefreshCw className="w-4 h-4" />
+                  </button>
+
+                  <button
+                    onClick={handleNextExerciseManual}
+                    className={`p-2 rounded-xl border transition-all cursor-pointer ${
+                      isDark ? 'border-white/10 text-white hover:bg-white/5' : 'border-gray-200 text-gray-800 hover:bg-gray-50'
+                    }`}
+                    title="التمرين التالي"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                </div>
+
               </div>
 
               {/* Info Pill Button */}

@@ -25,6 +25,7 @@ import {
 import { UserStats } from '../types';
 import { audioManager } from '../lib/audioManager';
 import { COACHES } from '../config/audioConfig';
+import { WorkoutLevelsDiagram } from './WorkoutLevelsDiagram';
 
 interface OnboardingWizardProps {
   onComplete: (stats: UserStats) => void;
@@ -197,48 +198,48 @@ export const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, 
 
       {/* 2. SUMMARY SCREEN OVERLAY */}
       {showSummary && !isAnalyzing && (
-        <div className="flex-1 flex flex-col justify-between space-y-5 animate-fade-in py-2">
-          <div className="space-y-4">
+        <div className="flex-1 flex flex-col justify-between space-y-3 animate-fade-in py-1 max-w-xl mx-auto w-full">
+          <div className="space-y-3">
             {/* Celebration Header */}
-            <div className="text-center space-y-2">
-              <div className="w-14 h-14 bg-gradient-to-tr from-[#FF5F2E] to-[#FF912E] rounded-full flex items-center justify-center mx-auto shadow-lg shadow-[#FF5F2E]/20">
-                <Heart className="w-7 h-7 text-white fill-current" />
+            <div className="text-center space-y-1">
+              <div className="w-10 h-10 bg-gradient-to-tr from-[#FF5F2E] to-[#FF912E] rounded-full flex items-center justify-center mx-auto shadow-md shadow-[#FF5F2E]/20">
+                <Heart className="w-5 h-5 text-white fill-current" />
               </div>
-              <h2 className={`text-xl font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>تم توليد خطتك الرياضية المخصصة!</h2>
-              <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>بناءً على معلوماتك وجيناتك المدخلة، إليك ملخص الخطة:</p>
+              <h2 className={`text-base sm:text-lg font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>تم توليد خطتك الرياضية المخصصة!</h2>
+              <p className={`text-[11px] ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>بناءً على معلوماتك وجيناتك المدخلة، إليك ملخص الخطة:</p>
             </div>
 
             {/* Health & Plan Cards Grid */}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2 sm:gap-2.5">
               
               {/* BMI Card */}
-              <div className={`p-3.5 rounded-2xl border space-y-1 ${isDark ? 'bg-[#1A1A1A] border-white/5' : 'bg-white border-gray-200 shadow-xs'}`}>
-                <span className={`text-[10px] font-bold block ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>مؤشر كتلة جسمك (BMI)</span>
-                <span className={`text-xl font-mono font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>{bmi}</span>
-                <span className={`text-[9px] px-2 py-0.5 rounded-md font-bold inline-block mt-1 ${bmiStatus.color}`}>
+              <div className={`p-2.5 rounded-xl border space-y-0.5 ${isDark ? 'bg-[#1A1A1A] border-white/5' : 'bg-white border-gray-200 shadow-xs'}`}>
+                <span className={`text-[9px] font-bold block ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>مؤشر كتلة جسمك (BMI)</span>
+                <span className={`text-base font-mono font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>{bmi}</span>
+                <span className={`text-[8px] px-1.5 py-0.5 rounded font-bold inline-block mt-0.5 ${bmiStatus.color}`}>
                   {bmiStatus.text}
                 </span>
               </div>
 
               {/* Water Card */}
-              <div className={`p-3.5 rounded-2xl border space-y-1 ${isDark ? 'bg-[#1A1A1A] border-white/5' : 'bg-white border-gray-200 shadow-xs'}`}>
-                <span className={`text-[10px] font-bold block ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>مستهدف الماء اليومي</span>
-                <span className="text-xl font-mono font-black text-[#FF912E]">{waterCups} <span className={`text-[10px] ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>أكواب</span></span>
-                <p className={`text-[8px] leading-none mt-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>ما يعادل {waterCups * 250 / 1000} لتر يومياً لترطيب مثالي.</p>
+              <div className={`p-2.5 rounded-xl border space-y-0.5 ${isDark ? 'bg-[#1A1A1A] border-white/5' : 'bg-white border-gray-200 shadow-xs'}`}>
+                <span className={`text-[9px] font-bold block ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>مستهدف الماء اليومي</span>
+                <span className="text-base font-mono font-black text-[#FF912E]">{waterCups} <span className={`text-[9px] ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>أكواب</span></span>
+                <p className={`text-[8px] leading-none mt-0.5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>ما يعادل {waterCups * 250 / 1000} لتر يومياً.</p>
               </div>
 
               {/* TDEE Card */}
-              <div className={`p-3.5 rounded-2xl border space-y-1 ${isDark ? 'bg-[#1A1A1A] border-white/5' : 'bg-white border-gray-200 shadow-xs'}`}>
-                <span className={`text-[10px] font-bold block ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>حرقك اليومي (TDEE)</span>
-                <span className={`text-xl font-mono font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>{tdee} <span className={`text-[10px] ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>سعرة</span></span>
-                <p className={`text-[8px] leading-none mt-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>معدل الطاقة الإجمالي المصروف يومياً.</p>
+              <div className={`p-2.5 rounded-xl border space-y-0.5 ${isDark ? 'bg-[#1A1A1A] border-white/5' : 'bg-white border-gray-200 shadow-xs'}`}>
+                <span className={`text-[9px] font-bold block ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>حرقك اليومي (TDEE)</span>
+                <span className={`text-base font-mono font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>{tdee} <span className={`text-[9px] ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>سعرة</span></span>
+                <p className={`text-[8px] leading-none mt-0.5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>معدل الطاقة الإجمالي المصروف يومياً.</p>
               </div>
 
               {/* Target Calorie Budget */}
-              <div className={`border p-3.5 rounded-2xl space-y-1 ${isDark ? 'bg-[#FF5F2E]/5 border-[#FF5F2E]/15' : 'bg-orange-50/80 border-orange-200 shadow-xs'}`}>
-                <span className="text-[10px] text-[#FF5F2E] font-bold block">ميزانية السعرات المستهدفة</span>
-                <span className="text-xl font-mono font-black text-[#FF5F2E]">{calorieBudget} <span className={`text-[10px] ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>سعرة</span></span>
-                <p className={`text-[8px] leading-none mt-1 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+              <div className={`border p-2.5 rounded-xl space-y-0.5 ${isDark ? 'bg-[#FF5F2E]/5 border-[#FF5F2E]/15' : 'bg-orange-50/80 border-orange-200 shadow-xs'}`}>
+                <span className="text-[9px] text-[#FF5F2E] font-bold block">ميزانية السعرات المستهدفة</span>
+                <span className="text-base font-mono font-black text-[#FF5F2E]">{calorieBudget} <span className={`text-[9px] ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>سعرة</span></span>
+                <p className={`text-[8px] leading-none mt-0.5 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                   {goal === 'loss' ? 'عجز مدروس لنسف الدهون.' : goal === 'gain' ? 'فائض لبناء عضلات صافية.' : 'محافظة وتثبيت لقوام مشدود.'}
                 </p>
               </div>
@@ -246,19 +247,22 @@ export const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, 
             </div>
 
             {/* Plan Info Overview Box */}
-            <div className={`p-4 rounded-2xl border space-y-2 text-right ${isDark ? 'bg-[#1A1A1A] border-white/5' : 'bg-white border-gray-200 shadow-xs'}`}>
-              <span className="text-[10px] text-[#FF912E] font-extrabold block">🏷️ اسم البرنامج التمريني المخصص:</span>
-              <h4 className={`text-sm font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>برنامج {goal === 'loss' ? 'نسف الكرش ونحت الخصر الفائق (30 يوماً)' : goal === 'gain' ? 'تطوير الكتلة العضلية والقوة المتفجرة' : 'الرشاقة وتنسيق القوام المثالي'}</h4>
-              <p className={`text-xs leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+            <div className={`p-3 rounded-xl border space-y-1 text-right ${isDark ? 'bg-[#1A1A1A] border-white/5' : 'bg-white border-gray-200 shadow-xs'}`}>
+              <span className="text-[9px] text-[#FF912E] font-extrabold block">🏷️ اسم البرنامج التمريني المخصص:</span>
+              <h4 className={`text-xs font-black ${isDark ? 'text-white' : 'text-gray-900'}`}>برنامج {goal === 'loss' ? 'نسف الكرش ونحت الخصر الفائق (30 يوماً)' : goal === 'gain' ? 'تطوير الكتلة العضلية والقوة المتفجرة' : 'الرشاقة وتنسيق القوام المثالي'}</h4>
+              <p className={`text-[10px] leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                 تم دمج محرك توجيه التمارين المخصص لك، وسيتولى المدرب الصوتي ({voiceGender === 'male' ? COACHES.male.name : COACHES.female.name}) تزويدك بالتعليمات وبث روح التحدي يومياً لمساعدتك على الانتقال من وزن {weight} كجم إلى وزن مستهدف {targetWeight} كجم!
               </p>
             </div>
+
+            {/* Exercise Levels Diagram Component */}
+            <WorkoutLevelsDiagram isDark={isDark} />
           </div>
 
           {/* CTA Confirm */}
           <button
             onClick={handleFinish}
-            className="w-full py-4 bg-gradient-to-r from-[#FF5F2E] to-[#FF912E] hover:opacity-90 active:scale-98 text-white font-extrabold rounded-2xl text-xs transition-all shadow-md shadow-[#FF5F2E]/20 cursor-pointer flex items-center justify-center gap-2"
+            className="w-full py-3 mt-2 bg-gradient-to-r from-[#FF5F2E] to-[#FF912E] hover:opacity-90 active:scale-98 text-white font-extrabold rounded-xl text-xs transition-all shadow-md shadow-[#FF5F2E]/20 cursor-pointer flex items-center justify-center gap-2"
           >
             <span>ابدأ رحلتك الرياضية الآن</span>
             <ArrowRight className="w-4 h-4 transform rotate-180" />
