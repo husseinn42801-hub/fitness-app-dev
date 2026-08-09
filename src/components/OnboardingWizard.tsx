@@ -25,7 +25,7 @@ import {
 import { UserStats } from '../types';
 import { audioManager } from '../lib/audioManager';
 import { COACHES } from '../config/audioConfig';
-import { WorkoutLevelsDiagram } from './WorkoutLevelsDiagram';
+import { WorkoutLevelsDiagram, preloadWorkoutLevelImages } from './WorkoutLevelsDiagram';
 
 interface OnboardingWizardProps {
   onComplete: (stats: UserStats) => void;
@@ -51,8 +51,9 @@ export const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, 
   const [voiceGender, setVoiceGender] = useState<'male' | 'female'>(() => audioManager.getCoach());
   const [previewPlayingCoach, setPreviewPlayingCoach] = useState<'female' | 'male' | null>(null);
 
-  // Cleanup audio on unmount or step change
+  // Cleanup audio on unmount or step change & Preload level images
   useEffect(() => {
+    preloadWorkoutLevelImages();
     return () => {
       audioManager.stopAudio();
     };
@@ -77,6 +78,7 @@ export const OnboardingWizard: React.FC<OnboardingWizardProps> = ({ onComplete, 
 
   useEffect(() => {
     if (isAnalyzing) {
+      preloadWorkoutLevelImages();
       let index = 0;
       const messages = getAnalysisMessages();
       const interval = setInterval(() => {

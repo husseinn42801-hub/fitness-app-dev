@@ -1,11 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ChevronLeft } from 'lucide-react';
+
+export const WORKOUT_LEVEL_IMAGE_URLS = [
+  'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D8%B5%D9%88%D8%B1%20%D9%85%D8%B3%D8%AA%D9%88%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%85%D8%A7%D8%B1%D9%8A%D9%86%20%D9%81%D9%8A%20%D8%B4%D8%A7%D8%B4%D8%A9%20%D8%A7%D9%84%D8%A8%D8%AF%D8%A7%D9%8A%D8%A9/1-%20Simple.webp',
+  'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D8%B5%D9%88%D8%B1%20%D9%85%D8%B3%D8%AA%D9%88%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%85%D8%A7%D8%B1%D9%8A%D9%86%20%D9%81%D9%8A%20%D8%B4%D8%A7%D8%B4%D8%A9%20%D8%A7%D9%84%D8%A8%D8%AF%D8%A7%D9%8A%D8%A9/2-%20Average.webp',
+  'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D8%B5%D9%88%D8%B1%20%D9%85%D8%B3%D8%AA%D9%88%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%85%D8%A7%D8%B1%D9%8A%D9%86%20%D9%81%D9%8A%20%D8%B4%D8%A7%D8%B4%D8%A9%20%D8%A7%D9%84%D8%A8%D8%AF%D8%A7%D9%8A%D8%A9/3-%20Advanced.webp',
+  'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D8%B5%D9%88%D8%B1%20%D9%85%D8%B3%D8%AA%D9%88%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%85%D8%A7%D8%B1%D9%8A%D9%86%20%D9%81%D9%8A%20%D8%B4%D8%A7%D8%B4%D8%A9%20%D8%A7%D9%84%D8%A8%D8%AF%D8%A7%D9%8A%D8%A9/4-%20Difficult.webp'
+];
+
+export const preloadWorkoutLevelImages = () => {
+  if (typeof window === 'undefined') return;
+  WORKOUT_LEVEL_IMAGE_URLS.forEach((url) => {
+    const img = new Image();
+    img.src = encodeURI(decodeURI(url));
+  });
+};
+
+// Immediate background preloading trigger on module import
+if (typeof window !== 'undefined') {
+  preloadWorkoutLevelImages();
+}
 
 interface WorkoutLevelsDiagramProps {
   isDark?: boolean;
 }
 
 export const WorkoutLevelsDiagram: React.FC<WorkoutLevelsDiagramProps> = ({ isDark = true }) => {
+  useEffect(() => {
+    preloadWorkoutLevelImages();
+  }, []);
+
   const levels = [
     {
       num: '1',
@@ -14,7 +38,9 @@ export const WorkoutLevelsDiagram: React.FC<WorkoutLevelsDiagramProps> = ({ isDa
       ringColor: '#22c55e',
       glowShadow: 'rgba(34, 197, 94, 0.45)',
       badgeBg: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/50',
-      badgeGlow: '0 0 10px rgba(34, 197, 94, 0.3)'
+      badgeGlow: '0 0 10px rgba(34, 197, 94, 0.3)',
+      imageUrl: WORKOUT_LEVEL_IMAGE_URLS[0],
+      imgScale: 'scale-100'
     },
     {
       num: '2',
@@ -23,7 +49,9 @@ export const WorkoutLevelsDiagram: React.FC<WorkoutLevelsDiagramProps> = ({ isDa
       ringColor: '#eab308',
       glowShadow: 'rgba(234, 179, 8, 0.45)',
       badgeBg: 'bg-amber-500/10 text-amber-400 border-amber-500/50',
-      badgeGlow: '0 0 10px rgba(234, 179, 8, 0.3)'
+      badgeGlow: '0 0 10px rgba(234, 179, 8, 0.3)',
+      imageUrl: WORKOUT_LEVEL_IMAGE_URLS[1],
+      imgScale: 'scale-100'
     },
     {
       num: '3',
@@ -32,7 +60,9 @@ export const WorkoutLevelsDiagram: React.FC<WorkoutLevelsDiagramProps> = ({ isDa
       ringColor: '#FF5F2E',
       glowShadow: 'rgba(255, 95, 46, 0.45)',
       badgeBg: 'bg-[#FF5F2E]/10 text-[#FF5F2E] border-[#FF5F2E]/50',
-      badgeGlow: '0 0 10px rgba(255, 95, 46, 0.3)'
+      badgeGlow: '0 0 10px rgba(255, 95, 46, 0.3)',
+      imageUrl: WORKOUT_LEVEL_IMAGE_URLS[2],
+      imgScale: 'scale-[0.82]'
     },
     {
       num: '4',
@@ -41,7 +71,9 @@ export const WorkoutLevelsDiagram: React.FC<WorkoutLevelsDiagramProps> = ({ isDa
       ringColor: '#ef4444',
       glowShadow: 'rgba(239, 68, 68, 0.45)',
       badgeBg: 'bg-red-500/10 text-red-400 border-red-500/50',
-      badgeGlow: '0 0 10px rgba(239, 68, 68, 0.3)'
+      badgeGlow: '0 0 10px rgba(239, 68, 68, 0.3)',
+      imageUrl: WORKOUT_LEVEL_IMAGE_URLS[3],
+      imgScale: 'scale-100'
     }
   ];
 
@@ -68,21 +100,36 @@ export const WorkoutLevelsDiagram: React.FC<WorkoutLevelsDiagramProps> = ({ isDa
       {/* Main Diagram Area */}
       <div className="relative z-10 space-y-3">
 
-        {/* Top 4 Glowing Circles (Without inner icons) */}
+        {/* Top 4 Glowing Circles with Custom Level Images */}
         <div className="grid grid-cols-4 gap-1 sm:gap-2">
           {levels.map((lvl) => (
             <div key={`top-${lvl.num}`} className="flex justify-center">
               <div 
-                className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center p-1 backdrop-blur-md transition-transform hover:scale-105"
+                className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center backdrop-blur-md transition-transform hover:scale-105"
                 style={{
                   boxShadow: `0 0 16px ${lvl.glowShadow}, inset 0 0 10px ${lvl.glowShadow}`,
                   border: `2px solid ${lvl.ringColor}`,
                   background: isDark ? 'rgba(10, 10, 12, 0.85)' : 'rgba(255, 255, 255, 0.9)'
                 }}
               >
+                {/* Inner clipped circle for the image */}
+                <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center bg-black/20">
+                  <img 
+                    src={encodeURI(decodeURI(lvl.imageUrl))} 
+                    alt={lvl.title} 
+                    className={`w-full h-full object-cover rounded-full transition-transform ${lvl.imgScale || 'scale-100'}`}
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (target.src !== lvl.imageUrl) {
+                        target.src = lvl.imageUrl;
+                      }
+                    }}
+                  />
+                </div>
+
                 {/* Dashed outer orbit ring effect */}
                 <div 
-                  className="absolute -inset-1.5 rounded-full border border-dashed opacity-60 animate-[spin_20s_linear_infinite]"
+                  className="absolute -inset-1.5 rounded-full border border-dashed opacity-70 animate-[spin_20s_linear_infinite] pointer-events-none"
                   style={{ borderColor: lvl.ringColor }}
                 />
               </div>
