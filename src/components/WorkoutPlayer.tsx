@@ -40,6 +40,7 @@ import {
 } from 'lucide-react';
 import { audioManager } from '../lib/audioManager';
 import { COACHES } from '../config/audioConfig';
+import { videoCacheManager } from '../utils/videoCacheManager';
 
 interface WorkoutPlayerProps {
   day: WorkoutDay;
@@ -358,40 +359,23 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
   const timeoutsRef = useRef<number[]>([]);
   const lailaAudioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Prefetching videos for upcoming exercises in the workout day to guarantee smooth transitions
-  const upcomingVideoUrls = React.useMemo(() => {
-    const upcomingIds = exerciseIds.slice(currentIndex + 1, currentIndex + 3);
-    return upcomingIds
+  // Proactive video caching pipeline for the entire workout day (High-priority caching)
+  const allDayVideoUrls = React.useMemo(() => {
+    // Current and upcoming exercises first, then previous ones
+    const prioritizedIds = [
+      ...exerciseIds.slice(currentIndex),
+      ...exerciseIds.slice(0, currentIndex)
+    ];
+    return prioritizedIds
       .map((id) => EXERCISES_DB[id]?.videoUrl || EXERCISES_DB[id]?.mp4Url)
-      .filter((url): url is string => Boolean(url));
+      .filter((url): url is string => Boolean(url && url.trim()));
   }, [exerciseIds, currentIndex]);
 
-  // Dynamic DOM prefetching element insertion into document.head
   useEffect(() => {
-    if (!upcomingVideoUrls.length) return;
-
-    const createdLinks: HTMLLinkElement[] = [];
-
-    upcomingVideoUrls.forEach((url) => {
-      const existing = document.querySelector(`link[href="${url}"]`);
-      if (!existing) {
-        const link = document.createElement('link');
-        link.rel = 'prefetch';
-        link.as = 'video';
-        link.href = url;
-        document.head.appendChild(link);
-        createdLinks.push(link);
-      }
-    });
-
-    return () => {
-      createdLinks.forEach((link) => {
-        if (link.parentNode) {
-          link.parentNode.removeChild(link);
-        }
-      });
-    };
-  }, [upcomingVideoUrls]);
+    if (allDayVideoUrls.length > 0) {
+      videoCacheManager.preloadVideos(allDayVideoUrls);
+    }
+  }, [allDayVideoUrls]);
 
   const clearAllTimeouts = () => {
     timeoutsRef.current.forEach((t) => clearTimeout(t));
@@ -1086,10 +1070,10 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
     >
       {/* Background Video Prefetching Pipeline for smooth instant transitions */}
       <div className="hidden pointer-events-none aria-hidden" aria-hidden="true">
-        {upcomingVideoUrls.filter(url => Boolean(url && url.trim())).map((url) => (
+        {allDayVideoUrls.filter(url => Boolean(url && url.trim())).map((url) => (
           <video
             key={url}
-            src={url}
+            src={videoCacheManager.getCachedUrl(url)}
             preload="auto"
             muted
             playsInline
@@ -1422,7 +1406,7 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
           ) : (
             /* 3. ACTIVE EXERCISE STATE */
             <motion.div 
-              key={`active-exercise-${currentIndex}-${currentSet}`}
+              key={`active-exercise-${currentIndex}`}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}

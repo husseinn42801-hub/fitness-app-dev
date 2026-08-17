@@ -1,6 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
+import Hls from 'hls.js';
 import { EXERCISES_DB } from '../data/exercises';
-import { Pause, Loader2, Video, Dumbbell } from 'lucide-react';
+import { Pause, Loader2, Video } from 'lucide-react';
+import { videoCacheManager } from '../utils/videoCacheManager';
 
 interface ExerciseModelProps {
   type: 'jumping-jacks' | 'squats' | 'crunches' | 'russian-twist' | 'plank' | 'leg-raises' | 'cobra-stretch';
@@ -11,71 +13,146 @@ interface ExerciseModelProps {
   showBadge?: boolean;
 }
 
-export const ExerciseModel: React.FC<ExerciseModelProps> = ({ type, isPlaying = true, mp4Url, exerciseNameEn, showBadge = true }) => {
+export const ExerciseModel: React.FC<ExerciseModelProps> = ({ 
+  type, 
+  isPlaying = true, 
+  mp4Url, 
+  exerciseNameEn, 
+  showBadge = true 
+}) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isBuffering, setIsBuffering] = useState<boolean>(true);
+  const hlsRef = useRef<Hls | null>(null);
+  const [isBuffering, setIsBuffering] = useState<boolean>(false);
   const [hasLoadedData, setHasLoadedData] = useState<boolean>(false);
 
   // Look up the exercise strictly by matching English name (nameEn) if provided, or fallback to animationType
-  const exercise = exerciseNameEn
-    ? Object.values(EXERCISES_DB).find((ex) => ex.nameEn?.trim().toLowerCase() === exerciseNameEn.trim().toLowerCase())
-    : Object.values(EXERCISES_DB).find((ex) => ex.animationType === type);
+  const exercise = useMemo(() => {
+    return exerciseNameEn
+      ? Object.values(EXERCISES_DB).find((ex) => ex.nameEn?.trim().toLowerCase() === exerciseNameEn.trim().toLowerCase())
+      : Object.values(EXERCISES_DB).find((ex) => ex.animationType === type);
+  }, [exerciseNameEn, type]);
 
-  const videoSource = mp4Url || exercise?.mp4Url || exercise?.videoUrl || '';
+  const rawVideoSource = mp4Url || exercise?.mp4Url || exercise?.videoUrl || '';
+  const isHlsStream = Boolean(rawVideoSource && (rawVideoSource.includes('.m3u8') || rawVideoSource.includes('/hls/')));
+
+  // Resolved video source for non-HLS streams (Blob URL or cached URL or original)
+  const [activeSource, setActiveSource] = useState<string>(() => {
+    if (isHlsStream) return rawVideoSource;
+    return videoCacheManager.getCachedUrl(rawVideoSource);
+  });
+
+  // Resolve and cache video blob asynchronously for MP4 files
+  useEffect(() => {
+    let isCancelled = false;
+
+    if (!rawVideoSource) {
+      setActiveSource('');
+      setHasLoadedData(true);
+      setIsBuffering(false);
+      return;
+    }
+
+    if (isHlsStream) {
+      setActiveSource(rawVideoSource);
+      return;
+    }
+
+    // Check if already in RAM blob cache
+    const synchronousCached = videoCacheManager.getCachedUrl(rawVideoSource);
+    if (synchronousCached !== rawVideoSource) {
+      setActiveSource(synchronousCached);
+    }
+
+    // Fetch Blob URL in background
+    videoCacheManager.getVideoBlobUrl(rawVideoSource).then((blobUrl) => {
+      if (!isCancelled && blobUrl) {
+        setActiveSource((prev) => (prev !== blobUrl ? blobUrl : prev));
+      }
+    }).catch(() => {});
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [rawVideoSource, isHlsStream]);
 
   const markVideoReady = () => {
     setHasLoadedData(true);
     setIsBuffering(false);
   };
 
-  // Load and play video when source URL changes
+  // Setup HLS.js or native HTML5 video stream
   useEffect(() => {
-    if (!videoSource) {
-      setHasLoadedData(true);
-      setIsBuffering(false);
-      return;
+    const video = videoRef.current;
+    if (!video || !activeSource) return;
+
+    // Clean up any previous HLS instance
+    if (hlsRef.current) {
+      hlsRef.current.destroy();
+      hlsRef.current = null;
     }
 
-    const video = videoRef.current;
-    if (!video) return;
+    if (isHlsStream) {
+      if (Hls.isSupported()) {
+        const hls = new Hls({
+          enableWorker: true,
+          lowLatencyMode: true,
+          backBufferLength: 30,
+          maxBufferLength: 20,
+          capLevelToPlayerSize: true, // Automatically adapt stream bitrate to element size & network
+        });
+        hlsRef.current = hls;
+        hls.loadSource(activeSource);
+        hls.attachMedia(video);
 
-    setHasLoadedData(false);
-    setIsBuffering(true);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+          markVideoReady();
+          if (isPlaying) {
+            video.play().catch(() => markVideoReady());
+          }
+        });
 
-    // Fast Safety Timeout: ensure loading spinner disappears within 1 second MAX under any network condition
-    const timer = setTimeout(() => {
-      markVideoReady();
-    }, 1000);
-
-    try {
-      video.load();
-      if (isPlaying) {
-        const playPromise = video.play();
-        if (playPromise !== undefined) {
-          playPromise
-            .then(() => {
-              markVideoReady();
-            })
-            .catch(() => {
-              markVideoReady();
-            });
-        }
-      } else {
-        markVideoReady();
+        hls.on(Hls.Events.ERROR, (_event, data) => {
+          if (data.fatal) {
+            switch (data.type) {
+              case Hls.ErrorTypes.NETWORK_ERROR:
+                hls.startLoad();
+                break;
+              case Hls.ErrorTypes.MEDIA_ERROR:
+                hls.recoverMediaError();
+                break;
+              default:
+                hls.destroy();
+                break;
+            }
+          }
+        });
+      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        // Native Safari HLS support
+        video.src = activeSource;
       }
-    } catch (e) {
-      markVideoReady();
+    } else {
+      // Standard MP4 / Cached Blob URL
+      if (video.src !== activeSource) {
+        video.src = activeSource;
+      }
     }
 
     return () => {
-      clearTimeout(timer);
+      if (hlsRef.current) {
+        hlsRef.current.destroy();
+        hlsRef.current = null;
+      }
     };
-  }, [videoSource]);
+  }, [activeSource, isHlsStream]);
 
-  // Synchronize play/pause state without resetting or re-loading video source
+  // Playback control when active source or isPlaying changes
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || !videoSource) return;
+    if (!video || !activeSource) return;
+
+    // Guarantee mute for zero-latency autoplay on iOS/Android
+    video.muted = true;
+    video.defaultMuted = true;
 
     if (isPlaying) {
       const playPromise = video.play();
@@ -91,18 +168,7 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = ({ type, isPlaying = 
     } else {
       video.pause();
     }
-  }, [isPlaying, videoSource]);
-
-  // Handle seamless video loop without reload or black screen flash
-  const handleLoopEnd = () => {
-    const video = videoRef.current;
-    if (video && videoSource) {
-      video.currentTime = 0;
-      if (isPlaying) {
-        video.play().catch(() => {});
-      }
-    }
-  };
+  }, [activeSource, isPlaying]);
 
   return (
     <div 
@@ -112,14 +178,14 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = ({ type, isPlaying = 
         transform: 'translateZ(0)',
       }}
     >
-      {!videoSource ? (
+      {!rawVideoSource ? (
         <div className="flex flex-col items-center justify-center text-center p-6 space-y-3 z-10">
           <div className="w-14 h-14 rounded-2xl bg-[#FF5F2E]/10 border border-[#FF5F2E]/30 flex items-center justify-center text-[#FF5F2E] shadow-lg shadow-[#FF5F2E]/10">
             <Video className="w-7 h-7" />
           </div>
           <div className="space-y-1">
             <h4 className="text-sm font-black text-white">
-              {exercise?.nameAr || 'تمرین رياضـي'}
+              {exercise?.nameAr || 'تمرين رياضي'}
             </h4>
             <p className="text-[11px] text-gray-400 font-medium">
               في انتظار إضافة رابط الفيديو الجديد...
@@ -128,7 +194,7 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = ({ type, isPlaying = 
         </div>
       ) : (
         <>
-          {/* Loading Spinner ONLY if video data hasn't loaded yet AND within early buffering phase */}
+          {/* Subtle loading spinner only when initial data is loading */}
           {!hasLoadedData && isBuffering && (
             <div className="absolute inset-0 flex items-center justify-center bg-black/80 z-20 transition-opacity duration-200">
               <div className="flex flex-col items-center gap-2">
@@ -138,38 +204,39 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = ({ type, isPlaying = 
             </div>
           )}
 
-          {/* HTML5 Video Element with High-Performance Mobile & Web Attributes - Seamless Loop & Full Object-Contain */}
-          {videoSource ? (
-            <video
-              ref={videoRef}
-              src={videoSource}
-              className="w-full h-full object-contain mx-auto my-auto rounded-2xl opacity-100 transition-opacity duration-300"
-              loop
-              muted
-              playsInline
-              // @ts-ignore
-              webkit-playsinline="true"
-              autoPlay
-              preload="auto"
-              controlsList="nodownload"
-              disablePictureInPicture
-              referrerPolicy="no-referrer"
-              onCanPlay={markVideoReady}
-              onCanPlayThrough={markVideoReady}
-              onLoadedData={markVideoReady}
-              onLoadedMetadata={markVideoReady}
-              onPlaying={markVideoReady}
-              onTimeUpdate={markVideoReady}
-              onError={markVideoReady}
-              onEnded={handleLoopEnd}
-            />
-          ) : null}
+          {/* HTML5 Video Element with Dual HLS & Hardware-Accelerated Blob Engine */}
+          <video
+            ref={videoRef}
+            className="w-full h-full object-contain mx-auto my-auto rounded-2xl opacity-100 transition-opacity duration-300"
+            loop
+            muted
+            autoPlay
+            playsInline
+            // @ts-ignore
+            webkit-playsinline="true"
+            x5-playsinline="true"
+            preload="auto"
+            controlsList="nodownload nofullscreen noremoteplayback"
+            disablePictureInPicture
+            // @ts-ignore
+            disableRemotePlayback
+            referrerPolicy="no-referrer"
+            onCanPlay={markVideoReady}
+            onCanPlayThrough={markVideoReady}
+            onLoadedData={markVideoReady}
+            onLoadedMetadata={markVideoReady}
+            onPlaying={markVideoReady}
+            onWaiting={() => setIsBuffering(true)}
+            onError={markVideoReady}
+          />
 
           {/* Top Left Media badge */}
           {showBadge && (
             <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 bg-black/70 text-white rounded-full text-[10px] font-bold tracking-wider backdrop-blur-md shadow-sm z-20 border border-white/10">
               <span className={`w-1.5 h-1.5 rounded-full ${isPlaying && hasLoadedData ? 'bg-[#FF5F2E] animate-pulse' : 'bg-amber-400'}`}></span>
-              <span className="text-gray-200">عرض أداء التمرين</span>
+              <span className="text-gray-200">
+                {isHlsStream ? 'بث فائق الدقة (HLS)' : 'عرض أداء التمرين'}
+              </span>
             </div>
           )}
 

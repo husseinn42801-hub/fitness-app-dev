@@ -2,15 +2,16 @@ import React, { useEffect } from 'react';
 import { ChevronLeft } from 'lucide-react';
 
 export const WORKOUT_LEVEL_IMAGE_URLS = [
-  'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D8%B5%D9%88%D8%B1%20%D9%85%D8%B3%D8%AA%D9%88%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%85%D8%A7%D8%B1%D9%8A%D9%86%20%D9%81%D9%8A%20%D8%B4%D8%A7%D8%B4%D8%A9%20%D8%A7%D9%84%D8%A8%D8%AF%D8%A7%D9%8A%D8%A9/1-%20Simple.webp',
-  'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D8%B5%D9%88%D8%B1%20%D9%85%D8%B3%D8%AA%D9%88%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%85%D8%A7%D8%B1%D9%8A%D9%86%20%D9%81%D9%8A%20%D8%B4%D8%A7%D8%B4%D8%A9%20%D8%A7%D9%84%D8%A8%D8%AF%D8%A7%D9%8A%D8%A9/2-%20Average.webp',
-  'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D8%B5%D9%88%D8%B1%20%D9%85%D8%B3%D8%AA%D9%88%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%85%D8%A7%D8%B1%D9%8A%D9%86%20%D9%81%D9%8A%20%D8%B4%D8%A7%D8%B4%D8%A9%20%D8%A7%D9%84%D8%A8%D8%AF%D8%A7%D9%8A%D8%A9/3-%20Advanced.webp',
-  'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D8%B5%D9%88%D8%B1%20%D9%85%D8%B3%D8%AA%D9%88%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%85%D8%A7%D8%B1%D9%8A%D9%86%20%D9%81%D9%8A%20%D8%B4%D8%A7%D8%B4%D8%A9%20%D8%A7%D9%84%D8%A8%D8%AF%D8%A7%D9%8A%D8%A9/4-%20Difficult.webp'
+  'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D8%B5%D9%88%D8%B1%20%D9%85%D8%B3%D8%AA%D9%88%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%85%D8%A7%D8%B1%D9%8A%D9%86%20%D9%81%D9%8A%20%D8%B4%D8%A7%D8%B4%D8%A9%20%D8%A7%D9%84%D8%A8%D8%AF%D8%A7%D9%8A%D8%A9/1.png',
+  'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D8%B5%D9%88%D8%B1%20%D9%85%D8%B3%D8%AA%D9%88%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%85%D8%A7%D8%B1%D9%8A%D9%86%20%D9%81%D9%8A%20%D8%B4%D8%A7%D8%B4%D8%A9%20%D8%A7%D9%84%D8%A8%D8%AF%D8%A7%D9%8A%D8%A9/2.png',
+  'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D8%B5%D9%88%D8%B1%20%D9%85%D8%B3%D8%AA%D9%88%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%85%D8%A7%D8%B1%D9%8A%D9%86%20%D9%81%D9%8A%20%D8%B4%D8%A7%D8%B4%D8%A9%20%D8%A7%D9%84%D8%A8%D8%AF%D8%A7%D9%8A%D8%A9/3.png',
+  'https://pub-20b9769bcd4d4837866658db8f318f37.r2.dev/%D8%B5%D9%88%D8%B1%20%D9%85%D8%B3%D8%AA%D9%88%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%85%D8%A7%D8%B1%D9%8A%D9%86%20%D9%81%D9%8A%20%D8%B4%D8%A7%D8%B4%D8%A9%20%D8%A7%D9%84%D8%A8%D8%AF%D8%A7%D9%8A%D8%A9/4.webp'
 ];
 
 export const preloadWorkoutLevelImages = () => {
   if (typeof window === 'undefined') return;
   WORKOUT_LEVEL_IMAGE_URLS.forEach((url) => {
+    if (!url) return;
     const img = new Image();
     img.src = encodeURI(decodeURI(url));
   });
@@ -62,7 +63,7 @@ export const WorkoutLevelsDiagram: React.FC<WorkoutLevelsDiagramProps> = ({ isDa
       badgeBg: 'bg-[#FF5F2E]/10 text-[#FF5F2E] border-[#FF5F2E]/50',
       badgeGlow: '0 0 10px rgba(255, 95, 46, 0.3)',
       imageUrl: WORKOUT_LEVEL_IMAGE_URLS[2],
-      imgScale: 'scale-[0.82]'
+      imgScale: 'scale-100'
     },
     {
       num: '4',
@@ -112,17 +113,23 @@ export const WorkoutLevelsDiagram: React.FC<WorkoutLevelsDiagramProps> = ({ isDa
               >
                 {/* Inner clipped circle for the image */}
                 <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center bg-black/20">
-                  <img 
-                    src={encodeURI(decodeURI(lvl.imageUrl))} 
-                    alt={lvl.title} 
-                    className={`w-full h-full object-cover rounded-full transition-transform ${lvl.imgScale || 'scale-100'}`}
-                    onError={(e) => {
-                      const target = e.currentTarget;
-                      if (target.src !== lvl.imageUrl) {
-                        target.src = lvl.imageUrl;
-                      }
-                    }}
-                  />
+                  {lvl.imageUrl ? (
+                    <img 
+                      src={encodeURI(decodeURI(lvl.imageUrl))} 
+                      alt={lvl.title} 
+                      className={`w-full h-full object-cover rounded-full transition-transform ${lvl.imgScale || 'scale-100'}`}
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        if (target.src !== lvl.imageUrl) {
+                          target.src = lvl.imageUrl;
+                        }
+                      }}
+                    />
+                  ) : (
+                    <div className="w-full h-full rounded-full flex items-center justify-center font-bold text-xs opacity-40">
+                      {lvl.num}
+                    </div>
+                  )}
                 </div>
 
                 {/* Dashed outer orbit ring effect */}
