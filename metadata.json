@@ -1,6 +1,7 @@
 {
   "name": "Remix Remix تحديث العداد وإضافة الفيديوهات ",
-  "description": "",
+  "description": "تطبيق رشاقة للتمارين الرياضية والتغذية الذكية وبرامج تحدي الـ 30 يوماً مع مشغل تمارين متطور وتحميل فوري للفيديوهات.",
+  "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
   ]

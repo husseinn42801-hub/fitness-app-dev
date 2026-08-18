@@ -5,7 +5,8 @@
  * 1. Persistent caching via Browser CacheStorage API ('rashaka_workout_videos_v1').
  * 2. In-memory Blob URL pool for 0ms instantaneous video playback.
  * 3. Proactive sequential & priority preloading for the entire active workout day.
- * 4. Graceful fallback to original CDN URLs under memory/network constraints.
+ * 4. Temporary pre-buffer element pool to guarantee decoded frame readiness before playback.
+ * 5. Graceful fallback to original CDN URLs under memory/network constraints.
  */
 
 const CACHE_NAME = 'rashaka_workout_videos_v1';
@@ -13,6 +14,8 @@ const CACHE_NAME = 'rashaka_workout_videos_v1';
 class VideoCacheManager {
   private memoryBlobCache: Map<string, string> = new Map();
   private inFlightPreloads: Map<string, Promise<string>> = new Map();
+  private preloadedElements: Map<string, HTMLVideoElement> = new Map();
+  private readyUrls: Set<string> = new Set();
   private cacheAvailable: boolean = typeof window !== 'undefined' && 'caches' in window;
 
   /**
@@ -65,7 +68,85 @@ class VideoCacheManager {
   }
 
   /**
-   * Preload an array of video URLs with priority (first item immediate, rest queued).
+   * Pre-buffers an HTML5 Video element in memory to ensure video headers, metadata,
+   * and initial frames (readyState >= 2) are decoded and ready before rendering.
+   */
+  public async prepareVideoElement(originalUrl: string): Promise<boolean> {
+    if (!originalUrl || !originalUrl.trim()) return false;
+    const cleanUrl = originalUrl.trim();
+
+    if (this.readyUrls.has(cleanUrl)) {
+      return true;
+    }
+
+    // First ensure we have the Blob URL
+    const blobUrl = await this.getVideoBlobUrl(cleanUrl);
+    const sourceUrl = blobUrl || cleanUrl;
+
+    if (typeof document === 'undefined') return true;
+
+    return new Promise((resolve) => {
+      try {
+        const video = document.createElement('video');
+        video.preload = 'auto';
+        video.muted = true;
+        video.playsInline = true;
+        // @ts-ignore
+        video.webkitPlaysInline = true;
+
+        let hasResolved = false;
+        const markReady = () => {
+          if (!hasResolved) {
+            hasResolved = true;
+            this.readyUrls.add(cleanUrl);
+            this.preloadedElements.set(cleanUrl, video);
+            cleanup();
+            resolve(true);
+          }
+        };
+
+        const cleanup = () => {
+          video.removeEventListener('canplay', markReady);
+          video.removeEventListener('canplaythrough', markReady);
+          video.removeEventListener('loadeddata', markReady);
+          video.removeEventListener('error', handleError);
+        };
+
+        const handleError = () => {
+          if (!hasResolved) {
+            hasResolved = true;
+            cleanup();
+            resolve(false);
+          }
+        };
+
+        video.addEventListener('canplay', markReady, { once: true });
+        video.addEventListener('canplaythrough', markReady, { once: true });
+        video.addEventListener('loadeddata', markReady, { once: true });
+        video.addEventListener('error', handleError, { once: true });
+
+        video.src = sourceUrl;
+        video.load();
+
+        // Check if already ready
+        if (video.readyState >= 2) {
+          markReady();
+        }
+
+        // Safety fallback timeout after 4 seconds
+        setTimeout(() => {
+          if (!hasResolved) {
+            markReady();
+          }
+        }, 4000);
+      } catch {
+        resolve(true);
+      }
+    });
+  }
+
+  /**
+   * Preload an array of video URLs with priority (first items immediate, rest queued).
    */
   public async preloadVideos(urls: string[]): Promise<void> {
     const validUrls = urls.filter(u => Boolean(u && u.trim()));
@@ -75,12 +156,12 @@ class VideoCacheManager {
     const immediate = validUrls.slice(0, 2);
     const background = validUrls.slice(2);
 
-    await Promise.allSettled(immediate.map(url => this.prefetchVideo(url)));
+    await Promise.allSettled(immediate.map(url => this.prepareVideoElement(url)));
 
     // Load remaining videos sequentially to avoid saturating network bandwidth
     for (const url of background) {
-      if (!this.memoryBlobCache.has(url)) {
-        await this.prefetchVideo(url).catch(() => {});
+      if (!this.memoryBlobCache.has(url) || !this.readyUrls.has(url)) {
+        await this.prepareVideoElement(url).catch(() => {});
       }
     }
   }
@@ -144,15 +225,16 @@ class VideoCacheManager {
   }
 
   /**
-   * Check if a video URL is already cached in memory
+   * Check if a video URL is already cached in memory or buffered
    */
   public isCached(url: string): boolean {
     if (!url) return false;
-    return this.memoryBlobCache.has(url.trim());
+    const cleanUrl = url.trim();
+    return this.memoryBlobCache.has(cleanUrl) || this.readyUrls.has(cleanUrl);
   }
 
   /**
-   * Clear all blob URLs to free memory when necessary
+   * Clear all blob URLs and preloaded video elements to free memory when necessary
    */
   public clearMemoryCache(): void {
     this.memoryBlobCache.forEach((blobUrl) => {
@@ -161,6 +243,12 @@ class VideoCacheManager {
       }
     });
     this.memoryBlobCache.clear();
+    this.readyUrls.clear();
+    this.preloadedElements.forEach((video) => {
+      video.src = '';
+      video.load();
+    });
+    this.preloadedElements.clear();
   }
 }
 
