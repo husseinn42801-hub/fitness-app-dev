@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState, useMemo } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { EXERCISES_DB } from '../data/exercises';
-import { Pause, Loader2, Video, Sparkles } from 'lucide-react';
-import { videoCacheManager } from '../utils/videoCacheManager';
+import { Pause, Loader2, Video, Dumbbell } from 'lucide-react';
 
 interface ExerciseModelProps {
   type: 'jumping-jacks' | 'squats' | 'crunches' | 'russian-twist' | 'plank' | 'leg-raises' | 'cobra-stretch';
@@ -10,184 +9,63 @@ interface ExerciseModelProps {
   exerciseNameEn?: string;
   heightClass?: string;
   showBadge?: boolean;
-  onVideoReady?: () => void;
-  onLoadingChange?: (isLoading: boolean) => void;
 }
 
-export const ExerciseModel: React.FC<ExerciseModelProps> = ({ 
-  type, 
-  isPlaying = true, 
-  mp4Url, 
-  exerciseNameEn, 
-  showBadge = true,
-  onVideoReady,
-  onLoadingChange
-}) => {
+export const ExerciseModel: React.FC<ExerciseModelProps> = ({ type, isPlaying = true, mp4Url, exerciseNameEn, showBadge = true }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  
+  const [isBuffering, setIsBuffering] = useState<boolean>(true);
+  const [hasLoadedData, setHasLoadedData] = useState<boolean>(false);
+  const prevSrcRef = useRef<string>('');
+
   // Look up the exercise strictly by matching English name (nameEn) if provided, or fallback to animationType
-  const exercise = useMemo(() => {
-    return exerciseNameEn
-      ? Object.values(EXERCISES_DB).find((ex) => ex.nameEn?.trim().toLowerCase() === exerciseNameEn.trim().toLowerCase())
-      : Object.values(EXERCISES_DB).find((ex) => ex.animationType === type);
-  }, [exerciseNameEn, type]);
+  const exercise = exerciseNameEn
+    ? Object.values(EXERCISES_DB).find((ex) => ex.nameEn?.trim().toLowerCase() === exerciseNameEn.trim().toLowerCase())
+    : Object.values(EXERCISES_DB).find((ex) => ex.animationType === type);
 
-  const rawVideoSource = mp4Url || exercise?.mp4Url || exercise?.videoUrl || '';
+  const videoSource = mp4Url || exercise?.mp4Url || exercise?.videoUrl || '';
 
-  // Initial state based on whether this URL is already cached/ready in RAM
-  const [isCachedInitially] = useState<boolean>(() => videoCacheManager.isCached(rawVideoSource));
-  const [hasLoadedData, setHasLoadedData] = useState<boolean>(isCachedInitially);
-  const [isBuffering, setIsBuffering] = useState<boolean>(!isCachedInitially && Boolean(rawVideoSource));
-  const [hasError, setHasError] = useState<boolean>(false);
-
-  // Resolved video source (Blob URL or cached URL or original)
-  const [activeSource, setActiveSource] = useState<string>(() => {
-    return videoCacheManager.getCachedUrl(rawVideoSource);
-  });
-
-  const onVideoReadyRef = useRef(onVideoReady);
-  const onLoadingChangeRef = useRef(onLoadingChange);
-
-  useEffect(() => {
-    onVideoReadyRef.current = onVideoReady;
-    onLoadingChangeRef.current = onLoadingChange;
-  }, [onVideoReady, onLoadingChange]);
-
-  // Mark video as ready and notify parents
   const markVideoReady = () => {
     setHasLoadedData(true);
     setIsBuffering(false);
-    setHasError(false);
-    onLoadingChangeRef.current?.(false);
-    onVideoReadyRef.current?.();
   };
 
-  // Resolve and cache video blob asynchronously when rawVideoSource changes
+  // Load and play video when source URL changes
   useEffect(() => {
-    let isCancelled = false;
-
-    if (!rawVideoSource) {
-      setActiveSource('');
+    if (!videoSource) {
       setHasLoadedData(true);
       setIsBuffering(false);
-      setHasError(false);
-      onLoadingChangeRef.current?.(false);
       return;
     }
 
-    // Check if the current source is already ready in RAM
-    const isReadyInRam = videoCacheManager.isCached(rawVideoSource);
-    if (!isReadyInRam) {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Check if same source is already loaded with ready frames
+    if (prevSrcRef.current === videoSource && video.readyState >= 2) {
+      markVideoReady();
+      if (isPlaying) {
+        video.play().catch(() => {});
+      }
+      return;
+    }
+
+    prevSrcRef.current = videoSource;
+
+    // Evaluate real video readyState (HAVE_CURRENT_DATA or higher)
+    if (video.readyState >= 2) {
+      markVideoReady();
+    } else {
       setHasLoadedData(false);
       setIsBuffering(true);
-      onLoadingChangeRef.current?.(true);
-    } else {
-      setHasLoadedData(true);
-      setIsBuffering(false);
-      onLoadingChangeRef.current?.(false);
     }
 
-    // Fetch or verify Blob URL in background
-    videoCacheManager.getVideoBlobUrl(rawVideoSource).then((blobUrl) => {
-      if (!isCancelled && blobUrl) {
-        setActiveSource((prev) => (prev !== blobUrl ? blobUrl : prev));
-      }
-    }).catch(() => {});
-
-    // Pre-buffer HTML5 element in memory
-    videoCacheManager.prepareVideoElement(rawVideoSource).then(() => {
-      if (!isCancelled && videoRef.current && videoRef.current.readyState >= 2) {
-        markVideoReady();
-      }
-    });
-
-    // Safety timeout: Ensure loading screen never hangs more than 3.5 seconds
-    const safetyTimer = setTimeout(() => {
-      if (!isCancelled) {
-        markVideoReady();
-      }
-    }, 3500);
-
-    return () => {
-      isCancelled = true;
-      clearTimeout(safetyTimer);
-    };
-  }, [rawVideoSource]);
-
-  // Direct Event Listeners on HTML5 Video Element for optimal reliability
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video || !activeSource) return;
-
-    // Check if readyState is already satisfactory
-    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
-      markVideoReady();
+    // Only set src and call load if the source actually changed
+    if (video.src !== videoSource) {
+      video.src = videoSource;
+      try {
+        video.load();
+      } catch (e) {}
     }
-
-    const handleLoadStart = () => {
-      if (!videoCacheManager.isCached(rawVideoSource)) {
-        setIsBuffering(true);
-        onLoadingChangeRef.current?.(true);
-      }
-    };
-
-    const handleLoadedData = () => {
-      markVideoReady();
-    };
-
-    const handleCanPlay = () => {
-      markVideoReady();
-    };
-
-    const handleCanPlayThrough = () => {
-      markVideoReady();
-    };
-
-    const handlePlaying = () => {
-      markVideoReady();
-    };
-
-    const handleWaiting = () => {
-      setIsBuffering(true);
-    };
-
-    const handleError = () => {
-      console.warn('Video failed to load source:', activeSource);
-      setHasError(true);
-      markVideoReady(); // Unblock UI so user can still see fallback
-    };
-
-    video.addEventListener('loadstart', handleLoadStart);
-    video.addEventListener('loadedmetadata', handleLoadedData);
-    video.addEventListener('loadeddata', handleLoadedData);
-    video.addEventListener('canplay', handleCanPlay);
-    video.addEventListener('canplaythrough', handleCanPlayThrough);
-    video.addEventListener('playing', handlePlaying);
-    video.addEventListener('waiting', handleWaiting);
-    video.addEventListener('stalled', handleWaiting);
-    video.addEventListener('error', handleError);
-
-    return () => {
-      video.removeEventListener('loadstart', handleLoadStart);
-      video.removeEventListener('loadedmetadata', handleLoadedData);
-      video.removeEventListener('loadeddata', handleLoadedData);
-      video.removeEventListener('canplay', handleCanPlay);
-      video.removeEventListener('canplaythrough', handleCanPlayThrough);
-      video.removeEventListener('playing', handlePlaying);
-      video.removeEventListener('waiting', handleWaiting);
-      video.removeEventListener('stalled', handleWaiting);
-      video.removeEventListener('error', handleError);
-    };
-  }, [activeSource, rawVideoSource]);
-
-  // Playback control when active source or isPlaying changes
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video || !activeSource) return;
-
-    // Guarantee mute for zero-latency autoplay on iOS/Android
-    video.muted = true;
-    video.defaultMuted = true;
 
     if (isPlaying) {
       const playPromise = video.play();
@@ -197,16 +75,60 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = ({
             markVideoReady();
           })
           .catch(() => {
-            // Autoplay safety catch
-            markVideoReady();
+            if (video.readyState >= 2) {
+              markVideoReady();
+            }
           });
       }
     } else {
       video.pause();
     }
-  }, [activeSource, isPlaying]);
 
-  const showLoadingOverlay = Boolean(rawVideoSource && (!hasLoadedData || isBuffering) && !hasError);
+    // Safety non-blocking fallback in case of extreme network latency (8 seconds fallback)
+    const fallbackTimer = setTimeout(() => {
+      if (video && (video.readyState >= 1 || video.error)) {
+        markVideoReady();
+      }
+    }, 8000);
+
+    return () => {
+      clearTimeout(fallbackTimer);
+    };
+  }, [videoSource]);
+
+  // Synchronize play/pause state without resetting or re-loading video source
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !videoSource) return;
+
+    if (isPlaying) {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            markVideoReady();
+          })
+          .catch(() => {
+            if (video.readyState >= 2) {
+              markVideoReady();
+            }
+          });
+      }
+    } else {
+      video.pause();
+    }
+  }, [isPlaying, videoSource]);
+
+  // Handle seamless video loop without reload or black screen flash
+  const handleLoopEnd = () => {
+    const video = videoRef.current;
+    if (video && videoSource) {
+      video.currentTime = 0;
+      if (isPlaying) {
+        video.play().catch(() => {});
+      }
+    }
+  };
 
   return (
     <div 
@@ -216,14 +138,14 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = ({
         transform: 'translateZ(0)',
       }}
     >
-      {!rawVideoSource ? (
+      {!videoSource ? (
         <div className="flex flex-col items-center justify-center text-center p-6 space-y-3 z-10">
           <div className="w-14 h-14 rounded-2xl bg-[#FF5F2E]/10 border border-[#FF5F2E]/30 flex items-center justify-center text-[#FF5F2E] shadow-lg shadow-[#FF5F2E]/10">
             <Video className="w-7 h-7" />
           </div>
           <div className="space-y-1">
             <h4 className="text-sm font-black text-white">
-              {exercise?.nameAr || 'تمرين رياضي'}
+              {exercise?.nameAr || 'تمرین رياضـي'}
             </h4>
             <p className="text-[11px] text-gray-400 font-medium">
               في انتظار إضافة رابط الفيديو الجديد...
@@ -232,46 +154,55 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = ({
         </div>
       ) : (
         <>
-          {/* Subtle high-precision loading overlay during video preparation */}
-          {showLoadingOverlay && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#0D0A08]/90 backdrop-blur-md z-30 transition-opacity duration-300">
-              <div className="relative flex items-center justify-center mb-3">
-                <div className="absolute w-12 h-12 rounded-full bg-[#FF5F2E]/20 animate-ping" />
-                <div className="w-11 h-11 rounded-full bg-[#FF5F2E]/15 border border-[#FF5F2E]/30 flex items-center justify-center">
-                  <Loader2 className="w-6 h-6 text-[#FF5F2E] animate-spin" />
-                </div>
-              </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 bg-white/5 border border-white/10 rounded-full">
-                <Sparkles className="w-3 h-3 text-amber-400 animate-pulse" />
-                <span className="text-[10px] text-gray-200 font-bold">جاري تجهيز عرض التمرين...</span>
+          {/* Loading Spinner ONLY if video data hasn't loaded yet AND within early buffering phase */}
+          {!hasLoadedData && isBuffering && (
+            <div className="absolute inset-0 flex items-center justify-center bg-black/80 z-20 transition-opacity duration-200">
+              <div className="flex flex-col items-center gap-2">
+                <Loader2 className="w-7 h-7 text-[#FF5F2E] animate-spin" />
+                <span className="text-[10px] text-gray-300 font-bold">جاري تحميل عرض التمرين...</span>
               </div>
             </div>
           )}
 
-          {/* HTML5 Video Element with Native Hardware Acceleration & Fluid Looping */}
-          {activeSource && (
+          {/* HTML5 Video Element with High-Performance Mobile & Web Attributes - Seamless Loop & Full Object-Contain */}
+          {videoSource ? (
             <video
               ref={videoRef}
-              key={activeSource}
-              src={activeSource}
-              className={`w-full h-full object-contain mx-auto my-auto rounded-2xl transition-opacity duration-300 ${
-                hasLoadedData ? 'opacity-100' : 'opacity-0'
-              }`}
+              src={videoSource}
+              className="w-full h-full object-contain mx-auto my-auto rounded-2xl opacity-100 transition-opacity duration-300"
               loop
               muted
-              autoPlay
               playsInline
               // @ts-ignore
               webkit-playsinline="true"
-              x5-playsinline="true"
+              autoPlay
               preload="auto"
-              controlsList="nodownload nofullscreen noremoteplayback"
+              controlsList="nodownload"
               disablePictureInPicture
-              // @ts-ignore
-              disableRemotePlayback
               referrerPolicy="no-referrer"
+              onCanPlay={markVideoReady}
+              onCanPlayThrough={markVideoReady}
+              onLoadedData={markVideoReady}
+              onLoadedMetadata={() => {
+                if (videoRef.current && videoRef.current.readyState >= 2) {
+                  markVideoReady();
+                }
+              }}
+              onPlaying={markVideoReady}
+              onWaiting={() => {
+                if (videoRef.current && videoRef.current.readyState < 2) {
+                  setIsBuffering(true);
+                }
+              }}
+              onSeeked={() => {
+                if (videoRef.current && videoRef.current.readyState >= 2) {
+                  setIsBuffering(false);
+                }
+              }}
+              onError={markVideoReady}
+              onEnded={handleLoopEnd}
             />
-          )}
+          ) : null}
 
           {/* Top Left Media badge */}
           {showBadge && (

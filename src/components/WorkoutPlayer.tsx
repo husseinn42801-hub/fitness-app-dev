@@ -40,7 +40,6 @@ import {
 } from 'lucide-react';
 import { audioManager } from '../lib/audioManager';
 import { COACHES } from '../config/audioConfig';
-import { videoCacheManager } from '../utils/videoCacheManager';
 
 interface WorkoutPlayerProps {
   day: WorkoutDay;
@@ -359,23 +358,35 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
   const timeoutsRef = useRef<number[]>([]);
   const lailaAudioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Proactive video caching pipeline for the entire workout day (High-priority caching)
-  const allDayVideoUrls = React.useMemo(() => {
-    // Current and upcoming exercises first, then previous ones
-    const prioritizedIds = [
-      ...exerciseIds.slice(currentIndex),
-      ...exerciseIds.slice(0, currentIndex)
-    ];
-    return prioritizedIds
-      .map((id) => EXERCISES_DB[id]?.videoUrl || EXERCISES_DB[id]?.mp4Url)
-      .filter((url): url is string => Boolean(url && url.trim()));
+  // Targeted preloading of the immediately next exercise video only to guarantee smooth instant transitions
+  const nextVideoUrl = React.useMemo(() => {
+    if (currentIndex < exerciseIds.length - 1) {
+      const nextId = exerciseIds[currentIndex + 1];
+      const ex = EXERCISES_DB[nextId];
+      return ex?.mp4Url || ex?.videoUrl || '';
+    }
+    return '';
   }, [exerciseIds, currentIndex]);
 
+  // Dynamic DOM prefetching element insertion into document.head for the next video
   useEffect(() => {
-    if (allDayVideoUrls.length > 0) {
-      videoCacheManager.preloadVideos(allDayVideoUrls);
-    }
-  }, [allDayVideoUrls]);
+    if (!nextVideoUrl) return;
+
+    const existing = document.querySelector(`link[href="${nextVideoUrl}"]`);
+    if (existing) return;
+
+    const link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.as = 'video';
+    link.href = nextVideoUrl;
+    document.head.appendChild(link);
+
+    return () => {
+      if (link.parentNode) {
+        link.parentNode.removeChild(link);
+      }
+    };
+  }, [nextVideoUrl]);
 
   const clearAllTimeouts = () => {
     timeoutsRef.current.forEach((t) => clearTimeout(t));
@@ -718,50 +729,6 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
     }
   }, [restTimeLeft, isPlaying, isFinished, isResting, currentSet, activeExercise.duration, isAdActive, showTipsModal]);
 
-  const isNavigatingRef = useRef<boolean>(false);
-
-  // Seamless in-memory navigation between exercises without page reloads or DOM tearing
-  const navigateToExercise = (targetIndex: number) => {
-    if (targetIndex < 0 || targetIndex >= exerciseIds.length) return;
-    if (isNavigatingRef.current) return;
-
-    isNavigatingRef.current = true;
-    setTimeout(() => {
-      isNavigatingRef.current = false;
-    }, 350);
-
-    // Stop current audio cues and clear active timers
-    audioManager.stopAudio();
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-    }
-    clearAllTimeouts();
-
-    // Tactile transition beep
-    playBeep(1000, 0.3);
-
-    // Update exercise index
-    setCurrentIndex(targetIndex);
-
-    // Synchronize browser history / URL query params smoothly without full page reload
-    try {
-      const url = new URL(window.location.href);
-      url.searchParams.set('tab', 'workout');
-      url.searchParams.set('day', day.dayNumber.toString());
-      url.searchParams.set('exercise', targetIndex.toString());
-      window.history.replaceState({}, '', url.toString());
-    } catch (e) {}
-
-    // Proactively pre-buffer the upcoming videos in the queue
-    const upcomingUrls = exerciseIds
-      .slice(targetIndex, targetIndex + 3)
-      .map((id) => EXERCISES_DB[id]?.videoUrl || EXERCISES_DB[id]?.mp4Url)
-      .filter((u): u is string => Boolean(u && u.trim()));
-    if (upcomingUrls.length > 0) {
-      videoCacheManager.preloadVideos(upcomingUrls);
-    }
-  };
-
   // Handles completion of one Set of the current exercise
   const handleSetCompletion = () => {
     playBeep(900, 0.3);
@@ -790,8 +757,14 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
   const handleNextExerciseTransition = () => {
     try {
       if (currentIndex < exerciseIds.length - 1) {
+        playBeep(1000, 0.4);
         audioManager.playAudio('exercise_complete');
-        navigateToExercise(currentIndex + 1);
+        const nextIndex = currentIndex + 1;
+        setCurrentIndex(nextIndex);
+        try {
+          const newUrl = `${window.location.pathname}?tab=workout&day=${day.dayNumber}&exercise=${nextIndex}`;
+          window.history.replaceState(null, '', newUrl);
+        } catch (e) {}
       } else {
         // Completed last exercise of the day!
         setIsFinished(true);
@@ -835,7 +808,12 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
   const handleNextExerciseManual = () => {
     try {
       if (currentIndex < exerciseIds.length - 1) {
-        navigateToExercise(currentIndex + 1);
+        const nextIndex = currentIndex + 1;
+        setCurrentIndex(nextIndex);
+        try {
+          const newUrl = `${window.location.pathname}?tab=workout&day=${day.dayNumber}&exercise=${nextIndex}`;
+          window.history.replaceState(null, '', newUrl);
+        } catch (e) {}
       } else {
         setIsFinished(true);
         setIsPlaying(false);
@@ -857,7 +835,12 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
 
   const handlePreviousExerciseManual = () => {
     if (currentIndex > 0) {
-      navigateToExercise(currentIndex - 1);
+      const prevIndex = currentIndex - 1;
+      setCurrentIndex(prevIndex);
+      try {
+        const newUrl = `${window.location.pathname}?tab=workout&day=${day.dayNumber}&exercise=${prevIndex}`;
+        window.history.replaceState(null, '', newUrl);
+      } catch (e) {}
     }
   };
 
@@ -879,12 +862,6 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
       const updatedIds = [...exerciseIds];
       updatedIds[currentIndex] = alternativeEx.id;
       setExerciseIds(updatedIds);
-
-      // Preload the new alternative video immediately
-      const newVideoUrl = alternativeEx.mp4Url || alternativeEx.videoUrl;
-      if (newVideoUrl) {
-        videoCacheManager.prepareVideoElement(newVideoUrl);
-      }
 
       // Save choice in localStorage so it persists
       saveSwappedExerciseInStorage(currentSeason, day.dayNumber, currentIndex, alternativeEx.id, day.exercises);
@@ -1114,20 +1091,20 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
       }`} 
       dir="rtl"
     >
-      {/* Background Video Prefetching Pipeline for smooth instant transitions */}
-      <div className="hidden pointer-events-none aria-hidden" aria-hidden="true">
-        {allDayVideoUrls.filter(url => Boolean(url && url.trim())).map((url) => (
+      {/* Background Next Video Preloader: prepares ONLY the immediately next exercise video */}
+      {nextVideoUrl && (
+        <div className="hidden pointer-events-none aria-hidden" aria-hidden="true">
           <video
-            key={url}
-            src={videoCacheManager.getCachedUrl(url)}
+            key={nextVideoUrl}
+            src={nextVideoUrl}
             preload="auto"
             muted
             playsInline
             // @ts-ignore
             webkit-playsinline="true"
           />
-        ))}
-      </div>
+        </div>
+      )}
       
       {/* Top Header Navigation */}
       <div className={`px-4 py-2.5 flex items-center justify-between border-b ${
@@ -1452,7 +1429,7 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
           ) : (
             /* 3. ACTIVE EXERCISE STATE */
             <motion.div 
-              key={`active-exercise-${currentIndex}`}
+              key={`active-exercise-${currentIndex}-${currentSet}`}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}

@@ -33,8 +33,16 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
-  // Ignore non-GET or backend API requests
-  if (event.request.method !== 'GET' || url.pathname.startsWith('/api/')) {
+  // Ignore non-GET, API requests, video/media requests, range requests, and Cloudflare R2 streams
+  if (
+    event.request.method !== 'GET' ||
+    url.pathname.startsWith('/api/') ||
+    event.request.destination === 'video' ||
+    event.request.headers.has('range') ||
+    url.pathname.endsWith('.mp4') ||
+    url.hostname.includes('r2.dev') ||
+    url.hostname.includes('r2.cloudflarestorage.com')
+  ) {
     return;
   }
 

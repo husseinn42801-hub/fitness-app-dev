@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { Check, Flame, Lock, Sparkles } from 'lucide-react';
 import { WorkoutDay } from '../types';
 import { EXERCISES_DB } from '../data/exercises';
-import { videoCacheManager } from '../utils/videoCacheManager';
 
 interface WorkoutDaysProps {
   workoutDays: WorkoutDay[];
@@ -27,22 +26,9 @@ export const WorkoutDays: React.FC<WorkoutDaysProps> = ({
   onSelectNextSeason,
 }) => {
   // Find the current active (next unlocked & non-completed) day number
-  const activeDay = workoutDays.find(
+  const activeDayNumber = workoutDays.find(
     (d) => !completedDays.includes(d.dayNumber) && (d.dayNumber === 1 || completedDays.includes(d.dayNumber - 1))
-  );
-  const activeDayNumber = activeDay?.dayNumber;
-
-  // Background preload next active day's videos for instant playback
-  useEffect(() => {
-    if (activeDay && activeDay.exercises && activeDay.exercises.length > 0) {
-      const urls = activeDay.exercises
-        .map((id) => EXERCISES_DB[id]?.mp4Url || EXERCISES_DB[id]?.videoUrl)
-        .filter((u): u is string => Boolean(u && u.trim()));
-      if (urls.length > 0) {
-        videoCacheManager.preloadVideos(urls);
-      }
-    }
-  }, [activeDay]);
+  )?.dayNumber;
 
   return (
     <div className="space-y-3" dir="rtl">
@@ -194,18 +180,6 @@ export const VirtualizedExerciseList: React.FC<VirtualizedExerciseListProps> = (
   exerciseIds,
   isDark,
 }) => {
-  // Preload videos in preview list
-  useEffect(() => {
-    if (exerciseIds && exerciseIds.length > 0) {
-      const urls = exerciseIds
-        .map((id) => EXERCISES_DB[id]?.mp4Url || EXERCISES_DB[id]?.videoUrl)
-        .filter((u): u is string => Boolean(u && u.trim()));
-      if (urls.length > 0) {
-        videoCacheManager.preloadVideos(urls);
-      }
-    }
-  }, [exerciseIds]);
-
   return (
     <div className="space-y-2 max-h-[220px] overflow-y-auto pr-1 scrollbar-thin">
       {exerciseIds.map((exId, index) => {
