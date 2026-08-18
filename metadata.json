@@ -1,6 +1,6 @@
 {
   "name": "Remix Remix تحديث العداد وإضافة الفيديوهات ",
-  "description": "تطبيق التمارين الرياضية واللياقة البدنية وتتبع الأداء مع تحسين سرعة تشغيل الفيديوهات والتنقل السلس.",
+  "description": "تطبيق اللياقة البدنية والتمارين مع تحسين الأداء العالي لفيديوهات التمارين على أندرويد وWebView",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

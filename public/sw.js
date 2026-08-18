@@ -33,17 +33,27 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
-  // Ignore non-GET, API requests, video/media requests, range requests, and Cloudflare R2 streams
-  if (
-    event.request.method !== 'GET' ||
-    url.pathname.startsWith('/api/') ||
-    event.request.destination === 'video' ||
-    event.request.headers.has('range') ||
-    url.pathname.endsWith('.mp4') ||
-    url.hostname.includes('r2.dev') ||
-    url.hostname.includes('r2.cloudflarestorage.com')
-  ) {
+  // 1. Ignore non-GET or backend API requests
+  if (event.request.method !== 'GET' || url.pathname.startsWith('/api/')) {
     return;
+  }
+
+  // 2. CRITICAL FOR ANDROID WEBVIEW & VIDEO PERFORMANCE:
+  // Bypass Service Worker entirely for videos, Cloudflare R2 media, and Range requests.
+  // HTML5 video requires native HTTP 206 (Partial Content) Range streaming.
+  // Intercepting video streams in Service Worker causes massive delays, stalls, and buffer failures in WebView.
+  const isVideo = 
+    event.request.destination === 'video' ||
+    url.pathname.endsWith('.mp4') ||
+    url.pathname.endsWith('.webm') ||
+    url.pathname.endsWith('.m4v') ||
+    url.pathname.endsWith('.ogv') ||
+    url.hostname.includes('r2.dev') ||
+    url.hostname.includes('cloudflarestorage.com') ||
+    event.request.headers.has('range');
+
+  if (isVideo) {
+    return; // Allow native browser media pipeline to fetch directly with Range headers
   }
 
   event.respondWith(

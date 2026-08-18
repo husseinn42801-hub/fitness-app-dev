@@ -358,35 +358,12 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
   const timeoutsRef = useRef<number[]>([]);
   const lailaAudioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Targeted preloading of the immediately next exercise video only to guarantee smooth instant transitions
+  // Smart Preload: Prepare ONLY the single next exercise video (if available) for the current active workout day
   const nextVideoUrl = React.useMemo(() => {
-    if (currentIndex < exerciseIds.length - 1) {
-      const nextId = exerciseIds[currentIndex + 1];
-      const ex = EXERCISES_DB[nextId];
-      return ex?.mp4Url || ex?.videoUrl || '';
-    }
-    return '';
+    const nextId = exerciseIds[currentIndex + 1];
+    if (!nextId) return null;
+    return EXERCISES_DB[nextId]?.mp4Url || EXERCISES_DB[nextId]?.videoUrl || null;
   }, [exerciseIds, currentIndex]);
-
-  // Dynamic DOM prefetching element insertion into document.head for the next video
-  useEffect(() => {
-    if (!nextVideoUrl) return;
-
-    const existing = document.querySelector(`link[href="${nextVideoUrl}"]`);
-    if (existing) return;
-
-    const link = document.createElement('link');
-    link.rel = 'prefetch';
-    link.as = 'video';
-    link.href = nextVideoUrl;
-    document.head.appendChild(link);
-
-    return () => {
-      if (link.parentNode) {
-        link.parentNode.removeChild(link);
-      }
-    };
-  }, [nextVideoUrl]);
 
   const clearAllTimeouts = () => {
     timeoutsRef.current.forEach((t) => clearTimeout(t));
@@ -760,11 +737,7 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
         playBeep(1000, 0.4);
         audioManager.playAudio('exercise_complete');
         const nextIndex = currentIndex + 1;
-        setCurrentIndex(nextIndex);
-        try {
-          const newUrl = `${window.location.pathname}?tab=workout&day=${day.dayNumber}&exercise=${nextIndex}`;
-          window.history.replaceState(null, '', newUrl);
-        } catch (e) {}
+        window.location.href = window.location.pathname + `?tab=workout&day=${day.dayNumber}&exercise=${nextIndex}`;
       } else {
         // Completed last exercise of the day!
         setIsFinished(true);
@@ -809,11 +782,7 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
     try {
       if (currentIndex < exerciseIds.length - 1) {
         const nextIndex = currentIndex + 1;
-        setCurrentIndex(nextIndex);
-        try {
-          const newUrl = `${window.location.pathname}?tab=workout&day=${day.dayNumber}&exercise=${nextIndex}`;
-          window.history.replaceState(null, '', newUrl);
-        } catch (e) {}
+        window.location.href = window.location.pathname + `?tab=workout&day=${day.dayNumber}&exercise=${nextIndex}`;
       } else {
         setIsFinished(true);
         setIsPlaying(false);
@@ -836,11 +805,7 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
   const handlePreviousExerciseManual = () => {
     if (currentIndex > 0) {
       const prevIndex = currentIndex - 1;
-      setCurrentIndex(prevIndex);
-      try {
-        const newUrl = `${window.location.pathname}?tab=workout&day=${day.dayNumber}&exercise=${prevIndex}`;
-        window.history.replaceState(null, '', newUrl);
-      } catch (e) {}
+      window.location.href = window.location.pathname + `?tab=workout&day=${day.dayNumber}&exercise=${prevIndex}`;
     }
   };
 
@@ -1091,13 +1056,13 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
       }`} 
       dir="rtl"
     >
-      {/* Background Next Video Preloader: prepares ONLY the immediately next exercise video */}
+      {/* Smart Preload for the SINGLE next exercise video in the active day */}
       {nextVideoUrl && (
         <div className="hidden pointer-events-none aria-hidden" aria-hidden="true">
           <video
             key={nextVideoUrl}
             src={nextVideoUrl}
-            preload="auto"
+            preload="metadata"
             muted
             playsInline
             // @ts-ignore
