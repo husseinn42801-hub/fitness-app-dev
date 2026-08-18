@@ -238,7 +238,7 @@ export const ExerciseEncyclopedia: React.FC<ExerciseEncyclopediaProps> = ({ isDa
   const [hydratedIds, setHydratedIds] = useState<Set<string>>(() => new Set(sessionHydratedExerciseCache));
   const [loadError, setLoadError] = useState<string | null>(null);
 
-  // Background hydration & video preloading
+  // Background hydration
   const startLoadingAndPreload = useCallback(() => {
     setLoadError(null);
     if (isSessionFullyHydrated) {
@@ -250,17 +250,7 @@ export const ExerciseEncyclopedia: React.FC<ExerciseEncyclopediaProps> = ({ isDa
 
     try {
       const allExercises = Object.values(EXERCISES_DB) as Exercise[];
-
-      // Preload video metadata for the first batch of exercises
       const firstBatch = allExercises.slice(0, 8);
-      firstBatch.forEach((ex) => {
-        const videoSrc = ex.mp4Url || ex.videoUrl;
-        if (videoSrc) {
-          const v = document.createElement('video');
-          v.preload = 'metadata';
-          v.src = videoSrc;
-        }
-      });
 
       // Hydrate initial batch smoothly after a brief 250ms delay
       const timer1 = setTimeout(() => {

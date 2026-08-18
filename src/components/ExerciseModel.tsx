@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, memo, useCallback } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { EXERCISES_DB } from '../data/exercises';
 import { Pause, Loader2, Video } from 'lucide-react';
 
@@ -11,7 +11,7 @@ interface ExerciseModelProps {
   showBadge?: boolean;
 }
 
-export const ExerciseModel: React.FC<ExerciseModelProps> = memo(({ 
+export const ExerciseModel: React.FC<ExerciseModelProps> = ({ 
   type, 
   isPlaying = true, 
   mp4Url, 
@@ -19,9 +19,9 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = memo(({
   showBadge = true 
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const prevSourceRef = useRef<string>('');
   const [isBuffering, setIsBuffering] = useState<boolean>(true);
   const [hasLoadedData, setHasLoadedData] = useState<boolean>(false);
-  const prevSourceRef = useRef<string>('');
 
   // Look up the exercise strictly by matching English name (nameEn) if provided, or fallback to animationType
   const exercise = exerciseNameEn
@@ -30,76 +30,59 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = memo(({
 
   const videoSource = mp4Url || exercise?.mp4Url || exercise?.videoUrl || '';
 
-  // Event handlers based on real HTML5 video state (no arbitrary timeouts)
-  const handleReady = useCallback(() => {
-    const video = videoRef.current;
-    if (video && video.readyState >= 2) {
-      setHasLoadedData(true);
-      setIsBuffering(false);
-    }
-  }, []);
-
-  const handlePlaying = useCallback(() => {
+  const markVideoReady = useCallback(() => {
     setHasLoadedData(true);
     setIsBuffering(false);
   }, []);
 
-  const handleBuffering = useCallback(() => {
-    const video = videoRef.current;
-    // Only show buffering if video hasn't loaded first frame or is actively waiting for data
-    if (!video || video.readyState < 3) {
-      setIsBuffering(true);
-    }
-  }, []);
-
-  const handleError = useCallback(() => {
-    // Graceful error fallback: stop spinning loader
-    setHasLoadedData(true);
-    setIsBuffering(false);
-  }, []);
-
-  // Load video ONLY when video source actually changes (prevent reload on re-render / timer ticks)
+  // 1. Source URL Change Handler: ONLY load when the source URL actually changes
   useEffect(() => {
     if (!videoSource) {
-      setHasLoadedData(true);
-      setIsBuffering(false);
       prevSourceRef.current = '';
+      markVideoReady();
       return;
     }
 
     const video = videoRef.current;
     if (!video) return;
 
-    // Only reload if the source URL actually changed
-    if (prevSourceRef.current !== videoSource) {
-      prevSourceRef.current = videoSource;
+    // Avoid redundant re-load if source URL has not changed
+    if (prevSourceRef.current === videoSource) {
+      return;
+    }
 
-      // Check if video is already ready from previous buffer/cache
-      if (video.readyState >= 2) {
-        setHasLoadedData(true);
-        setIsBuffering(false);
-      } else {
-        setHasLoadedData(false);
-        setIsBuffering(true);
-      }
+    prevSourceRef.current = videoSource;
+    setHasLoadedData(false);
+    setIsBuffering(true);
 
+    // Fast Safety Timeout: ensure loading spinner disappears within 1 second MAX under any network condition
+    const timer = setTimeout(() => {
+      markVideoReady();
+    }, 1000);
+
+    try {
+      video.src = videoSource;
+      video.load();
       if (isPlaying) {
         const playPromise = video.play();
         if (playPromise !== undefined) {
           playPromise
-            .then(() => {
-              setHasLoadedData(true);
-              setIsBuffering(false);
-            })
-            .catch(() => {
-              // Browser autoplay policy or abort
-            });
+            .then(() => markVideoReady())
+            .catch(() => markVideoReady());
         }
+      } else {
+        markVideoReady();
       }
+    } catch (e) {
+      markVideoReady();
     }
-  }, [videoSource, isPlaying]);
 
-  // Synchronize play/pause state without reloading or resetting the video
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [videoSource, markVideoReady]);
+
+  // 2. Play/Pause Synchronizer: pure play/pause WITHOUT resetting or re-loading video source
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !videoSource) return;
@@ -108,19 +91,16 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = memo(({
       const playPromise = video.play();
       if (playPromise !== undefined) {
         playPromise
-          .then(() => {
-            setHasLoadedData(true);
-            setIsBuffering(false);
-          })
-          .catch(() => {});
+          .then(() => markVideoReady())
+          .catch(() => markVideoReady());
       }
     } else {
       video.pause();
     }
-  }, [isPlaying, videoSource]);
+  }, [isPlaying, videoSource, markVideoReady]);
 
-  // Handle seamless video loop without black flash
-  const handleLoopEnd = useCallback(() => {
+  // 3. Seamless native loop handler without reload or network re-fetch
+  const handleLoopEnd = () => {
     const video = videoRef.current;
     if (video && videoSource) {
       video.currentTime = 0;
@@ -128,7 +108,7 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = memo(({
         video.play().catch(() => {});
       }
     }
-  }, [isPlaying, videoSource]);
+  };
 
   return (
     <div 
@@ -154,7 +134,7 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = memo(({
         </div>
       ) : (
         <>
-          {/* Loading Spinner ONLY during actual initial buffering before frames are ready */}
+          {/* Loading Spinner ONLY if video data hasn't loaded yet AND within early buffering phase */}
           {!hasLoadedData && isBuffering && (
             <div className="absolute inset-0 flex items-center justify-center bg-black/80 z-20 transition-opacity duration-200">
               <div className="flex flex-col items-center gap-2">
@@ -164,7 +144,7 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = memo(({
             </div>
           )}
 
-          {/* HTML5 Video Element with High-Performance Mobile & WebView Attributes */}
+          {/* HTML5 Video Element streaming directly online from R2 without Cache API / Blob / Base64 */}
           <video
             ref={videoRef}
             src={videoSource}
@@ -179,12 +159,12 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = memo(({
             controlsList="nodownload"
             disablePictureInPicture
             referrerPolicy="no-referrer"
-            onCanPlay={handleReady}
-            onLoadedData={handleReady}
-            onPlaying={handlePlaying}
-            onWaiting={handleBuffering}
-            onStalled={handleBuffering}
-            onError={handleError}
+            onCanPlay={markVideoReady}
+            onCanPlayThrough={markVideoReady}
+            onLoadedData={markVideoReady}
+            onLoadedMetadata={markVideoReady}
+            onPlaying={markVideoReady}
+            onError={markVideoReady}
             onEnded={handleLoopEnd}
           />
 
@@ -208,4 +188,4 @@ export const ExerciseModel: React.FC<ExerciseModelProps> = memo(({
       )}
     </div>
   );
-});
+};

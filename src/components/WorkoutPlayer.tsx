@@ -358,12 +358,32 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
   const timeoutsRef = useRef<number[]>([]);
   const lailaAudioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Smart Preload: Prepare ONLY the single next exercise video (if available) for the current active workout day
+  // Smart prefetch for ONLY the immediate next video of the current active workout day
   const nextVideoUrl = React.useMemo(() => {
-    const nextId = exerciseIds[currentIndex + 1];
-    if (!nextId) return null;
-    return EXERCISES_DB[nextId]?.mp4Url || EXERCISES_DB[nextId]?.videoUrl || null;
+    const nextExerciseId = exerciseIds[currentIndex + 1];
+    if (!nextExerciseId) return null;
+    return EXERCISES_DB[nextExerciseId]?.videoUrl || EXERCISES_DB[nextExerciseId]?.mp4Url || null;
   }, [exerciseIds, currentIndex]);
+
+  // Dynamic DOM prefetch element for the next exercise video only
+  useEffect(() => {
+    if (!nextVideoUrl) return;
+
+    const existing = document.querySelector(`link[href="${nextVideoUrl}"]`);
+    if (existing) return;
+
+    const link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.as = 'video';
+    link.href = nextVideoUrl;
+    document.head.appendChild(link);
+
+    return () => {
+      if (link.parentNode) {
+        link.parentNode.removeChild(link);
+      }
+    };
+  }, [nextVideoUrl]);
 
   const clearAllTimeouts = () => {
     timeoutsRef.current.forEach((t) => clearTimeout(t));
@@ -1056,7 +1076,7 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
       }`} 
       dir="rtl"
     >
-      {/* Smart Preload for the SINGLE next exercise video in the active day */}
+      {/* Background Next-Video Prefetch for the current active day only */}
       {nextVideoUrl && (
         <div className="hidden pointer-events-none aria-hidden" aria-hidden="true">
           <video

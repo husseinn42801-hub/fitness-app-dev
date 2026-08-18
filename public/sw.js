@@ -1,11 +1,49 @@
-const CACHE_NAME = 'rashaka-v1';
+const CACHE_NAME = 'rashaka-v2';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/manifest.json'
 ];
 
-// Install Event: Pre-cache shell assets
+// Helper to check if a request should be excluded from SW cache
+function isExcludedFromCache(request, url) {
+  // 1. Exclude non-GET requests or backend API requests
+  if (request.method !== 'GET' || url.pathname.startsWith('/api/')) {
+    return true;
+  }
+
+  // 2. Exclude all MP4 video files and video destination / range requests
+  if (
+    url.pathname.endsWith('.mp4') ||
+    url.pathname.includes('.mp4') ||
+    request.destination === 'video' ||
+    request.headers.has('range')
+  ) {
+    return true;
+  }
+
+  // 3. Exclude all Cloudflare R2 links for videos and images
+  if (
+    url.hostname.includes('r2.dev') ||
+    url.hostname.includes('cloudflare') ||
+    url.hostname.includes('pub-e5d59e9dddd94ba9b74e5e54caa957f7')
+  ) {
+    return true;
+  }
+
+  // 4. Exclude external nutrition images and all external media/CDNs
+  if (
+    url.hostname.includes('unsplash.com') ||
+    (request.destination === 'image' && url.origin !== self.location.origin) ||
+    (url.origin !== self.location.origin && !url.hostname.includes(self.location.hostname))
+  ) {
+    return true;
+  }
+
+  return false;
+}
+
+// Install Event: Pre-cache shell assets only
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -29,31 +67,13 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch Event: Stale-While-Revalidate Strategy for fast loading
+// Fetch Event: Direct network for excluded media, Stale-While-Revalidate for app shell
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
-  // 1. Ignore non-GET or backend API requests
-  if (event.request.method !== 'GET' || url.pathname.startsWith('/api/')) {
+  // Directly bypass Service Worker Cache for videos, R2 links, external nutrition images
+  if (isExcludedFromCache(event.request, url)) {
     return;
-  }
-
-  // 2. CRITICAL FOR ANDROID WEBVIEW & VIDEO PERFORMANCE:
-  // Bypass Service Worker entirely for videos, Cloudflare R2 media, and Range requests.
-  // HTML5 video requires native HTTP 206 (Partial Content) Range streaming.
-  // Intercepting video streams in Service Worker causes massive delays, stalls, and buffer failures in WebView.
-  const isVideo = 
-    event.request.destination === 'video' ||
-    url.pathname.endsWith('.mp4') ||
-    url.pathname.endsWith('.webm') ||
-    url.pathname.endsWith('.m4v') ||
-    url.pathname.endsWith('.ogv') ||
-    url.hostname.includes('r2.dev') ||
-    url.hostname.includes('cloudflarestorage.com') ||
-    event.request.headers.has('range');
-
-  if (isVideo) {
-    return; // Allow native browser media pipeline to fetch directly with Range headers
   }
 
   event.respondWith(
