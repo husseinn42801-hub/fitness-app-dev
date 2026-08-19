@@ -149,6 +149,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
           ref={handleImageRef}
           src={currentSrc}
           alt={alt}
+          loading="lazy"
           decoding="async"
           referrerPolicy="no-referrer"
           onLoad={() => setIsLoaded(true)}

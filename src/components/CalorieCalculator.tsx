@@ -24,7 +24,7 @@ export const CalorieCalculator: React.FC<CalorieCalculatorProps> = React.memo(({
   const [age, setAge] = useState<number>(savedStats?.age || 28);
   const [gender, setGender] = useState<'ذكر' | 'أنثى'>(savedStats?.gender || 'أنثى');
   const [activityLevel, setActivityLevel] = useState<number>(savedStats?.activityLevel || 1.375);
-  const [goal, setGoal] = useState<'loss' | 'maintain' | 'gain'>(savedStats?.goal || 'loss');
+  const [goal, setGoal] = useState<'loss' | 'maintain' | 'gain' | 'fitness'>(savedStats?.goal || 'loss');
   const [saveSuccess, setSaveSuccess] = useState<boolean>(false);
   const [isClearConfirmOpen, setIsClearConfirmOpen] = useState<boolean>(false);
 

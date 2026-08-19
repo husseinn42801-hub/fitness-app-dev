@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Exercise, WorkoutDay, UserStats } from '../types';
 import { EXERCISES_DB } from '../data/exercises';
 import { getAlternativeExercise, saveSwappedExerciseInStorage, calculateExerciseCalories } from '../utils/exerciseSwapper';
@@ -420,12 +420,33 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
     audioManager.setCoach(voiceGenderPref);
   }, [voiceGenderPref]);
 
+  // Sound Synth Ref (reusable AudioContext to eliminate memory leaks and WebAudio exhaustion)
+  const synthCtxRef = useRef<AudioContext | null>(null);
+
+  const getSynthContext = useCallback((): AudioContext | null => {
+    if (typeof window === 'undefined') return null;
+    try {
+      const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+      if (!AudioContextClass) return null;
+      if (!synthCtxRef.current || synthCtxRef.current.state === 'closed') {
+        synthCtxRef.current = new AudioContextClass();
+      }
+      if (synthCtxRef.current.state === 'suspended') {
+        synthCtxRef.current.resume().catch(() => {});
+      }
+      return synthCtxRef.current;
+    } catch (e) {
+      return null;
+    }
+  }, []);
+
   // Sound Synth Helper (tactile system beeps)
   const playBeep = (freq = 800, duration = 0.15) => {
     if (muted || audioManager.getMuted()) return;
     try {
-      const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
-      const audioCtx = new AudioContextClass();
+      const audioCtx = getSynthContext();
+      if (!audioCtx) return;
+
       const oscillator = audioCtx.createOscillator();
       const gainNode = audioCtx.createGain();
 
@@ -445,22 +466,19 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
     }
   };
 
-  // Touch gesture unlock to activate iOS Safari audio context
+  // Touch gesture unlock to activate WebAudio context
   const handleUserGestureUnlock = () => {
     try {
-      const AudioCtxClass = window.AudioContext || (window as any).webkitAudioContext;
-      if (AudioCtxClass) {
-        const ctx = new AudioCtxClass();
-        if (ctx.state === 'suspended') {
-          ctx.resume();
-        }
+      const ctx = getSynthContext();
+      if (ctx && ctx.state === 'suspended') {
+        ctx.resume();
       }
     } catch (e) {
       console.warn('Audio gesture unlock failed:', e);
     }
   };
 
-  // Unmount audio cleanup
+  // Unmount audio & timer cleanup
   useEffect(() => {
     return () => {
       audioManager.stopAudio();
@@ -468,6 +486,11 @@ export const WorkoutPlayer: React.FC<WorkoutPlayerProps> = ({
         clearInterval(timerRef.current);
       }
       clearAllTimeouts();
+      if (synthCtxRef.current && synthCtxRef.current.state !== 'closed') {
+        try {
+          synthCtxRef.current.close();
+        } catch (e) {}
+      }
     };
   }, []);
 

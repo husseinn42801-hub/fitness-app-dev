@@ -1,6 +1,6 @@
 {
   "name": "Remix Remix تحديث العداد وإضافة الفيديوهات ",
-  "description": "",
+  "description": "تطبيق التمارين المنزلية والتغذية الذكية للتمارين اليومية واللياقة البدنية",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

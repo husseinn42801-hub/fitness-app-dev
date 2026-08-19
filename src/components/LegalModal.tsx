@@ -16,7 +16,7 @@ export interface LegalDocument {
   title: string;
   icon: LucideIcon;
   badge: string;
-  content: React.ReactNode;
+  content: (isDark: boolean) => React.ReactNode;
 }
 
 export const LEGAL_DOCUMENTS: Record<Exclude<LegalModalType, null>, LegalDocument> = {

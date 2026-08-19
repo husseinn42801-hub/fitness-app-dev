@@ -36,7 +36,7 @@ export const DailyJournal: React.FC<DailyJournalProps> = React.memo(({
   onDeleteTask,
   waterGoalCups,
   isDark = false,
-  userStats = { weight: 70, height: 168, age: 26, gender: 'أنثى', activityLevel: 1.375, goal: 'loss' },
+  userStats = { weight: 70, height: 168, age: 26, gender: 'أنثى', activityLevel: 1.375, goal: 'loss' } as UserStats,
   isWaterReminderEnabled,
   onToggleWaterReminder,
   onTriggerTestReminder,

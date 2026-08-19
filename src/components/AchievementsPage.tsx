@@ -657,7 +657,7 @@ export const AchievementsPage: React.FC<AchievementsPageProps> = ({
                 formatter={(value, name) => [value, name]}
               />
               <Legend 
-                wrapperStyle={{ direction: 'rtl', pt: 10 }} 
+                wrapperStyle={{ direction: 'rtl', paddingTop: 10 }} 
                 iconSize={10} 
                 iconType="circle"
               />
