@@ -1,0 +1,20 @@
+{
+  "name": "تمارين منزلية ولياقة بدنية",
+  "short_name": "رشاقة",
+  "description": "تطبيق التمارين المنزلية والتغذية الذكية للتمارين اليومية واللياقة البدنية",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F0F11",
+  "theme_color": "#FF5F2E",
+  "orientation": "portrait",
+  "dir": "rtl",
+  "lang": "ar",
+  "icons": [
+    {
+      "src": "/app-icon.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
