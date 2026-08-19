@@ -74,8 +74,10 @@ export const LazyImage: React.FC<LazyImageProps> = ({
   className,
   ...props
 }) => {
+  const [isInView, setIsInView] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
 
   const autoFallback = getAutoFoodPhoto(alt, categoryOrType, fallbackSrc);
@@ -84,6 +86,41 @@ export const LazyImage: React.FC<LazyImageProps> = ({
 
   const [currentSrc, setCurrentSrc] = useState(webpSrc);
   const [retryStage, setRetryStage] = useState<'webp' | 'original' | 'autofallback'>('webp');
+
+  // Viewport Intersection Observer: Only trigger network requests for images currently in viewport
+  useEffect(() => {
+    if (isInView) return;
+
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
+      setIsInView(true);
+      return;
+    }
+
+    const node = containerRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+            observer.disconnect();
+            break;
+          }
+        }
+      },
+      {
+        rootMargin: '120px 0px',
+        threshold: 0.01,
+      }
+    );
+
+    observer.observe(node);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [isInView]);
 
   useEffect(() => {
     setIsLoaded(false);
@@ -127,38 +164,43 @@ export const LazyImage: React.FC<LazyImageProps> = ({
   };
 
   return (
-    <div className={`relative overflow-hidden w-full h-full ${className || ''}`}>
-      {/* Pulse skeleton placeholder */}
-      {!isLoaded && !hasError && (
+    <div
+      ref={containerRef}
+      className={`relative overflow-hidden w-full h-full ${className || ''}`}
+    >
+      {/* Pulse skeleton placeholder while not visible or still loading */}
+      {(!isInView || (!isLoaded && !hasError)) && (
         <div className="absolute inset-0 bg-neutral-800 animate-pulse flex items-center justify-center">
           <span className="text-[9px] text-gray-400 font-bold tracking-wider">جاري التحميل...</span>
         </div>
       )}
 
       {/* Fallback image if error occurs */}
-      {hasError ? (
-        <div className="absolute inset-0 bg-neutral-800 flex flex-col items-center justify-center p-2 text-center">
+      {isInView && (
+        hasError ? (
+          <div className="absolute inset-0 bg-neutral-800 flex flex-col items-center justify-center p-2 text-center">
+            <img
+              src={autoFallback}
+              alt={alt}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ) : (
           <img
-            src={autoFallback}
+            ref={handleImageRef}
+            src={currentSrc}
             alt={alt}
-            className="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+            referrerPolicy="no-referrer"
+            onLoad={() => setIsLoaded(true)}
+            onError={handleError}
+            className={`w-full h-full object-cover transition-opacity duration-200 ${
+              isLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            {...props}
           />
-        </div>
-      ) : (
-        <img
-          ref={handleImageRef}
-          src={currentSrc}
-          alt={alt}
-          loading="lazy"
-          decoding="async"
-          referrerPolicy="no-referrer"
-          onLoad={() => setIsLoaded(true)}
-          onError={handleError}
-          className={`w-full h-full object-cover transition-opacity duration-200 ${
-            isLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-          {...props}
-        />
+        )
       )}
     </div>
   );

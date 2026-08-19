@@ -57,25 +57,13 @@ import { LegalModal, LegalModalType } from './components/LegalModal';
 import appIcon from './assets/images/app_icon_1784528616960.jpg';
 
 import { WorkoutPlayer } from './components/WorkoutPlayer';
-
-const CalorieCalculator = React.lazy(() => import('./components/CalorieCalculator').then(m => ({ default: m.CalorieCalculator })));
-const DailyJournal = React.lazy(() => import('./components/DailyJournal').then(m => ({ default: m.DailyJournal })));
-const ExerciseEncyclopedia = React.lazy(() => import('./components/ExerciseEncyclopedia').then(m => ({ default: m.ExerciseEncyclopedia })));
-const SmartNutrition = React.lazy(() => import('./components/SmartNutrition').then(m => ({ default: m.SmartNutrition })));
-const SeasonsPage = React.lazy(() => import('./components/SeasonsPage').then(m => ({ default: m.SeasonsPage })));
-const AchievementsPage = React.lazy(() => import('./components/AchievementsPage').then(m => ({ default: m.AchievementsPage })));
-const TutorialGuideModal = React.lazy(() => import('./components/TutorialGuideModal').then(m => ({ default: m.TutorialGuideModal })));
-
-const PageSkeleton = ({ isDark = false }: { isDark?: boolean }) => (
-  <div className="p-6 space-y-4 animate-pulse" dir="rtl">
-    <div className={`h-24 rounded-3xl ${isDark ? 'bg-white/5' : 'bg-gray-100'}`} />
-    <div className="grid grid-cols-2 gap-4">
-      <div className={`h-32 rounded-3xl ${isDark ? 'bg-white/5' : 'bg-gray-100'}`} />
-      <div className={`h-32 rounded-3xl ${isDark ? 'bg-white/5' : 'bg-gray-100'}`} />
-    </div>
-    <div className={`h-40 rounded-3xl ${isDark ? 'bg-white/5' : 'bg-gray-100'}`} />
-  </div>
-);
+import { CalorieCalculator } from './components/CalorieCalculator';
+import { DailyJournal } from './components/DailyJournal';
+import { ExerciseEncyclopedia } from './components/ExerciseEncyclopedia';
+import { SmartNutrition } from './components/SmartNutrition';
+import { SeasonsPage } from './components/SeasonsPage';
+import { AchievementsPage } from './components/AchievementsPage';
+import { TutorialGuideModal } from './components/TutorialGuideModal';
 
 
 export default function App() {
@@ -322,6 +310,18 @@ export default function App() {
     const goal = userStats?.goal || 'loss';
     return SEASONS_BY_GOAL[goal] || SEASONS_BY_GOAL.loss;
   }, [userStats]);
+
+  // Automatically keep currentSeasonId synchronized with user goal & active seasons
+  useEffect(() => {
+    if (seasonsList && seasonsList.length > 0) {
+      const exists = seasonsList.some(s => s.id === currentSeasonId);
+      if (!exists) {
+        const nextSeasonId = seasonsList[0].id;
+        setCurrentSeasonId(nextSeasonId);
+        localStorage.setItem('rashaka_current_season_id', nextSeasonId);
+      }
+    }
+  }, [seasonsList, currentSeasonId]);
 
   const workoutDays = useMemo(() => {
     return generateWorkoutDaysForUser(userStats, currentSeasonId);
@@ -1495,13 +1495,11 @@ export default function App() {
                       exit={{ opacity: 0, y: -6 }}
                       transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
                     >
-                      <React.Suspense fallback={<PageSkeleton isDark={isDark} />}>
-                        <CalorieCalculator 
-                          savedStats={userStats}
-                          isDark={isDark}
-                          onSaveStats={handleSaveCalcStats}
-                        />
-                      </React.Suspense>
+                      <CalorieCalculator 
+                        savedStats={userStats}
+                        isDark={isDark}
+                        onSaveStats={handleSaveCalcStats}
+                      />
                     </motion.div>
                   )}
 
@@ -1514,28 +1512,26 @@ export default function App() {
                       exit={{ opacity: 0, y: -6 }}
                       transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
                     >
-                      <React.Suspense fallback={<PageSkeleton isDark={isDark} />}>
-                        <DailyJournal 
-                          logs={dailyLogs}
-                          tasks={journalTasks}
-                          waterGoalCups={waterGoalCups}
-                          isDark={isDark}
-                          userStats={userStats}
-                          onUpdateWater={handleUpdateWater}
-                          onLogWeight={handleLogWeight}
-                          onAddTask={handleAddTask}
-                          onToggleTask={handleToggleTask}
-                          onDeleteTask={handleDeleteTask}
-                          isWaterReminderEnabled={isWaterReminderEnabled}
-                          onToggleWaterReminder={handleToggleWaterReminder}
-                          onTriggerTestReminder={handleTriggerWaterTest}
-                          isWorkoutReminderEnabled={isWorkoutReminderEnabled}
-                          onToggleWorkoutReminder={handleToggleWorkoutReminder}
-                          workoutReminderTime={workoutReminderTime}
-                          onUpdateWorkoutReminderTime={handleUpdateWorkoutReminderTime}
-                          onTriggerTestWorkoutReminder={handleTriggerWorkoutTest}
-                        />
-                      </React.Suspense>
+                      <DailyJournal 
+                        logs={dailyLogs}
+                        tasks={journalTasks}
+                        waterGoalCups={waterGoalCups}
+                        isDark={isDark}
+                        userStats={userStats}
+                        onUpdateWater={handleUpdateWater}
+                        onLogWeight={handleLogWeight}
+                        onAddTask={handleAddTask}
+                        onToggleTask={handleToggleTask}
+                        onDeleteTask={handleDeleteTask}
+                        isWaterReminderEnabled={isWaterReminderEnabled}
+                        onToggleWaterReminder={handleToggleWaterReminder}
+                        onTriggerTestReminder={handleTriggerWaterTest}
+                        isWorkoutReminderEnabled={isWorkoutReminderEnabled}
+                        onToggleWorkoutReminder={handleToggleWorkoutReminder}
+                        workoutReminderTime={workoutReminderTime}
+                        onUpdateWorkoutReminderTime={handleUpdateWorkoutReminderTime}
+                        onTriggerTestWorkoutReminder={handleTriggerWorkoutTest}
+                      />
                     </motion.div>
                   )}
 
@@ -1548,9 +1544,7 @@ export default function App() {
                       exit={{ opacity: 0, y: -6 }}
                       transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
                     >
-                      <React.Suspense fallback={<PageSkeleton isDark={isDark} />}>
-                        <ExerciseEncyclopedia isDark={isDark} />
-                      </React.Suspense>
+                      <ExerciseEncyclopedia isDark={isDark} />
                     </motion.div>
                   )}
 
@@ -1563,33 +1557,31 @@ export default function App() {
                       exit={{ opacity: 0, y: -6 }}
                       transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
                     >
-                      <React.Suspense fallback={<PageSkeleton isDark={isDark} />}>
-                        <SeasonsPage
-                          completedDaysBySeason={completedDaysBySeason}
-                          currentSeasonId={currentSeasonId}
-                          onSelectSeason={(seasonId) => {
-                            const selectedSeason = seasonsList.find(s => s.id === seasonId);
-                            const seasonNameAr = selectedSeason ? selectedSeason.nameAr : 'المستوى الجديد';
-                            
-                            if (isFreeChallengeMode) {
-                              setSelectedSeasonIdToActivate(seasonId);
-                              setSelectedSeasonNameToActivate(seasonNameAr);
-                              setSeasonConfirmModalOpen(true);
-                            } else {
-                              setCurrentSeasonId(seasonId);
-                              localStorage.setItem('rashaka_current_season_id', seasonId);
-                              setCurrentTab('workout');
-                              try {
-                                window.history.replaceState({}, '', window.location.pathname + "?tab=workout");
-                              } catch (e) {}
-                            }
-                          }}
-                          isDark={isDark}
-                          seasonsList={seasonsList}
-                          isFreeChallengeMode={isFreeChallengeMode}
-                          userStats={userStats}
-                        />
-                      </React.Suspense>
+                      <SeasonsPage
+                        completedDaysBySeason={completedDaysBySeason}
+                        currentSeasonId={currentSeasonId}
+                        onSelectSeason={(seasonId) => {
+                          const selectedSeason = seasonsList.find(s => s.id === seasonId);
+                          const seasonNameAr = selectedSeason ? selectedSeason.nameAr : 'المستوى الجديد';
+                          
+                          if (isFreeChallengeMode) {
+                            setSelectedSeasonIdToActivate(seasonId);
+                            setSelectedSeasonNameToActivate(seasonNameAr);
+                            setSeasonConfirmModalOpen(true);
+                          } else {
+                            setCurrentSeasonId(seasonId);
+                            localStorage.setItem('rashaka_current_season_id', seasonId);
+                            setCurrentTab('workout');
+                            try {
+                              window.history.replaceState({}, '', window.location.pathname + "?tab=workout");
+                            } catch (e) {}
+                          }
+                        }}
+                        isDark={isDark}
+                        seasonsList={seasonsList}
+                        isFreeChallengeMode={isFreeChallengeMode}
+                        userStats={userStats}
+                      />
                     </motion.div>
                   )}
 
@@ -1602,26 +1594,24 @@ export default function App() {
                       exit={{ opacity: 0, y: -6 }}
                       transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
                     >
-                      <React.Suspense fallback={<PageSkeleton isDark={isDark} />}>
-                        <AchievementsPage
-                          completedDaysBySeason={completedDaysBySeason}
-                          certificates={certificates}
-                          dailyLogs={dailyLogs}
-                          isDark={isDark}
-                          userStats={userStats}
-                          onUpdateProfile={(name, avatar) => {
-                            const updated = { ...userStats, userName: name, userAvatar: avatar };
-                            saveUserStats(updated);
-                          }}
-                          seasonsList={seasonsList}
-                          currentSeasonId={currentSeasonId}
-                          onSelectSeason={(seasonId) => {
-                            setCurrentSeasonId(seasonId);
-                            localStorage.setItem('rashaka_current_season_id', seasonId);
-                            window.location.href = window.location.pathname + "?tab=workout";
-                          }}
-                        />
-                      </React.Suspense>
+                      <AchievementsPage
+                        completedDaysBySeason={completedDaysBySeason}
+                        certificates={certificates}
+                        dailyLogs={dailyLogs}
+                        isDark={isDark}
+                        userStats={userStats}
+                        onUpdateProfile={(name, avatar) => {
+                          const updated = { ...userStats, userName: name, userAvatar: avatar };
+                          saveUserStats(updated);
+                        }}
+                        seasonsList={seasonsList}
+                        currentSeasonId={currentSeasonId}
+                        onSelectSeason={(seasonId) => {
+                          setCurrentSeasonId(seasonId);
+                          localStorage.setItem('rashaka_current_season_id', seasonId);
+                          window.location.href = window.location.pathname + "?tab=workout";
+                        }}
+                      />
                     </motion.div>
                   )}
 
@@ -1634,15 +1624,13 @@ export default function App() {
                       exit={{ opacity: 0, y: -6 }}
                       transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
                     >
-                      <React.Suspense fallback={<PageSkeleton isDark={isDark} />}>
-                        <SmartNutrition
-                          userStats={userStats}
-                          isDark={isDark}
-                          onUpdateStats={(newStats) => {
-                            saveUserStats(newStats);
-                          }}
-                        />
-                      </React.Suspense>
+                      <SmartNutrition
+                        userStats={userStats}
+                        isDark={isDark}
+                        onUpdateStats={(newStats) => {
+                          saveUserStats(newStats);
+                        }}
+                      />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -2431,13 +2419,11 @@ export default function App() {
 
             {/* Comprehensive App Tutorial / Guide Modal */}
             {isTutorialModalOpen && (
-              <React.Suspense fallback={null}>
-                <TutorialGuideModal
-                  isOpen={isTutorialModalOpen}
-                  onClose={() => setIsTutorialModalOpen(false)}
-                  isDark={isDark}
-                />
-              </React.Suspense>
+              <TutorialGuideModal
+                isOpen={isTutorialModalOpen}
+                onClose={() => setIsTutorialModalOpen(false)}
+                isDark={isDark}
+              />
             )}
 
           </>
